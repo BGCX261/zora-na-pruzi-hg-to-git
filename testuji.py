@@ -1,0 +1,1 @@
+zora_na_pruzi/iskušitel/spusť_vše.py

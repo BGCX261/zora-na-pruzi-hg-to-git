@@ -35,8 +35,32 @@ def build():
 #build()
 
 
+
+
 def   zkúšám():
-    pass
+    
+    from zora_na_pruzi.strojmir.xml.schémata import Schéma
+    for přípona in 'rng',  'rnc',  'xsd',  'dtd':
+        print('-'*44)
+        print('přípona {}'.format(přípona))
+        schéma = Schéma(přípona = přípona)
+        soubor = schéma % 'graphml'
+        print('soubor {}'.format(soubor))
+        if os.path.isfile(soubor):
+            print('\tjestvuje')
+        else:
+            print('\tnejestvuje')
+            
+        validátor = schéma.graphml
+        
+        if validátor('./graf.graphml'):
+            print('VALIDNÍ')
+        else:
+            print('NEVALIDNÍ')
+#        print(schéma.mmml)
+
+        validátor % './graf.graphml'
+        print('-'*44)
 
 if __name__ == '__main__':
 

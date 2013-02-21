@@ -1,0 +1,92 @@
+# ======================================================================
+
+# GRAPHML DTD (flat version) ===========================================
+
+# file: graphml.dtd 
+# 
+#         SYSTEM "http://graphml.graphdrawing.org/dtds/graphml.dtd"
+# 
+#         xmlns="http://graphml.graphdrawing.org/xmlns/graphml"
+#         (consider these urls as examples)
+# 
+# ======================================================================
+
+# ============================================================
+
+# elements of GRAPHML
+
+# ============================================================
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace xlink = "http://www.w3.org/TR/2000/PR-xlink-20001220/"
+
+graphml =
+  element graphml { attlist.graphml, desc?, key*, (data | graph)* }
+attlist.graphml &= empty
+locator = element locator { attlist.locator, empty }
+attlist.locator &=
+  attribute xlink:href { text },
+  [ a:defaultValue = "simple" ] attribute xlink:type { "simple" }?
+desc = element desc { attlist.desc, text }
+attlist.desc &= empty
+graph =
+  element graph {
+    attlist.graph,
+    desc?,
+    ((data | node | edge | hyperedge)* | locator)
+  }
+attlist.graph &=
+  attribute id { xsd:ID }?,
+  attribute edgedefault { "directed" | "undirected" }
+node =
+  element node {
+    attlist.node,
+    desc?,
+    (((data | port)*, graph?)
+     | locator)
+  }
+attlist.node &= attribute id { xsd:ID }
+port = element port { attlist.port, desc?, (data | port)* }
+attlist.port &= attribute name { xsd:NMTOKEN }
+edge = element edge { attlist.edge, desc?, data*, graph? }
+attlist.edge &=
+  attribute id { xsd:ID }?,
+  attribute source { xsd:IDREF },
+  attribute sourceport { xsd:NMTOKEN }?,
+  attribute target { xsd:IDREF },
+  attribute targetport { xsd:NMTOKEN }?,
+  attribute directed { "true" | "false" }?
+hyperedge =
+  element hyperedge {
+    attlist.hyperedge, desc?, (data | endpoint)*, graph?
+  }
+attlist.hyperedge &= attribute id { xsd:ID }?
+endpoint = element endpoint { attlist.endpoint, desc? }
+attlist.endpoint &=
+  attribute id { xsd:ID }?,
+  attribute node { xsd:IDREF },
+  attribute port { xsd:NMTOKEN }?,
+  [ a:defaultValue = "undir" ]
+  attribute type { "in" | "out" | "undir" }?
+key = element key { attlist.key, text }
+attlist.key &=
+  attribute id { xsd:ID },
+  [ a:defaultValue = "all" ]
+  attribute for {
+    "graphml"
+    | "graph"
+    | "node"
+    | "edge"
+    | "hyperedge"
+    | "port"
+    | "endpoint"
+    | "all"
+  }?
+data = element data { attlist.data, text }
+attlist.data &=
+  attribute key { xsd:IDREF },
+  attribute id { xsd:ID }?
+start = graphml
+# ==============================================================
+#      end of graphml.dtd
+# =================================================================

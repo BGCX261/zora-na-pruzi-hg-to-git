@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== -->
+<!-- GRAPHML DTD (flat version) =========================================== -->
+<!--
+  file: graphml.dtd 
+  
+          SYSTEM "http://graphml.graphdrawing.org/dtds/graphml.dtd"
+  
+          xmlns="http://graphml.graphdrawing.org/xmlns/graphml"
+          (consider these urls as examples)
+  
+  ======================================================================
+-->
+<!-- ============================================================ -->
+<!-- elements of GRAPHML -->
+<!-- ============================================================ -->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:xlink="http://www.w3.org/TR/2000/PR-xlink-20001220/" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="graphml">
+    <element name="graphml">
+      <ref name="attlist.graphml"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="key"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <choice>
+          <ref name="data"/>
+          <ref name="graph"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="attlist.graphml" combine="interleave">
+    <empty/>
+  </define>
+  <define name="locator">
+    <element name="locator">
+      <ref name="attlist.locator"/>
+      <empty/>
+    </element>
+  </define>
+  <define name="attlist.locator" combine="interleave">
+    <attribute name="xlink:href"/>
+    <optional>
+      <attribute name="xlink:type" a:defaultValue="simple">
+        <value>simple</value>
+      </attribute>
+    </optional>
+  </define>
+  <define name="desc">
+    <element name="desc">
+      <ref name="attlist.desc"/>
+      <text/>
+    </element>
+  </define>
+  <define name="attlist.desc" combine="interleave">
+    <empty/>
+  </define>
+  <define name="graph">
+    <element name="graph">
+      <ref name="attlist.graph"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <choice>
+        <zeroOrMore>
+          <choice>
+            <ref name="data"/>
+            <ref name="node"/>
+            <ref name="edge"/>
+            <ref name="hyperedge"/>
+          </choice>
+        </zeroOrMore>
+        <ref name="locator"/>
+      </choice>
+    </element>
+  </define>
+  <define name="attlist.graph" combine="interleave">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <attribute name="edgedefault">
+      <choice>
+        <value>directed</value>
+        <value>undirected</value>
+      </choice>
+    </attribute>
+  </define>
+  <define name="node">
+    <element name="node">
+      <ref name="attlist.node"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <choice>
+        <group>
+          <zeroOrMore>
+            <choice>
+              <ref name="data"/>
+              <ref name="port"/>
+            </choice>
+          </zeroOrMore>
+          <optional>
+            <ref name="graph"/>
+          </optional>
+        </group>
+        <ref name="locator"/>
+      </choice>
+    </element>
+  </define>
+  <define name="attlist.node" combine="interleave">
+    <attribute name="id">
+      <data type="ID"/>
+    </attribute>
+  </define>
+  <define name="port">
+    <element name="port">
+      <ref name="attlist.port"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <zeroOrMore>
+        <choice>
+          <ref name="data"/>
+          <ref name="port"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="attlist.port" combine="interleave">
+    <attribute name="name">
+      <data type="NMTOKEN"/>
+    </attribute>
+  </define>
+  <define name="edge">
+    <element name="edge">
+      <ref name="attlist.edge"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="data"/>
+      </zeroOrMore>
+      <optional>
+        <ref name="graph"/>
+      </optional>
+    </element>
+  </define>
+  <define name="attlist.edge" combine="interleave">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <attribute name="source">
+      <data type="IDREF"/>
+    </attribute>
+    <optional>
+      <attribute name="sourceport">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <attribute name="target">
+      <data type="IDREF"/>
+    </attribute>
+    <optional>
+      <attribute name="targetport">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="directed">
+        <choice>
+          <value>true</value>
+          <value>false</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="hyperedge">
+    <element name="hyperedge">
+      <ref name="attlist.hyperedge"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <zeroOrMore>
+        <choice>
+          <ref name="data"/>
+          <ref name="endpoint"/>
+        </choice>
+      </zeroOrMore>
+      <optional>
+        <ref name="graph"/>
+      </optional>
+    </element>
+  </define>
+  <define name="attlist.hyperedge" combine="interleave">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="endpoint">
+    <element name="endpoint">
+      <ref name="attlist.endpoint"/>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+    </element>
+  </define>
+  <define name="attlist.endpoint" combine="interleave">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <attribute name="node">
+      <data type="IDREF"/>
+    </attribute>
+    <optional>
+      <attribute name="port">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type" a:defaultValue="undir">
+        <choice>
+          <value>in</value>
+          <value>out</value>
+          <value>undir</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="key">
+    <element name="key">
+      <ref name="attlist.key"/>
+      <text/>
+    </element>
+  </define>
+  <define name="attlist.key" combine="interleave">
+    <attribute name="id">
+      <data type="ID"/>
+    </attribute>
+    <optional>
+      <attribute name="for" a:defaultValue="all">
+        <choice>
+          <value>graphml</value>
+          <value>graph</value>
+          <value>node</value>
+          <value>edge</value>
+          <value>hyperedge</value>
+          <value>port</value>
+          <value>endpoint</value>
+          <value>all</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="data">
+    <element name="data">
+      <ref name="attlist.data"/>
+      <text/>
+    </element>
+  </define>
+  <define name="attlist.data" combine="interleave">
+    <attribute name="key">
+      <data type="IDREF"/>
+    </attribute>
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+  </define>
+  <start>
+    <choice>
+      <ref name="graphml"/>
+    </choice>
+  </start>
+</grammar>
+<!--
+  ==============================================================
+       end of graphml.dtd
+  =================================================================
+-->
