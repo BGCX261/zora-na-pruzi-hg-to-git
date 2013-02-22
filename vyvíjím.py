@@ -37,6 +37,10 @@ def build():
 
 
 
+
+        
+
+
 def   zkúšám():
     
     from zora_na_pruzi.strojmir.xml.schémata import Schéma
@@ -65,6 +69,8 @@ def   zkúšám():
 if __name__ == '__main__':
 
     print(__doc__)
+    
+    
 
     zkúšám()
 
