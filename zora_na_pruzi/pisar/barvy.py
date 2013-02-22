@@ -23,7 +23,7 @@ Hen jsou uvedeny konstanty barev
 TUČNĚ= '1' 
 PODTRŽENÝ= '4' 
 BLIKACÍ= '5'
-PROHOĎ_BARVU_A_POZADÍ= '7'
+PROHOĎ_BARVU_A_POZADÍ = '7'
 UKRYTÝ= '8' 
 
 TMAVĚ_SIVÁ= '90'

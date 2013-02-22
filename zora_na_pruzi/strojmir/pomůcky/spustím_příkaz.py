@@ -7,7 +7,7 @@ Tento skript spustí příkaz
 '''
 
 import subprocess,  os
-from .obarvím_výpis import obarvi_spuštění_příkazu
+from .obarvím_výpis import PŘÍKAZ,  INFO
 
 def spustím_příkaz(*příkaz,  check = None):
     if len(příkaz) == 1:
@@ -16,12 +16,13 @@ def spustím_příkaz(*příkaz,  check = None):
         if isinstance(příkaz[0],  (tuple,  list)):
             příkaz = příkaz[0]
     
-    obarvi_spuštění_příkazu('spouštím:')
-    obarvi_spuštění_příkazu(' '.join(příkaz))
+#    obarvi_spuštění_příkazu()
+#    obarvi_spuštění_příkazu()
+    print('spouštím: {}'.format(' '.join(příkaz) | PŘÍKAZ) | INFO )
     if check:
         returncode = subprocess.check_call(příkaz)
     else:
 #        returncode = subprocess.call(příkaz)
         os.system(' '.join(příkaz))
-    obarvi_spuštění_příkazu('ukončen:',  end = None)
+    print('ukončen:' | INFO)
 #    obarvi_spuštění_příkazu(příkaz[0],  's kódem',  returncode,  end = None)

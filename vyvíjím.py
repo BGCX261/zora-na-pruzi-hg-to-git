@@ -35,25 +35,19 @@ def build():
 #build()
 
 
-
-
-
-        
-
-
 def   zkúšám():
     
-    from zora_na_pruzi.strojmir.xml.schémata import Schéma
-    for přípona in 'rng',  'rnc',  'xsd',  'dtd':
+    from zora_na_pruzi.strojmir.xml.schémata import Schéma_rng,  Schéma_rnc,  Schéma_xsd,  Schéma_dtd
+    for Schéma in Schéma_rng, Schéma_rnc,  Schéma_xsd,  Schéma_dtd:
         print('-'*44)
-        print('přípona {}'.format(přípona))
-        schéma = Schéma(přípona = přípona)
-        soubor = schéma % 'graphml'
-        print('soubor {}'.format(soubor))
-        if os.path.isfile(soubor):
-            print('\tjestvuje')
-        else:
-            print('\tnejestvuje')
+        print('schéma {}'.format(Schéma.__name__))
+        schéma = Schéma()
+#        soubor = schéma % 'graphml'
+#        print('soubor {}'.format(soubor))
+#        if os.path.isfile(soubor):
+#            print('\tjestvuje')
+#        else:
+#            print('\tnejestvuje')
             
         validátor = schéma.graphml
         
@@ -63,7 +57,7 @@ def   zkúšám():
             print('NEVALIDNÍ')
 #        print(schéma.mmml)
 
-        validátor % './graf.graphml'
+        validátor('./graf.graphml',  program = True)
         print('-'*44)
 
 if __name__ == '__main__':
