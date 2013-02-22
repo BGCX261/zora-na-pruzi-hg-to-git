@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# Copyright (c) 2012 медвед медведович медведев <gazda@xtrip.net>
+# Copyright (c) 2012 Домоглед  <domogled@domogled.eu>
+# @author Петр Болф <petr.bolf@domogled.eu>
 
 MASKA_TESTOVACÍCH_SOUBORŮ = 'testuji_*.py'
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-02-21, 10:35:11 -->
+<!-- Saved: 2013-02-22, 17:34:25 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -13,7 +13,33 @@
   <Author>Петр Болф</Author>
   <Email>petr.bolf@domogled.eu</Email>
   <Sources>
-    <Source>__init__.py</Source>
+    <Source>_šablona_main.py</Source>
+    <Source>_šablona_třída.py</Source>
+    <Source>testuji.py</Source>
+    <Source>_šablona_testuji.py</Source>
+    <Source>vyvíjím.py</Source>
+    <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
+    <Source>zora_na_pruzi/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
+    <Source>zora_na_pruzi/strojmir/souborový_systém/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/pomůcky/obarvím_výpis.py</Source>
+    <Source>zora_na_pruzi/strojmir/pomůcky/spustím_příkaz.py</Source>
+    <Source>zora_na_pruzi/pohunci/obarvím_výpis/termcolor/__init__.py</Source>
+    <Source>zora_na_pruzi/pohunci/obarvím_výpis/termcolor/termcolor.py</Source>
+    <Source>zora_na_pruzi/iskušitel/__init__.py</Source>
+    <Source>zora_na_pruzi/iskušitel/spusť_vše.py</Source>
+    <Source>zora_na_pruzi/iskušitel/zobrazím_log.py</Source>
+    <Source>zora_na_pruzi/pisar/__init__.py</Source>
+    <Source>zora_na_pruzi/pisar/Pisar.py</Source>
+    <Source>zora_na_pruzi/pisar/barvy.py</Source>
+    <Source>zora_na_pruzi/pisar/barvy_anglicky.py</Source>
+    <Source>zora_na_pruzi/pisar/tabulka_barev.py</Source>
+    <Source>jak_naprogramovat/__init__.py</Source>
+    <Source>jak_naprogramovat/da_se_odkážu_na_modul_ve_kterém_su.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -21,6 +47,7 @@
   <Interfaces/>
   <Others>
     <Other>.hgignore</Other>
+    <Other>graf.graphml</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

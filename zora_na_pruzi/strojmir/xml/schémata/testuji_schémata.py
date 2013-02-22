@@ -4,19 +4,21 @@
 
 import py.test
 
-from zora_na_pruzi.strojmir.xml.schémata import Schéma,  Validátor
-#import lxml.etree
+
 
 def test_0001_schémata ():
     '''
     testuji schémata
     '''
     
-    for přípona in 'rng',  'rnc',  'xsd',  'dtd':
+    from zora_na_pruzi.strojmir.xml.schémata import Schéma_rng,  Schéma_rnc,  Schéma_xsd,  Schéma_dtd
     
-        schéma = Schéma(přípona)
+    for Schéma in Schéma_rng, Schéma_rnc,  Schéma_xsd,  Schéma_dtd:
     
-        assert isinstance(schéma.graphml,  Validátor)
+        schéma = Schéma()
+    
+#        assert isinstance(schéma.graphml,  Validátor)
+        assert callable(schéma.graphml)
     
         with py.test.raises(AttributeError):
             schéma.nejestvující_schéma
