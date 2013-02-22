@@ -39,7 +39,7 @@ def   zkúšám():
     
     from zora_na_pruzi.strojmir.xml.schémata import Schéma_rng,  Schéma_rnc,  Schéma_xsd,  Schéma_dtd
     for Schéma in Schéma_rng, Schéma_rnc,  Schéma_xsd,  Schéma_dtd:
-        print('-'*44)
+        
         print('schéma {}'.format(Schéma.__name__))
         schéma = Schéma()
 #        soubor = schéma % 'graphml'
@@ -58,7 +58,7 @@ def   zkúšám():
 #        print(schéma.mmml)
 
         validátor('./graf.graphml',  program = True)
-        print('-'*44)
+        
 
 if __name__ == '__main__':
 
