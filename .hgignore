@@ -17,3 +17,5 @@ glob:__pycache__
 glob:**.DS_Store
 
 glob:zora_na_pruzi/iskušitel/log.html
+glob:zora_na_pruzi/strojmir/xml/schémata/*.rnc.rng
+
