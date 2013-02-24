@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+    http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"
+>
+  <key attr.name="weught" attr.type="long" for="edge" id="d1" />
+  <key attr.name="time" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="directed">
+    <node id="1">
+      <data key="d0">5pm</data>
+    </node>
+    <node id="2" />
+    <edge source="1" target="2">
+      <data key="d1">25</data>
+    </edge>
+  </graph>
+</graphml>
