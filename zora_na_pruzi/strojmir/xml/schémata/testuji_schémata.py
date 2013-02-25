@@ -4,24 +4,45 @@
 
 import py.test
 
-
+from logging import debug,  info
 
 def test_0001_schémata ():
     '''
     testuji schémata
     '''
     
-    from zora_na_pruzi.strojmir.xml.schémata import Schéma_rng,  Schéma_rnc,  Schéma_xsd,  Schéma_dtd
+    from zora_na_pruzi.strojmir.xml.schémata import Relax_NG,  Relax_NG_c,  XMLSchema,  DTD
     
-    for Schéma in Schéma_rng, Schéma_rnc,  Schéma_xsd,  Schéma_dtd:
+    from zora_na_pruzi.strojmir.xml.schémata import davaj_validátor
+    Validátor = davaj_validátor(lxml_validátor = None,  přípona_schématu = None)
     
-        schéma = Schéma()
+    for schéma in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
+        
+        info('Testuji modul validátoru {}'.format(schéma.__name__))
+        
+        validátor = schéma.Validátor('graphml')
+        
+        assert callable(validátor)
+        debug('... is callable')
+        
+        assert validátor.__class__.__name__ == Validátor.__name__
+        debug('.. je potomkem Validátoru')
+        
+        soubor_schématu = validátor.schéma
+        debug('jestvuje schéma {}'.format(soubor_schématu))
+        
+        info('VALIDUJI')
+        
+        if validátor('./graf.graphml'):
+            debug('VALIDNÍ')
+        else:
+            debug('NEVALIDNÍ')
+
+        info('Program {}'.format(schéma.program))
+
+        validátor(soubor = './graf.graphml',  program = schéma.program)
+        
     
-#        assert isinstance(schéma.graphml,  Validátor)
-        assert callable(schéma.graphml)
-    
-        with py.test.raises(AttributeError):
-            schéma.nejestvující_schéma
         
 #def test_0002_schéma_rnc ():
 #    '''
