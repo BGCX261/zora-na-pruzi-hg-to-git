@@ -19,6 +19,7 @@ import os
 ##    příkaz.extend(parametry)
 #    subprocess.Popen(příkaz)
 
+from zora_na_pruzi.pisar.styly.obarvím_výpis import *
 
 def rebuild():
 #    cdir = os.getcwd()
@@ -35,12 +36,9 @@ def build():
 #build()
 
 
-def   zkúšám():
+def   validátor():
     
     from zora_na_pruzi.strojmir.xml.schémata import Relax_NG,  Relax_NG_c,  XMLSchema,  DTD
-
-    
-    
 
     for schéma in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
         print('*-*'*77)
@@ -65,6 +63,53 @@ def   zkúšám():
 
         validátor(soubor = './graf.graphml',  program = schéma.program)
         
+
+
+def   zkúšám():
+    
+    
+    
+    from zora_na_pruzi.strojmir.xml.graphml.Graf import Graf,  Graf_Graph_tool,  Graf_NetworkX
+    
+    graphml = './stroj/data/nested.graphml'
+    graphml = './stroj/data/nested.graphml'
+    
+    zora_na_pruzi_graf = Graf(graphml)
+    
+    
+    
+    networkx_graf = Graf_NetworkX(graphml)
+    
+    return
+    
+    graph_tool_graf = Graf_Graph_tool(graphml)
+    
+    
+    print('GRAFY' | NADPIS)
+    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
+        print(graf.__class__.__name__ | INFO)
+        print(graf)
+        
+    print('UZLY' | NADPIS)
+    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
+        print(graf.__class__.__name__ | INFO)
+        for uzel in graf.uzly:
+            print(uzel)
+            
+    print('HRANY' | NADPIS)
+    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
+        print(graf.__class__.__name__ | INFO)
+        for vazba in graf.vazby:
+            print(vazba)
+            
+    print('VLASTNOSTI' | NADPIS)
+    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
+        print(graf.__class__.__name__ | INFO)
+        for vlastnosti in graf.vlastnosti:
+            for vlastnost in vlastnosti:
+                print(vlastnost)
+    
+    
 
 if __name__ == '__main__':
 

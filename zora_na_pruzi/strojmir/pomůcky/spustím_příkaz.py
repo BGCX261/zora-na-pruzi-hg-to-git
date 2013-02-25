@@ -7,7 +7,7 @@ Tento skript spustí příkaz
 '''
 
 import subprocess,  os
-from .obarvím_výpis import PŘÍKAZ,  INFO
+from zora_na_pruzi.pisar.styly.obarvím_výpis import PŘÍKAZ,  INFO
 
 def spustím_příkaz(*příkaz,  check = None):
     if len(příkaz) == 1:

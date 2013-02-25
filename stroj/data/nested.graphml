@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  
+  
+    <key attr.name="weight" attr.type="long" for="edge" id="d1">
+    <default>45</default>
+    </key>
+  <key attr.name="time" attr.type="string" for="node" id="d0" />
+  <key attr.name="jméno" attr.type="string" for="node" id="d2" />
+  
   <graph id="G" edgedefault="undirected">
     <node id="n0"/>
     <node id="n1"/>

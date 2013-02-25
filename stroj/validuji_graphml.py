@@ -6,7 +6,7 @@
 Hen je program, který překontroluje správnost graphml souboru
 '''
 
-from zora_na_pruzi.strojmir.pomůcky.obarvím_výpis import PŘÍKAZ,  INFO,  SOUBOR,  CHYBA
+from zora_na_pruzi.pisar.styly.obarvím_výpis import PŘÍKAZ,  INFO,  SOUBOR,  CHYBA
 
 def validuji(soubor,  schéma = None):
     '''

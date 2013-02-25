@@ -3,10 +3,13 @@
 # @author Петр Болф <petr.bolf@domogled.eu>
 
 '''
-Hen je program, který překontroluje správnost graphml souboru
+Hen je program, který načte graphml soubor do grafu
 '''
 
 #SCHÉMA = './schémata/graphml.rng'
+
+import networkx as nx
+import os
 
 def načtu_graph_tool_graf(xml_soubor):
     '''
@@ -21,6 +24,7 @@ def načtu_graph_tool_graf(xml_soubor):
     
     graf = load_graph(xml_soubor,  fmt)
     print(graf)
+    return graf
     
 def načtu_networkx_graf(xml_soubor):
     from networkx import read_graphml,  get_node_attributes
@@ -35,39 +39,34 @@ def načtu_networkx_graf(xml_soubor):
             
     jména = get_node_attributes(graf,  'jméno')
     print(jména)
+    return graf
         
-def vytvořím_networkx_graf():
-    from networkx import DiGraph,  write_graphml
-    
-    graf = DiGraph()
-    graf.add_node(1,  time='5pm')
-    graf.add_node(2)
-    graf.add_edge(1,2,  weught=25)
-    
-    write_graphml(graf,  './data/networkx.graphml')
- 
-def vytvořím_graph_tool_graf():
-    from graph_tool.all import Graph
-    
-    graf = Graph()
-    u1 = graf.add_vertex()
-    u2 = graf.add_vertex()
-    graf.add_edge(u1,  u2)
-    
-    vprop_double = graf.new_vertex_property("double")            # Double-precision floating point
-    vprop_double[graf.vertex(1)] = 3.1416
 
-    vprop_vint = graf.new_vertex_property("vector<int>")         # Vector of ints
-    vprop_vint[graf.vertex(0)] = [1, 3, 42, 54]
-
-    eprop_dict = graf.new_edge_property("object")                # Arbitrary python object. In this case, a dictionary.
-    eprop_dict[graf.edges().next()] = {"foo": "bar", "gnu": 42}
-
-    gprop_bool = graf.new_graph_property("bool")                  # Boolean
-    gprop_bool[graf] = True
+def vykreslím_networkx_graf(graf,  jméno):
+    print(':'*44)
+    print('vykreslím_networkx_graf')
     
-    graf.save('./data/graph_tool.graphml',  fmt='xml')
+    import matplotlib.pyplot as plt
 
+    import networkx
+#toto vyžaduje pygraphviz,  ale to není pro python3 dostupné
+#ale sat49 nainstalovat pzdot
+#    networkx.draw_graphviz(graf)
+    networkx.write_dot(graf, 'data/networkx_{}.dot'.format(jméno))
+
+#    nx.draw(graf)
+##    nx.draw_random(graf)
+##    nx.draw_circular(graf)
+##    nx.draw_spectral(graf)
+##    
+#    plt.show()
+
+def vykreslím_graph_tool_graf(graf,  jméno):
+    graf.save('data/graph_tool_{}.dot'.format(jméno))
+    
+    from graph_tool.all import graph_draw
+    
+    graph_draw(graf,  output= 'data/graph_tool_{}.pdf'.format(jméno))
 
 if __name__ == '__main__':
 
@@ -79,10 +78,20 @@ if __name__ == '__main__':
     parser.add_argument('--typ')
     args = parser.parse_args()
     
-#    if args.typ is None or args.typ in ('graph-tool',  'graphtool',  'g'):
-#        načtu_graph_tool_graf(xml_soubor = args.zdrojový_xml)
-#    elif args.typ in ('networkx',  'n'):
-#        načtu_networkx_graf(xml_soubor = args.zdrojový_xml)
+    if args.typ in ('graph-tool',  'graphtool',  'g'):
+        nxgraf = načtu_graph_tool_graf(xml_soubor = args.zdrojový_xml)
+    elif args.typ in ('networkx',  'n'):
+        gt_graf = načtu_networkx_graf(xml_soubor = args.zdrojový_xml)
+    else:
+#        načtu oboje
+        print('NETWORKFX')
+        nxgraf = načtu_networkx_graf(xml_soubor = args.zdrojový_xml)
+        print('GRAPH_TOOL')
+        gt_graf = načtu_graph_tool_graf(xml_soubor = args.zdrojový_xml)
+
+    jméno = os.path.basename(args.zdrojový_xml)
     
-    vytvořím_networkx_graf()
-    vytvořím_graph_tool_graf()
+    jméno = os.path.splitext(jméno)[0]
+    
+    vykreslím_networkx_graf(nxgraf,  jméno)
+    vykreslím_graph_tool_graf(gt_graf,  jméno)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-02-24, 21:42:46 -->
+<!-- Saved: 2013-02-25, 18:31:28 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -31,31 +31,8 @@
     <Source>_šablona_testuji.py</Source>
     <Source>zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/pomůcky/spustím_příkaz.py</Source>
-    <Source>zora_na_pruzi/strojmir/pomůcky/obarvím_výpis.py</Source>
     <Source>testuji.py</Source>
     <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
-    <Source>zora_na_pruzi/pohunci/__init__.py</Source>
-    <Source>zora_na_pruzi/pohunci/obarvím_výpis/__init__.py</Source>
-    <Source>zora_na_pruzi/pohunci/obarvím_výpis/barevný_logger.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
-    <Source>zora_na_pruzi/pohunci/obarvím_výpis/termcolor/__init__.py</Source>
-    <Source>zora_na_pruzi/pohunci/obarvím_výpis/termcolor/termcolor.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/zobrazím_log.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spusť_vše.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pohunci/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/souborový_systém/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/obarvím_výpis.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/spustím_příkaz.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pohunci/obarvím_výpis/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pohunci/obarvím_výpis/barevný_logger.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pohunci/obarvím_výpis/termcolor/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pohunci/obarvím_výpis/termcolor/termcolor.py</Source>
     <Source>zora_na_pruzi/pisar/__init__.py</Source>
     <Source>zora_na_pruzi/pisar/barvy.py</Source>
     <Source>zora_na_pruzi/pisar/Pisar.py</Source>
@@ -63,6 +40,16 @@
     <Source>zora_na_pruzi/pisar/barvy_anglicky.py</Source>
     <Source>stroj/vytvořím_graf.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/schémata/DTD.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/schémata/Relax_NG.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/schémata/Relax_NG_c.py</Source>
+    <Source>jak_naprogramovat/__init__.py</Source>
+    <Source>jak_naprogramovat/da_se_odkážu_na_modul_ve_kterém_su.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
+    <Source>zora_na_pruzi/pisar/styly/__init__.py</Source>
+    <Source>zora_na_pruzi/pisar/styly/obarvím_výpis.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -73,6 +60,7 @@
     <Other>README</Other>
     <Other>TODO</Other>
     <Other>stroj/data/nested.graphml</Other>
+    <Other>zora_na_pruzi/pisar/styly/obarvím_výpis</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>
