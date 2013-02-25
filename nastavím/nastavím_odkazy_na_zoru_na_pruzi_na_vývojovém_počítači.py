@@ -8,6 +8,7 @@ Hen je program, který vytvoří odkazy na adresář zora_na_pruzi v systému
 
 PYTHON_DIR = '/usr/local/lib/python3.2/dist-packages/'
 ZORA_NA_PRUZI = 'zora_na_pruzi'
+BUILD_DIR = '../build/lib.linux-x86_64-3.2'
 
 def nastavím_odkazy():
     '''
@@ -17,7 +18,26 @@ def nastavím_odkazy():
     
     hen = os.path.dirname(__file__)
     vývojový_adresář = os.path.realpath(os.path.join(hen,  '../',  ZORA_NA_PRUZI))
+    if not os.path.isdir(vývojový_adresář):
+        raise ValueError('Vývojový adresář {} nejestvuje'.format(vývojový_adresář))
+    
     build_dir = os.path.abspath(os.path.join(hen,  '../build/lib.linux-x86_64-3.2',  ZORA_NA_PRUZI))
+    
+    def vytvořím_adresář(cesta):
+        if os.path.isdir(cesta):
+            print('Adresář {} jestvuje.'.format(cesta))
+        else:
+            rodič = os.path.dirname(cesta)
+            if not os.path.isdir(rodič):
+                vytvořím_adresář(rodič)
+            print('vytvářím adresář {}'.format(cesta))
+            os.mkdir(cesta)
+    
+    vytvořím_adresář(os.path.dirname(build_dir))   
+    
+    if not os.path.isdir(PYTHON_DIR):
+        raise ValueError('Python adresář {} nejestvuje'.format(PYTHON_DIR))
+        
     python_dir = os.path.join(PYTHON_DIR,  ZORA_NA_PRUZI)
     
     def vytvořím_odkaz(zdroj,  cíl):
