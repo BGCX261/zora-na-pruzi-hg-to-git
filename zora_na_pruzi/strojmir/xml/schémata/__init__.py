@@ -13,6 +13,7 @@ def davaj_validátor(lxml_validátor,  přípona_schématu):
         __přípona_schématu = přípona_schématu
         __schéma = None
         __jméno_schématu = None
+        medvěd = přípona_schématu
         
         def __init__(self,  schéma):
 #            @TODO: umožnit zadat i externí schéma, například v url, nebo plnou cestu někam jinam

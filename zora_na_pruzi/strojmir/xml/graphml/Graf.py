@@ -8,27 +8,6 @@ Hen je třída, který načte graf z graphml souboru
 
 
 
-class XML_Namespace(object):
-    
-    def __init__(self,  namespace):
-        self.__namespace = namespace
-        
-    def __getattr__(self,  jméno_elementu):
-        jméno = '{{{}}}{}'.format(self.__namespace,  jméno_elementu)
-        setattr(self,  jméno_elementu,  jméno)
-        return jméno
-        
-    def __call__(self,  jméno_elementu,  klíč,  hodnota = None):
-        if jméno_elementu is None:
-            jméno_elementu = ''
-        
-        if hodnota is not None:
-            klíč = '{}="{}"'.format(klíč,  hodnota)
-            
-        return '{}[@{}]'.format(jméno_elementu,  klíč)
-
-NS_GRAPHML = XML_Namespace('http://graphml.graphdrawing.org/xmlns')
-
 class Seznam_klíčů(dict):
     
     def __init__(self,  for_element,  xml):
@@ -71,9 +50,10 @@ class Seznam_klíčů(dict):
         if self.__klíče is None:
             klíče = []
             print('AAA ',  NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element))
-            for definice in self.__xml.find(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element)):
-                print('KEZ ',  definice.attr['id'])
-                klíče.append(definice.attr['id'])
+            print(self.__for_element)
+            for definice in self.__xml.findall(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element)):
+                print('KEZ ',  definice.attrib['id'],  definice.attrib['for'])
+                klíče.append(definice.attrib['id'])
             self.__klíče = klíče
         return iter(self.__klíče)
        
@@ -84,6 +64,12 @@ class Seznam_klíčů(dict):
 class Graf(object):
     
     def __init__(self,  graphml_soubor):
+        
+        from . import načtu_graf
+        self.graf = načtu_graf(graphml_soubor).getroot()
+        
+        return 
+        
         
         try:
             import lxml.etree
@@ -112,10 +98,17 @@ class Graf(object):
         
         print(vlastnosti_uzlů['d0'])
 #        has key 'd0' and it is elemnt Element
-        print(list(vlastnosti_uzlů.items()))
+
+        for klíč,  element in vlastnosti_uzlů.items():
+            print(klíč)
+        
+        print('key')
+        print(list(vlastnosti_uzlů.keys()))
+        print('-'*44)
+        print(list(vlastnosti_vazeb.keys()))
+        print('-'*44)
         
 ################        
-        self.graf = None
         
         from .Reader import GraphMLReader
         
@@ -123,7 +116,7 @@ class Graf(object):
         
         
         (keys,defaults) = reader.find_graphml_keys(self.xml)
-        
+        print('XXXXXXX')
         print(keys,defaults)
 #        NS_GRAPHML = "http://graphml.graphdrawing.org/xmlns"
         for g in self.xml.findall(NS_GRAPHML.graph):
@@ -138,7 +131,7 @@ class Graf(object):
         
     @property
     def uzly(self):
-        return []
+        return self.graf.uzly
 #        for uzel in self.graf.vertices():
 #            yield uzel
   
@@ -150,7 +143,7 @@ class Graf(object):
     def vlastnosti(self):
         return []
   
-class Graf_NetworkX(Graf):
+class Graf_NetworkX(object):
     
     def __init__(self,  graphml_soubor):
         from networkx import read_graphml
@@ -171,7 +164,7 @@ class Graf_NetworkX(Graf):
             
 #    get_node_attributes(G, name)
     
-class Graf_Graph_tool(Graf):
+class Graf_Graph_tool(object):
     
     def __init__(self,  graphml_soubor):
         from graph_tool.all import load_graph

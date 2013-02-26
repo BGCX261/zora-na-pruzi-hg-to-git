@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-02-25, 18:31:28 -->
+<!-- Saved: 2013-02-26, 21:54:03 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -50,6 +50,8 @@
     <Source>zora_na_pruzi/pisar/styly/__init__.py</Source>
     <Source>zora_na_pruzi/pisar/styly/obarvím_výpis.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
+    <Source>zora_na_pruzi/strojmir/pomůcky/obarvím_výpis.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -60,7 +62,7 @@
     <Other>README</Other>
     <Other>TODO</Other>
     <Other>stroj/data/nested.graphml</Other>
-    <Other>zora_na_pruzi/pisar/styly/obarvím_výpis</Other>
+    <Other>stroj/grafy</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

@@ -40,6 +40,12 @@ def   validátor():
     
     from zora_na_pruzi.strojmir.xml.schémata import Relax_NG,  Relax_NG_c,  XMLSchema,  DTD
 
+#    rg = Relax_NG.Validátor('graphml')
+#    dtd = DTD.Validátor('graphml')
+#    x = XMLSchema.Validátor('graphml')
+#    print(rg.medvěd,  dtd.medvěd,  x.medvěd)
+#    return
+
     for schéma in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
         print('*-*'*77)
         validátor = schéma.Validátor('graphml')
@@ -67,12 +73,26 @@ def   validátor():
 
 def   zkúšám():
     
-    
+#    from zora_na_pruzi.strojmir.xml.graphml import načtu_graf,  NS_GRAPHML
     
     from zora_na_pruzi.strojmir.xml.graphml.Graf import Graf,  Graf_Graph_tool,  Graf_NetworkX
     
     graphml = './stroj/data/nested.graphml'
-    graphml = './stroj/data/nested.graphml'
+#    graphml = './stroj/grafy/zora_na_pruzi.graphml'
+    
+#    tree = načtu_graf(graphml)
+#    print(tree)
+#    root = tree.getroot()
+#    print(root.__class__.__name__)
+#    
+#    for klíč in root.findall(NS_GRAPHML.key):
+#        print(klíč.__class__.__name__,  klíč.attrib)
+#        
+#    print('***********')
+#    for klíč in root.findall('{}[@for="edge"][@id]'.format(NS_GRAPHML.key)):
+#        print(klíč.__class__.__name__,  klíč.attrib)
+    
+    
     
     zora_na_pruzi_graf = Graf(graphml)
     
@@ -80,7 +100,6 @@ def   zkúšám():
     
     networkx_graf = Graf_NetworkX(graphml)
     
-    return
     
     graph_tool_graf = Graf_Graph_tool(graphml)
     
@@ -115,7 +134,7 @@ if __name__ == '__main__':
 
     print(__doc__)
     
-    
+#    validátor()
 
     zkúšám()
 
