@@ -1,4 +1,6 @@
 
+import os
+
 try:
     import lxml.etree
 except ImportError:
@@ -20,6 +22,10 @@ def davaj_parser():
     return davaj_parser.parser
     
 def načtu_graf(graphml_soubor):
+    
+    if not os.path.isfile(graphml_soubor):
+        raise IOError('Soubor grafu {} nejestvuje.'.format(graphml_soubor))
+    
     parser = davaj_parser()
     tree = lxml.etree.parse(graphml_soubor,  parser = parser)
     return tree

@@ -6,7 +6,7 @@
 Tento skript spustí příkaz
 '''
 
-import subprocess,  os
+import subprocess
 from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import PŘÍKAZ,  INFO
 
 def spustím_příkaz(*příkaz,  check = None):

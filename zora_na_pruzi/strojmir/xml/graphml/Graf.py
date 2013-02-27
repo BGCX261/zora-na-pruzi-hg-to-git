@@ -137,7 +137,7 @@ class Graf(object):
   
     @property
     def vazby(self):
-        return []
+        return self.graf.vazby
         
     @property
     def vlastnosti(self):

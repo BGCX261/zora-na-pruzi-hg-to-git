@@ -8,6 +8,8 @@ Hen je skript, gde si zkúšám
 
 import os
 
+from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import *
+
 #from zora_na_pruzi.pohunci.obarvím_výpis.barevný_logger import daj_logovátka
 #debug,  info,  warning,  error,  critical = daj_logovátka(__file__)
 
@@ -57,6 +59,51 @@ def barevná_konzole():
     modře = OBARVI(MODRÁ)
     print('soubor {} je tu'.format(__file__ | SOUBOR) | INFO)
     print('soubor {} je tu'.format(__file__ | SOUBOR) | modře)
+
+def testování():
+    from zora_na_pruzi.iskušitel import najdu_testovací_soubory
+    
+    adresář = './zora_na_pruzi'
+    print('vše v adresáři {}'.format(adresář | SOUBOR) | INFO)
+    for testovací_soubor in najdu_testovací_soubory(adresář):
+        print(testovací_soubor)
+        
+    soubor = './zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py'
+    print('přímo testovací soubor {}'.format(soubor | SOUBOR) | INFO)
+    for testovací_soubor in najdu_testovací_soubory(soubor):
+        print(testovací_soubor)
+     
+    soubor = 'nejestvující.soubor'
+    print('nejestvující soubor {}'.format(soubor | SOUBOR) | INFO)
+    try:
+        for testovací_soubor in najdu_testovací_soubory(soubor):
+            print(testovací_soubor)
+    except IOError as e :
+        print('vyjímka {}'.format(e.__class__.__name__ | OBJEKT) | CHYBA)
+        print(e)
+        
+    soubor = __file__
+    print('soubor {}, koj neodpovídá masce'.format(soubor | SOUBOR) | INFO)
+    try:
+        for testovací_soubor in najdu_testovací_soubory(soubor):
+            print(testovací_soubor)
+    except IOError as e :
+        print('vyjímka {}'.format(e.__class__.__name__ | OBJEKT) | CHYBA)
+        print(e)
+        
+    adresář = './prázdný_adresář'
+    if os.path.isdir(adresář):
+        raise IOError('Tož tento adresář "{}" chci použít pro testování, ale on už jestvuje'.format(adresář))
+    os.mkdir(adresář)
+    print('adresář {}, koji nemá žádných testů'.format(adresář | SOUBOR) | INFO)
+    try:
+        for testovací_soubor in najdu_testovací_soubory(adresář):
+            print(testovací_soubor)
+    except IOError as e :
+        print('vyjímka {}'.format(e.__class__.__name__ | OBJEKT) | CHYBA)
+        print(e)
+    os.rmdir(adresář)
+    
 
 def   validátor():
     
@@ -159,9 +206,15 @@ if __name__ == '__main__':
 
     print(__doc__)
     
+#    @TODO: udělat z tohoto testy
 #    barevná_konzole()
-    html_výpis()
+#    html_výpis()
+    testování()
+    
+#    toto už test má
 #    validátor()
+
+
 
 #    zkúšám()
 

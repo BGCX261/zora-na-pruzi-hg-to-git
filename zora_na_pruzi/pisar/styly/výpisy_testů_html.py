@@ -20,6 +20,7 @@ NADPIS = H1
 P = HTML(E.P('{}'))
 
 INFO = HTML(E.DIV(E.H2('INFO'),  E.P('INFO:{}',  E.CLASS('info'))))
+CHYBA = HTML(E.DIV(E.H2('INFO'),  E.P('INFO:{}',  E.CLASS('chyba'))))
 
 SOUBOR = HTML(E.SPAN(E.CLASS('jmeno_souboru'),  E.I('"{}"')))
 
