@@ -19,7 +19,7 @@ import os
 ##    příkaz.extend(parametry)
 #    subprocess.Popen(příkaz)
 
-from zora_na_pruzi.pisar.styly.obarvím_výpis import *
+from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import *
 
 def rebuild():
 #    cdir = os.getcwd()
@@ -35,6 +35,28 @@ def build():
     
 #build()
 
+def html_výpis():
+    from zora_na_pruzi.pisar.styly.výpisy_testů_html import NADPIS,  SOUBOR,  INFO
+    
+    print('NADPIS' | NADPIS)
+    
+    from zora_na_pruzi.pisar.html.html import HTML,  E
+
+    odstavec = HTML(E.DIV(E.H4('NADPIS úrovně 4'),  E.P('tu je text:*** {} ***',  E.CLASS('css_třída'))))
+    print('soubor {} je tu'.format(__file__ | SOUBOR) | INFO)
+    print('soubor {} je tu'.format(__file__ | SOUBOR) | odstavec)
+    
+def barevná_konzole():
+    from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import NADPIS,  SOUBOR,  INFO
+    
+    print('NADPIS' | NADPIS)
+    
+    from zora_na_pruzi.pisar.konzole.obarvi import OBARVI
+    from zora_na_pruzi.pisar.konzole.barvy import MODRÁ
+
+    modře = OBARVI(MODRÁ)
+    print('soubor {} je tu'.format(__file__ | SOUBOR) | INFO)
+    print('soubor {} je tu'.format(__file__ | SOUBOR) | modře)
 
 def   validátor():
     
@@ -137,8 +159,10 @@ if __name__ == '__main__':
 
     print(__doc__)
     
+#    barevná_konzole()
+    html_výpis()
 #    validátor()
 
-    zkúšám()
+#    zkúšám()
 
     
