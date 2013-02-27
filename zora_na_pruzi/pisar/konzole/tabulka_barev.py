@@ -20,23 +20,23 @@ Hen je skript, který vypíše tab ulku všech barev
 
 '''
 
-from zora_na_pruzi.pisar import barvy as modul_barev
-from zora_na_pruzi.pisar.Pisar import Pisar
+from zora_na_pruzi.pisar.konzole import barvy as modul_barev
+from zora_na_pruzi.pisar.konzole.obarvi import OBARVI
 
 barvy = ['BÍLÁ', 'TMAVĚ_MODRÁ', 'MODRÁ', 'ŽLUTÁ', 'SIVÁ', 'TMAVĚ_SIVÁ', 'AZUROVÁ', 'ČERNÁ', 'ČERVENÁ', 'TMAVĚ_ČERVENÁ', 'TMAVĚ_PURPUROVÁ', 'PURPUROVÁ', 'TMAVĚ_ZELENÁ', 'TMAVĚ_AZUROVÁ', 'TMAVĚ_ŽLUTÁ', 'ZELENÁ']
 styly = ['PROHOĎ_BARVU_A_POZADÍ', 'BLIKACÍ', 'UKRYTÝ', 'TUČNĚ', 'PODTRŽENÝ']
 pozadí = ['NA_TMAVĚ_AZUROVÉ', 'NA_TMAVĚ_ŽLUTÉ', 'NA_BÍLÉ', 'NA_AZUROVÉ', 'NA_TMAVĚ_ČERVENÉ', 'NA_ŽLUTÉ', 'NA_PURPUROVÉ', 'NA_TMAVĚ_ZELENÉ', 'NA_SIVÉ', 'NA_ČERVENÉ', 'NA_ČERNÉ', 'NA_TMAVĚ_MODRÉ', 'NA_MODRÉ', 'NA_TMAVĚ_PURPUROVÉ', 'NA_TMAVĚ_SIVÉ', 'NA_ZELENÉ']
 for jméno_barvy in barvy:
     barva = getattr(modul_barev,  jméno_barvy)
-    pisar = Pisar(barva)
-    print('barva: ',  jméno_barvy | pisar)
+    obarvím = OBARVI(barva)
+    print('barva: ',  jméno_barvy | obarvím)
     for jméno_pozadí in pozadí:
         barva_pozadí = getattr(modul_barev,  jméno_pozadí)
-        pisar = Pisar(barva,  barva_pozadí)
-        print(jméno_pozadí | pisar,  end = ' ')
+        obarvím = OBARVI(barva,  barva_pozadí)
+        print(jméno_pozadí | obarvím,  end = ' ')
         for jméno_stylu in styly:
             styl =  getattr(modul_barev,  jméno_stylu)
-            pisar = Pisar(barva,  barva_pozadí,  styl)
-            print(jméno_stylu | pisar,  end = ' ')
+            obarvím = OBARVI(barva,  barva_pozadí,  styl)
+            print(jméno_stylu | obarvím,  end = ' ')
         print()
     print('-'*44)

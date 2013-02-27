@@ -96,7 +96,10 @@ def   zkúšám():
     
     zora_na_pruzi_graf = Graf(graphml)
     
+    kód = zora_na_pruzi_graf.graf %  ('graphml',  'hen.graphml')
+    print(kód)
     
+    return
     
     networkx_graf = Graf_NetworkX(graphml)
     
