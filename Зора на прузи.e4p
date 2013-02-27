@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-02-26, 21:54:03 -->
+<!-- Saved: 2013-02-27, 17:44:29 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -51,7 +51,54 @@
     <Source>zora_na_pruzi/pisar/styly/obarvím_výpis.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
-    <Source>zora_na_pruzi/strojmir/pomůcky/obarvím_výpis.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/barvy_anglicky.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/Pisar.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/tabulka_barev.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/barvy.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spusť_vše.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/zobrazím_log.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/styly/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/styly/obarvím_výpis.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/souborový_systém/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/spustím_příkaz.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/DTD.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/Relax_NG.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/Relax_NG_c.py</Source>
+    <Source>jak_naprogramovat/locale_datum_a_čas.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
+    <Source>stroj/data/nested.graphml</Source>
+    <Source>stroj/data/graph_tool.graphml</Source>
+    <Source>stroj/data/networkx.graphml</Source>
+    <Source>zora_na_pruzi/pisar/konzole/__init__.py</Source>
+    <Source>zora_na_pruzi/pisar/html/__init__.py</Source>
+    <Source>zora_na_pruzi/pisar/konzole/barvy_anglicky.py</Source>
+    <Source>zora_na_pruzi/pisar/konzole/Pisar.py</Source>
+    <Source>zora_na_pruzi/pisar/konzole/tabulka_barev.py</Source>
+    <Source>zora_na_pruzi/pisar/konzole/barvy.py</Source>
+    <Source>zora_na_pruzi/pisar/konzole/obarvi.py</Source>
+    <Source>zora_na_pruzi/pisar/html/html.py</Source>
+    <Source>zora_na_pruzi/pisar/styly/výpisy_testů_html.py</Source>
+    <Source>zora_na_pruzi/pisar/styly/obarvím_výpis_konzole.py</Source>
+    <Source>zora_na_pruzi/iskušitel/najdu_testovací_soubory.py</Source>
+    <Source>zora_na_pruzi/system/__init__.py</Source>
+    <Source>zora_na_pruzi/system/spustím_příkaz.py</Source>
+    <Source>zora_na_pruzi/system/html_prohlížeč.py</Source>
+    <Source>zora_na_pruzi/iskušitel/html_výstup.py</Source>
+    <Source>zora_na_pruzi/iskušitel/spustím_test.py</Source>
+    <Source>zora_na_pruzi/iskušitel/zobrazím_v_prohlížeči.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -63,6 +110,7 @@
     <Other>TODO</Other>
     <Other>stroj/data/nested.graphml</Other>
     <Other>stroj/grafy</Other>
+    <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>
