@@ -48,7 +48,7 @@ def davaj_validátor(lxml_validátor,  přípona_schématu):
                 
             program = program.format(schéma = self.schéma,  soubor = soubor)
             
-            from zora_na_pruzi.strojmir.pomůcky.spustím_příkaz import spustím_příkaz
+            from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz
             return spustím_příkaz(program)
 
     return Validátor

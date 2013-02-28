@@ -4,13 +4,13 @@
 
 from zora_na_pruzi.iskušitel import najdu_testovací_soubory
 
-from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import *
-
 import os,  sys
 
-def provedu_testy(cesta,  styl):
+from zora_na_pruzi.vidimir import pohled as p
+
+def provedu_testy(cesta):
     
-    print('IDU DA NAJDU TESTY v adresáři {}'.format(cesta | styl.SOUBOR) | styl.H1)
+    print('IDU DA NAJDU TESTY v adresáři {}'.format(cesta | p.SOUBOR) | p.H1)
 
     import time
     start = time.time()
@@ -18,12 +18,12 @@ def provedu_testy(cesta,  styl):
     try:
         from spustím_test import spustím_test
         for číslo_testu,  testovací_soubor in enumerate(najdu_testovací_soubory(cesta),  start = 1):
-            print('{} spouštím {}'.format(číslo_testu, testovací_soubor  | styl.SOUBOR) | styl.H2)
+            print('{} spouštím {}'.format(číslo_testu, testovací_soubor  | p.SOUBOR) | p.H2)
             spustím_test(testovací_soubor)
-        print("Dotestováno. Čas běhu testu {čas:.3f} ms".format(čas = 1000*(time.time() - start)) | styl.INFO)
-        print('Počet nalezených testovacích souborů je {}'.format(číslo_testu) | styl.INFO)
+        print("Dotestováno. Čas běhu testu {čas:.3f} ms".format(čas = 1000*(time.time() - start)) | p.INFO)
+        print('Počet nalezených testovacích souborů je {}'.format(číslo_testu) | p.INFO)
     except IOError as e :
-        print('Hledání testovacích souborů selhalo:\n{}'.format(e) | styl.CHYBA)
+        print('Hledání testovacích souborů selhalo:\n{}'.format(e) | p.CHYBA)
 
 if __name__ == '__main__':
 
@@ -51,22 +51,19 @@ if __name__ == '__main__':
     
     cesta = args.cesta
     
-    from zora_na_pruzi.iskušitel import davaj_styl
-    
     if not args.text:
         
-        from zora_na_pruzi.pisar.styly import výpisy_testů_html as styl
-        davaj_styl(styl)
+        from html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU,  hlavička,  patička
+        from zora_na_pruzi.vidimir.Pisar import Pisar
         
-        from html_výstup import HTML_VÝSTUP,  VÝSLEDKY_TESTŮ_DO_SOUBORU
-        print('Vypíšu výsledek do html souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | SOUBOR) | INFO)
+        print('Vypíšu výsledek do html souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | p.SOUBOR) | p.INFO)
 #            vypisuji_do = open(VÝSLEDKY_TESTŮ_DO_SOUBORU,  mode ='w',  encoding = 'UTF-8')
         
-        with HTML_VÝSTUP(VÝSLEDKY_TESTŮ_DO_SOUBORU) as html:
-            provedu_testy(cesta,  styl)
+        with Pisar(výstup = VÝSLEDKY_TESTŮ_DO_SOUBORU,  jméno_vidu = 'html',  proglas = hlavička,  metaglas = patička) as html:
+            provedu_testy(cesta)
             
         if args.bez_prohlížeče:
-            print('Výsledek jest uložen v souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | SOUBOR) | INFO)
+            print('Výsledek jest uložen v souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | p.SOUBOR) | p.INFO)
         else:
             print('Zobrazím výsledek v prohlížeči')
             from zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
@@ -74,8 +71,6 @@ if __name__ == '__main__':
 #            from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #            zobrazím_html_stránku(VÝSLEDKY_TESTŮ_DO_SOUBORU)
     else:
-        from zora_na_pruzi.pisar.styly import obarvím_výpis_konzole as styl
-        davaj_styl(styl)
-        provedu_testy(cesta,  styl)
+        provedu_testy(cesta)
     
 

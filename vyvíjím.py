@@ -36,18 +36,24 @@ def build():
 
 def pisar():
     from zora_na_pruzi.vidimir.Pisar import Pisar
-    print(Pisar)
-#    print(styl.H1) >> AttributeError
-    pisar = Pisar('barevná_konzole')
-    print(pisar.pohled)
-    print(pisar.pohled.H1)
     
-    with Pisar('barevná_konzole') as p:
-        print('tu 3e with',  p,  pisar)
-        p.pohled.H1
-        with Pisar('html') as p:
-            print(pisar.pohled.H1)
-        print(p)
+#    print(Pisar)
+##    print(styl.H1) >> AttributeError
+#    pisar = Pisar('barevná_konzole')
+#    print(pisar.pohled)
+#    print(pisar.pohled.H1)
+    
+    from zora_na_pruzi.vidimir import pohled as p
+    
+    with Pisar('barevná_konzole') as pisar:
+        print('tu še with' | p.H1)
+        print(p.TEST.START)
+        print('startuje test ' | p.TEST.START)
+        with Pisar('html') as pisar:
+            print(p.H1)
+            print('NADPIS' | p.H1)
+#            print('startuje test ' | p.TEST.START)
+#        print(p)
 
 def html_výpis():
     
@@ -75,45 +81,46 @@ def barevná_konzole():
 
 def testování():
     from zora_na_pruzi.iskušitel import najdu_testovací_soubory
+    from zora_na_pruzi.vidimir import pohled as p
     
     adresář = './zora_na_pruzi'
-    print('vše v adresáři {}'.format(adresář | SOUBOR) | INFO)
+    print('vše v adresáři {}'.format(adresář | p.SOUBOR) | p.INFO)
     for testovací_soubor in najdu_testovací_soubory(adresář):
         print(testovací_soubor)
         
     soubor = './zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py'
-    print('přímo testovací soubor {}'.format(soubor | SOUBOR) | INFO)
+    print('přímo testovací soubor {}'.format(soubor | p.SOUBOR) | p.INFO)
     for testovací_soubor in najdu_testovací_soubory(soubor):
         print(testovací_soubor)
      
     soubor = 'nejestvující.soubor'
-    print('nejestvující soubor {}'.format(soubor | SOUBOR) | INFO)
+    print('nejestvující soubor {}'.format(soubor | p.SOUBOR) | p.INFO)
     try:
         for testovací_soubor in najdu_testovací_soubory(soubor):
             print(testovací_soubor)
     except IOError as e :
-        print('vyjímka {}'.format(e.__class__.__name__ | OBJEKT) | CHYBA)
+        print('vyjímka {}'.format(e.__class__.__name__ | p.OBJEKT) | p.CHYBA)
         print(e)
         
     soubor = __file__
-    print('soubor {}, koj neodpovídá masce'.format(soubor | SOUBOR) | INFO)
+    print('soubor {}, koj neodpovídá masce'.format(soubor | p.SOUBOR) | p.INFO)
     try:
         for testovací_soubor in najdu_testovací_soubory(soubor):
             print(testovací_soubor)
     except IOError as e :
-        print('vyjímka {}'.format(e.__class__.__name__ | OBJEKT) | CHYBA)
+        print('vyjímka {}'.format(e.__class__.__name__ | p.OBJEKT) | p.CHYBA)
         print(e)
         
     adresář = './prázdný_adresář'
     if os.path.isdir(adresář):
         raise IOError('Tož tento adresář "{}" chci použít pro testování, ale on už jestvuje'.format(adresář))
     os.mkdir(adresář)
-    print('adresář {}, koji nemá žádných testů'.format(adresář | SOUBOR) | INFO)
+    print('adresář {}, koji nemá žádných testů'.format(adresář | p.SOUBOR) | p.INFO)
     try:
         for testovací_soubor in najdu_testovací_soubory(adresář):
             print(testovací_soubor)
     except IOError as e :
-        print('vyjímka {}'.format(e.__class__.__name__ | OBJEKT) | CHYBA)
+        print('vyjímka {}'.format(e.__class__.__name__ | p.OBJEKT) | p.CHYBA)
         print(e)
     os.rmdir(adresář)
     
@@ -189,26 +196,26 @@ def   zkúšám():
     graph_tool_graf = Graf_Graph_tool(graphml)
     
     
-    print('GRAFY' | NADPIS)
+    print('GRAFY' | p.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | INFO)
+        print(graf.__class__.__name__ | p.INFO)
         print(graf)
         
-    print('UZLY' | NADPIS)
+    print('UZLY' | p.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | INFO)
+        print(graf.__class__.__name__ | p.INFO)
         for uzel in graf.uzly:
             print(uzel)
             
-    print('HRANY' | NADPIS)
+    print('HRANY' | p.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | INFO)
+        print(graf.__class__.__name__ | p.INFO)
         for vazba in graf.vazby:
             print(vazba)
             
-    print('VLASTNOSTI' | NADPIS)
+    print('VLASTNOSTI' | p.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | INFO)
+        print(graf.__class__.__name__ | p.INFO)
         for vlastnosti in graf.vlastnosti:
             for vlastnost in vlastnosti:
                 print(vlastnost)
@@ -221,8 +228,8 @@ if __name__ == '__main__':
     
 #    @TODO: udělat z tohoto testy
     pisar()
-    barevná_konzole()
-    html_výpis()
+#    barevná_konzole()
+#    html_výpis()
 #    testování()
     
 #    toto už test má

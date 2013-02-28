@@ -27,14 +27,22 @@ def načtu_modul(jméno_modulu,  jméno_balíčku,  adresář_modulu):
     except ImportError as e:
         raise ImportError('Chybí modul {} v adresáři {}: {}'.format(jméno_modulu,  adresář_modulu,  e))
 
-def načtu_modul_podle_modulu(jméno_modulu,  podle_modulu):
+def načtu_modul_podle_balíčku(jméno_modulu,  podle_balíčku):
     
     '''
     Načte modul "jméno_modulu", který je ve stejném balíčku jako modul "podle_modulu"
     '''
-    adresář_modulu = os.path.dirname(podle_modulu.__file__)
-    return načtu_modul(jméno_modulu = jméno_modulu,  adresář_modulu = adresář_modulu,  jméno_balíčku = davaj_jméno_balíčku(podle_modulu.__name__))
-    
+    adresář_modulu = os.path.dirname(podle_balíčku.__file__)
+    return načtu_modul(jméno_modulu = jméno_modulu,  adresář_modulu = adresář_modulu,  jméno_balíčku = podle_balíčku.__name__)
+
+#def načtu_modul_podle_balíčku(jméno_modulu,  podle_modulu):
+#    '''
+#    Načte modul "jméno_modulu", který je ve stejném balíčku jako modul "podle_modulu"
+#    '''
+#    adresář_modulu = os.path.dirname(podle_modulu.__file__)
+#    return načtu_modul(jméno_modulu = jméno_modulu,  adresář_modulu = adresář_modulu,  jméno_balíčku = davaj_jméno_balíčku(podle_modulu.__name__))
+
+
 def načtu_modul_podle_třídy(jméno_modulu,  podle_třídy,  v_adresáři):
     '''
     Načte modul "jméno_modulu", který je někde v balíčku jako třída "podle_třídy"

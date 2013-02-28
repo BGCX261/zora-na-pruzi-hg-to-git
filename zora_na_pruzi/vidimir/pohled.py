@@ -10,12 +10,9 @@ Hen je program, který ...
 class _VIDY(dict):
         
     def __missing__(self,  jméno_vidu):
-        from zora_na_pruzi.system.python.načtu_modul import načtu_modul_podle_třídy
-        return self.setdefault(jméno_vidu,  načtu_modul_podle_třídy(podle_třídy = self,  v_adresáři = __file__,  jméno_modulu =  jméno_vidu))
-    
-    def __get__(self,  instance,  owner):
-        vid = instance.aktivní_vid
-        return self[vid]
+        from . import pohledy
+        from zora_na_pruzi.system.python.načtu_modul import načtu_modul_podle_balíčku
+        return self.setdefault(jméno_vidu,  načtu_modul_podle_balíčku(podle_balíčku = pohledy,  jméno_modulu =  jméno_vidu))
  
 _VIDY = _VIDY()
 
@@ -52,9 +49,9 @@ class pohled(dict):
         pohled = getattr(modul_vidu,  jméno_pohledu,  None)
         
         if pohled is None:
-            from zora_na_pruzi.system.python.načtu_modul import načtu_modul_podle_modulu
-            modul_pohledu = načtu_modul_podle_modulu(podle_modulu = modul_vidu, jméno_modulu =  jméno_pohledu)
-            print(modul_pohledu)
+            from zora_na_pruzi.system.python.načtu_modul import načtu_modul_podle_balíčku
+            modul_pohledu = načtu_modul_podle_balíčku(podle_balíčku = modul_vidu, jméno_modulu =  jméno_pohledu)
+            
             pohled = getattr(modul_pohledu,  jméno_pohledu,  None)
             if pohled is None:
                 raise AttributeError('Pohled {} nejestvuje v modulu {}'.format(jméno_pohledu,  modul_pohledu.__name__))

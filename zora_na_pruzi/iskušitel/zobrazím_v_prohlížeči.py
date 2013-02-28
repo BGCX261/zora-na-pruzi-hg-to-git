@@ -14,7 +14,8 @@ def zobrazím_v_prohlížeči(html_soubor = None):
     
 #    PYTHON_BIN = 'python3'
 #    import subprocess
-    from zora_na_pruzi.system import html_prohlížeč,  spustím_příkaz
+    from zora_na_pruzi.system import html_prohlížeč
+    from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz
 
     příkaz = [html_prohlížeč.__file__,  html_soubor]
     spustím_příkaz(příkaz)
