@@ -5,7 +5,7 @@
 Hen je program, který zobrazí log jako html stránku
 '''
 
-import os,  sys
+import os
 
 from zora_na_pruzi.system import  TEMP_DIR
 VÝSLEDKY_TESTŮ_DO_SOUBORU = os.path.join(TEMP_DIR, 'výsledky_testování.html')

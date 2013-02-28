@@ -2,8 +2,6 @@
 # Copyright (c) 2012 Домоглед  <domogled@domogled.eu>
 # @author Петр Болф <petr.bolf@domogled.eu>
 
-from zora_na_pruzi.iskušitel import najdu_testovací_soubory
-
 import os,  sys
 
 from zora_na_pruzi.vidimir import pohled as p
@@ -16,11 +14,12 @@ def provedu_testy(cesta):
     start = time.time()
     
     try:
-        from spustím_test import spustím_test
+        from zora_na_pruzi.iskušitel import najdu_testovací_soubory
+        from zora_na_pruzi.iskušitel.spustím_test import spustím_test
         for číslo_testu,  testovací_soubor in enumerate(najdu_testovací_soubory(cesta),  start = 1):
             print('{} spouštím {}'.format(číslo_testu, testovací_soubor  | p.SOUBOR) | p.H2)
             spustím_test(testovací_soubor)
-        print("Dotestováno. Čas běhu testu {čas:.3f} ms".format(čas = 1000*(time.time() - start)) | p.INFO)
+        print("Dotestováno. Čas běhu všech testů {čas:.3f} ms".format(čas = 1000*(time.time() - start)) | p.INFO)
         print('Počet nalezených testovacích souborů je {}'.format(číslo_testu) | p.INFO)
     except IOError as e :
         print('Hledání testovacích souborů selhalo:\n{}'.format(e) | p.CHYBA)
@@ -53,7 +52,7 @@ if __name__ == '__main__':
     
     if not args.text:
         
-        from html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU,  hlavička,  patička
+        from zora_na_pruzi.iskušitel.html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU,  hlavička,  patička
         from zora_na_pruzi.vidimir.Pisar import Pisar
         
         print('Vypíšu výsledek do html souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | p.SOUBOR) | p.INFO)
@@ -66,7 +65,7 @@ if __name__ == '__main__':
             print('Výsledek jest uložen v souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | p.SOUBOR) | p.INFO)
         else:
             print('Zobrazím výsledek v prohlížeči')
-            from zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
+            from zora_na_pruzi.iskušitel.zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
             zobrazím_v_prohlížeči(VÝSLEDKY_TESTŮ_DO_SOUBORU)
 #            from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #            zobrazím_html_stránku(VÝSLEDKY_TESTŮ_DO_SOUBORU)

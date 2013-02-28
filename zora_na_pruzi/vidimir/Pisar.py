@@ -12,6 +12,7 @@ from .pohled import pohled
 class Pisar(object):
     
     __nastavení_pohledu = pohled
+    __výstup_do_souboru = None
     
     def __init__(self,  jméno_vidu = None,  výstup = None,  proglas = None,  metaglas = None):
         '''
@@ -45,6 +46,8 @@ class Pisar(object):
         self.__vypíšu_přídavek(self.__nastavení['metaglas'])
         self.__nastavím_jméno_vidu(self.__původní_nastavení['jméno_vidu'])
         self.__nastavím_výstup(self.__původní_nastavení['výstup'])
+        if self.__výstup_do_souboru is not None:
+            self.__výstup_do_souboru.close()
         
     def __nastavím_jméno_vidu(self,  jméno_vidu):
         if jméno_vidu is not None:
@@ -57,6 +60,7 @@ class Pisar(object):
 #        předpokládám,  že to je název souboru
         if isinstance(výstup,  str):
             výstup = open(výstup,  mode ='w',  encoding = 'UTF-8')
+            self.__výstup_do_souboru = výstup
             
         sys.stdout = výstup
             
@@ -67,5 +71,7 @@ class Pisar(object):
         if callable(přídavek):
             přídavek = přídavek()
         print(přídavek)
+        if self.__výstup_do_souboru:
+            self.__výstup_do_souboru.flush()
             
 

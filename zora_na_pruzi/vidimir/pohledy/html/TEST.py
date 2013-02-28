@@ -14,15 +14,15 @@ class TEST(object):
     
     @property
     def START(self):
-        return Formát(formát = '<span class="TEST START">{}</span>')
+        return Formát(formát = '<div class="TEST START">{}</div>')
  
     @property
     def OK(self):
-        return Formát(formát = '<span class="TEST OK">{}</span>')
+        return Formát(formát = '<div class="TEST OK">{}</div>')
 
     @property
     def CHYBA(self):
-        return Formát(formát = '<span class="TEST CHYBA">{}</span>')
+        return Formát(formát = '<div class="TEST CHYBA">{}</div>')
         
 
         

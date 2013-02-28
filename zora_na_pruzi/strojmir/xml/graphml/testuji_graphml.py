@@ -33,8 +33,9 @@ def test_0001_načtu_graphml_soubor ():
 #        x.a
         
 if __name__ == '__main__':
-    from zora_na_pruzi.iskušitel  import spustím_test,  zobrazím_log_jako_html_stránku
+    from zora_na_pruzi.iskušitel  import spustím_test
+    from zora_na_pruzi.iskušitel.zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
 
     spustím_test(__file__)
         
-    zobrazím_log_jako_html_stránku()
+    zobrazím_v_prohlížeči()

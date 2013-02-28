@@ -14,8 +14,8 @@ DIV = Formát(formát = '<div>{}</div>')
 SPAN = Formát(formát = '<span>{}</span>')
 
 
-INFO = Formát(formát = '<span class="INFO">{}</span>')
-CHYBA = Formát(formát = '<span class="CHYBA">{}</span>')
+INFO = Formát(formát = '<div class="INFO">{}</div>')
+CHYBA = Formát(formát = '<div class="CHYBA">{}</div>')
 
 SOUBOR = Formát(formát = '<span class="SOUBOR">{}</span>')
 PŘÍKAZ = Formát(formát = '<span class="PŘÍKAZ">{}</span>')

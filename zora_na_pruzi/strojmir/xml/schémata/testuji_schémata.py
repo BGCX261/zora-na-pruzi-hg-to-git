@@ -101,7 +101,8 @@ def test_0001_schémata ():
 #        
         
 if __name__ == '__main__':
-    from zora_na_pruzi.iskušitel  import spustím_test,  zobrazím_v_prohlížeči
+    from zora_na_pruzi.iskušitel  import spustím_test
+    from zora_na_pruzi.iskušitel.zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
 
     spustím_test(__file__)
         
