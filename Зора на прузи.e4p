@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-02-27, 17:44:29 -->
+<!-- Saved: 2013-02-28, 17:34:25 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -23,21 +23,14 @@
     <Source>zora_na_pruzi/strojmir/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/souborový_systém/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
-    <Source>zora_na_pruzi/iskušitel/zobrazím_log.py</Source>
     <Source>zora_na_pruzi/iskušitel/__init__.py</Source>
     <Source>zora_na_pruzi/iskušitel/spusť_vše.py</Source>
     <Source>_šablona_testuji.py</Source>
     <Source>zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/pomůcky/spustím_příkaz.py</Source>
     <Source>testuji.py</Source>
     <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
     <Source>zora_na_pruzi/pisar/__init__.py</Source>
-    <Source>zora_na_pruzi/pisar/barvy.py</Source>
-    <Source>zora_na_pruzi/pisar/Pisar.py</Source>
-    <Source>zora_na_pruzi/pisar/tabulka_barev.py</Source>
-    <Source>zora_na_pruzi/pisar/barvy_anglicky.py</Source>
     <Source>stroj/vytvořím_graf.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/DTD.py</Source>
@@ -48,25 +41,17 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
     <Source>zora_na_pruzi/pisar/styly/__init__.py</Source>
-    <Source>zora_na_pruzi/pisar/styly/obarvím_výpis.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/barvy_anglicky.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/Pisar.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/tabulka_barev.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/barvy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spusť_vše.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/zobrazím_log.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/styly/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/styly/obarvím_výpis.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/souborový_systém/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/spustím_příkaz.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
@@ -83,14 +68,10 @@
     <Source>stroj/data/graph_tool.graphml</Source>
     <Source>stroj/data/networkx.graphml</Source>
     <Source>zora_na_pruzi/pisar/konzole/__init__.py</Source>
-    <Source>zora_na_pruzi/pisar/html/__init__.py</Source>
     <Source>zora_na_pruzi/pisar/konzole/barvy_anglicky.py</Source>
-    <Source>zora_na_pruzi/pisar/konzole/Pisar.py</Source>
     <Source>zora_na_pruzi/pisar/konzole/tabulka_barev.py</Source>
     <Source>zora_na_pruzi/pisar/konzole/barvy.py</Source>
     <Source>zora_na_pruzi/pisar/konzole/obarvi.py</Source>
-    <Source>zora_na_pruzi/pisar/html/html.py</Source>
-    <Source>zora_na_pruzi/pisar/styly/výpisy_testů_html.py</Source>
     <Source>zora_na_pruzi/pisar/styly/obarvím_výpis_konzole.py</Source>
     <Source>zora_na_pruzi/iskušitel/najdu_testovací_soubory.py</Source>
     <Source>zora_na_pruzi/system/__init__.py</Source>
@@ -99,6 +80,50 @@
     <Source>zora_na_pruzi/iskušitel/html_výstup.py</Source>
     <Source>zora_na_pruzi/iskušitel/spustím_test.py</Source>
     <Source>zora_na_pruzi/iskušitel/zobrazím_v_prohlížeči.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/html_výstup.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/najdu_testovací_soubory.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/zobrazím_v_prohlížeči.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spustím_test.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/styly/výpisy_testů_html.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/styly/obarvím_výpis_konzole.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/html_prohlížeč.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/spustím_příkaz.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/konzole/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/konzole/barvy_anglicky.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/konzole/obarvi.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/konzole/tabulka_barev.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/konzole/barvy.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/html/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/html/html.py</Source>
+    <Source>zora_na_pruzi/vidimir/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/barevná_konzole/__init__.py</Source>
+    <Source>zora_na_pruzi/system/python/__init__.py</Source>
+    <Source>zora_na_pruzi/system/python/načtu_modul.py</Source>
+    <Source>zora_na_pruzi/pisar/pohled.py</Source>
+    <Source>zora_na_pruzi/vidimir/Pisar.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohled.py</Source>
+    <Source>zora_na_pruzi/vidimir/html/__init__.py</Source>
+    <Source>zora_na_pruzi/system/změním_příponu_souboru.py</Source>
+    <Source>zora_na_pruzi/vidimir/html/TEST.py</Source>
+    <Source>zora_na_pruzi/vidimir/barevná_konzole/TEST.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/barevná_konzole/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/barevná_konzole/TEST.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/html/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/html/TEST.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/Formát.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/tvořím_html.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/barvy_anglicky.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/obarvi.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/tabulka_barev.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/barvy.py</Source>
+    <Source>grep.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/barevná_konzole/VÝPIS_PROGRAMU.py</Source>
+    <Source>zora_na_pruzi/vidimir/pohledy/html/VÝPIS_PROGRAMU.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
