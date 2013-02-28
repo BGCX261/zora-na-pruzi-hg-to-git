@@ -4,7 +4,8 @@
 
 import py.test
 
-from logging import debug,  info
+#from logging import debug,  info
+from zora_na_pruzi.pisar import styl as s
 
 def test_0001_schémata ():
     '''
@@ -18,27 +19,27 @@ def test_0001_schémata ():
     
     for schéma in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
         
-        info('Testuji modul validátoru {}'.format(schéma.__name__))
+        print('Testuji modul validátoru {}'.format(schéma.__name__) | s.TEST_START)
         
         validátor = schéma.Validátor('graphml')
         
         assert callable(validátor)
-        debug('... is callable')
+        print('validátor is callable' | s.TEST_OK)
         
         assert validátor.__class__.__name__ == Validátor.__name__
-        debug('.. je potomkem Validátoru')
+        print('je potomkem třídy Validátor' | s.TEST_OK)
         
         soubor_schématu = validátor.schéma
-        debug('jestvuje schéma {}'.format(soubor_schématu))
+        print('jestvuje schéma {}'.format(soubor_schématu | s.SOUBOR) | s.TEST_OK)
         
-        info('VALIDUJI')
+        print('VALIDUJI' | s.TEST_START)
         
         if validátor('./graf.graphml'):
-            debug('VALIDNÍ')
+            print('VALIDNÍ' | s.TEST_OK)
         else:
-            debug('NEVALIDNÍ')
+            print('NEVALIDNÍ' | s.TEST_CHYBA)
 
-        info('Program {}'.format(schéma.program))
+        print('Program {}'.format(schéma.program | s.PŘÍKAZ)  | s.TEST_START)
 
         validátor(soubor = './graf.graphml',  program = schéma.program)
         
@@ -100,8 +101,8 @@ def test_0001_schémata ():
 #        
         
 if __name__ == '__main__':
-    from zora_na_pruzi.iskušitel  import spustím_test,  zobrazím_log_jako_html_stránku
+    from zora_na_pruzi.iskušitel  import spustím_test,  zobrazím_v_prohlížeči
 
     spustím_test(__file__)
         
-    zobrazím_log_jako_html_stránku()
+    zobrazím_v_prohlížeči()

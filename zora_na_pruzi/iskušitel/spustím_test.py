@@ -6,13 +6,11 @@ Hen je program, který zobrazí log jako html stránku
 '''
 import pytest
 
-from zora_na_pruzi.iskušitel import davaj_styl
+from zora_na_pruzi.pisar import styl as s
 
 def spustím_test(soubor):
     
     import time
-    
-    s = davaj_styl()
     
     start = time.time()
     

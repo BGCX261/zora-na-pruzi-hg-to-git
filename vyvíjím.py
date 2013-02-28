@@ -8,8 +8,6 @@ Hen je skript, gde si zkúšám
 
 import os
 
-from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import *
-
 #from zora_na_pruzi.pohunci.obarvím_výpis.barevný_logger import daj_logovátka
 #debug,  info,  warning,  error,  critical = daj_logovátka(__file__)
 
@@ -20,8 +18,6 @@ from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import *
 ##    příkaz = [PYTHON_BIN]
 ##    příkaz.extend(parametry)
 #    subprocess.Popen(příkaz)
-
-from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import *
 
 def rebuild():
 #    cdir = os.getcwd()
@@ -37,28 +33,45 @@ def build():
     
 #build()
 
-def html_výpis():
-    from zora_na_pruzi.pisar.styly.výpisy_testů_html import NADPIS,  SOUBOR,  INFO
+
+def pisar():
+    from zora_na_pruzi.vidimir.Pisar import Pisar
+    print(Pisar)
+#    print(styl.H1) >> AttributeError
+    pisar = Pisar('barevná_konzole')
+    print(pisar.pohled)
+    print(pisar.pohled.H1)
     
-    print('NADPIS' | NADPIS)
+    with Pisar('barevná_konzole') as p:
+        print('tu 3e with',  p,  pisar)
+        p.pohled.H1
+        with Pisar('html') as p:
+            print(pisar.pohled.H1)
+        print(p)
+
+def html_výpis():
+    
+    from zora_na_pruzi.vidimir import pohled as p
+    
+    print('NADPIS' | p.NADPIS)
     
     from zora_na_pruzi.pisar.html.html import HTML,  E
 
     odstavec = HTML(E.DIV(E.H4('NADPIS úrovně 4'),  E.P('tu je text:*** {} ***',  E.CLASS('css_třída'))))
-    print('soubor {} je tu'.format(__file__ | SOUBOR) | INFO)
-    print('soubor {} je tu'.format(__file__ | SOUBOR) | odstavec)
+    print('soubor {} je tu'.format(__file__ | p.SOUBOR) | p.INFO)
+    print('soubor {} je tu'.format(__file__ | p.SOUBOR) | odstavec)
     
 def barevná_konzole():
-    from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import NADPIS,  SOUBOR,  INFO
+    from zora_na_pruzi.vidimir import pohled as p
     
-    print('NADPIS' | NADPIS)
+    print('NADPIS' | p.NADPIS)
     
     from zora_na_pruzi.pisar.konzole.obarvi import OBARVI
     from zora_na_pruzi.pisar.konzole.barvy import MODRÁ
 
     modře = OBARVI(MODRÁ)
-    print('soubor {} je tu'.format(__file__ | SOUBOR) | INFO)
-    print('soubor {} je tu'.format(__file__ | SOUBOR) | modře)
+    print('soubor {} je tu'.format(__file__ | p.SOUBOR) | p.INFO)
+    print('soubor {} je tu'.format(__file__ | p.SOUBOR) | modře)
 
 def testování():
     from zora_na_pruzi.iskušitel import najdu_testovací_soubory
@@ -207,9 +220,10 @@ if __name__ == '__main__':
     print(__doc__)
     
 #    @TODO: udělat z tohoto testy
-#    barevná_konzole()
-#    html_výpis()
-    testování()
+    pisar()
+    barevná_konzole()
+    html_výpis()
+#    testování()
     
 #    toto už test má
 #    validátor()

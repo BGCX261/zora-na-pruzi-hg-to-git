@@ -26,7 +26,6 @@ class HTML_VÝSTUP():
         self.__stdout = sys.stdout
         self.__stream = open(self.__html_soubor,  mode ='w',  encoding = 'UTF-8')
         sys.stdout = self.__stream
-        
         print(self.__hlavička())
         
     def __exit__(self, *args):

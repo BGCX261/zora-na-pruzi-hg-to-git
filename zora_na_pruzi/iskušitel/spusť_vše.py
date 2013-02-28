@@ -24,17 +24,6 @@ def provedu_testy(cesta,  styl):
         print('Počet nalezených testovacích souborů je {}'.format(číslo_testu) | styl.INFO)
     except IOError as e :
         print('Hledání testovacích souborů selhalo:\n{}'.format(e) | styl.CHYBA)
-#        print('<h1>spouštím test {}</h1>'.format(os.path.basename(soubor)))
-#        kód = pytest.main("-s {}".format(soubor))
-#        if kód == 0:
-#            print('... test proběhl v pořádku')
-#        else:
-#            print('... test selhal a vrátil kód číslo {}'.format(kód))
-#    finally:
-        
-        
-
-
 
 if __name__ == '__main__':
 

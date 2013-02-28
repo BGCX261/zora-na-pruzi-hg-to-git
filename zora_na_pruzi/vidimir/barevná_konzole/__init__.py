@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# Copyright (c) 2012 Домоглед  <domogled@domogled.eu>
-# @author Петр Болф <petr.bolf@domogled.eu>
-
-'''
-Hen je nástroj, který obarví výpis
-'''
 
 from zora_na_pruzi.pisar.konzole.obarvi import OBARVI
 from zora_na_pruzi.pisar.konzole.barvy import *

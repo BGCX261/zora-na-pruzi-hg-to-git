@@ -6,20 +6,24 @@ Hen je program, který zobrazí log jako html stránku
 '''
 
    
-def zobrazím_v_prohlížeči(html_soubor):
-    PYTHON_BIN = 'python3'
-    import subprocess
-    from zora_na_pruzi.system import html_prohlížeč
+def zobrazím_v_prohlížeči(html_soubor = None):
+    
+    if html_soubor is None:
+        from html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU
+        html_soubor = VÝSLEDKY_TESTŮ_DO_SOUBORU
+    
+#    PYTHON_BIN = 'python3'
+#    import subprocess
+    from zora_na_pruzi.system import html_prohlížeč,  spustím_příkaz
 
-    příkaz = [PYTHON_BIN,  html_prohlížeč.__file__,  html_soubor]
-    subprocess.Popen(příkaz)
+    příkaz = [html_prohlížeč.__file__,  html_soubor]
+    spustím_příkaz(příkaz)
     #    subprocess.call(['./zobrazím_log.py'])
         
         
 if __name__ == '__main__':
-
-    from html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU
-    zobrazím_v_prohlížeči(VÝSLEDKY_TESTŮ_DO_SOUBORU)
+    
+    zobrazím_v_prohlížeči()
 
 
 
