@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-01, 07:57:24 -->
+<!-- Saved: 2013-03-01, 13:02:37 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -29,7 +29,6 @@
     <Source>_šablona_testuji.py</Source>
     <Source>testuji.py</Source>
     <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
-    <Source>zora_na_pruzi/pisar/__init__.py</Source>
     <Source>stroj/vytvořím_graf.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/DTD.py</Source>
@@ -42,7 +41,6 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pisar/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spusť_vše.py</Source>
@@ -81,45 +79,45 @@
     <Source>zora_na_pruzi/system/python/__init__.py</Source>
     <Source>zora_na_pruzi/system/python/načtu_modul.py</Source>
     <Source>zora_na_pruzi/vidimir/Pisar.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohled.py</Source>
     <Source>zora_na_pruzi/system/změním_příponu_souboru.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/barevná_konzole/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/barevná_konzole/TEST.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/html/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/html/TEST.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/__init__.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/Formát.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/tvořím_html.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/konzole/barvy_anglicky.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/obarvi.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/konzole/tabulka_barev.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/konzole/barvy.py</Source>
     <Source>grep.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/barevná_konzole/VÝPIS_PROGRAMU.py</Source>
-    <Source>zora_na_pruzi/vidimir/pohledy/html/VÝPIS_PROGRAMU.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/změním_příponu_souboru.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohled.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/Pisar.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/python/načtu_modul.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/python/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/Formát.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/tvořím_html.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/barvy.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/obarvi.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/tabulka_barev.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/barvy_anglicky.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/barevná_konzole/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/barevná_konzole/VÝPIS_PROGRAMU.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/barevná_konzole/TEST.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/html/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/html/VÝPIS_PROGRAMU.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/pohledy/html/TEST.py</Source>
+    <Source>zora_na_pruzi/vidimir/Formátuji.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/Obarvi.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/Formátuji.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/Obarvi.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/barevná_konzole/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/barevná_konzole/VÝPIS_PROGRAMU.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/barevná_konzole/TEST.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/html/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
+    <Source>zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/VÝPIS_PROGRAMU.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/TEST.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
