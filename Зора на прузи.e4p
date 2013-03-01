@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-01, 19:13:33 -->
+<!-- Saved: 2013-03-02, 00:14:57 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -118,6 +118,8 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/__ELEMENT.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -130,7 +132,7 @@
     <Other>stroj/data/nested.graphml</Other>
     <Other>stroj/grafy</Other>
     <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml</Other>
-    <Other>.temp/styl.css</Other>
+    <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf_2.graphml</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

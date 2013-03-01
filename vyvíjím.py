@@ -11,6 +11,8 @@ import os
 #from zora_na_pruzi.pohunci.obarvím_výpis.barevný_logger import daj_logovátka
 #debug,  info,  warning,  error,  critical = daj_logovátka(__file__)
 
+from zora_na_pruzi.vidimir import F
+
 #def spustím(*příkaz):
 ##    PYTHON_BIN = 'python3'
 #    import subprocess
@@ -165,7 +167,30 @@ def   validátor():
 
 
 def   zkúšám():
+    import lxml.etree
+    from zora_na_pruzi.strojmir.xml.graphml import NS_GRAPHML
+    graphml_soubor = './graf.graphml'
+    tree = lxml.etree.parse(graphml_soubor)
+    print('TREE',  id(tree))
+    root = tree.getroot()
     
+    for node in root.findall('/'.join((NS_GRAPHML.graph,  NS_GRAPHML.node))):
+        print('node',  id(node))
+        print('tree',  id(node.getroottree()))
+        
+    nt = node.getroottree()
+       
+    print('GRAPH')   
+       
+    for graph in root.findall('/'.join((NS_GRAPHML.graph,  ))):
+        print('graph',  id(graph))
+        print('tree',  id(graph.getroottree()))
+        
+    if nt == graph.getroottree():
+        print('SA TETET')
+    else:
+        print('SA IN TTT')
+    return
     
     import py
     
@@ -231,7 +256,65 @@ def   zkúšám():
             for vlastnost in vlastnosti:
                 print(vlastnost)
     
+def graf():
+    from zora_na_pruzi.strojmir.xml.graphml.Graf import Graf
+    from zora_na_pruzi.strojmir.xml.graphml import načtu_graf
+    import lxml.etree
     
+    graphml_soubor = './testuji_vzorový_graf.graphml'
+    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
+    
+   
+    
+    print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru | F.SOUBOR) | F.TEST.START)
+    
+#    graf = Graf(cesta_k_graphml_souboru)
+#    tree = graf.xml
+    tree = načtu_graf(graphml_soubor)
+    assert isinstance(tree,  lxml.etree._ElementTree)
+    
+    root = tree.getroot()
+    
+    assert isinstance(root,  lxml.etree.ElementBase) 
+    
+    uzly = list(root.uzly)
+    assert len(uzly) == 14
+    
+    vazby = list(root.vazby)
+    assert len(vazby) == 12
+    
+    uzel = uzly[0]
+    
+    data = uzel.data
+    assert len(data) == 1
+    
+    údaj = data[0]
+    
+    assert údaj.jméno == 'jméno'
+    print(údaj.jméno)
+    print(údaj)
+    assert údaj.datový_typ == 'string'
+    assert údaj.default is None
+    assert údaj.klíč == root.klíče['d2']
+    assert id(údaj.klíč) == id(root.klíče['d2'])
+    
+#    druhý graf 
+    graphml_soubor = './testuji_vzorový_graf_2.graphml'
+    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
+#    graf2 = Graf(cesta_k_graphml_souboru)
+#    tree2 = graf2.xml
+    tree2 = načtu_graf(graphml_soubor)
+    root2 = tree2.getroot()
+    uzly = list(root2.uzly)
+    uzel = uzly[0]
+    print(uzel.jméno)
+    data = uzel.data
+    
+    údaj = data[0]
+    print(údaj.jméno)
+    print(údaj)
+    assert údaj.jméno == 'jiné jméno'   
+  
 
 if __name__ == '__main__':
 
@@ -247,7 +330,8 @@ if __name__ == '__main__':
 #    validátor()
 
 
+    graf()
 
-    zkúšám()
+#    zkúšám()
 
  

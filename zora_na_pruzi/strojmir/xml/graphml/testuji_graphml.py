@@ -5,6 +5,9 @@
 import py.test
 import os
 
+from . import načtu_graf
+import lxml.etree
+    
 from zora_na_pruzi.vidimir import F
 
 def test_0001_načtu_graphml_soubor ():
@@ -12,14 +15,11 @@ def test_0001_načtu_graphml_soubor ():
     testuji
     '''
     
-    from . import načtu_graf
-    import lxml.etree
-    
-    graphml_soubor = './testuji_vzorový_graf.graphml'
-    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
-    
     with py.test.raises(IOError):
         načtu_graf('nejestvující_soubor')
+        
+    graphml_soubor = './testuji_vzorový_graf.graphml'
+    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
     
     print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru | F.SOUBOR) | F.TEST.START)
     
@@ -47,7 +47,13 @@ def test_0001_načtu_graphml_soubor ():
     assert údaj.datový_typ == 'string'
     assert údaj.default is None
     
-    tree2 = načtu_graf('/home/golf/vývoj/zora-na-pruzi/stroj/grafy/zora_na_pruzi.graphml')
+    assert údaj.klíč == root.klíče['d2']
+    assert id(údaj.klíč) == id(root.klíče['d2'])
+    
+#    druhý graf 
+    graphml_soubor = './testuji_vzorový_graf_2.graphml'
+    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
+    tree2 = načtu_graf(cesta_k_graphml_souboru)
     root2 = tree2.getroot()
     uzly = list(root2.uzly)
     uzel = uzly[0]
@@ -56,10 +62,26 @@ def test_0001_načtu_graphml_soubor ():
     
     údaj = data[0]
     print(údaj.jméno)
+    assert údaj.jméno == 'jiné jméno' 
     
+def test_0002_klíče ():
+        
+    graphml_soubor = './testuji_vzorový_graf.graphml'
+    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
     
-#    with py.test.raises(AttributeError):
-#        x.a
+    tree = načtu_graf(cesta_k_graphml_souboru)
+    
+    root = tree.getroot()
+    
+    klíče = root.klíče
+    from .seznam_klíčů import Seznam_klíčů
+    assert isinstance(klíče,  Seznam_klíčů)
+    
+    with py.test.raises(KeyError):
+        klíče['nejestvující klíč']
+        
+    from . import graphml_elementy
+    assert isinstance(klíče['d1'],  graphml_elementy.key)
         
 if __name__ == '__main__':
     from zora_na_pruzi.iskušitel  import spustím_test
