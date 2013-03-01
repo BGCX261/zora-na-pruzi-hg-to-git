@@ -14,6 +14,8 @@ def spustím_test(soubor):
     
     start = time.time()
     
+#    import py
+#    py.std.sys.stdout = open('hen',  mode = 'w',  encoding = 'UTF-8')
     kód = pytest.main("-s {}".format(soubor))
     if kód == 0:
         print('... test proběhl v pořádku' | F.INFO)

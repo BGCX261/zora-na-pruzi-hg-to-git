@@ -9,7 +9,7 @@ Hen je program, který zobrazí log jako html stránku
 def zobrazím_v_prohlížeči(html_soubor = None):
     
     if html_soubor is None:
-        from html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU
+        from zora_na_pruzi.iskušitel.html_výstup import VÝSLEDKY_TESTŮ_DO_SOUBORU
         html_soubor = VÝSLEDKY_TESTŮ_DO_SOUBORU
     
 #    PYTHON_BIN = 'python3'

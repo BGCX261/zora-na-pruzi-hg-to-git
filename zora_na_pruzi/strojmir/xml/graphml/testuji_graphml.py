@@ -19,7 +19,7 @@ def test_0001_načtu_graphml_soubor ():
     with py.test.raises(IOError):
         načtu_graf('nejestvující_soubor')
     
-    print('Testuji na testopvacím grafu {}'.format(cesta_k_graphml_souboru))
+    print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru))
     
     tree = načtu_graf(cesta_k_graphml_souboru)
     assert isinstance(tree,  lxml.etree._ElementTree)

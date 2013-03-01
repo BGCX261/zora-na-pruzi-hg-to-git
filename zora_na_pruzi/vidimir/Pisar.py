@@ -14,7 +14,7 @@ class Pisar(object):
     __nastavím_vid_pro_formátování = Formátuji
     __výstup_do_souboru = None
     
-    def __init__(self,  jméno_vidu = None,  výstup = None,  proglas = None,  metaglas = None):
+    def __init__(self,  jméno_vidu = None,  výstup = None,  proglas = None,  metaglas = None,  post_proglas = None):
         '''
        
         '''
@@ -22,7 +22,8 @@ class Pisar(object):
         self.__nastavení = {'jméno_vidu':  jméno_vidu,
                                 'výstup':  výstup,
                                 'proglas':  proglas,
-                                'metaglas':  metaglas
+                                'metaglas':  metaglas, 
+                                'post_proglas': post_proglas
                        }
             
     @property
@@ -38,6 +39,9 @@ class Pisar(object):
         self.__nastavím_výstup(self.__nastavení['výstup'])
         self.__nastavím_jméno_vidu(self.__nastavení['jméno_vidu'])
         self.__vypíšu_přídavek(self.__nastavení['proglas'])
+        if self.__výstup_do_souboru:
+            self.__výstup_do_souboru.flush()
+            self.__vypíšu_přídavek(self.__nastavení['post_proglas'])
         
         return self
         
@@ -55,6 +59,7 @@ class Pisar(object):
             
     def __nastavím_výstup(self,  výstup):
         if výstup is None:
+            sys.stdout = self.__stdout
             return
         
 #        předpokládám,  že to je název souboru
@@ -71,7 +76,5 @@ class Pisar(object):
         if callable(přídavek):
             přídavek = přídavek()
         print(přídavek)
-        if self.__výstup_do_souboru:
-            self.__výstup_do_souboru.flush()
             
 

@@ -166,6 +166,13 @@ def   validátor():
 
 def   zkúšám():
     
+    
+    import py
+    
+    print(py.std.sys.stdout)
+    py.std.sys.stdout = open('hen',  mode = 'w',  encoding = 'UTF-8')
+    return
+    
 #    from zora_na_pruzi.strojmir.xml.graphml import načtu_graf,  NS_GRAPHML
     
     from zora_na_pruzi.strojmir.xml.graphml.Graf import Graf,  Graf_Graph_tool,  Graf_NetworkX
@@ -231,9 +238,9 @@ if __name__ == '__main__':
     print(__doc__)
     
 #    @TODO: udělat z tohoto testy
-    pisar()
-    barevná_konzole()
-    html_výpis()
+#    pisar()
+#    barevná_konzole()
+#    html_výpis()
 #    testování()
     
 #    toto už test má
@@ -241,6 +248,6 @@ if __name__ == '__main__':
 
 
 
-#    zkúšám()
+    zkúšám()
 
-    
+ 

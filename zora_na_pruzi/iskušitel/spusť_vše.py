@@ -58,7 +58,7 @@ if __name__ == '__main__':
         print('Vypíšu výsledek do html souboru {}'.format(VÝSLEDKY_TESTŮ_DO_SOUBORU | F.SOUBOR) | F.INFO)
 #            vypisuji_do = open(VÝSLEDKY_TESTŮ_DO_SOUBORU,  mode ='w',  encoding = 'UTF-8')
         
-        with Pisar(výstup = VÝSLEDKY_TESTŮ_DO_SOUBORU,  jméno_vidu = 'html',  proglas = hlavička,  metaglas = patička) as html:
+        with Pisar(výstup = VÝSLEDKY_TESTŮ_DO_SOUBORU,  jméno_vidu = 'html',  proglas = '\n'.join((hlavička(),  '<div class="pytest"><pre>')),  metaglas = patička,  post_proglas = '</pre></div>') as html:
             provedu_testy(cesta)
             
         if args.bez_prohlížeče:
