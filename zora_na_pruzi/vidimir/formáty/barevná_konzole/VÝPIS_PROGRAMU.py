@@ -6,11 +6,11 @@
 Hen je program, který ...
 '''
 
-from zora_na_pruzi.vidimir.stroj.konzole.obarvi import OBARVI
+from zora_na_pruzi.vidimir.stroj.konzole.Obarvi import Obarvi
 from zora_na_pruzi.vidimir.stroj.konzole.barvy import *
 
-#from zora_na_pruzi.vidimir import pohled as p
+#from zora_na_pruzi.vidimir import F
       
-VÝPIS_PROGRAMU = OBARVI(BÍLÁ,  NA_TMAVĚ_SIVÉ)
+VÝPIS_PROGRAMU = Obarvi(BÍLÁ,  NA_TMAVĚ_SIVÉ)
         
 

@@ -24,7 +24,7 @@ Hen je skript, který vypíše tab ulku všech barev
 if __name__ == '__main__':
     
     import barvy as modul_barev
-    from obarvi import OBARVI
+    from Obarvi import Obarvi
 
     se_styly = None
     
@@ -35,15 +35,15 @@ if __name__ == '__main__':
         pozadí = ['NA_TMAVĚ_AZUROVÉ', 'NA_TMAVĚ_ŽLUTÉ', 'NA_BÍLÉ', 'NA_AZUROVÉ', 'NA_TMAVĚ_ČERVENÉ', 'NA_ŽLUTÉ', 'NA_PURPUROVÉ', 'NA_TMAVĚ_ZELENÉ', 'NA_SIVÉ', 'NA_ČERVENÉ', 'NA_ČERNÉ', 'NA_TMAVĚ_MODRÉ', 'NA_MODRÉ', 'NA_TMAVĚ_PURPUROVÉ', 'NA_TMAVĚ_SIVÉ', 'NA_ZELENÉ']
         for jméno_barvy in barvy:
             barva = getattr(modul_barev,  jméno_barvy)
-            obarvím = OBARVI(barva)
+            obarvím = Obarvi(barva)
             print('barva: ',  jméno_barvy | obarvím)
             for jméno_pozadí in pozadí:
                 barva_pozadí = getattr(modul_barev,  jméno_pozadí)
-                obarvím = OBARVI(barva,  barva_pozadí)
+                obarvím = Obarvi(barva,  barva_pozadí)
                 print(jméno_pozadí | obarvím,  end = ' ')
                 for jméno_stylu in styly:
                     styl =  getattr(modul_barev,  jméno_stylu)
-                    obarvím = OBARVI(barva,  barva_pozadí,  styl)
+                    obarvím = Obarvi(barva,  barva_pozadí,  styl)
                     print(jméno_stylu | obarvím,  end = ' ')
                 print()
             print('-'*44)
@@ -53,11 +53,11 @@ if __name__ == '__main__':
         pozadí = ['NA_TMAVĚ_AZUROVÉ', 'NA_TMAVĚ_ŽLUTÉ', 'NA_BÍLÉ', 'NA_AZUROVÉ', 'NA_TMAVĚ_ČERVENÉ', 'NA_ŽLUTÉ', 'NA_PURPUROVÉ', 'NA_TMAVĚ_ZELENÉ', 'NA_SIVÉ', 'NA_ČERVENÉ', 'NA_ČERNÉ', 'NA_TMAVĚ_MODRÉ', 'NA_MODRÉ', 'NA_TMAVĚ_PURPUROVÉ', 'NA_TMAVĚ_SIVÉ', 'NA_ZELENÉ']
         for jméno_barvy in barvy:
             barva = getattr(modul_barev,  jméno_barvy)
-            obarvím = OBARVI(barva)
+            obarvím = Obarvi(barva)
             print('barva: ',  jméno_barvy | obarvím)
             for jméno_pozadí in pozadí:
                 barva_pozadí = getattr(modul_barev,  jméno_pozadí)
-                obarvím = OBARVI(barva,  barva_pozadí)
+                obarvím = Obarvi(barva,  barva_pozadí)
                 print(jméno_pozadí | obarvím,  end = ' ')
             print('\n', '-'*44)
 

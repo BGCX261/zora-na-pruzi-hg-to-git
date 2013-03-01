@@ -7,11 +7,11 @@ Hen je třída, která umožní upravovat výpisy pomocí stylů
 umí přesměrovat výstup
 '''
 import sys
-from .pohled import pohled
+from .Formátuji import Formátuji
 
 class Pisar(object):
     
-    __nastavení_pohledu = pohled
+    __nastavím_vid_pro_formátování = Formátuji
     __výstup_do_souboru = None
     
     def __init__(self,  jméno_vidu = None,  výstup = None,  proglas = None,  metaglas = None):
@@ -26,12 +26,12 @@ class Pisar(object):
                        }
             
     @property
-    def pohled(self):
-        return pohled
+    def F(self):
+        return Formátuji
     
     def __enter__(self):
         
-        self.__původní_nastavení = {'jméno_vidu':  self.__nastavení_pohledu,
+        self.__původní_nastavení = {'jméno_vidu':  self.__nastavím_vid_pro_formátování,
                                 'výstup':  sys.stdout
                        }
                        
@@ -51,7 +51,7 @@ class Pisar(object):
         
     def __nastavím_jméno_vidu(self,  jméno_vidu):
         if jméno_vidu is not None:
-            self.__nastavení_pohledu = jméno_vidu
+            self.__nastavím_vid_pro_formátování = jméno_vidu
             
     def __nastavím_výstup(self,  výstup):
         if výstup is None:

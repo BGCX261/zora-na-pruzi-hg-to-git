@@ -7,7 +7,7 @@ Tento skript spustí příkaz
 '''
 
 import subprocess
-from zora_na_pruzi.vidimir import pohled as p
+from zora_na_pruzi.vidimir import F
 
 def __sestavím_příkaz(*příkaz,  shell):
     if len(příkaz) == 1:
@@ -37,12 +37,12 @@ def spustím_příkaz(*příkaz,  shell = True):
 #        log.write(proc.stdout.read())
         if not shell:
             příkaz = ' '.join(příkaz)
-        print('spouštím: {}'.format(příkaz | p.PŘÍKAZ) | p.INFO )
-        print(proc.stdout.read().decode('UTF-8') | p.VÝPIS_PROGRAMU)
-        print(proc.stderr.read().decode('UTF-8') | p.CHYBA)
+        print('spouštím: {}'.format(příkaz | F.PŘÍKAZ) | F.INFO )
+        print(proc.stdout.read().decode('UTF-8') | F.VÝPIS_PROGRAMU)
+        print(proc.stderr.read().decode('UTF-8') | F.CHYBA)
         
     
         
-        print('ukončen: {}'.format(příkaz | p.PŘÍKAZ) | p.INFO )
+        print('ukončen: {}'.format(příkaz | F.PŘÍKAZ) | F.INFO )
     
     

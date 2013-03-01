@@ -23,4 +23,4 @@ class Formát(object):
         return self.__formát.format(text)
         
     def __str__(self):
-        return self.__formát
+        raise NotImplementedError('Formát není určen k tomu, aby se vypisoval, užívej pouze ve spojení s operátorem text | Formát')

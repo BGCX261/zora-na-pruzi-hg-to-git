@@ -14,7 +14,9 @@ barvy jsou uvedeny v souboru barvy
 
 import os
 
-class OBARVI(object):
+from ..Formát import Formát
+
+class Obarvi(Formát):
 
     OBARVI = '\033[{}m'
     RESET = '\033[0;39;49m'

@@ -6,7 +6,7 @@
 Hen je program, který překontroluje správnost graphml souboru
 '''
 
-from zora_na_pruzi.pisar.styly.obarvím_výpis_konzole import PŘÍKAZ,  INFO,  SOUBOR,  CHYBA
+from zora_na_pruzi.vidimir import F
 
 def validuji(soubor,  schéma = None):
     '''
@@ -25,7 +25,7 @@ def validuji(soubor,  schéma = None):
     else:
         raise TypeError('Neznám schéma {}'.format(schéma))
         
-    print('Validuji {} pomocí {}'.format(args.zdrojový_xml | SOUBOR,  Schéma.__name__) | INFO)
+    print('Validuji {} pomocí {}'.format(args.zdrojový_xml | F.SOUBOR,  Schéma.__name__) | F.INFO)
     
 #    if schéma is None:
 ##        from nástroje.obarvím_výpis import obarvi_upozornění_print
@@ -37,9 +37,9 @@ def validuji(soubor,  schéma = None):
     
     validní = validátor(soubor)
     if validní:
-        print('\ttje validní' | INFO)
+        print('\ttje validní' | F.INFO)
     else:
-        print('\tNENÍ VALIDNÍ' | CHYBA)
+        print('\tNENÍ VALIDNÍ' | F.CHYBA)
         validátor(soubor,  program = True)
 
 

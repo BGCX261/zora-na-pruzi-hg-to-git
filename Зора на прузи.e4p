@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-02-28, 23:15:30 -->
+<!-- Saved: 2013-03-01, 07:57:24 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -27,7 +27,6 @@
     <Source>zora_na_pruzi/iskušitel/__init__.py</Source>
     <Source>zora_na_pruzi/iskušitel/spusť_vše.py</Source>
     <Source>_šablona_testuji.py</Source>
-    <Source>zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
     <Source>testuji.py</Source>
     <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
     <Source>zora_na_pruzi/pisar/__init__.py</Source>
@@ -48,7 +47,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spusť_vše.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/pomůcky/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>

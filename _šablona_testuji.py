@@ -4,7 +4,7 @@
 
 import py.test
 
-from zora_na_pruzi.pisar import styl as s
+from zora_na_pruzi.vidimir import F
 
 def test_0001_připojení_databáze ():
     '''
@@ -13,7 +13,7 @@ def test_0001_připojení_databáze ():
     x = 45
         
     assert isinstance(x,  int)
-    print('v pořádku' | s.INFO_OK)
+    print('v pořádku' | F.TEST.OK)
     
     with py.test.raises(AttributeError):
         x.a

@@ -1,1 +1,2 @@
-from .pohled import pohled
+from .Formátuji import Formátuji
+F = Formátuji
