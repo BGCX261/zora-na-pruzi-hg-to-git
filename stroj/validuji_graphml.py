@@ -15,32 +15,26 @@ def validuji(soubor,  schéma = None):
     schéma = schéma or 'rng'
     
     if schéma in ('rng',  'relaxng'):
-        from zora_na_pruzi.strojmir.xml.schémata import Schéma_rng as Schéma
+        from zora_na_pruzi.strojmir.xml.schémata import Relax_NG as modul_schématu
     elif schéma in ('rnc',  'relaxng compile'):
-        from zora_na_pruzi.strojmir.xml.schémata import Schéma_rnc as Schéma
+        from zora_na_pruzi.strojmir.xml.schémata import Relax_NG_c as modul_schématu
     elif schéma in ('xsd',  'xml schema'):
-        from zora_na_pruzi.strojmir.xml.schémata import Schéma_xsd as Schéma
+        from zora_na_pruzi.strojmir.xml.schémata import XMLSchema as modul_schématu
     elif schéma in ('dtd', ):
-        from zora_na_pruzi.strojmir.xml.schémata import Schéma_dtd as Schéma
+        from zora_na_pruzi.strojmir.xml.schémata import DTD as modul_schématu
     else:
         raise TypeError('Neznám schéma {}'.format(schéma))
         
-    print('Validuji {} pomocí {}'.format(args.zdrojový_xml | F.SOUBOR,  Schéma.__name__) | F.INFO)
-    
-#    if schéma is None:
-##        from nástroje.obarvím_výpis import obarvi_upozornění_print
-##        obarvi_upozornění_print('použiju výchozí schéma {}'.format(SCHÉMA),  end = None)
-#        schéma = SCHÉMA
+    print('Validuji {} pomocí {}'.format(args.zdrojový_xml | F.SOUBOR,  modul_schématu.__name__) | F.INFO)
 
-    schéma = Schéma()
-    validátor = schéma.graphml
+    validátor = modul_schématu.Validátor('graphml')
     
     validní = validátor(soubor)
     if validní:
-        print('\ttje validní' | F.INFO)
+        print('\tje validní' | F.TEST.OK)
     else:
-        print('\tNENÍ VALIDNÍ' | F.CHYBA)
-        validátor(soubor,  program = True)
+        print('\tNENÍ VALIDNÍ' | F.TEST.CHYBA)
+        validátor(soubor,   program = modul_schématu.program)
 
 
 if __name__ == '__main__':

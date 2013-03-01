@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-02, 00:14:57 -->
+<!-- Saved: 2013-03-02, 00:31:39 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -120,6 +120,8 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/__ELEMENT.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__ELEMENT.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
