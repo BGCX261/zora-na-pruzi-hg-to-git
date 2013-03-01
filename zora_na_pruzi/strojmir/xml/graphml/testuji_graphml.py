@@ -5,6 +5,8 @@
 import py.test
 import os
 
+from zora_na_pruzi.vidimir import F
+
 def test_0001_načtu_graphml_soubor ():
     '''
     testuji
@@ -19,14 +21,41 @@ def test_0001_načtu_graphml_soubor ():
     with py.test.raises(IOError):
         načtu_graf('nejestvující_soubor')
     
-    print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru))
+    print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru | F.SOUBOR) | F.TEST.START)
     
     tree = načtu_graf(cesta_k_graphml_souboru)
     assert isinstance(tree,  lxml.etree._ElementTree)
     
     root = tree.getroot()
     
-    assert isinstance(root,  int)    
+    assert isinstance(root,  lxml.etree.ElementBase) 
+    
+    uzly = list(root.uzly)
+    assert len(uzly) == 14
+    
+    vazby = list(root.vazby)
+    assert len(vazby) == 12
+    
+    uzel = uzly[0]
+    
+    data = uzel.data
+    assert len(data) == 1
+    
+    údaj = data[0]
+    
+    assert údaj.jméno == 'jméno'
+    assert údaj.datový_typ == 'string'
+    assert údaj.default is None
+    
+    tree2 = načtu_graf('/home/golf/vývoj/zora-na-pruzi/stroj/grafy/zora_na_pruzi.graphml')
+    root2 = tree2.getroot()
+    uzly = list(root2.uzly)
+    uzel = uzly[0]
+    print(uzel.jméno)
+    data = uzel.data
+    
+    údaj = data[0]
+    print(údaj.jméno)
     
     
 #    with py.test.raises(AttributeError):

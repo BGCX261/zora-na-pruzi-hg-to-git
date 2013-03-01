@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-01, 13:02:37 -->
+<!-- Saved: 2013-03-01, 19:13:33 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -130,6 +130,7 @@
     <Other>stroj/data/nested.graphml</Other>
     <Other>stroj/grafy</Other>
     <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml</Other>
+    <Other>.temp/styl.css</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

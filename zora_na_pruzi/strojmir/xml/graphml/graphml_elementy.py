@@ -69,15 +69,25 @@ class graphml(__ELEMENT):
     @property
     def uzly(self):
         for uzel in self.getroottree().findall('//{}'.format(NS_GRAPHML.node)):
-            yield uzel.attrib['id']
+            yield uzel
             
     @property
     def vazby(self):
-        for uzel in self.getroottree().findall('//{}'.format(NS_GRAPHML.edge)):
-            yield uzel.attrib['id']
+        for vazba in self.getroottree().findall('//{}'.format(NS_GRAPHML.edge)):
+            yield vazba
     
 class key(__ELEMENT):
     __default = None
+    
+    
+    @property
+    def jméno(self):
+        return self.attrib['attr.name']
+        
+    @property
+    def datový_typ(self):
+        return self.attrib['attr.type']
+    
     @property
     def default(self):
         if self.__default is None:
@@ -85,18 +95,151 @@ class key(__ELEMENT):
             if default is not None:
                 self.__default = default.text
         return self.__default
-    
-class graph(__ELEMENT):
+ 
+
+#########################
+
+#class Seznam_klíčů(dict):
+#    
+#    def __init__(self,  for_element,  xml):
+#        if not for_element in ('graph',  'node',  'edge'):
+#            raise TypeError('Seznam klíčů může být pouze pro graph, edge, nebo node.')
+#        
+#        self.__for_element = for_element
+#        self.__xml = xml
+#        self.__klíče = None
+#       
+#    def __getitem__(self,  klíč):
+#
+#        def najdi_definici(klíč):
+#            definice_klíče = self.__xml.find(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'id',  hodnota = klíč))
+#            
+#            if definice_klíče is None:
+#                raise KeyError('Klíč <key id = "{}" ... > nejestvuje.'.format(klíč))
+#            for_element = definice_klíče.attrib.get('for')
+#            if for_element != self.__for_element:
+#                raise TypeError('Klíč pro <key id = "{id}" for = "{for_element}" ... > není určen elementu "{má_být}" ale elementu "{for_element}"'.format(id = klíč,  má_být = self.__for_element,  for_element = for_element))
+#        
+#            return definice_klíče
+#            
+#        return self.setdefault(klíč,  najdi_definici(klíč))
+#      
+##    def __missing__(self,  klíč):
+##        print('MISSING',  klíč)
+#        
+#    def get(self,  klíč,  default  = None):
+#        try:
+#            return self.__getitem__(klíč)
+#        except KeyError:
+#            return default
+#        
+#    def items(self):
+#        for klíč in self.keys():
+#            yield (klíč,  self[klíč])
+#        
+#    def __iter__(self):
+#        if self.__klíče is None:
+#            klíče = []
+#            print('AAA ',  NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element))
+#            print(self.__for_element)
+#            for definice in self.__xml.findall(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element)):
+#                print('KEZ ',  definice.attrib['id'],  definice.attrib['for'])
+#                klíče.append(definice.attrib['id'])
+#            self.__klíče = klíče
+#        return iter(self.__klíče)
+#       
+##    funkce keys() dělá totéž co __iter__
+#    keys = __iter__
+
+###################
+
+#class DATA(object):
+#    
+#    def __init__(self,  for_element):
+#        self.__for_element = for_element
+#        self.__klíče = None
+#    
+#    def __get__(self,  instance,  owner):
+#        data = instance.findall(NS_GRAPHML.data)
+#        if self.__klíče is None:
+#            self.__klíče = Seznam_klíčů(for_element = self.__for_element,  xml = instance.getroottree())
+#
+##        for klíč,  hodnota in self.__klíče.items():
+##            print(klíč, ' -> ',  hodnota)
+#            
+#        for údaj in data:
+#            print('JMÉNO ÚDAJE',  údaj.jméno)
+#            print('DATOVÝ TYP ÚDAJE',  údaj.datový_typ)
+#        return data
+ 
+class __PRVEK_GRAFU(__ELEMENT):
+    @property
+    def jméno(self):
+        return self.attrib['id']
+
+    @property
+    def data(self):
+        return self.findall(NS_GRAPHML.data)
+
+class graph(__PRVEK_GRAFU):
     pass
     
-class node(__ELEMENT):
+class node(__PRVEK_GRAFU):
     pass
     
-class edge(__ELEMENT):
+class edge(__PRVEK_GRAFU):
     pass
     
 #class default(__ELEMENT):
 #    pass
 
-#class data(__ELEMENT):
-#    pass
+
+class KLÍČE(dict):
+    __xml_id = None
+    def __get__(self,  instance,  owner):
+        id_klíče = instance.attrib['key']
+        
+        def najdi_definici(id_klíče):
+            xml = instance.getroottree()
+#            @TODO enom esli se mi tu nebuddu m9chat ruyn0 grafz
+            print('SE HEN')
+            hash = str(xml.getroot())
+            print(hash)
+            if self.__xml_id is None:
+                self.__xml_id = hash
+            else:
+                if self.__xml_id != hash:
+                    print(self.__xml_id,  hash)
+                    raise RuntimeError('Inu tož míchajú sa grafy různé')
+                
+            definice_klíče = xml.find(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'id',  hodnota = id_klíče))
+            
+            if definice_klíče is None:
+                raise KeyError('Klíč <key id = "{}" ... > nejestvuje.'.format(id_klíče))
+            
+            for_element_klíče = definice_klíče.attrib.get('for')
+            for_element_údaje = instance.getparent().tag
+            if  not for_element_údaje.endswith(for_element_klíče):
+                raise TypeError('Klíč pro <key id = "{id}" for = "{for_element}" ... > není určen elementu "{má_být}" ale elementu "{for_element}"'.format(id = id_klíče,  má_být = for_element_údaje,  for_element = for_element_klíče))
+        
+            return definice_klíče
+            
+        return  self.setdefault(id_klíče,  najdi_definici(id_klíče))
+        
+        
+
+class data(__ELEMENT):
+    
+    __klíč = KLÍČE()
+    
+    @property
+    def jméno(self):
+        return self.__klíč.jméno
+        
+    @property
+    def datový_typ(self):
+        return self.__klíč.datový_typ
+    
+    @property
+    def default(self):
+        return self.__klíč.default
