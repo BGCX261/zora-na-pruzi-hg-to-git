@@ -13,7 +13,7 @@ def vytvořím_networkx_graf():
     graf = DiGraph()
     graf.add_node(1,  time='5pm')
     graf.add_node(2)
-    graf.add_edge(1,2,  weught=25)
+    graf.add_edge(1,2,  weight=25)
     
     write_graphml(graf,  './data/networkx.graphml')
  

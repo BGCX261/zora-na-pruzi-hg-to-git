@@ -15,6 +15,15 @@ class graphml(__ELEMENT):
     __klíče = None
         
     @property
+    def grafy(self):
+        for graf in self.getroottree().findall('//{}'.format(NS_GRAPHML.graph)):
+            yield graf
+            
+    @property
+    def graf(self):
+        return self.find(NS_GRAPHML.graph)
+        
+    @property
     def uzly(self):
         for uzel in self.getroottree().findall('//{}'.format(NS_GRAPHML.node)):
             yield uzel
@@ -63,10 +72,23 @@ class __PRVEK_GRAFU(__ELEMENT):
         return self.findall(NS_GRAPHML.data)
 
 class graph(__PRVEK_GRAFU):
-    pass
+    @property
+    def uzly(self):
+        for uzel in self.findall(NS_GRAPHML.node):
+            yield uzel
+            
+    @property
+    def vazby(self):
+        for vazba in self.findall(NS_GRAPHML.edge):
+            yield vazba
     
 class node(__PRVEK_GRAFU):
-    pass
+    @property
+    def graf(self):
+        '''
+        vrátí vložený graf, jestvuje-li
+        '''
+        return self.find(NS_GRAPHML.graph)
     
 class edge(__PRVEK_GRAFU):
     pass

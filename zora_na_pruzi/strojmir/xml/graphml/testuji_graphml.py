@@ -5,10 +5,21 @@
 import py.test
 import os
 
-from . import načtu_graf
-import lxml.etree
-    
 from zora_na_pruzi.vidimir import F
+
+VZOROVÝ_GRAF = os.path.join(os.path.dirname(__file__),  './testuji_vzorový_graf.graphml')
+
+#za účelem kontroly zda jsou objekty potomky správných instancí
+from . import graphml_elementy
+import lxml.etree
+
+def parsuji_graf(soubor = VZOROVÝ_GRAF):
+    from . import načtu_graf
+#    import lxml.etree
+    
+    tree = načtu_graf(soubor)
+    
+    return tree,  tree.getroot()
 
 def test_0001_načtu_graphml_soubor ():
     '''
@@ -16,18 +27,11 @@ def test_0001_načtu_graphml_soubor ():
     '''
     
     with py.test.raises(IOError):
-        načtu_graf('nejestvující_soubor')
-        
-    graphml_soubor = './testuji_vzorový_graf.graphml'
-    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
+        parsuji_graf('nejestvující_soubor')
     
-    print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru | F.SOUBOR) | F.TEST.START)
+    tree,  root = parsuji_graf()
     
-    tree = načtu_graf(cesta_k_graphml_souboru)
     assert isinstance(tree,  lxml.etree._ElementTree)
-    
-    root = tree.getroot()
-    
     assert isinstance(root,  lxml.etree.ElementBase) 
     
     uzly = list(root.uzly)
@@ -53,25 +57,17 @@ def test_0001_načtu_graphml_soubor ():
 #    druhý graf 
     graphml_soubor = './testuji_vzorový_graf_2.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
-    tree2 = načtu_graf(cesta_k_graphml_souboru)
-    root2 = tree2.getroot()
+    tree2,  root2 = parsuji_graf(cesta_k_graphml_souboru)
     uzly = list(root2.uzly)
     uzel = uzly[0]
-    print(uzel.jméno)
     data = uzel.data
     
     údaj = data[0]
-    print(údaj.jméno)
     assert údaj.jméno == 'jiné jméno' 
     
 def test_0002_klíče ():
         
-    graphml_soubor = './testuji_vzorový_graf.graphml'
-    cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
-    
-    tree = načtu_graf(cesta_k_graphml_souboru)
-    
-    root = tree.getroot()
+    tree,  root = parsuji_graf()
     
     klíče = root.klíče
     from .seznam_klíčů import Seznam_klíčů
@@ -80,9 +76,26 @@ def test_0002_klíče ():
     with py.test.raises(KeyError):
         klíče['nejestvující klíč']
         
-    from . import graphml_elementy
     assert isinstance(klíče['d1'],  graphml_elementy.key)
+
+def test_0003_grafy():
+    
+    tree,  root = parsuji_graf()
+    
+    graf = root.graf
+    assert isinstance(graf,  graphml_elementy.graph)
+    
+    uzly_grafu = list(graf.uzly)
+    uzly_graphml = list(root.uzly)
+    
+    assert len(uzly_grafu) == 7
+    součet_uzlů = 0
+    for graf in root.grafy:
+        uzly = list(graf.uzly)
+        součet_uzlů = součet_uzlů + len(uzly)
         
+    assert součet_uzlů == len(uzly_graphml)
+
 if __name__ == '__main__':
     from zora_na_pruzi.iskušitel  import spustím_test
     from zora_na_pruzi.iskušitel.zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
