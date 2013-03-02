@@ -6,31 +6,50 @@
 Hen je program, který ...
 '''
 
-import lxml.etree
+#import lxml.etree
 from .__ELEMENT import __ELEMENT
-from . import NS_GRAPHML
 
-class graphml(__ELEMENT):
+NS_GRAPHML = '{http://graphml.graphdrawing.org/xmlns}'
+
+class ATRIBUT(object):
+    '''
+    Tato třída umožní vytvořit vyhledávací parametr pomocí operátoru +
+    '''
+    
+    def __init__(self,  klíč,  hodnota = None):
+        if hodnota is None:
+            self.__zápis = '[@{}]'.format(klíč)
+        else:
+            self.__zápis = '[@{}="{}"]'.format(klíč,  hodnota)
+            
+    def __radd__(self,  tag):
+        return '{}{}'.format(tag,  self.__zápis)
+
+    def __str__(self):
+        return self.__zápis
+
+class GRAPHML(__ELEMENT):
         
+    TAG = '{}graphml'.format(NS_GRAPHML)
     __klíče = None
         
     @property
     def grafy(self):
-        for graf in self.getroottree().findall('//{}'.format(NS_GRAPHML.graph)):
+        for graf in self.getroottree().findall('//{}'.format(GRAPH.TAG)):
             yield graf
             
     @property
     def graf(self):
-        return self.find(NS_GRAPHML.graph)
+        return self.find(GRAPH.TAG)
         
     @property
     def uzly(self):
-        for uzel in self.getroottree().findall('//{}'.format(NS_GRAPHML.node)):
+        for uzel in self.getroottree().findall('//{}'.format(NODE.TAG)):
             yield uzel
             
     @property
     def vazby(self):
-        for vazba in self.getroottree().findall('//{}'.format(NS_GRAPHML.edge)):
+        for vazba in self.getroottree().findall('//{}'.format(EDGE.TAG)):
             yield vazba
             
     @property
@@ -41,8 +60,9 @@ class graphml(__ELEMENT):
             
         return self.__klíče
     
-class key(__ELEMENT):
+class KEY(__ELEMENT):
     
+    TAG = '{}key'.format(NS_GRAPHML)
     __default = None
     
     @property
@@ -56,7 +76,7 @@ class key(__ELEMENT):
     @property
     def default(self):
         if self.__default is None:
-            default = self.find(NS_GRAPHML.default)
+            default = self.find(DEFAULT.TAG)
             if default is not None:
                 self.__default = default.text
         return self.__default
@@ -69,37 +89,50 @@ class __PRVEK_GRAFU(__ELEMENT):
 
     @property
     def data(self):
-        return self.findall(NS_GRAPHML.data)
+        return self.findall(DATA.TAG)
 
-class graph(__PRVEK_GRAFU):
+class GRAPH(__PRVEK_GRAFU):
+    
+    TAG = '{}graph'.format(NS_GRAPHML)
+    
     @property
     def uzly(self):
-        for uzel in self.findall(NS_GRAPHML.node):
+        for uzel in self.findall(NODE.TAG):
             yield uzel
             
     @property
     def vazby(self):
-        for vazba in self.findall(NS_GRAPHML.edge):
+        for vazba in self.findall(EDGE.TAG):
             yield vazba
     
-class node(__PRVEK_GRAFU):
+class NODE(__PRVEK_GRAFU):
+    
+    TAG = '{}node'.format(NS_GRAPHML)
+    
     @property
     def graf(self):
         '''
         vrátí vložený graf, jestvuje-li
         '''
-        return self.find(NS_GRAPHML.graph)
+        return self.find(GRAPH.TAG)
     
-class edge(__PRVEK_GRAFU):
+class EDGE(__PRVEK_GRAFU):
+    
+    TAG = '{}edge'.format(NS_GRAPHML)
+    
     pass
     
-class default(__ELEMENT):
+class DEFAULT(__ELEMENT):
+    
+    TAG = '{}default'.format(NS_GRAPHML)
+    
     pass
 
 
-class data(__ELEMENT):
+class DATA(__ELEMENT):
     
-#    __klíč = KLÍČE()
+    TAG = '{}data'.format(NS_GRAPHML)
+
     __klíč = None
     
     @property
@@ -119,6 +152,9 @@ class data(__ELEMENT):
         if self.__klíč is None:
             klíče = self.getroottree().getroot().klíče
             id_klíče = self.attrib['key']
-            self.__klíč = klíče[id_klíče]
+            klíč = klíče[id_klíče]
+            if not self.getparent().tag.endswith(klíč.attrib['for']):
+                raise TypeError('Klíč <key id={0} for={1}..>je určen pro {1} a nikolivěk pro {2}.'.format(id_klíče,  klíč.attrib['for'],  self.tag))
+            self.__klíč = klíč
             
         return self.__klíč

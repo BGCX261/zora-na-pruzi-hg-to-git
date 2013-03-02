@@ -76,14 +76,14 @@ def test_0002_klíče ():
     with py.test.raises(KeyError):
         klíče['nejestvující klíč']
         
-    assert isinstance(klíče['d1'],  graphml_elementy.key)
+    assert isinstance(klíče['d1'],  graphml_elementy.KEY)
 
 def test_0003_grafy():
     
     tree,  root = parsuji_graf()
     
     graf = root.graf
-    assert isinstance(graf,  graphml_elementy.graph)
+    assert isinstance(graf,  graphml_elementy.GRAPH)
     
     uzly_grafu = list(graf.uzly)
     uzly_graphml = list(root.uzly)
@@ -95,11 +95,17 @@ def test_0003_grafy():
         součet_uzlů = součet_uzlů + len(uzly)
         
     assert součet_uzlů == len(uzly_graphml)
+    
+def test_0004_grafy():
+    
+    from .graphml_elementy import ATRIBUT
+    
+    id = ATRIBUT('id')
+    
+    assert str(id) == '[@id]'
+    
+    assert 'node' + id == 'node[@id]'
+    assert 'node' + ATRIBUT('id',  'moje_id') == 'node[@id="moje_id"]'
+    assert 'node' + ATRIBUT('id',  'moje_id') + ATRIBUT('jméno',  'uzlík') == 'node[@id="moje_id"][@jméno="uzlík"]'
 
-if __name__ == '__main__':
-    from zora_na_pruzi.iskušitel  import spustím_test
-    from zora_na_pruzi.iskušitel.zobrazím_v_prohlížeči import zobrazím_v_prohlížeči
 
-    spustím_test(__file__)
-        
-    zobrazím_v_prohlížeči()

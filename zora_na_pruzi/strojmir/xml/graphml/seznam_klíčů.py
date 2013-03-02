@@ -6,7 +6,7 @@
 Hen je program, který ...
 '''
 
-from . import NS_GRAPHML
+from .graphml_elementy import KEY,  ATRIBUT
 
 class Seznam_klíčů(dict):
     
@@ -23,7 +23,7 @@ class Seznam_klíčů(dict):
 
 #        def najdi_definici(klíč):
         if klíč not in self:
-            element_klíče = self.__xml.find(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'id',  hodnota = klíč))
+            element_klíče = self.__xml.find(KEY.TAG + ATRIBUT('id',  klíč))
             
             if element_klíče is None:
                 raise KeyError('Klíč <key id = "{}" ... > nejestvuje.'.format(klíč))
@@ -50,10 +50,8 @@ class Seznam_klíčů(dict):
     def __iter__(self):
         if self.__klíče is None:
             klíče = []
-            print('AAA ',  NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element))
-            print(self.__for_element)
-            for definice in self.__xml.findall(NS_GRAPHML(NS_GRAPHML.key,  klíč = 'for',  hodnota = self.__for_element)):
-                print('KEZ ',  definice.attrib['id'],  definice.attrib['for'])
+          
+            for definice in self.__xml.findall(KEY.TAG + ATRIBUT('for',  self.__for_element)):
                 klíče.append(definice.attrib['id'])
             self.__klíče = klíče
         return iter(self.__klíče)

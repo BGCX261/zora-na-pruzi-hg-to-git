@@ -84,51 +84,6 @@ def barevná_konzole():
     modře = Obarvi(MODRÁ)
     print('soubor {} je tu'.format(__file__ | F.SOUBOR) | F.INFO)
     print('soubor {} je tu'.format(__file__ | F.SOUBOR) | modře)
-
-def testování():
-    from zora_na_pruzi.iskušitel import najdu_testovací_soubory
-    from zora_na_pruzi.vidimir import F
-    
-    adresář = './zora_na_pruzi'
-    print('vše v adresáři {}'.format(adresář | F.SOUBOR) | F.INFO)
-    for testovací_soubor in najdu_testovací_soubory(adresář):
-        print(testovací_soubor)
-        
-    soubor = './zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py'
-    print('přímo testovací soubor {}'.format(soubor | F.SOUBOR) | F.INFO)
-    for testovací_soubor in najdu_testovací_soubory(soubor):
-        print(testovací_soubor)
-     
-    soubor = 'nejestvující.soubor'
-    print('nejestvující soubor {}'.format(soubor | F.SOUBOR) | F.INFO)
-    try:
-        for testovací_soubor in najdu_testovací_soubory(soubor):
-            print(testovací_soubor)
-    except IOError as e :
-        print('vyjímka {}'.format(e.__class__.__name__ | F.OBJEKT) | F.CHYBA)
-        print(e)
-        
-    soubor = __file__
-    print('soubor {}, koj neodpovídá masce'.format(soubor | F.SOUBOR) | F.INFO)
-    try:
-        for testovací_soubor in najdu_testovací_soubory(soubor):
-            print(testovací_soubor)
-    except IOError as e :
-        print('vyjímka {}'.format(e.__class__.__name__ | F.OBJEKT) | F.CHYBA)
-        print(e)
-        
-    adresář = './prázdný_adresář'
-    if os.path.isdir(adresář):
-        raise IOError('Tož tento adresář "{}" chci použít pro testování, ale on už jestvuje'.format(adresář))
-    os.mkdir(adresář)
-    print('adresář {}, koji nemá žádných testů'.format(adresář | F.SOUBOR) | F.INFO)
-    try:
-        for testovací_soubor in najdu_testovací_soubory(adresář):
-            print(testovací_soubor)
-    except IOError as e :
-        print('vyjímka {}'.format(e.__class__.__name__ | F.OBJEKT) | F.CHYBA)
-        print(e)
-    os.rmdir(adresář)
     
 
 def   validátor():
@@ -261,7 +216,7 @@ def graf():
     from zora_na_pruzi.strojmir.xml.graphml import načtu_graf
     import lxml.etree
     
-    graphml_soubor = './testuji_vzorový_graf.graphml'
+    graphml_soubor = './zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
     
    
@@ -270,7 +225,7 @@ def graf():
     
 #    graf = Graf(cesta_k_graphml_souboru)
 #    tree = graf.xml
-    tree = načtu_graf(graphml_soubor)
+    tree = načtu_graf(cesta_k_graphml_souboru)
     assert isinstance(tree,  lxml.etree._ElementTree)
     
     root = tree.getroot()
@@ -299,11 +254,12 @@ def graf():
     assert id(údaj.klíč) == id(root.klíče['d2'])
     
 #    druhý graf 
-    graphml_soubor = './testuji_vzorový_graf_2.graphml'
+    graphml_soubor = './zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf_2.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
+    print(cesta_k_graphml_souboru)
 #    graf2 = Graf(cesta_k_graphml_souboru)
 #    tree2 = graf2.xml
-    tree2 = načtu_graf(graphml_soubor)
+    tree2 = načtu_graf(cesta_k_graphml_souboru)
     root2 = tree2.getroot()
     uzly = list(root2.uzly)
     uzel = uzly[0]
