@@ -27,14 +27,14 @@ def validuji(soubor,  schéma = None):
         
     print('Validuji {} pomocí {}'.format(args.zdrojový_xml | F.SOUBOR,  modul_schématu.__name__) | F.INFO)
 
-    validátor = modul_schématu.Validátor('graphml')
+    validátor_schématu = modul_schématu.Schéma('graphml')
     
-    validní = validátor(soubor)
+    validní = validátor_schématu(soubor)
     if validní:
         print('\tje validní' | F.TEST.OK)
     else:
         print('\tNENÍ VALIDNÍ' | F.TEST.CHYBA)
-        validátor(soubor,   program = modul_schématu.program)
+        validátor_schématu(soubor,   program = modul_schématu.program)
 
 
 if __name__ == '__main__':

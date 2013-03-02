@@ -1,8 +1,12 @@
 import lxml.etree
 
-from . import davaj_validátor
+from . import __Schéma
 
-Validátor = davaj_validátor(lxml_validátor = lxml.etree.RelaxNG,  přípona_schématu = 'rng')
+class Schéma(__Schéma):
+    
+    __třída_validátoru = lxml.etree.RelaxNG
+    __přípona_schématu = 'rng'
+
 
 program = 'jing {schéma} {soubor}'
 

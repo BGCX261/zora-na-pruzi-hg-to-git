@@ -1,8 +1,11 @@
 import lxml.etree 
 
-from . import davaj_validátor
+from . import __Schéma
 
-Validátor = davaj_validátor(lxml_validátor = lxml.etree.XMLSchema,  přípona_schématu = 'xsd')
+class Schéma(__Schéma):
+    
+    __třída_validátoru = lxml.etree.XMLSchema
+    __přípona_schématu = 'xsd'
 
 program = 'xmllint --noout --schema {schéma} {soubor}'
 

@@ -36,13 +36,16 @@ def spustím_příkaz(*příkaz,  shell = True):
     with subprocess.Popen(příkaz, stdout = subprocess.PIPE,  stderr = subprocess.PIPE,  shell=shell) as proc:
 #        log.write(proc.stdout.read())
         if not shell:
+            jméno_příkazu = příkaz[0]
             příkaz = ' '.join(příkaz)
+        else:
+            jméno_příkazu = příkaz.split()[0]
         print('spouštím: {}'.format(příkaz | F.PŘÍKAZ) | F.INFO )
         print(proc.stdout.read().decode('UTF-8') | F.VÝPIS_PROGRAMU)
         print(proc.stderr.read().decode('UTF-8') | F.CHYBA)
         
     
         
-        print('ukončen: {}'.format(příkaz | F.PŘÍKAZ) | F.INFO )
+        print('ukončen: {}'.format(jméno_příkazu | F.PŘÍKAZ) | F.INFO )
     
     

@@ -14,34 +14,41 @@ def test_0001_schémata ():
     
     from zora_na_pruzi.strojmir.xml.schémata import Relax_NG,  Relax_NG_c,  XMLSchema,  DTD
     
-    from zora_na_pruzi.strojmir.xml.schémata import davaj_validátor
-    Validátor = davaj_validátor(lxml_validátor = None,  přípona_schématu = None)
+    from zora_na_pruzi.strojmir.xml.schémata import __Schéma
     
-    for schéma in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
+    for modul_schématu in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
         
-        print('Testuji modul validátoru {}'.format(schéma.__name__) | F.TEST.START)
+#        print('Testuji modul schématu {}'.format(modul_schématu.__name__) | F.TEST.START)
         
-        validátor = schéma.Validátor('graphml')
+        schéma = modul_schématu.Schéma('graphml')
         
-        assert callable(validátor)
-        print('validátor is callable' | F.TEST.OK)
+        assert callable(schéma)
+#        print('schéma is callable' | F.TEST.OK)
         
-        assert validátor.__class__.__name__ == Validátor.__name__
-        print('je potomkem třídy Validátor' | F.TEST.OK)
+        assert isinstance(schéma,  __Schéma)
+        assert isinstance(schéma,  modul_schématu.Schéma)
+#        print('je potomkem třídy Schéma' | F.TEST.OK)
         
-        soubor_schématu = validátor.schéma
-        print('jestvuje schéma {}'.format(soubor_schématu | F.SOUBOR) | F.TEST.OK)
+        soubor_schématu = schéma.soubor_schématu
+#        print('jestvuje schéma {}'.format(soubor_schématu | F.SOUBOR) | F.TEST.OK)
         
-        print('VALIDUJI' | F.TEST.START)
+        print('VALIDUJI {}'.format(soubor_schématu))
         
-        if validátor('./graf.graphml'):
-            print('VALIDNÍ' | F.TEST.OK)
+        if schéma('./graf.graphml'):
+            print('\t...VALIDNÍ')
         else:
-            print('NEVALIDNÍ' | F.TEST.CHYBA)
+            print('\t...NEVALIDNÍ' | F.CHYBA)
 
-        print('Program {}'.format(schéma.program | F.PŘÍKAZ)  | F.TEST.START)
+#        print('Program {}'.format(modul_schématu.program | F.PŘÍKAZ)  | F.TEST.START)
 
-        validátor(soubor = './graf.graphml',  program = schéma.program)
+        schéma(soubor = './graf.graphml',  program = modul_schématu.program)
+        
+        nejestvující_schéma = modul_schématu.Schéma('nejestvující_schéma')
+        with py.test.raises(AttributeError):
+            nejestvující_schéma.soubor_schématu
+          
+        with py.test.raises(AttributeError):  
+            nejestvující_schéma.validátor
         
     
         
