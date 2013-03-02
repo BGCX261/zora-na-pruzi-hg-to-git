@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-02, 00:31:39 -->
+<!-- Saved: 2013-03-02, 21:31:46 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -24,10 +24,6 @@
     <Source>zora_na_pruzi/strojmir/xml/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
-    <Source>zora_na_pruzi/iskušitel/__init__.py</Source>
-    <Source>zora_na_pruzi/iskušitel/spusť_vše.py</Source>
-    <Source>_šablona_testuji.py</Source>
-    <Source>testuji.py</Source>
     <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
     <Source>stroj/vytvořím_graf.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
@@ -42,8 +38,6 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spusť_vše.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
@@ -60,17 +54,9 @@
     <Source>stroj/data/nested.graphml</Source>
     <Source>stroj/data/graph_tool.graphml</Source>
     <Source>stroj/data/networkx.graphml</Source>
-    <Source>zora_na_pruzi/iskušitel/najdu_testovací_soubory.py</Source>
     <Source>zora_na_pruzi/system/__init__.py</Source>
     <Source>zora_na_pruzi/system/spustím_příkaz.py</Source>
     <Source>zora_na_pruzi/system/html_prohlížeč.py</Source>
-    <Source>zora_na_pruzi/iskušitel/html_výstup.py</Source>
-    <Source>zora_na_pruzi/iskušitel/spustím_test.py</Source>
-    <Source>zora_na_pruzi/iskušitel/zobrazím_v_prohlížeči.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/html_výstup.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/najdu_testovací_soubory.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/zobrazím_v_prohlížeči.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/iskušitel/spustím_test.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/html_prohlížeč.py</Source>
@@ -122,6 +108,12 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/__ELEMENT.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__ELEMENT.py</Source>
+    <Source>slepé_cesty_vývoje/iskušitel/__init__.py</Source>
+    <Source>slepé_cesty_vývoje/iskušitel/spustím_test.py</Source>
+    <Source>slepé_cesty_vývoje/iskušitel/zobrazím_v_prohlížeči.py</Source>
+    <Source>slepé_cesty_vývoje/iskušitel/html_výstup.py</Source>
+    <Source>slepé_cesty_vývoje/iskušitel/najdu_testovací_soubory.py</Source>
+    <Source>slepé_cesty_vývoje/iskušitel/spusť_vše.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
