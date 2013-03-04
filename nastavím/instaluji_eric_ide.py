@@ -93,11 +93,13 @@ def nainstaluji(verze):
         print('spouštím příkaz {}'.format(příkaz))
         os.system(příkaz)
     
+    os.chdir(hen)
+    
     import shutil
     shutil.rmtree(GDE_ULOŽÍM_SOUBORY)
     
     
-    os.chdir(hen)
+    
     
     
 
