@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-04, 20:29:47 -->
+<!-- Saved: 2013-03-05, 11:15:48 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -120,10 +120,7 @@
     <Source>gui.py</Source>
     <Source>ui/Ui_Main.py</Source>
     <Source>g.py</Source>
-    <Source>web/__init__.py</Source>
-    <Source>web/bottle.py</Source>
-    <Source>web/index.py</Source>
-    <Source>web/moje_bottle.py</Source>
+    <Source>hg_ignore.py</Source>
   </Sources>
   <Forms>
     <Form>ui/Main.ui</Form>
@@ -139,6 +136,7 @@
     <Other>stroj/grafy</Other>
     <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml</Other>
     <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf_2.graphml</Other>
+    <Other>cizí_zdoje/rozbalím_sage.sh</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>
