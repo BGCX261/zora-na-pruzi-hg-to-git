@@ -58,6 +58,4 @@ class Formátuji(dict):
 
         return formát
         
-        
-        
 Formátuji = Formátuji()

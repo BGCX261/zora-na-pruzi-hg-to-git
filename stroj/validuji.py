@@ -12,6 +12,12 @@ def validuji(soubor,  schéma = None):
     '''
     spouštím funkci main()
     '''
+    
+    if schéma is not None:
+        definice,  schéma = schéma.split('.')
+    else:
+        raise ValueError('Zadej čím validovat')
+    
     schéma = schéma or 'rng'
     
     if schéma in ('rng',  'relaxng'):
@@ -27,7 +33,7 @@ def validuji(soubor,  schéma = None):
         
     print('Validuji {} pomocí {}'.format(args.zdrojový_xml | F.SOUBOR,  modul_schématu.__name__) | F.INFO)
 
-    validátor_schématu = modul_schématu.Schéma('graphml')
+    validátor_schématu = modul_schématu.Schéma(definice)
     
     validní = validátor_schématu(soubor)
     if validní:
@@ -44,7 +50,7 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('zdrojový_xml')
-    parser.add_argument('--schéma')
+    parser.add_argument('schéma')
     args = parser.parse_args()
     
     validuji(soubor = args.zdrojový_xml,  schéma = args.schéma)
