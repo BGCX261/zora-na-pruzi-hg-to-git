@@ -6,13 +6,12 @@
 Hen je třída, která ...
 '''
 #import lxml.etree
-from . import __ELEMENT_SVG
-
+from . import __ELEMENT_SVG,  NAMESPACE
 
 
 class SVG(__ELEMENT_SVG):
     
-    TAG = 'svg'
+    TAG = '{{{}}}svg'.format(NAMESPACE)
     
     __viewBox = [0,  0,  800,  600]
 

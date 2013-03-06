@@ -245,17 +245,28 @@ def graf():
   
 
 def svg_graf():
-    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg
+    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
    
     svg = nové_svg()
 #    svg = načtu_svg('testuji.svg')
     print(svg.tag)
-    print(svg)
+    
+#    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
     print(svg.__class__.__name__)
+    
+    print(svg)
+    svg.titulek = 'TITULEK'
+    print(svg)
+    svg.titulek = 'NOVÝ TITULEK'
+    svg.popisek = 'popisuji element'
+    print(svg)
+    svg.titulek = None
+    print(svg)
+    
     
     uložím_do_souboru = 'testuji.svg'
     
-    svg >> uložím_do_souboru
+#    svg >> uložím_do_souboru
     
 #    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #    zobrazím_html_stránku(uložím_do_souboru)

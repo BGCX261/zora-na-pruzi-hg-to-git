@@ -5,7 +5,7 @@
 import py.test
 import os
 
-from zora_na_pruzi.vidimir import F
+#from zora_na_pruzi.vidimir import F
 
 VZOROVÝ_GRAF = os.path.join(os.path.dirname(__file__),  './testuji_vzorový_graf.graphml')
 
@@ -21,7 +21,13 @@ def parsuji_graf(soubor = VZOROVÝ_GRAF):
     
     return tree,  tree.getroot()
 
-def test_0001_načtu_graphml_soubor ():
+def test_0001_namespace ():
+    from .graphml_elementy import GRAPH,  NAMESPACE,  NODE
+    
+    assert GRAPH.TAG == '{{{}}}graph'.format(NAMESPACE)
+    assert NODE.TAG == '{{{}}}node'.format(NAMESPACE)
+
+def test_0002_načtu_graphml_soubor ():
     '''
     testuji
     '''
@@ -65,7 +71,7 @@ def test_0001_načtu_graphml_soubor ():
     údaj = data[0]
     assert údaj.jméno == 'jiné jméno' 
     
-def test_0002_klíče ():
+def test_0003_klíče ():
         
     tree,  root = parsuji_graf()
     
@@ -78,7 +84,7 @@ def test_0002_klíče ():
         
     assert isinstance(klíče['d1'],  graphml_elementy.KEY)
 
-def test_0003_grafy():
+def test_0004_grafy():
     
     tree,  root = parsuji_graf()
     
@@ -96,7 +102,7 @@ def test_0003_grafy():
         
     assert součet_uzlů == len(uzly_graphml)
     
-def test_0004_grafy():
+def test_0005_grafy():
     
     from .graphml_elementy import ATRIBUT
     

@@ -9,20 +9,23 @@ Hen je program, který ...
 #import lxml.etree
 from ..__ELEMENT import __ELEMENT
 
-#from ..ATRIBUT import ATRIBUT
+from ..PATH import ATRIBUT
 
 from ..davaj_parser import davaj_parser
 
 import sys
 
+NAMESPACE = 'http://graphml.graphdrawing.org/xmlns'
+
 class __ELEMENT_GRAFU(__ELEMENT):
-    NAMESPACE = 'http://graphml.graphdrawing.org/xmlns'
+    
     PARSER = davaj_parser(v_modulu = sys.modules[__name__])
     
 
 class GRAPHML(__ELEMENT_GRAFU):
        
-    TAG = 'graphml'
+    TAG = '{{{}}}graphml'.format(NAMESPACE)
+    
     __klíče = None
         
     @property
@@ -54,7 +57,7 @@ class GRAPHML(__ELEMENT_GRAFU):
     
 class KEY(__ELEMENT_GRAFU):
     
-    TAG = 'key'
+    TAG = '{{{}}}key'.format(NAMESPACE)
     __default = None
     
     @property
@@ -85,7 +88,7 @@ class __PRVEK_GRAFU(__ELEMENT_GRAFU):
 
 class GRAPH(__PRVEK_GRAFU):
     
-    TAG = 'graph'
+    TAG = '{{{}}}graph'.format(NAMESPACE)
     
     @property
     def uzly(self):
@@ -99,7 +102,7 @@ class GRAPH(__PRVEK_GRAFU):
     
 class NODE(__PRVEK_GRAFU):
     
-    TAG = 'node'
+    TAG = '{{{}}}node'.format(NAMESPACE)
     
     @property
     def graf(self):
@@ -110,20 +113,20 @@ class NODE(__PRVEK_GRAFU):
     
 class EDGE(__PRVEK_GRAFU):
     
-    TAG = 'edge'
+    TAG = '{{{}}}edge'.format(NAMESPACE)
     
     pass
     
 class DEFAULT(__ELEMENT_GRAFU):
     
-    TAG = 'default'
+    TAG = '{{{}}}default'.format(NAMESPACE)
     
     pass
 
 
 class DATA(__ELEMENT_GRAFU):
     
-    TAG = 'data'
+    TAG = '{{{}}}data'.format(NAMESPACE)
 
     __klíč = None
     

@@ -25,7 +25,7 @@ def načtu_modul(jméno_modulu,  jméno_balíčku,  adresář_modulu):
         modul = imp.load_module(celé_jméno_modulu,  file, pathname, description)
         return modul
     except ImportError as e:
-        raise ImportError('Chybí modul {} v adresáři {}: {}'.format(jméno_modulu,  adresář_modulu,  e))
+        raise ImportError('Chybí modul {} v adresáři {}'.format(jméno_modulu,  adresář_modulu),  e)
 
 def načtu_modul_podle_balíčku(jméno_modulu,  podle_balíčku):
     
