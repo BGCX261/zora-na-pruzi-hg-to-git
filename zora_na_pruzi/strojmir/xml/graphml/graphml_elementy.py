@@ -7,30 +7,22 @@ Hen je program, který ...
 '''
 
 #import lxml.etree
-from .__ELEMENT import __ELEMENT
+from ..__ELEMENT import __ELEMENT
 
-NS_GRAPHML = '{http://graphml.graphdrawing.org/xmlns}'
+#from ..ATRIBUT import ATRIBUT
 
-class ATRIBUT(object):
-    '''
-    Tato třída umožní vytvořit vyhledávací parametr pomocí operátoru +
-    '''
+from ..davaj_parser import davaj_parser
+
+import sys
+
+class __ELEMENT_GRAFU(__ELEMENT):
+    NAMESPACE = 'http://graphml.graphdrawing.org/xmlns'
+    PARSER = davaj_parser(v_modulu = sys.modules[__name__])
     
-    def __init__(self,  klíč,  hodnota = None):
-        if hodnota is None:
-            self.__zápis = '[@{}]'.format(klíč)
-        else:
-            self.__zápis = '[@{}="{}"]'.format(klíč,  hodnota)
-            
-    def __radd__(self,  tag):
-        return '{}{}'.format(tag,  self.__zápis)
 
-    def __str__(self):
-        return self.__zápis
-
-class GRAPHML(__ELEMENT):
-        
-    TAG = '{}graphml'.format(NS_GRAPHML)
+class GRAPHML(__ELEMENT_GRAFU):
+       
+    TAG = 'graphml'
     __klíče = None
         
     @property
@@ -60,9 +52,9 @@ class GRAPHML(__ELEMENT):
             
         return self.__klíče
     
-class KEY(__ELEMENT):
+class KEY(__ELEMENT_GRAFU):
     
-    TAG = '{}key'.format(NS_GRAPHML)
+    TAG = 'key'
     __default = None
     
     @property
@@ -82,7 +74,7 @@ class KEY(__ELEMENT):
         return self.__default
  
  
-class __PRVEK_GRAFU(__ELEMENT):
+class __PRVEK_GRAFU(__ELEMENT_GRAFU):
     @property
     def jméno(self):
         return self.attrib['id']
@@ -93,7 +85,7 @@ class __PRVEK_GRAFU(__ELEMENT):
 
 class GRAPH(__PRVEK_GRAFU):
     
-    TAG = '{}graph'.format(NS_GRAPHML)
+    TAG = 'graph'
     
     @property
     def uzly(self):
@@ -107,7 +99,7 @@ class GRAPH(__PRVEK_GRAFU):
     
 class NODE(__PRVEK_GRAFU):
     
-    TAG = '{}node'.format(NS_GRAPHML)
+    TAG = 'node'
     
     @property
     def graf(self):
@@ -118,20 +110,20 @@ class NODE(__PRVEK_GRAFU):
     
 class EDGE(__PRVEK_GRAFU):
     
-    TAG = '{}edge'.format(NS_GRAPHML)
+    TAG = 'edge'
     
     pass
     
-class DEFAULT(__ELEMENT):
+class DEFAULT(__ELEMENT_GRAFU):
     
-    TAG = '{}default'.format(NS_GRAPHML)
+    TAG = 'default'
     
     pass
 
 
-class DATA(__ELEMENT):
+class DATA(__ELEMENT_GRAFU):
     
-    TAG = '{}data'.format(NS_GRAPHML)
+    TAG = 'data'
 
     __klíč = None
     
