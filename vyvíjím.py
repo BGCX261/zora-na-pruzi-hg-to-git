@@ -247,16 +247,16 @@ def graf():
 def svg_graf():
     from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg
    
-#    svg = nové_svg()
-    svg = načtu_svg('testuji.svg')
+    svg = nové_svg()
+#    svg = načtu_svg('testuji.svg')
     print(svg.tag)
     print(svg)
     print(svg.__class__.__name__)
     
     uložím_do_souboru = 'testuji.svg'
     
-#    svg >> uložím_do_souboru
-#    
+    svg >> uložím_do_souboru
+    
 #    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #    zobrazím_html_stránku(uložím_do_souboru)
 
