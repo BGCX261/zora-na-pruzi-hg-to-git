@@ -8,6 +8,7 @@ Hen je program, který ...
 
 import lxml.etree
 
+
 class Vid(object):
     pass
 
@@ -32,7 +33,11 @@ class __ELEMENT(lxml.etree.ElementBase):
         
         print('uložím element <{0} ... >...</{0}> do souboru {1}'.format(self.tag,  soubor))
           
+        xml_deklarace = lxml.etree.PI('xml', "version='1.0' encoding='UTF-8'")
+        xml_deklarace= lxml.etree.tounicode(xml_deklarace,  pretty_print=True)
+          
         with open(soubor, 'w', encoding='utf-8') as zdrojový_soubor:
+            zdrojový_soubor.write(xml_deklarace)
             kód = str(self)
             zdrojový_soubor.write(kód)
             return kód
@@ -62,4 +67,3 @@ class __ELEMENT(lxml.etree.ElementBase):
             kód = self >> soubor
         self.vid = aktuální_vid
         return kód
-

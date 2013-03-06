@@ -84,7 +84,7 @@ def barevná_konzole():
     modře = Obarvi(MODRÁ)
     print('soubor {} je tu'.format(__file__ | F.SOUBOR) | F.INFO)
     print('soubor {} je tu'.format(__file__ | F.SOUBOR) | modře)
-    
+
 
 def   validátor():
     
@@ -217,6 +217,7 @@ def graf():
     import lxml.etree
     
     graphml_soubor = './stroj/data/skupiny.graphml'
+#    graphml_soubor = './stroj/data/networkx.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
     
    
@@ -227,7 +228,8 @@ def graf():
     root = tree.getroot()
     
 #    from zora_na_pruzi.strojmir.xml.graphml import graphml_elementy as gml
-    
+    print(root)
+    return
     def piš(element,  level = 0):
         tag = element.__class__.__name__
         if tag in ('GRAPHML', 'GRAPH',  'NODE',  'EDGE'):
@@ -241,6 +243,33 @@ def graf():
     
     piš(root)
   
+
+def svg_graf():
+    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg
+   
+    svg = nové_svg()
+#    svg = načtu_svg('testuji.svg')
+    print(svg.tag)
+    print(svg)
+    print(svg.__class__.__name__)
+    
+    uložím_do_souboru = 'testuji.svg'
+    
+    svg >> uložím_do_souboru
+    
+#    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
+#    zobrazím_html_stránku(uložím_do_souboru)
+
+def pygal():
+    import pygal                                                       # First import pygal
+    bar_chart = pygal.Bar()                                            # Then create a bar graph object
+    bar_chart.add('Fibonacci', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55])  # Add some values
+    
+    uložím_do_souboru = 'bar_chart.svg'
+    bar_chart.render_to_file(uložím_do_souboru)
+    
+    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
+    zobrazím_html_stránku(uložím_do_souboru)
 
 if __name__ == '__main__':
 
@@ -256,7 +285,9 @@ if __name__ == '__main__':
 #    validátor()
 
 
-    graf()
+#    graf()
+#    pygal()
+    svg_graf()
 
 #    zkúšám()
 

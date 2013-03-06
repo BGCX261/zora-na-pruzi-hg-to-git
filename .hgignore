@@ -22,4 +22,3 @@ glob:zora_na_pruzi/strojmir/xml/schémata/*.rnc.rng
 glob:build
 glob:.temp
 glob:nastavím/instalace
-cizí_zdroje
