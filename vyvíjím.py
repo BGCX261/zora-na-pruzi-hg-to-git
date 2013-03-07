@@ -211,7 +211,7 @@ def   zkúšám():
             for vlastnost in vlastnosti:
                 print(vlastnost)
     
-def graf():
+def načítám_graf():
     
     from zora_na_pruzi.strojmir.xml.graphml import načtu_graf
     import lxml.etree
@@ -229,7 +229,7 @@ def graf():
     
 #    from zora_na_pruzi.strojmir.xml.graphml import graphml_elementy as gml
     print(root)
-    return
+    return root
     def piš(element,  level = 0):
         tag = element.__class__.__name__
         if tag in ('GRAPHML', 'GRAPH',  'NODE',  'EDGE'):
@@ -250,7 +250,8 @@ def svg_graf():
     svg = nové_svg()
 #    svg = načtu_svg('testuji.svg')
     print(svg.tag)
-    
+    graf = graf()
+    print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
     print(svg.__class__.__name__)
     

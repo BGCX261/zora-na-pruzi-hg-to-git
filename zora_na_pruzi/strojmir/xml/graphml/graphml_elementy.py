@@ -7,6 +7,8 @@ Hen je program, který ...
 '''
 
 #import lxml.etree
+import os
+
 from ..__ELEMENT import __ELEMENT
 
 from ..PATH import ATRIBUT
@@ -19,7 +21,8 @@ NAMESPACE = 'http://graphml.graphdrawing.org/xmlns'
 
 class __ELEMENT_GRAFU(__ELEMENT):
     
-    PARSER = davaj_parser(v_modulu = sys.modules[__name__])
+#    PARSER = davaj_parser(v_modulu = sys.modules[__name__])
+    PARSER = davaj_parser(jméno_balíčku = __name__,  adresář = os.path.dirname(__file__))
     
 
 class GRAPHML(__ELEMENT_GRAFU):

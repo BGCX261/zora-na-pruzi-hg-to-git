@@ -7,19 +7,16 @@ try:
     import lxml.etree
 except ImportError:
      raise ImportError('SVG vyžaduje knihovnu lxml')
- 
 
 from ..__ELEMENT import __ELEMENT
 
 from ..davaj_parser import davaj_parser
 
-import sys
-
 NAMESPACE = 'http://www.w3.org/2000/svg'
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    PARSER = davaj_parser(v_modulu = sys.modules[__name__])
+    PARSER = davaj_parser(jméno_balíčku = __name__,  adresář = os.path.dirname(__file__))
     
     def __davaj_obsah(self,  třída_elementu):
         element = self.find(třída_elementu.TAG)
