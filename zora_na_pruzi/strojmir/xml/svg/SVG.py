@@ -37,8 +37,11 @@ class SVG(__ELEMENT_SVG):
         self.__viewBox[3] = hodnota
         
     def __str__(self):
+        import lxml.etree
+        xml_deklarace = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
+        xml_deklarace= lxml.etree.tounicode(xml_deklarace,  pretty_print=True)
         self.set('viewBox',  ' '.join(map(str,  self.__viewBox)))
-        return super().__str__()
+        return '\n'.join((xml_deklarace,  super().__str__()))
         
         
 

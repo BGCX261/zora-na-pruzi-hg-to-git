@@ -9,6 +9,7 @@ except ImportError:
      raise ImportError('SVG vyžaduje knihovnu lxml')
 
 from ..__ELEMENT import __ELEMENT
+from zora_na_pruzi.strojmir.css.STYL import STYL
 
 from ..davaj_parser import davaj_parser
 
@@ -16,7 +17,18 @@ NAMESPACE = 'http://www.w3.org/2000/svg'
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    PARSER = davaj_parser(jméno_balíčku = __name__,  adresář = os.path.dirname(__file__))
+    PARSER = davaj_parser(jméno_balíčku = __name__)
+    STYL = STYL()
+    
+    def __or__(self,  css_vlastnost):
+        selektor = self.tag.split("}")[1]
+        self.STYL[selektor] = css_vlastnost
+        return self
+        
+    def __ior__(self,  css_vlastnost):
+        selektor = '#{}'.format(self.id)
+        self.STYL[selektor] = css_vlastnost
+        return self
     
     def __davaj_obsah(self,  třída_elementu):
         element = self.find(třída_elementu.TAG)
@@ -64,14 +76,22 @@ def načtu_svg(svg_soubor):
     tree = lxml.etree.parse(svg_soubor,  parser = __ELEMENT_SVG.PARSER)
     return tree.getroot()
     
-def nové_svg():
+def nové_svg(id = None):
     from .SVG import SVG
-    svg = SVG(nsmap={
+    
+    args = {
+            'nsmap': {
                             None: NAMESPACE,
                             'xlink': 'http://www.w3.org/1999/xlink',
                     }, 
-                    version = '1.1'
-                    )
+                'version': '1.1'
+            
+            }
+    
+    if id is not None:
+        args['id'] = id
+    
+    svg = SVG(**args)
     
     from zora_na_pruzi import __version__,  __author__
     from datetime import date

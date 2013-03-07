@@ -21,6 +21,13 @@ class __ELEMENT(lxml.etree.ElementBase):
     
     vid = Vid()
     
+    @property
+    def id(self):
+#        _id = self.attrib.get('id',  None)
+#        if _id is None:
+#            self.attrib['id'] = '{}_{}'.format(self.__class__.__name__,  id(self))
+        return self.attrib['id']
+    
     def __str__(self):
         return lxml.etree.tounicode(self,  pretty_print=True)
         

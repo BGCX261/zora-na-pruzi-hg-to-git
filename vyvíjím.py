@@ -11,7 +11,7 @@ import os
 #from zora_na_pruzi.pohunci.obarvím_výpis.barevný_logger import daj_logovátka
 #debug,  info,  warning,  error,  critical = daj_logovátka(__file__)
 
-from zora_na_pruzi.vidimir import F
+#from zora_na_pruzi.vidimir import F
 
 #def spustím(*příkaz):
 ##    PYTHON_BIN = 'python3'
@@ -220,15 +220,12 @@ def načítám_graf():
 #    graphml_soubor = './stroj/data/networkx.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
     
-   
-    print('Testuji na testovacím grafu {}'.format(cesta_k_graphml_souboru | F.SOUBOR) | F.TEST.START)
-    
     tree = načtu_graf(cesta_k_graphml_souboru)
     
     root = tree.getroot()
     
 #    from zora_na_pruzi.strojmir.xml.graphml import graphml_elementy as gml
-    print(root)
+#    print(root)
     return root
     def piš(element,  level = 0):
         tag = element.__class__.__name__
@@ -244,30 +241,42 @@ def načítám_graf():
     piš(root)
   
 
-def svg_graf():
+def svg():
     from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
    
-    svg = nové_svg()
+    svg = nové_svg(id = 'prvni_svg')
+#    svg = nové_svg() KeyError
 #    svg = načtu_svg('testuji.svg')
     print(svg.tag)
-    graf = graf()
+    graf = načítám_graf()
     print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
-    print(svg.__class__.__name__)
+#    print(svg.__class__.__name__)
+    
+#    print(svg)
+    svg.titulek = 'TITULEK'
+#    print(svg)
+#    svg.titulek = 'NOVÝ TITULEK'
+    svg.popisek = 'popisuji svg'
+#    print(svg)
+#    svg.titulek = None
+    
+    from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
+    
+    svg | fill(0xFF0000)
+    svg |  stroke(0x000000)
+    svg |=   stroke_width(3)
     
     print(svg)
-    svg.titulek = 'TITULEK'
-    print(svg)
-    svg.titulek = 'NOVÝ TITULEK'
-    svg.popisek = 'popisuji element'
-    print(svg)
-    svg.titulek = None
+    print(svg.STYL)
+    
     print(svg)
     
     
     uložím_do_souboru = 'testuji.svg'
     
-#    svg >> uložím_do_souboru
+    svg >> uložím_do_souboru
+    svg.STYL >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
     
 #    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #    zobrazím_html_stránku(uložím_do_souboru)
@@ -283,9 +292,59 @@ def pygal():
     from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
     zobrazím_html_stránku(uložím_do_souboru)
 
+def css():
+#    import cssutils
+#    print(cssutils)
+#    
+#    sheet = cssutils.css.CSSStyleSheet()
+##    sheet.namespaces['xhtml'] = 'http://www.w3.org/1999/xhtml'
+##    sheet.namespaces['atom'] = 'http://www.w3.org/2005/Atom'
+#    sheet.namespaces['svg'] = 'http://www.w3.org/2000/svg'
+#    sheet.add('svg|circle {fill: #FF0000; stroke: #000000; stroke-width: 3}')
+#    print(sheet.cssText.decode('UTF-8'))
+
+    from zora_na_pruzi.strojmir.css.STYL import STYL
+    from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
+    
+    css = STYL()
+
+    css['circle'] = fill(0xFF0000)
+    css['circle'] = stroke(0x000000)
+    css['circle'] =  stroke_width(3)
+#    pravidlo.append(fill)
+#    pravidlo.append(stroke_width)
+#    pravidlo.append(stroke)
+    
+    print(css)
+
+
 if __name__ == '__main__':
 
     print(__doc__)
+    
+    import argparse
+    #  nejdříve si parser vytvořím
+    parser = argparse.ArgumentParser()
+
+#   a pak mu nastavím jaké příkazy a parametry má přijímat
+#    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, искушител {}'.format(__version__))
+    
+    parser.add_argument('funkce')
+    
+    #    a včíl to možu rozparsovat
+    args = parser.parse_args()
+    
+    funkce = args.funkce
+    imam = dict(locals())
+    if funkce in imam:
+        eval('{}()'.format(funkce))
+    else:
+        nadpis = 'dostupné funkce'
+        print(nadpis)
+        print('='*len(nadpis))
+        for jméno,  funkce in imam.items():
+            if not jméno.startswith('__') and callable(funkce):
+                print(jméno)
     
 #    @TODO: udělat z tohoto testy
 #    pisar()
@@ -297,9 +356,9 @@ if __name__ == '__main__':
 #    validátor()
 
 
-#    graf()
+#    načítám_graf()
 #    pygal()
-    svg_graf()
+#    svg_graf()
 
 #    zkúšám()
 

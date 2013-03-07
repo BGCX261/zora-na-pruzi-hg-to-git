@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-07, 00:36:28 -->
+<!-- Saved: 2013-03-07, 23:19:35 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -132,6 +132,18 @@
     <Source>zora_na_pruzi/strojmir/xml/PATH.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/PATH.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
+    <Source>jak_naprogramovat/dynamický_import.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/css/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/css/CSS.py</Source>
+    <Source>zora_na_pruzi/strojmir/css/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
+    <Source>jak_naprogramovat/přesměrování_výstupu_do_proměnné.py</Source>
+    <Source>zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/css/STYL.py</Source>
+    <Source>zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
