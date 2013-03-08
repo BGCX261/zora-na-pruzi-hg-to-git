@@ -11,6 +11,7 @@ from . import __ELEMENT_SVG,  NAMESPACE
 class SVG(__ELEMENT_SVG):
     
     TAG = '{{{}}}svg'.format(NAMESPACE)
+#    TAG = lxml.etree.QName(NAMESPACE, 'svg')
     
     __viewBox = [0,  0,  800,  600]
 

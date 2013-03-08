@@ -17,15 +17,15 @@ NAMESPACE = 'http://www.w3.org/2000/svg'
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    PARSER = davaj_parser(jméno_balíčku = __name__)
+    PARSER,  E = davaj_parser(jméno_balíčku = __name__)
     STYL = STYL()
     
-    def __or__(self,  css_vlastnost):
-        selektor = self.tag.split("}")[1]
-        self.STYL[selektor] = css_vlastnost
+    def __ior__(self,  css_vlastnost):
+#        tag = lxml.etree.QName(self.tag)
+        self.STYL[self.TAG_QNAME.localname] = css_vlastnost
         return self
         
-    def __ior__(self,  css_vlastnost):
+    def __or__(self,  css_vlastnost):
         selektor = '#{}'.format(self.id)
         self.STYL[selektor] = css_vlastnost
         return self
@@ -74,6 +74,8 @@ def načtu_svg(svg_soubor):
         raise IOError('Soubor grafu {} nejestvuje.'.format(svg_soubor))
     
     tree = lxml.etree.parse(svg_soubor,  parser = __ELEMENT_SVG.PARSER)
+#    from ..__ELEMENT import print_info
+#    print_info(tree)
     return tree.getroot()
     
 def nové_svg(id = None):
@@ -108,6 +110,8 @@ def nové_svg(id = None):
     svg.append(lxml.etree.Comment('http://code.google.com/p/zora-na-pruzi/'))
 
 
-#    tree = etree.ElementTree(root)
+#    tree = lxml.etree.ElementTree(svg)
+#    from ..__ELEMENT import print_info
+#    print_info(svg)
     return svg
 

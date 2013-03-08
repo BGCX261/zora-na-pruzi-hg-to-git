@@ -241,13 +241,37 @@ def načítám_graf():
     piš(root)
   
 
+def e_factory():
+#    from lxml.builder import ElementMaker
+    from lxml.builder import E
+#    
+    from zora_na_pruzi.strojmir.xml.davaj_parser import davaj_parser
+    print('\ndefault')
+    el = E.SVG()
+#    el = E.SVG(id = 'x')
+    print(type(el))
+    print(el.tag)
+    
+    
+    P,  E = davaj_parser('zora_na_pruzi.strojmir.xml.svg')
+    print('\nmoje')
+    el = E.svg()
+    print(type(el))
+    print(el.tag)
+    
+#    el = E.h1() AttributeError
+    
+
 def svg():
     from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
    
     svg = nové_svg(id = 'prvni_svg')
 #    svg = nové_svg() KeyError
 #    svg = načtu_svg('testuji.svg')
-    print(svg.tag)
+#    print('TAG',  svg.TAG)
+    print('tag',  svg.tag)
+#    print('TAG local',  svg.TAG.localname)
+    print(svg.E.DESC())
     graf = načítám_graf()
     print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
@@ -264,7 +288,7 @@ def svg():
     from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
     
     svg | fill(0xFF0000)
-    svg |  stroke(0x000000)
+    svg |=  stroke(0x000000)
     svg |=   stroke_width(3)
     
     print(svg)

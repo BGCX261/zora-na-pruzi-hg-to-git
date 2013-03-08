@@ -9,6 +9,21 @@ Hen je program, který ...
 import lxml.etree
 
 
+def print_info(tree):
+    
+    if not isinstance(tree,  lxml.etree._ElementTree):
+        tree = tree.getroottree()
+        
+    docinfo = tree.docinfo
+    
+    print('-'*9)
+    print('| ',  'DOCINFO',  ' |')
+    print('-'*9)
+    for parametr in 'URL', 'doctype',  'encoding',  'externalDTD',  'internalDTD', 'public_id',  'root_name',  'standalone',  'system_url',  'xml_version':
+        print('{}: {}'.format(parametr,  getattr(docinfo,  parametr)))
+    
+    print('-'*44)
+
 class Vid(object):
     pass
 
@@ -17,10 +32,29 @@ class SOUBOR(object):
     def __init__(self,  jméno_souboru):
         pass
 
+class TAG_QNAME(dict):
+    
+    def __get__(self,  instance,  owner = None):
+        tag = instance.tag
+        if not tag in self:
+            self[instance.TAG] = lxml.etree.QName(tag)
+#            print('+'*44)
+#            print(self)
+#            print('+'*44)
+#        else:
+#            print('ISE'*44)
+        return self[tag]
+
 class __ELEMENT(lxml.etree.ElementBase):
     
     vid = Vid()
     
+    TAG_QNAME = TAG_QNAME()
+    
+    
+#    def __getattr__(self,  tag):
+#        return self.ELEMENT(tag)
+        
     @property
     def id(self):
 #        _id = self.attrib.get('id',  None)
@@ -29,6 +63,9 @@ class __ELEMENT(lxml.etree.ElementBase):
         return self.attrib['id']
     
     def __str__(self):
+#        print('AS TREE' * 20)
+#        print(lxml.etree.tounicode(self.getroottree(),  pretty_print=True))
+#        print('#' * 20)
         return lxml.etree.tounicode(self,  pretty_print=True)
         
     def __rshift__(self,  soubor):
