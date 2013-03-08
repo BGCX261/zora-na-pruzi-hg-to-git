@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-08, 12:05:27 -->
+<!-- Saved: 2013-03-08, 23:43:58 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -151,6 +151,28 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/SOUBOR.py</Source>
+    <Source>zora_na_pruzi/strojmir/importuji.py</Source>
+    <Source>jak_naprogramovat/přesměrování_výstupu_do_souboru.py</Source>
+    <Source>zora_na_pruzi/vidimir/VÝSTUP.py</Source>
+    <Source>zora_na_pruzi/vidimir/__SOUBOR.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/VÝSTUP.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/__SOUBOR.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/SOUBOR.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/importuji.py</Source>
+    <Source>zora_na_pruzi/vidimir/xml/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/css/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/css/STYL.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/css/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/css/STYL.py</Source>
+    <Source>zora_na_pruzi/vidimir/xml/graphml/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/xml/graphml/graphml_elementy.py</Source>
+    <Source>zora_na_pruzi/vidimir/xml/svg/__init__.py</Source>
+    <Source>zora_na_pruzi/vidimir/xml/svg/SVG.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/graphml/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/graphml/graphml_elementy.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/svg/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/svg/SVG.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
