@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-07, 23:19:35 -->
+<!-- Saved: 2013-03-08, 12:05:27 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -98,7 +98,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/Formát.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/ATRIBUT.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/davaj_parser.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__ELEMENT.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
@@ -144,6 +143,14 @@
     <Source>zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/css/STYL.py</Source>
     <Source>zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/STYL.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/css/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/css/CSS.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
+    <Source>zora_na_pruzi/strojmir/SOUBOR.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

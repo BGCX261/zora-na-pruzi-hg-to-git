@@ -94,21 +94,6 @@ def nové_svg(id = None):
         args['id'] = id
     
     svg = SVG(**args)
-    
-    from zora_na_pruzi import __version__,  __author__
-    from datetime import date
-        
-    def rok():
-        letos = date.today().timetuple()[0]
-        if letos > 2012:
-            return '2012 - {}'.format(letos)
-        else:
-            return '2012'
-        
-    svg.append(lxml.etree.Comment('Изготовила Зора на прузи {verze} ©Домоглед {autor} {rok} on {datum}'.format(verze = __version__, datum = date.today().isoformat(),  autor = __author__,  rok = rok())))
-    svg.append(lxml.etree.Comment('http://domogled.eu'))
-    svg.append(lxml.etree.Comment('http://code.google.com/p/zora-na-pruzi/'))
-
 
 #    tree = lxml.etree.ElementTree(svg)
 #    from ..__ELEMENT import print_info

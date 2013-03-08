@@ -289,7 +289,7 @@ def svg():
     
     svg | fill(0xFF0000)
     svg |=  stroke(0x000000)
-    svg |=   stroke_width(3)
+    svg |=  stroke_width(3)
     
     print(svg)
     print(svg.STYL)

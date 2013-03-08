@@ -38,13 +38,32 @@ class SVG(__ELEMENT_SVG):
         self.__viewBox[3] = hodnota
         
     def __str__(self):
-        import lxml.etree
-        xml_deklarace = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
-        xml_deklarace= lxml.etree.tounicode(xml_deklarace,  pretty_print=True)
         self.set('viewBox',  ' '.join(map(str,  self.__viewBox)))
-        return '\n'.join((xml_deklarace,  super().__str__()))
+        return super().__str__()
         
+    def hlavička_souboru(self,  jméno_souboru):
+        import lxml.etree
         
+        xml_deklarace = self.xml_deklarace
+        
+        xml_stylesheet = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
+        xml_stylesheet = lxml.etree.tounicode(xml_stylesheet,  pretty_print=True)
+        
+        from zora_na_pruzi import __version__,  __author__
+        from datetime import date
+            
+        def rok():
+            letos = date.today().timetuple()[0]
+            if letos > 2012:
+                return '2012 - {}'.format(letos)
+            else:
+                return '2012'
+            
+        self.insert(0, lxml.etree.Comment('Изготовила Зора на прузи {verze} ©Домоглед {autor} {rok} on {datum}'.format(verze = __version__, datum = date.today().isoformat(),  autor = __author__,  rok = rok())))
+        self.insert(1, lxml.etree.Comment('http://domogled.eu'))
+        self.insert(2, lxml.etree.Comment('http://code.google.com/p/zora-na-pruzi/'))
+        
+        return '\n'.join((xml_deklarace,  xml_stylesheet))
 
 
 #import io

@@ -7,8 +7,11 @@ Hen je program, který ...
 '''
 
 from collections import OrderedDict
+from zora_na_pruzi.strojmir.SOUBOR import SOUBOR
 
-class STYL(OrderedDict):
+class STYL(OrderedDict,  SOUBOR):
+    
+#    def __init__(self,  soubor):
     
     def __str__(self):
         import io

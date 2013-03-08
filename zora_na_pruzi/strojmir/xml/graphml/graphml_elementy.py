@@ -27,7 +27,10 @@ class GRAPHML(__ELEMENT_GRAFU):
     TAG = '{{{}}}graphml'.format(NAMESPACE)
     
     __klíče = None
-        
+      
+    def hlavička_souboru(self,  jméno_souboru):
+        return self.xml_deklarace
+    
     @property
     def grafy(self):
         for graf in self.getroottree().findall('//{}'.format(GRAPH.TAG)):

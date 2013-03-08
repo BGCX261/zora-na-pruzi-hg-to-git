@@ -27,10 +27,7 @@ def print_info(tree):
 class Vid(object):
     pass
 
-class SOUBOR(object):
-    
-    def __init__(self,  jméno_souboru):
-        pass
+from zora_na_pruzi.strojmir.SOUBOR import SOUBOR
 
 class TAG_QNAME(dict):
     
@@ -45,7 +42,7 @@ class TAG_QNAME(dict):
 #            print('ISE'*44)
         return self[tag]
 
-class __ELEMENT(lxml.etree.ElementBase):
+class __ELEMENT(lxml.etree.ElementBase,  SOUBOR):
     
     vid = Vid()
     
@@ -67,27 +64,12 @@ class __ELEMENT(lxml.etree.ElementBase):
 #        print(lxml.etree.tounicode(self.getroottree(),  pretty_print=True))
 #        print('#' * 20)
         return lxml.etree.tounicode(self,  pretty_print=True)
-        
-    def __rshift__(self,  soubor):
-        '''
-        operátor ELEMENT >> soubor:řetězec umožní uložit xml do souboru
-        '''
-        if not isinstance(soubor,  (str, )):
-            raise TypeError('Operátor >> elementu <{}> očekává jméno souboru.'.format(self.tag))
-        
-        print('uložím element <{0} ... >...</{0}> do souboru {1}'.format(self.tag,  soubor))
-          
+
+    @property
+    def xml_deklarace(self):
         xml_deklarace = lxml.etree.PI('xml', "version='1.0' encoding='UTF-8'")
         xml_deklarace= lxml.etree.tounicode(xml_deklarace,  pretty_print=True)
-          
-        with open(soubor, 'w', encoding='utf-8') as zdrojový_soubor:
-            zdrojový_soubor.write(xml_deklarace)
-            kód = str(self)
-            zdrojový_soubor.write(kód)
-            return kód
-            
-        raise IOError('Selhalo zapsání elementu <{0} ... >...</{0}> do souboru {}'.format(self.tag,  soubor))
-
+        return xml_deklarace
 
     def __mod__(self,  vrátím):
         '''
