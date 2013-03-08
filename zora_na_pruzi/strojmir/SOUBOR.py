@@ -6,33 +6,25 @@
 Hen je program, který ...
 '''
 
-class SOUBOR(object):
-    
-    def __init__(self,  jméno_souboru):
-        pass
-        
-    def __rshift__(self,  soubor):
-        '''
-        operátor ELEMENT >> soubor:řetězec umožní uložit xml do souboru
-        '''
-        if not isinstance(soubor,  (str, )):
-            raise TypeError('Operátor >> elementu <{}> očekává jméno souboru.'.format(self.tag))
-        
-        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
-          
-        with open(soubor, 'w', encoding='utf-8') as zdrojový_soubor:
-            zdrojový_soubor.write(self.hlavička_souboru(soubor))
-            
-            kód = str(self)
-            zdrojový_soubor.write(kód)
-            
-            zdrojový_soubor.write(self.patička_souboru(soubor))
-            return kód
-            
-        raise IOError('Selhalo zapsání elementu <{0} ... >...</{0}> do souboru {}'.format(self.tag,  soubor))
+from zora_na_pruzi.vidimir.__SOUBOR import __SOUBOR as VIDIMIR_SOUBOR
 
-    def hlavička_souboru(self,  jméno_souboru):
-        return ''
+class SOUBOR(object):
         
-    def patička_souboru(self,  jméno_souboru):
-        return ''
+    def __get__(self,  instance,  owner = None):
+ 
+        modul = instance.__module__
+        if not modul.startswith('zora_na_pruzi.strojmir'):
+            raise TypeError('Zobrazit umím jenom objekty z balíčku zora_na_pruzi.strojmir')
+            
+        modul = modul.replace('zora_na_pruzi.strojmir',  'zora_na_pruzi.vidimir',  1)
+        
+        from zora_na_pruzi.strojmir import importuji
+        najdu_třídu = importuji.davaj_třídu(jméno_balíčku = modul)
+        TŘÍDA = najdu_třídu(jméno_třídy = instance.__class__.__name__)
+        
+        
+        
+        if not issubclass(TŘÍDA,  VIDIMIR_SOUBOR):
+            raise TypeError('Třída {} v balíčku {} není potomkem třídy vidimir.__SOUBOR'.format(instance.__class__.__name__,  modul))
+       
+        return TŘÍDA(instance)

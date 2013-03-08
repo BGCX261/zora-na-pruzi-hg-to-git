@@ -9,7 +9,9 @@ Hen je program, který ...
 from collections import OrderedDict
 from zora_na_pruzi.strojmir.SOUBOR import SOUBOR
 
-class STYL(OrderedDict,  SOUBOR):
+class STYL(OrderedDict):
+    
+    SOUBOR = SOUBOR()
     
 #    def __init__(self,  soubor):
     

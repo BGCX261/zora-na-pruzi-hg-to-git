@@ -35,18 +35,14 @@ class TAG_QNAME(dict):
         tag = instance.tag
         if not tag in self:
             self[instance.TAG] = lxml.etree.QName(tag)
-#            print('+'*44)
-#            print(self)
-#            print('+'*44)
-#        else:
-#            print('ISE'*44)
         return self[tag]
 
-class __ELEMENT(lxml.etree.ElementBase,  SOUBOR):
+class __ELEMENT(lxml.etree.ElementBase):
     
     vid = Vid()
     
     TAG_QNAME = TAG_QNAME()
+    SOUBOR = SOUBOR()
     
     
 #    def __getattr__(self,  tag):
@@ -60,9 +56,6 @@ class __ELEMENT(lxml.etree.ElementBase,  SOUBOR):
         return self.attrib['id']
     
     def __str__(self):
-#        print('AS TREE' * 20)
-#        print(lxml.etree.tounicode(self.getroottree(),  pretty_print=True))
-#        print('#' * 20)
         return lxml.etree.tounicode(self,  pretty_print=True)
 
     @property

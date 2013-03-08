@@ -11,23 +11,19 @@ import lxml.builder
 
 def davaj_parser(jméno_balíčku):
  
-    def najdu_třídu(tag,  nsmap = None):
-        jméno_třídy = tag.upper()
-        balíček = __import__(jméno_balíčku, globals(), locals(), [jméno_třídy], 0)
-        třída = getattr(balíček,  jméno_třídy)
-        
-        if not isinstance(třída, type):
-            třída = getattr(třída,  jméno_třídy,  None)
-            
+    from zora_na_pruzi.strojmir import importuji
+    najdu_třídu = importuji.davaj_třídu(jméno_balíčku)
+    
+    def najdu_třídu_pro_element(tag):
+        třída = najdu_třídu(tag.upper())
         if not issubclass(třída,  lxml.etree.ElementBase):
-            raise TypeError('Nenašel jsem třídu {} pro element <{} .. > v balíčku {}'.format(jméno_třídy,  tag,  jméno_balíčku)) 
- 
+            raise TypeError('Nenašel jsem třídu pro element <{} .. > v balíčku {}'.format(tag,  jméno_balíčku))
         return třída
  
     class Lookup(lxml.etree.CustomElementClassLookup):
         def lookup(self, node_type, document, namespace, name):
             if node_type == 'element':
-                třída = najdu_třídu(tag = name)
+                třída = najdu_třídu_pro_element(tag = name)
                 return třída
     #            except KeyError as e:
     #                if not exception:
@@ -39,7 +35,7 @@ def davaj_parser(jméno_balíčku):
     parser.set_element_class_lookup(Lookup())
 
     def make_element(tag, nsmap = None):
-        třída = najdu_třídu(tag)
+        třída = najdu_třídu_pro_element(tag)
         return třída()
 
     element_builder = lxml.builder.ElementMaker(makeelement = make_element)

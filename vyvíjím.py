@@ -299,11 +299,17 @@ def svg():
     
     uložím_do_souboru = 'testuji.svg'
     
-    svg >> uložím_do_souboru
-    svg.STYL >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
+    svg.SOUBOR >> uložím_do_souboru
+    svg.STYL.SOUBOR >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
     
 #    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #    zobrazím_html_stránku(uložím_do_souboru)
+
+def vidimir():
+    graf = načítám_graf()
+    graf.SOUBOR >> 'hen.graphml'
+#    os.system('cat hen.graphml')
+    print('\n')
 
 def pygal():
     import pygal                                                       # First import pygal
