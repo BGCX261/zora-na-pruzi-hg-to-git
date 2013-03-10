@@ -1,16 +1,35 @@
-from zora_na_pruzi.vidimir.stroj.konzole.Obarvi import Obarvi
+from zora_na_pruzi.vidimir.stroj.konzole.dekorátory import obarvi,  orámuj,  odsaď
 from zora_na_pruzi.vidimir.stroj.konzole.barvy import *
 
-NADPIS = Obarvi(ČERNÁ,  NA_SIVÉ,  nadtržítko = '=',  podtržítko = '=',  formát = '*** {} ***',  odsazení = 10)
+
+
+
+#NADPIS = Obarvi(ČERNÁ,  NA_SIVÉ,  nadtržítko = '=',  podtržítko = '=',  formát = '*** {} ***',  odsazení = 10)
+
+@obarvi(ČERNÁ,  NA_SIVÉ)
+@odsaď(10)
+@orámuj(hore = '=',  dole = '=')
+def NADPIS(text):
+    return '*** {} ***'.format(text)
 H1 = NADPIS
-H2 = Obarvi(ČERNÁ,  NA_SIVÉ,  formát = '| {} |',  nadtržítko = '_',  podtržítko = '-',  odsazení = 10)
-H3 = Obarvi(ČERNÁ,  NA_SIVÉ,   nadtržítko = '-.',  podtržítko = '-.',  odsazení = 10)
+#H2 = Obarvi(ČERNÁ,  NA_SIVÉ,  formát = '| {} |',  nadtržítko = '_',  podtržítko = '-',  odsazení = 10)
+#H3 = Obarvi(ČERNÁ,  NA_SIVÉ,   nadtržítko = '-.',  podtržítko = '-.',  odsazení = 10)
 
-INFO  = Obarvi(BÍLÁ,  NA_TMAVĚ_ČERVENÉ)
-CHYBA  = Obarvi(ŽLUTÁ,  NA_TMAVĚ_ČERVENÉ)
+#INFO  = Obarvi(BÍLÁ,  NA_TMAVĚ_ČERVENÉ)
+@obarvi(BÍLÁ,  NA_TMAVĚ_ČERVENÉ)
+def INFO(text):
+    return text
 
-PŘÍKAZ = Obarvi(PROHOĎ_BARVU_A_POZADÍ)
+
+#CHYBA  = Obarvi(ŽLUTÁ,  NA_TMAVĚ_ČERVENÉ)
+def CHYBA(text):
+    return text
+
+#PŘÍKAZ = Obarvi(PROHOĎ_BARVU_A_POZADÍ)
 #BÍLÁ,  NA_TMAVĚ_ČERVENÉ,  PROHOĎ_BARVU_A_POZADÍ
-SOUBOR = Obarvi(PROHOĎ_BARVU_A_POZADÍ)
+#SOUBOR = Obarvi(PROHOĎ_BARVU_A_POZADÍ)
+@obarvi(PROHOĎ_BARVU_A_POZADÍ)
+def SOUBOR(text):
+    return text
 #Obarvi(BÍLÁ,  TUČNĚ,  NA_TMAVĚ_SIVÉ)
-OBJEKT = Obarvi(SIVÁ,  TUČNĚ,  NA_ČERNÉ)
+#OBJEKT = Obarvi(SIVÁ,  TUČNĚ,  NA_ČERNÉ)

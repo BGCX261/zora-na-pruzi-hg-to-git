@@ -19,7 +19,7 @@ class SOUBOR(object):
         modul = modul.replace('zora_na_pruzi.strojmir',  'zora_na_pruzi.vidimir',  1)
         
         from zora_na_pruzi.strojmir import importuji
-        najdu_třídu = importuji.davaj_třídu(jméno_balíčku = modul)
+        najdu_třídu = importuji.davaj_importéra(jméno_balíčku = modul)
         TŘÍDA = najdu_třídu(jméno_třídy = instance.__class__.__name__)
         
         

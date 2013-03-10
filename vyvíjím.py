@@ -37,7 +37,7 @@ def build():
 
 
 def pisar():
-    from zora_na_pruzi.vidimir.Pisar import Pisar
+#    from zora_na_pruzi.vidimir.Pisar import Pisar
     
 #    print(Pisar)
 ##    print(styl.H1) >> AttributeError
@@ -45,45 +45,56 @@ def pisar():
 #    print(pisar.pohled)
 #    print(pisar.pohled.H1)
     
-    from zora_na_pruzi.vidimir import F
+    from zora_na_pruzi.vidimir.Formátuji import TEXT
+    from zora_na_pruzi.vidimir.Formátuji import HTML
     
-    with Pisar('barevná_konzole') as pisar:
-        print('tu še with' | F.H1)
+####    with Pisar('barevná_konzole') as pisar:
+    print('tu še with' | TEXT.H1)
+    
+    
+    from zora_na_pruzi.vidimir.formáty.barevná_konzole import TEST
 #        print(F.TEST.START) NotImplementedError
-        print(type(F.TEST.START))
-        print('startuje test ' | F.TEST.START)
-        with Pisar('html') as pisar:
-            print(type(F.H1))
-            print('NADPIS' | F.H1)
+    print(type(TEST.START))
+    from zora_na_pruzi.vidimir.stroj.Formát import Formát
+    print('startuje test ' | Formát(TEST.START))
+####        with Pisar('html') as pisar:
+    print(type(HTML.H1))
+    print('NADPIS' | HTML.H1)
 #            print('startuje test ' | F.TEST.START)
 #        print(p)
 
 def html_výpis():
     
-    from zora_na_pruzi.vidimir import F
-    from zora_na_pruzi.vidimir.Pisar import Pisar
+    from zora_na_pruzi.vidimir.Formátuji import HTML
+#    from zora_na_pruzi.vidimir.Pisar import Pisar
     
-    with Pisar(jméno_vidu = 'html'):
-        print('NADPIS' | F.NADPIS)
-        
+#    with Pisar(jméno_vidu = 'html'):
+    print('NADPIS' | HTML.NADPIS)
+    
 #        from zora_na_pruzi.pisar.html.html import HTML,  E
 #
 #        odstavec = HTML(E.DIV(E.H4('NADPIS úrovně 4'),  E.P('tu je text:*** {} ***',  E.CLASS('css_třída'))))
-        
-        print('soubor {} je tu'.format(__file__ | F.SOUBOR) | F.INFO)
-        print('soubor {} je tu'.format(__file__ | F.SOUBOR) | F.DIV)
+    
+    print('soubor {} je tu'.format(__file__ | HTML.SOUBOR) | HTML.INFO)
+    print('soubor {} je tu'.format(__file__ | HTML.SOUBOR) | HTML.DIV)
     
 def barevná_konzole():
-    from zora_na_pruzi.vidimir import F
+    from zora_na_pruzi.vidimir.Formátuji import TEXT
     
-    print('NADPIS' | F.NADPIS)
+    print('NADPIS' | TEXT.NADPIS)
     
-    from zora_na_pruzi.vidimir.stroj.konzole.Obarvi import Obarvi
+    from zora_na_pruzi.vidimir.stroj.konzole.dekorátory import obarvi
     from zora_na_pruzi.vidimir.stroj.konzole.barvy import MODRÁ
 
-    modře = Obarvi(MODRÁ)
-    print('soubor {} je tu'.format(__file__ | F.SOUBOR) | F.INFO)
-    print('soubor {} je tu'.format(__file__ | F.SOUBOR) | modře)
+#    modře = Obarvi(MODRÁ)
+    @obarvi(MODRÁ)
+    def modře(text):
+        return text
+        
+    from zora_na_pruzi.vidimir.stroj.Formát import Formát
+    
+    print('soubor {} je tu'.format(__file__ | TEXT.SOUBOR) | TEXT.INFO)
+    print('soubor {} je tu'.format(__file__ | TEXT.SOUBOR) | Formát(modře))
 
 
 def   validátor():
@@ -351,6 +362,15 @@ def css():
 if __name__ == '__main__':
 
     print(__doc__)
+    
+#    print('='*44)
+#    pisar()
+#    print('='*44)
+#    barevná_konzole()
+#    print('='*44)
+#    html_výpis()   
+#    print('='*44)
+#else:
     
     import argparse
     #  nejdříve si parser vytvořím

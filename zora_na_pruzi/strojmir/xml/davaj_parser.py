@@ -12,12 +12,16 @@ import lxml.builder
 def davaj_parser(jméno_balíčku):
  
     from zora_na_pruzi.strojmir import importuji
-    najdu_třídu = importuji.davaj_třídu(jméno_balíčku)
+    najdu_třídu = importuji.davaj_importéra(jméno_balíčku)
     
     def najdu_třídu_pro_element(tag):
-        třída = najdu_třídu(tag.upper())
+        jméno_třídy = tag.upper()
+        třída = najdu_třídu(jméno_třídy)
+#        esli to není třída,  ale modul,  načteme třídu z toho modulu
+        if not isinstance(třída, type):
+            třída = getattr(třída,  jméno_třídy,  None)
         if not issubclass(třída,  lxml.etree.ElementBase):
-            raise TypeError('Nenašel jsem třídu pro element <{} .. > v balíčku {}'.format(tag,  jméno_balíčku))
+            raise TypeError('Nenašel jsem třídu {} pro element <{} .. > v balíčku {}'.format(jméno_třídy,  tag,  jméno_balíčku))
         return třída
  
     class Lookup(lxml.etree.CustomElementClassLookup):

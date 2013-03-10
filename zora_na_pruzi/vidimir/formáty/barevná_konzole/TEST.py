@@ -6,10 +6,12 @@
 Hen je program, který ...
 '''
 
-from zora_na_pruzi.vidimir.stroj.konzole.Obarvi import Obarvi
+#@TODO: Tohle je rozpracovaná předělávka na nový způsob, nemá původní funkčnost, dodělat, nebo odstranit
+
+from zora_na_pruzi.vidimir.stroj.konzole.dekorátory import obarvi
 from zora_na_pruzi.vidimir.stroj.konzole.barvy import *
 
-from zora_na_pruzi.vidimir import F
+from zora_na_pruzi.vidimir.Formátuji import TEXT
 
 #NADPIS = Obarvi(ČERNÁ,  NA_SIVÉ,  nadtržítko = '=',  podtržítko = '=',  formát = '*** {} ***',  odsazení = 10)
 #H1 = NADPIS
@@ -23,22 +25,18 @@ from zora_na_pruzi.vidimir import F
 #SOUBOR = Obarvi(BÍLÁ,  TUČNĚ,  NA_TMAVĚ_SIVÉ)
 #OBJEKT = Obarvi(SIVÁ,  TUČNĚ,  NA_ČERNÉ)
 
-class TEST(object):
     
-    TAB = 4
-    
-    @property
-    def START(self):
-        return Obarvi(ZELENÁ,  NA_TMAVĚ_AZUROVÉ,  formát = '{} {{}}'.format('startuji' | F.INFO))
- 
-    @property
-    def OK(self):
-        return Obarvi(ZELENÁ,  NA_TMAVĚ_AZUROVÉ,  formát = '{} {{}}'.format('... OK' | F.INFO),  odsazení = self.TAB)
+TAB = 4
 
-    @property
-    def CHYBA(self):
-        return Obarvi(ŽLUTÁ,  NA_TMAVĚ_ČERVENÉ,  formát = '{} {{}}'.format('... CHYBA' | F.CHYBA),  odsazení = self.TAB)
-        
+#START = Obarvi(ZELENÁ,  NA_TMAVĚ_AZUROVÉ,  formát = '{} {{}}'.format('startuji' | TEXT.INFO))
+def START(text):
+    return text
 
-        
-TEST = TEST()
+#OK = Obarvi(ZELENÁ,  NA_TMAVĚ_AZUROVÉ,  formát = '{} {{}}'.format('... OK' | TEXT.INFO),  odsazení = TAB)
+def OK(text):
+    return text
+
+#CHYBA = Obarvi(ŽLUTÁ,  NA_TMAVĚ_ČERVENÉ,  formát = '{} {{}}'.format('... CHYBA' | TEXT.CHYBA),  odsazení = TAB)
+def CHYBA(text):
+    return text
+

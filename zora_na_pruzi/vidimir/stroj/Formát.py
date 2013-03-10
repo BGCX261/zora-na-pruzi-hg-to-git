@@ -5,8 +5,7 @@
 '''
 Hen je objekt, který upraví výpis
 Nejdříve vytvoříš instanci Formátu a tu pak použiješ pomocí operátoru |
-jméno = Formát('jméno: {} ')
-kód = 'moje jméno' | jméno
+kód = 'moje jméno' | Formát(nějaké formátovací funkce)
 print(kód)
 
 '''
@@ -14,13 +13,15 @@ print(kód)
 
 class Formát(object):
     
-    def __init__(self,  formát):
+    def __init__(self,  *formátovací_funkce):
 #    def __init__(self,  barva, pozadí = None,  styl = None,  formát = None):
         
-        self.__formát = formát
+        self.__formátovací_funkce = formátovací_funkce
             
     def __ror__(self,  text):
-        return self.__formát.format(text)
+        for funkce in self.__formátovací_funkce:
+            text = funkce(text)
+        return text
         
     def __str__(self):
         raise NotImplementedError('Formát není určen k tomu, aby se vypisoval, užívej pouze ve spojení s operátorem text | Formát')

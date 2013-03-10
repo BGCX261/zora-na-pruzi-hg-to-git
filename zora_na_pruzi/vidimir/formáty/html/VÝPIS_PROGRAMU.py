@@ -6,9 +6,11 @@
 Hen je program, který ...
 '''
 
-from zora_na_pruzi.vidimir.stroj.Formát import Formát
-#from zora_na_pruzi.vidimir import F
-      
-VÝPIS_PROGRAMU = Formát(formát = '<div class="KOD"><PRE>{}</PRE></div>')
+#@TODO: Tohle je starý a zavržený způsob,  třeba přepracovat do nového,  nebo zrušit zcela
+
+#from zora_na_pruzi.vidimir.stroj.Formát import Formát
+##from zora_na_pruzi.vidimir import F
+#      
+#VÝPIS_PROGRAMU = Formát(formát = '<div class="KOD"><PRE>{}</PRE></div>')
         
 

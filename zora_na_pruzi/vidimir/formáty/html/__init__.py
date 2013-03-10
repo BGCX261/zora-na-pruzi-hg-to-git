@@ -1,22 +1,42 @@
-from zora_na_pruzi.vidimir.stroj.Formát import Formát
 
 
-H1 = Formát(formát = '<h1>{}</h1>')
-H2 = Formát(formát = '<h2>{}</h2>')
-H3 = Formát(formát = '<h3>{}</h3>')
-H4 = Formát(formát = '<h4>{}</h4>')
-H5 = Formát(formát = '<h5>{}</h5>')
+def H1(text):
+    return '<h1>{}</h1>'.format(text)
 
 NADPIS = H1
 
-P = Formát(formát = '<p>{}</p>')
-DIV = Formát(formát = '<div>{}</div>')
-SPAN = Formát(formát = '<span>{}</span>')
+def H2(text):
+    return '<h2>{}</h2>'.format(text)
 
+def H3(text):
+    return '<h3>{}</h3>'.format(text)
 
-INFO = Formát(formát = '<div class="INFO">{}</div>')
-CHYBA = Formát(formát = '<div class="CHYBA">{}</div>')
+def H4(text):
+    return '<h4>{}</h4>'.format(text)
 
-SOUBOR = Formát(formát = '<span class="SOUBOR">{}</span>')
-PŘÍKAZ = Formát(formát = '<span class="PŘÍKAZ">{}</span>')
-OBJEKT = Formát(formát = '<span class="OBJEKT">{}</span>')
+def H5(text):
+    return '<h5>{}</h5>'.format(text)
+
+def P(text):
+    return '<p>{}</p>'.format(text)
+
+def DIV(text):
+    return '<div>{}</div>'.format(text)
+
+def SPAN(text):
+    return '<span>{}</span>'.format(text)
+
+def INFO(text):
+    return '<span class="INFO">{}</span>'.format(text)
+
+def CHYBA(text):
+    return '<span class="CHYBA">{}</span>'.format(text)
+
+def SOUBOR(text):
+    return '<span class="SOUBOR">{}</span>'.format(text)
+
+def PŘÍKAZ(text):
+    return '<span class="PŘÍKAZ">{}</span>'.format(text)
+
+def OBJEKT(text):
+    return '<span class="OBJEKT">{}</span>'.format(text)
