@@ -8,11 +8,13 @@ Hen je program, který ...
 
 #@TODO: Tohle je starý a zavržený způsob,  třeba přepracovat do nového,  nebo zrušit zcela
 
-#from zora_na_pruzi.vidimir.stroj.konzole.Obarvi import Obarvi
-#from zora_na_pruzi.vidimir.stroj.konzole.barvy import *
+from zora_na_pruzi.vidimir.stroj.konzole.dekorátory import obarvi
+from zora_na_pruzi.vidimir.stroj.konzole.barvy import *
 #
 ##from zora_na_pruzi.vidimir import F
 #      
 #VÝPIS_PROGRAMU = Obarvi(BÍLÁ,  NA_TMAVĚ_SIVÉ)
-        
+@obarvi(BÍLÁ,  NA_TMAVĚ_SIVÉ)
+def VÝPIS_PROGRAMU(text):
+    return text        
 

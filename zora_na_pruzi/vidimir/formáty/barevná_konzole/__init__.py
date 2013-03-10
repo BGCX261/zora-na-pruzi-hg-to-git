@@ -22,10 +22,14 @@ def INFO(text):
 
 
 #CHYBA  = Obarvi(ŽLUTÁ,  NA_TMAVĚ_ČERVENÉ)
+@obarvi(ŽLUTÁ,  NA_TMAVĚ_ČERVENÉ)
 def CHYBA(text):
     return text
 
 #PŘÍKAZ = Obarvi(PROHOĎ_BARVU_A_POZADÍ)
+@obarvi(PROHOĎ_BARVU_A_POZADÍ)
+def PŘÍKAZ(text):
+    return text
 #BÍLÁ,  NA_TMAVĚ_ČERVENÉ,  PROHOĎ_BARVU_A_POZADÍ
 #SOUBOR = Obarvi(PROHOĎ_BARVU_A_POZADÍ)
 @obarvi(PROHOĎ_BARVU_A_POZADÍ)

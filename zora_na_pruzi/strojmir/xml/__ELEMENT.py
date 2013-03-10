@@ -58,14 +58,8 @@ class __ELEMENT(lxml.etree.ElementBase):
         
         from zora_na_pruzi.strojmir.hlavička import hlavička_automaticky_vytvořila, WEB_PROJEKTU,  WEB_ZDROJOVÝCH_KÓDŮ
 
-#        for komentář in self.getroottree().findall('//comment()'):
-        for element in self.iter():
-            print("*"*44,  element)
-#            not isinstance(element.tag, basestring) and
-            if  element.__class__.__name__ == '_Comment':
-                komentář = element
-                print('Mažu komentář {}'.format(komentář))
-                self.remove(komentář)
+        for komentář in self.iter(tag = lxml.etree.Comment):
+            self.remove(komentář)
     
         self.insert(0, lxml.etree.Comment(hlavička_automaticky_vytvořila()))
         self.insert(1, lxml.etree.Comment(WEB_PROJEKTU))

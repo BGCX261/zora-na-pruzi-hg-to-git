@@ -276,9 +276,9 @@ def e_factory():
 def svg():
     from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
    
-    svg = nové_svg(id = 'prvni_svg')
+#    svg = nové_svg(id = 'prvni_svg')
 #    svg = nové_svg() KeyError
-#    svg = načtu_svg('testuji.svg')
+    svg = načtu_svg('testuji.svg')
     print('TAG',  svg.TAG)
     print('tag',  svg.tag)
 #    print('TAG local',  svg.TAG.localname)

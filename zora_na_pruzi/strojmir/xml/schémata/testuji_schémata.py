@@ -5,7 +5,7 @@
 import py.test
 
 #from logging import debug,  info
-from zora_na_pruzi.vidimir import F
+from zora_na_pruzi.vidimir.Formátuji import TEXT
 
 def test_0001_schémata ():
     '''
@@ -37,9 +37,9 @@ def test_0001_schémata ():
         if schéma('./graf.graphml'):
             print('\t...VALIDNÍ')
         else:
-            print('\t...NEVALIDNÍ' | F.CHYBA)
+            print('\t...NEVALIDNÍ' | TEXT.CHYBA)
 
-#        print('Program {}'.format(modul_schématu.program | F.PŘÍKAZ)  | F.TEST.START)
+#        print('Program {}'.format(modul_schématu.program | TEXT.PŘÍKAZ)  | F.TEST.START)
 
         schéma(soubor = './graf.graphml',  program = modul_schématu.program)
         
