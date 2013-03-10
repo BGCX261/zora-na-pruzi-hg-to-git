@@ -69,6 +69,7 @@ class __ELEMENT(lxml.etree.ElementBase):
         from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
         
         with DO_SOUBORU(soubor):
+            print(self.xml_deklarace)
             print(self)
 
 #    def __mod__(self,  vrátím):
