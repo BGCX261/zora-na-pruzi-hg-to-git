@@ -44,7 +44,6 @@ class STYL(OrderedDict):
         
         print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
         
-        from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
-        
-        with DO_SOUBORU(soubor):
-            print(self)
+        with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
+#            otevřený_soubor.write(self.xml_hlavička)
+            otevřený_soubor.write(str(self))

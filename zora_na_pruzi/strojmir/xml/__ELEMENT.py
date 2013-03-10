@@ -52,9 +52,24 @@ class __ELEMENT(lxml.etree.ElementBase):
         return lxml.etree.tounicode(self,  pretty_print=True)
 
     @property
-    def xml_deklarace(self):
+    def xml_hlavička(self):
         xml_deklarace = lxml.etree.PI('xml', "version='1.0' encoding='UTF-8'")
         xml_deklarace= lxml.etree.tounicode(xml_deklarace,  pretty_print=True)
+        
+        from zora_na_pruzi.strojmir.hlavička import hlavička_automaticky_vytvořila, WEB_PROJEKTU,  WEB_ZDROJOVÝCH_KÓDŮ
+
+#        for komentář in self.getroottree().findall('//comment()'):
+        for element in self.iter():
+            print("*"*44,  element)
+#            not isinstance(element.tag, basestring) and
+            if  element.__class__.__name__ == '_Comment':
+                komentář = element
+                print('Mažu komentář {}'.format(komentář))
+                self.remove(komentář)
+    
+        self.insert(0, lxml.etree.Comment(hlavička_automaticky_vytvořila()))
+        self.insert(1, lxml.etree.Comment(WEB_PROJEKTU))
+        self.insert(2, lxml.etree.Comment(WEB_ZDROJOVÝCH_KÓDŮ))
         return xml_deklarace
 
     def __rshift__(self,  soubor):
@@ -66,11 +81,9 @@ class __ELEMENT(lxml.etree.ElementBase):
         
         print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
         
-        from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
-        
-        with DO_SOUBORU(soubor):
-            print(self.xml_deklarace)
-            print(self)
+        with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
+            otevřený_soubor.write(self.xml_hlavička)
+            otevřený_soubor.write(str(self))
 
 #    def __mod__(self,  vrátím):
 #        '''

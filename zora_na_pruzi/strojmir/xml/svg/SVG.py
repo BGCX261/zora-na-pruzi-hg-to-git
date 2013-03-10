@@ -42,45 +42,46 @@ class SVG(__ELEMENT_SVG):
         return super().__str__()
 
 
-    def __rshift__(self,  soubor):
-        '''
-        operátor SOUBOR >> soubor:řetězec umožní uložit obsah do souboru
-        '''
-        if not isinstance(soubor,  (str, )):
-            raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
+    @property
+    def xml_hlavička(self):
+        xml_hlavička = [super().xml_hlavička]
         
-        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
+        xml_stylesheet = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
+        xml_stylesheet = lxml.etree.tounicode(xml_stylesheet,  pretty_print=True)
         
-        from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
-        
-        with DO_SOUBORU(soubor):
-            print(self.xml_deklarace)
-            print(self)
+        xml_hlavička.append(xml_stylesheet)
 
-        
-            xml_stylesheet = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
-            xml_stylesheet = lxml.etree.tounicode(xml_stylesheet,  pretty_print=True)
-        
-        
-        print(xml_stylesheet)
-        
-        from zora_na_pruzi import __version__,  __author__
-        from datetime import date
-            
-        def rok():
-            letos = date.today().timetuple()[0]
-            if letos > 2012:
-                return '2012 - {}'.format(letos)
-            else:
-                return '2012'
-         
-        obsah = self.obsah
-      
-        obsah.insert(0, lxml.etree.Comment('Изготовила Зора на прузи {verze} ©Домоглед {autor} {rok} on {datum}'.format(verze = __version__, datum = date.today().isoformat(),  autor = __author__,  rok = rok())))
-        obsah.insert(1, lxml.etree.Comment('http://domogled.eu'))
-        obsah.insert(2, lxml.etree.Comment('http://code.google.com/p/zora-na-pruzi/'))
-        
-        print(obsah)
+        return '\n'.join(xml_hlavička)
+
+#    def __rshift__(self,  soubor):
+#        '''
+#        operátor SOUBOR >> soubor:řetězec umožní uložit obsah do souboru
+#        '''
+#        if not isinstance(soubor,  (str, )):
+#            raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
+#        
+#        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
+#        
+#        from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
+#        
+#        with DO_SOUBORU(soubor):
+#            print(self.xml_deklarace)
+#
+#            xml_stylesheet = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
+#            xml_stylesheet = lxml.etree.tounicode(xml_stylesheet,  pretty_print=True)
+#            print(xml_stylesheet)
+#            
+#            
+#        
+#            from zora_na_pruzi import __version__,  __author__
+#            from zora_na_pruzi.strojmir.hlavička import práva_od_roku
+#            from datetime import date
+#            
+#            self.insert(0, lxml.etree.Comment('Изготовила Зора на прузи {verze} ©Домоглед {autor} {rok} on {datum}'.format(verze = __version__, datum = date.today().isoformat(),  autor = __author__,  rok = práva_od_roku(2005))))
+#            self.insert(1, lxml.etree.Comment('http://domogled.eu'))
+#            self.insert(2, lxml.etree.Comment('http://code.google.com/p/zora-na-pruzi/'))
+#        
+#            print(self)
 
 
 
