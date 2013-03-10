@@ -24,10 +24,6 @@ def print_info(tree):
     
     print('-'*44)
 
-class Vid(object):
-    pass
-
-from zora_na_pruzi.strojmir.SOUBOR import SOUBOR
 
 class TAG_QNAME(dict):
     
@@ -39,11 +35,8 @@ class TAG_QNAME(dict):
 
 class __ELEMENT(lxml.etree.ElementBase):
     
-    vid = Vid()
     
     TAG_QNAME = TAG_QNAME()
-    SOUBOR = SOUBOR()
-    
     
 #    def __getattr__(self,  tag):
 #        return self.ELEMENT(tag)
@@ -64,25 +57,39 @@ class __ELEMENT(lxml.etree.ElementBase):
         xml_deklarace= lxml.etree.tounicode(xml_deklarace,  pretty_print=True)
         return xml_deklarace
 
-    def __mod__(self,  vrátím):
+    def __rshift__(self,  soubor):
         '''
-        operátor element:ELEMENT % vid:str vrátí reprezentaci uzlu v požadovaném pohledu
-        operátor element:ELEMENT % (vid:str, soubor:str) uloží reprezentaci uzlu v požadovaném pohledu do souboru a také ji vrátí
+        operátor SOUBOR >> soubor:řetězec umožní uložit obsah do souboru
         '''
+        if not isinstance(soubor,  (str, )):
+            raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
         
-        if isinstance(vrátím,  (tuple,  list)):
-            vid,  soubor = vrátím
-        else:
-            vid,  soubor = vrátím,  None
+        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
         
-        if not isinstance(vid,  (str,  SOUBOR)):
-            raise TypeError('Operátor %  elementu očekává jako argument název souboru šablon, což musí býti řetězec a nikolivěk {}.'.format(type(vid)))
+        from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
+        
+        with DO_SOUBORU(soubor):
+            print(self)
 
-        aktuální_vid = self.vid
-        self.vid = vid
-        if soubor is None:
-            kód = str(self)
-        else:
-            kód = self >> soubor
-        self.vid = aktuální_vid
-        return kód
+#    def __mod__(self,  vrátím):
+#        '''
+#        operátor element:ELEMENT % vid:str vrátí reprezentaci uzlu v požadovaném pohledu
+#        operátor element:ELEMENT % (vid:str, soubor:str) uloží reprezentaci uzlu v požadovaném pohledu do souboru a také ji vrátí
+#        '''
+#        
+#        if isinstance(vrátím,  (tuple,  list)):
+#            vid,  soubor = vrátím
+#        else:
+#            vid,  soubor = vrátím,  None
+#        
+#        if not isinstance(vid,  (str,  SOUBOR)):
+#            raise TypeError('Operátor %  elementu očekává jako argument název souboru šablon, což musí býti řetězec a nikolivěk {}.'.format(type(vid)))
+#
+#        aktuální_vid = self.vid
+#        self.vid = vid
+#        if soubor is None:
+#            kód = str(self)
+#        else:
+#            kód = self >> soubor
+#        self.vid = aktuální_vid
+#        return kód

@@ -8,7 +8,7 @@ Hen je třída, která přesměruje standartní výstup
 
 import sys
 
-class VÝSTUP(object):
+class DO_SOUBORU(object):
     
     '''
     přesměruje standartní výstup

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-08, 23:43:58 -->
+<!-- Saved: 2013-03-10, 02:05:23 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -173,6 +173,8 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/graphml/graphml_elementy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/svg/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/svg/SVG.py</Source>
+    <Source>jak_naprogramovat/dekorátor_funkce.py</Source>
+    <Source>zora_na_pruzi/vidimir/stroj/konzole/dekorátory.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

@@ -7,11 +7,8 @@ Hen je program, který ...
 '''
 
 from collections import OrderedDict
-from zora_na_pruzi.strojmir.SOUBOR import SOUBOR
 
 class STYL(OrderedDict):
-    
-    SOUBOR = SOUBOR()
     
 #    def __init__(self,  soubor):
     
@@ -38,3 +35,16 @@ class STYL(OrderedDict):
             
         self[selektor].append(vlastnost)
         
+    def __rshift__(self,  soubor):
+        '''
+        operátor SOUBOR >> soubor:řetězec umožní uložit obsah do souboru
+        '''
+        if not isinstance(soubor,  (str, )):
+            raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
+        
+        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
+        
+        from zora_na_pruzi.strojmir.VÝSTUP import DO_SOUBORU
+        
+        with DO_SOUBORU(soubor):
+            print(self)
