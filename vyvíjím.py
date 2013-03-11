@@ -305,13 +305,20 @@ def svg():
 #    print(svg)
 #    svg.titulek = None
     
-    from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
     
-    svg.css(fill(0xFF0000))
-    svg.css_id(stroke(0x000000))
-    svg.css_id(stroke_width(3))
     
-    kruh.css_class(fill(0xFFFF00),  'KOLO')
+    css = svg.CSS.get('circle')
+    print(css)
+    
+    css.fill(0xFF0000)
+    css.stroke(0x000000)
+    from zora_na_pruzi.strojmir.css.jednotky import px
+    css.stroke_width(*px(3))
+    
+    css = svg.css_dle_id.stroke(0x1100CC)
+    
+    kruh.css_dle_třídy('KOLO').fill(0xFFFF00)
+    kruh.css_dle_třídy('KOLO',  True).fill(0xFFFF00).stroke(0x1100CC)
     
     print('*** PRINT ***')
     print(svg)
@@ -356,13 +363,17 @@ def css():
 #    print(sheet.cssText.decode('UTF-8'))
 
     from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
-    from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
+    from zora_na_pruzi.strojmir.css.vlastnosti import VLASTNOSTI
+    from zora_na_pruzi.strojmir.css.jednotky import px
     
     css = CSS_TABULKA()
+    css_circle = VLASTNOSTI()
 
-    css['circle'] = fill(0xFF0000)
-    css['circle'] = stroke(0x000000)
-    css['circle'] =  stroke_width(3)
+    css_circle.fill(0xFF0000)
+    css_circle.stroke(0x000000)
+    css_circle.stroke_width(*px(3))
+    
+    css['circle'] = css_circle
 #    pravidlo.append(fill)
 #    pravidlo.append(stroke_width)
 #    pravidlo.append(stroke)

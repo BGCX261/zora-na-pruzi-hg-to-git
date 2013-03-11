@@ -20,21 +20,22 @@ class __ELEMENT_SVG(__ELEMENT):
     PARSER,  E = davaj_parser(jméno_balíčku = __name__)
     CSS = CSS_TABULKA()
     
-    def css(self,  css_vlastnost):
-#        tag = lxml.etree.QName(self.tag)
-        self.CSS[self.TAG_QNAME.localname] = css_vlastnost
-        return self
-        
-    def css_id(self,  css_vlastnost):
+    @property
+    def css_dle_elementu(self):
+        return self.CSS.get(self.TAG_QNAME.localname)
+      
+    @property
+    def css_dle_id(self):
         selektor = '#{}'.format(self.id)
-        self.CSS[selektor] = css_vlastnost
-        return self
-        
-    def css_class(self,  css_vlastnost,  třída):
-        selektor = '.{}'.format(třída)
-        self.CSS[selektor] = css_vlastnost
+        return self.CSS.get(selektor)
+      
+    def css_dle_třídy(self,  třída,  element = None):
+        if element is None:
+            selektor = '.{}'.format(třída)
+        else:
+            selektor = '{}.{}'.format(self.TAG_QNAME.localname,  třída)
         self.__class(třída)
-        return self
+        return self.CSS.get(selektor)
         
     def __class(self,  třída):
         třídy = self.attrib.get('class',  '')
