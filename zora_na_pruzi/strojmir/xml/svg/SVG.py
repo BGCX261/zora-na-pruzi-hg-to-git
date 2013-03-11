@@ -45,7 +45,7 @@ class SVG(__ELEMENT_SVG):
     @property
     def xml_hlavička(self):
         
-        css_soubor = self.STYL.soubor
+        css_soubor = self.CSS.soubor
         if css_soubor is None:
             raise ValueError('Kaskádové styly nejsou uloženy.')
         

@@ -9,7 +9,7 @@ except ImportError:
      raise ImportError('SVG vyžaduje knihovnu lxml')
 
 from ..__ELEMENT import __ELEMENT
-from zora_na_pruzi.strojmir.css.STYL import STYL
+from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 
 from ..davaj_parser import davaj_parser
 
@@ -18,21 +18,21 @@ NAMESPACE = 'http://www.w3.org/2000/svg'
 class __ELEMENT_SVG(__ELEMENT):
     
     PARSER,  E = davaj_parser(jméno_balíčku = __name__)
-    STYL = STYL()
+    CSS = CSS_TABULKA()
     
     def css(self,  css_vlastnost):
 #        tag = lxml.etree.QName(self.tag)
-        self.STYL[self.TAG_QNAME.localname] = css_vlastnost
+        self.CSS[self.TAG_QNAME.localname] = css_vlastnost
         return self
         
     def css_id(self,  css_vlastnost):
         selektor = '#{}'.format(self.id)
-        self.STYL[selektor] = css_vlastnost
+        self.CSS[selektor] = css_vlastnost
         return self
         
     def css_class(self,  css_vlastnost,  třída):
         selektor = '.{}'.format(třída)
-        self.STYL[selektor] = css_vlastnost
+        self.CSS[selektor] = css_vlastnost
         self.__class(třída)
         return self
         

@@ -8,7 +8,7 @@ Hen je program, který ...
 
 from collections import OrderedDict
 
-class STYL(OrderedDict):
+class CSS_TABULKA(OrderedDict):
     
     __soubor = None
 #    def __init__(self,  soubor):

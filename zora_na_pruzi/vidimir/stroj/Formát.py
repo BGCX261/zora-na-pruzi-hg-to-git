@@ -17,7 +17,7 @@ class Formát(object):
 #    def __init__(self,  barva, pozadí = None,  styl = None,  formát = None):
         
         self.__formátovací_funkce = formátovací_funkce
-            
+
     def __ror__(self,  text):
         for funkce in self.__formátovací_funkce:
             text = funkce(text)

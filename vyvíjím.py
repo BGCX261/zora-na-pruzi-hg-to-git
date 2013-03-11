@@ -8,10 +8,11 @@ Hen je skript, gde si zkúšám
 
 import os
 
+from zora_na_pruzi.vidimir.Formátuji import TEXT
+
 #from zora_na_pruzi.pohunci.obarvím_výpis.barevný_logger import daj_logovátka
 #debug,  info,  warning,  error,  critical = daj_logovátka(__file__)
 
-#from zora_na_pruzi.vidimir import F
 
 #def spustím(*příkaz):
 ##    PYTHON_BIN = 'python3'
@@ -53,14 +54,14 @@ def pisar():
     
     
     from zora_na_pruzi.vidimir.formáty.barevná_konzole import TEST
-#        print(F.TEST.START) NotImplementedError
+#        print(TEXT.TEST.START) NotImplementedError
     print(type(TEST.START))
     from zora_na_pruzi.vidimir.stroj.Formát import Formát
     print('startuje test ' | Formát(TEST.START))
 ####        with Pisar('html') as pisar:
     print(type(HTML.H1))
     print('NADPIS' | HTML.H1)
-#            print('startuje test ' | F.TEST.START)
+#            print('startuje test ' | TEXT.TEST.START)
 #        print(p)
 
 def html_výpis():
@@ -198,26 +199,26 @@ def   zkúšám():
     graph_tool_graf = Graf_Graph_tool(graphml)
     
     
-    print('GRAFY' | F.NADPIS)
+    print('GRAFY' | TEXT.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | F.INFO)
+        print(graf.__class__.__name__ | TEXT.INFO)
         print(graf)
         
-    print('UZLY' | F.NADPIS)
+    print('UZLY' | TEXT.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | F.INFO)
+        print(graf.__class__.__name__ | TEXT.INFO)
         for uzel in graf.uzly:
             print(uzel)
             
-    print('HRANY' | F.NADPIS)
+    print('HRANY' | TEXT.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | F.INFO)
+        print(graf.__class__.__name__ | TEXT.INFO)
         for vazba in graf.vazby:
             print(vazba)
             
-    print('VLASTNOSTI' | F.NADPIS)
+    print('VLASTNOSTI' | TEXT.NADPIS)
     for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | F.INFO)
+        print(graf.__class__.__name__ | TEXT.INFO)
         for vlastnosti in graf.vlastnosti:
             for vlastnost in vlastnosti:
                 print(vlastnost)
@@ -315,14 +316,14 @@ def svg():
     print('*** PRINT ***')
     print(svg)
     print(kruh)
-    print(svg.STYL)
+    print(svg.CSS)
     
 #    print(svg)
     
     
     uložím_do_souboru = 'testuji.svg'
     
-    svg.STYL >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
+    svg.CSS >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
     svg >> uložím_do_souboru
     
 #    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
@@ -354,10 +355,10 @@ def css():
 #    sheet.add('svg|circle {fill: #FF0000; stroke: #000000; stroke-width: 3}')
 #    print(sheet.cssText.decode('UTF-8'))
 
-    from zora_na_pruzi.strojmir.css.STYL import STYL
+    from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
     from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
     
-    css = STYL()
+    css = CSS_TABULKA()
 
     css['circle'] = fill(0xFF0000)
     css['circle'] = stroke(0x000000)
@@ -382,29 +383,38 @@ if __name__ == '__main__':
 #    print('='*44)
 #else:
     
+    def seznam_funkcí(imam):
+        help = ['dostupné funkce' | TEXT.NADPIS]
+        for jméno,  funkce in imam.items():
+            if not jméno.startswith('__') and callable(funkce):
+                help.append(jméno | TEXT.INFO)
+                
+        return imam,  '\n'.join(help)
+    
+    imam,  help = seznam_funkcí(dict(locals()))
+    
     import argparse
     #  nejdříve si parser vytvořím
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(epilog = help,  formatter_class = argparse.RawDescriptionHelpFormatter)
 
 #   a pak mu nastavím jaké příkazy a parametry má přijímat
 #    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, искушител {}'.format(__version__))
     
-    parser.add_argument('funkce')
+    parser.add_argument('funkce',  nargs='+')
     
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
     funkce = args.funkce
-    imam = dict(locals())
-    if funkce in imam:
-        eval('{}()'.format(funkce))
-    else:
-        nadpis = 'dostupné funkce'
-        print(nadpis)
-        print('='*len(nadpis))
-        for jméno,  funkce in imam.items():
-            if not jméno.startswith('__') and callable(funkce):
-                print(jméno)
+    
+    for funkce in funkce:
+        if funkce in imam:
+            print('spouštím funkci {}'.format(funkce | TEXT.PŘÍKAZ) | TEXT.INFO)
+            eval('{}()'.format(funkce))
+        else:
+            print('funkce {} nejestvuje'.format(funkce | TEXT.PŘÍKAZ)  | TEXT.CHYBA)
+            help
+            break
     
 #    @TODO: udělat z tohoto testy
 #    pisar()
