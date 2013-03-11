@@ -13,9 +13,9 @@ class Schéma(__Schéma):
         if self.__soubor_schématu is None:
             rnc_soubor = super().soubor_schématu
             rng_soubor = '{}.{}'.format(rnc_soubor,  'rng')
-            from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz
+            from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz_a_vypíšu
             příkaz = 'trang {} {}'.format(rnc_soubor,  rng_soubor)
-            spustím_příkaz(příkaz)
+            spustím_příkaz_a_vypíšu(příkaz)
             self.__soubor_schématu = rng_soubor
         return self.__soubor_schématu    
     

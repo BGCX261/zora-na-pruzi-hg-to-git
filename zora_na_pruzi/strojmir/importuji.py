@@ -6,12 +6,12 @@
 Hen je program, který ...
 '''
 
-def davaj_importéra(jméno_balíčku):
+def davaj_importéra(jméno_modulu):
     
-    def najdu_třídu(jméno_třídy):
-        balíček = __import__(jméno_balíčku, globals(), locals(), [jméno_třídy], 0)
-        třída = getattr(balíček,  jméno_třídy)
+    def importuji(jméno_objektu):
+        modul = __import__(jméno_modulu, globals(), locals(), [jméno_objektu], 0)
+        objekt = getattr(modul,  jméno_objektu)
             
-        return třída
+        return objekt
         
-    return najdu_třídu
+    return importuji

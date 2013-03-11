@@ -2,10 +2,9 @@
 # Copyright (c) 2012 Домоглед  <domogled@domogled.eu>
 # @author Петр Болф <petr.bolf@domogled.eu>
 
-'''
+'''#from zora_na_pruzi import vidimir as MODUL_VIDŮ
 Hen je program, který ...
 '''
-#from zora_na_pruzi import vidimir as MODUL_VIDŮ
 
 from zora_na_pruzi.strojmir.importuji import davaj_importéra
 

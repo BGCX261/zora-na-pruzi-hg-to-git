@@ -28,7 +28,8 @@ def __sestavím_příkaz(*příkaz,  shell):
             return ' '.join(příkaz)
         return příkaz
 
-def spustím_příkaz(*příkaz,  shell = True):
+
+def spustím_příkaz_a_vypíšu(*příkaz,  shell = True):
     
     příkaz = __sestavím_příkaz(*příkaz,  shell = shell)
 
@@ -49,3 +50,17 @@ def spustím_příkaz(*příkaz,  shell = True):
         print('ukončen: {}'.format(jméno_příkazu | TEXT.PŘÍKAZ) | TEXT.INFO )
     
     
+def spustím_příkaz_a_vrátím(*příkaz,  shell = True):
+    
+    příkaz = __sestavím_příkaz(*příkaz,  shell = shell)
+
+
+    with subprocess.Popen(příkaz, stdout = subprocess.PIPE,  stderr = subprocess.PIPE,  shell=shell) as proc:
+        out = proc.stdout.read().decode('UTF-8')
+        if out.strip():
+            out = out | TEXT.VÝPIS_PROGRAMU
+        err = proc.stderr.read().decode('UTF-8')
+        if err.strip():
+            err = err | TEXT.CHYBA
+        
+    return out,  err

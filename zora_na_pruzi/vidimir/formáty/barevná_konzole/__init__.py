@@ -37,3 +37,7 @@ def SOUBOR(text):
     return text
 #Obarvi(BÍLÁ,  TUČNĚ,  NA_TMAVĚ_SIVÉ)
 #OBJEKT = Obarvi(SIVÁ,  TUČNĚ,  NA_ČERNÉ)
+
+@obarvi(BÍLÁ,  NA_TMAVĚ_SIVÉ)
+def VÝPIS_PROGRAMU(text):
+    return text  

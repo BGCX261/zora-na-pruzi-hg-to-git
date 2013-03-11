@@ -48,7 +48,7 @@ class __Schéma(object):
             
         program = program.format(schéma = self.soubor_schématu,  soubor = soubor)
         
-        from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz
-        return spustím_příkaz(program)
+        from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz_a_vypíšu
+        return spustím_příkaz_a_vypíšu(program)
 
 #    return Validátor
