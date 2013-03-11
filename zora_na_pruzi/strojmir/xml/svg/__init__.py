@@ -38,6 +38,10 @@ class __ELEMENT_SVG(__ELEMENT):
         return self.CSS.get(selektor)
         
     def __class(self,  třída):
+        '''
+        přidá třídu do atributu class
+        tuto metodu používám při přiřazení CSS stylu dle třídy
+        '''
         třídy = self.attrib.get('class',  '')
         class_elementu = set(třídy.split())
         class_elementu.add(třída)     
@@ -45,12 +49,18 @@ class __ELEMENT_SVG(__ELEMENT):
 
     
     def __davaj_obsah(self,  třída_elementu):
+        '''
+        pomocná metoda, která vrací obsah nějakého vloženého elementu
+        '''
         element = self.find(třída_elementu.TAG)
         if element is not None:
             return element.text
         return None
         
     def __nastav_obsah(self,  třída_elementu,  hodnota):
+        '''
+        pomocná metoda, která nastaví obsah nějakého vloženého elementu
+        '''
         element = self.find(třída_elementu.TAG)
         if hodnota is None:
             if element is not None:
@@ -81,6 +91,12 @@ class __ELEMENT_SVG(__ELEMENT):
     def popisek(self,  hodnota):
         from .DESC import DESC
         self.__nastav_obsah(třída_elementu = DESC,  hodnota = hodnota)
+        
+        
+    def __getattr__(self,  klíč):
+        element = getattr(self.E,  klíč.upper())()
+        self.append(element)
+        return element
     
 def načtu_svg(svg_soubor):
     
