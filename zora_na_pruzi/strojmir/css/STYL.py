@@ -10,6 +10,7 @@ from collections import OrderedDict
 
 class STYL(OrderedDict):
     
+    __soubor = None
 #    def __init__(self,  soubor):
     
     def __str__(self):
@@ -42,8 +43,14 @@ class STYL(OrderedDict):
         if not isinstance(soubor,  (str, )):
             raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
         
-        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
+        print('uložím kaskádové styly z objektu {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
         
         with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
 #            otevřený_soubor.write(self.xml_hlavička)
             otevřený_soubor.write(str(self))
+            
+        self.__soubor = soubor
+        
+    @property
+    def soubor(self):
+        return self.__soubor

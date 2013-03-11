@@ -44,15 +44,21 @@ class SVG(__ELEMENT_SVG):
 
     @property
     def xml_hlavička(self):
+        
+        css_soubor = self.STYL.soubor
+        if css_soubor is None:
+            raise ValueError('Kaskádové styly nejsou uloženy.')
+        
         xml_hlavička = [super().xml_hlavička]
         
-        xml_stylesheet = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'")
+        xml_stylesheet = lxml.etree.PI('xml-stylesheet', "href='{}' type='text/css'".format(css_soubor))
         xml_stylesheet = lxml.etree.tounicode(xml_stylesheet,  pretty_print=True)
         
         xml_hlavička.append(xml_stylesheet)
 
         return '\n'.join(xml_hlavička)
-
+        
+        
 #    def __rshift__(self,  soubor):
 #        '''
 #        operátor SOUBOR >> soubor:řetězec umožní uložit obsah do souboru

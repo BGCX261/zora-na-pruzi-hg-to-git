@@ -42,7 +42,13 @@ def davaj_parser(jméno_balíčku):
         třída = najdu_třídu_pro_element(tag)
         return třída()
 
-    element_builder = lxml.builder.ElementMaker(makeelement = make_element)
+    def číslo_na_řetězec(none,  hodnota):
+        return str(hodnota)
+
+    typemap = {
+               int: číslo_na_řetězec
+               }
+    element_builder = lxml.builder.ElementMaker(makeelement = make_element,  typemap = typemap)
         
     return parser,  element_builder
     

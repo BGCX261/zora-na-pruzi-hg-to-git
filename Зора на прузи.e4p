@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-10, 23:20:34 -->
+<!-- Saved: 2013-03-11, 12:00:35 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -44,8 +44,6 @@
     <Source>zora_na_pruzi/system/spustím_příkaz.py</Source>
     <Source>zora_na_pruzi/system/html_prohlížeč.py</Source>
     <Source>zora_na_pruzi/vidimir/__init__.py</Source>
-    <Source>zora_na_pruzi/system/python/__init__.py</Source>
-    <Source>zora_na_pruzi/system/python/načtu_modul.py</Source>
     <Source>zora_na_pruzi/system/změním_příponu_souboru.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/__init__.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/Formát.py</Source>
@@ -87,10 +85,7 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/Formátuji.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/python/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/python/načtu_modul.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/tvořím_html.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/Formát.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
@@ -147,35 +142,20 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/importuji.py</Source>
     <Source>jak_naprogramovat/přesměrování_výstupu_do_souboru.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/VÝSTUP.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/__SOUBOR.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/SOUBOR.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/importuji.py</Source>
-    <Source>zora_na_pruzi/vidimir/xml/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/css/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/css/STYL.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/css/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/css/STYL.py</Source>
-    <Source>zora_na_pruzi/vidimir/xml/graphml/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/xml/graphml/graphml_elementy.py</Source>
-    <Source>zora_na_pruzi/vidimir/xml/svg/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/xml/svg/SVG.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/graphml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/graphml/graphml_elementy.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/svg/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/xml/svg/SVG.py</Source>
     <Source>jak_naprogramovat/dekorátor_funkce.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/konzole/dekorátory.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/dekorátory.py</Source>
     <Source>slepé_cesty_vývoje/TEMP_DIR.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/html/__init__.py</Source>
     <Source>zora_na_pruzi/vidimir/stroj/html/tvořím_html.py</Source>
-    <Source>zora_na_pruzi/vidimir/DESKRIPTOR_VIDU.py</Source>
-    <Source>zora_na_pruzi/vidimir/vid/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/vid/xml/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/vid/css/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/hlavička.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/hlavička.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/tvořím_html.py</Source>
+    <Source>zora_na_pruzi/strojmir/nastavení.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
+    <Source>jak_naprogramovat/webový_prohlížeč.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

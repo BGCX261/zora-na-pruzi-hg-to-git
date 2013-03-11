@@ -276,15 +276,15 @@ def e_factory():
 def svg():
     from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
    
-#    svg = nové_svg(id = 'prvni_svg')
+    svg = nové_svg(id = 'prvni_svg')
 #    svg = nové_svg() KeyError
-    svg = načtu_svg('testuji.svg')
-    print('TAG',  svg.TAG)
-    print('tag',  svg.tag)
+#    svg = načtu_svg('testuji.svg')
+#    print('TAG',  svg.TAG)
+#    print('tag',  svg.tag)
 #    print('TAG local',  svg.TAG.localname)
     print(svg.E.DESC())
-    graf = načítám_graf()
-    print(graf.tag)
+#    graf = načítám_graf()
+#    print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
 #    print(svg.__class__.__name__)
     
@@ -293,34 +293,44 @@ def svg():
 #    print(svg)
 #    svg.titulek = 'NOVÝ TITULEK'
     svg.popisek = 'popisuji svg'
+    
+    kruh = svg.E.CIRCLE(cx = 50,  cy = 50,  r = 30)
+#    print('---')
+#    print(kruh)
+#    print('---')
+    
+    svg.append(kruh)
+    
 #    print(svg)
 #    svg.titulek = None
     
     from zora_na_pruzi.strojmir.css.vlastnosti import fill,  stroke,  stroke_width
     
-    svg | fill(0xFF0000)
-    svg |=  stroke(0x000000)
-    svg |=  stroke_width(3)
+    svg.css(fill(0xFF0000))
+    svg.css_id(stroke(0x000000))
+    svg.css_id(stroke_width(3))
     
+    kruh.css_class(fill(0xFFFF00),  'KOLO')
+    
+    print('*** PRINT ***')
     print(svg)
+    print(kruh)
     print(svg.STYL)
     
-    print(svg)
+#    print(svg)
     
     
     uložím_do_souboru = 'testuji.svg'
     
-    svg >> uložím_do_souboru
     svg.STYL >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
+    svg >> uložím_do_souboru
     
 #    from zora_na_pruzi.system.html_prohlížeč import zobrazím_html_stránku
 #    zobrazím_html_stránku(uložím_do_souboru)
+    
+#    import webbrowser
+#    webbrowser.open(uložím_do_souboru)
 
-def vidimir():
-    graf = načítám_graf()
-    graf.SOUBOR >> 'hen.graphml'
-#    os.system('cat hen.graphml')
-    print('\n')
 
 def pygal():
     import pygal                                                       # First import pygal
