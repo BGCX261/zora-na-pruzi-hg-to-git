@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-12, 12:05:34 -->
+<!-- Saved: 2013-03-12, 20:53:50 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -156,6 +156,12 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/G.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/circle.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/desc.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/g.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/svg.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/title.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

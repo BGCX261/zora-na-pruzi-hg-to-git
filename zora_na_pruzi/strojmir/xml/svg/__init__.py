@@ -11,11 +11,12 @@ except ImportError:
 from ..__ELEMENT import __ELEMENT
 from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 
-from ..davaj_parser import davaj_parser
+from ..davaj_parser import __ElementMaker,  davaj_parser
 
 NAMESPACE = 'http://www.w3.org/2000/svg'
 NSMAP = {None: NAMESPACE, 'xlink': 'http://www.w3.org/1999/xlink'}
-PARSER,  E = davaj_parser(jméno_balíčku = __name__,  NSMAP = NSMAP)
+E = __ElementMaker(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
+PARSER = davaj_parser(elementMaker = E)
 
 class __ELEMENT_SVG(__ELEMENT):
     
@@ -80,23 +81,23 @@ class __ELEMENT_SVG(__ELEMENT):
     
     @property
     def titulek(self):
-        from .TITLE import TITLE
-        return self.__davaj_obsah(třída_elementu = TITLE)
+#        from .TITLE import TITLE
+        return self.__davaj_obsah(třída_elementu = E.title)
         
     @titulek.setter
     def titulek(self,  hodnota):
-        from .TITLE import TITLE
-        self.__nastav_obsah(třída_elementu = TITLE,  hodnota = hodnota)
+#        from .TITLE import TITLE
+        self.__nastav_obsah(třída_elementu = E.title,  hodnota = hodnota)
         
     @property
     def popisek(self):
-        from .DESC import DESC
-        return self.__davaj_obsah(třída_elementu = DESC)    
+#        from .DESC import DESC
+        return self.__davaj_obsah(třída_elementu = E.desc)    
         
     @popisek.setter
     def popisek(self,  hodnota):
-        from .DESC import DESC
-        self.__nastav_obsah(třída_elementu = DESC,  hodnota = hodnota)
+#        from .DESC import DESC
+        self.__nastav_obsah(třída_elementu = E.desc,  hodnota = hodnota)
         
       
     def definuji(self,  element):

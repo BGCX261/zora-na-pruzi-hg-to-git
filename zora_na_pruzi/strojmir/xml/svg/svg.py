@@ -6,11 +6,12 @@
 Hen je třída, která ...
 '''
 import lxml.etree
-from . import __ELEMENT_SVG,  NAMESPACE
+from . import __ELEMENT_SVG
+#,  NAMESPACE
 
-class SVG(__ELEMENT_SVG):
+class svg(__ELEMENT_SVG):
     
-    TAG = '{{{}}}svg'.format(NAMESPACE)
+#    TAG = '{{{}}}svg'.format(NAMESPACE)
 #    TAG = lxml.etree.QName(NAMESPACE, 'svg')
 #    nsmap = {
 #                            None: NAMESPACE,
