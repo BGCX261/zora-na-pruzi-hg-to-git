@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-11, 23:31:21 -->
+<!-- Saved: 2013-03-12, 12:05:34 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -96,7 +96,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/barvy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/TEST.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/VÝPIS_PROGRAMU.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
@@ -124,18 +123,13 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
     <Source>jak_naprogramovat/dynamický_import.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/css/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/css/CSS.py</Source>
     <Source>zora_na_pruzi/strojmir/css/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
     <Source>jak_naprogramovat/přesměrování_výstupu_do_proměnné.py</Source>
     <Source>zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/STYL.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/css/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/css/CSS.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/importuji.py</Source>
@@ -153,18 +147,15 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/tvořím_html.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
     <Source>jak_naprogramovat/webový_prohlížeč.py</Source>
-    <Source>zora_na_pruzi/vidimir/DESKRIPTOR_VIDU.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/Obarvi.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/DESKRIPTOR_VIDU.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/Obarvi.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
-    <Source>zora_na_pruzi/system/python/načtu_modul.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/python/načtu_modul.py</Source>
     <Source>zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
     <Source>stroj/__init__.py</Source>
     <Source>stroj/svg/__init__.py</Source>
     <Source>stroj/svg/vytvořím_svg_příklad.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/G.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/G.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

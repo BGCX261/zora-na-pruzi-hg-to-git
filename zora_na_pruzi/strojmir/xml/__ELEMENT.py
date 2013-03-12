@@ -6,7 +6,12 @@
 Hen je program, který ...
 '''
 
-import lxml.etree
+#import os
+
+try:
+    import lxml.etree
+except ImportError:
+     raise ImportError('Potřebuji knihovnu lxml')
 
 
 def print_info(tree):
@@ -78,6 +83,29 @@ class __ELEMENT(lxml.etree.ElementBase):
         with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
             otevřený_soubor.write(self.xml_hlavička)
             otevřený_soubor.write(str(self))
+     
+    @classmethod
+    def __lshift__(self,  cesta_k_souboru):
+        '''
+        operátor SOUBOR << soubor:řetězec umožní načíst obsah ze souboru
+        '''
+        import os
+        if not os.path.isfile(cesta_k_souboru):
+            raise IOError('Soubor {} pro element {} nejestvuje.'.format(cesta_k_souboru,  self.__name__))
+    
+        try:
+            tree = lxml.etree.parse(cesta_k_souboru,  parser = self.PARSER)
+        except AttributeError as e:
+            raise IOError('Soubor {} nelze načíst pro element {}.'.format(cesta_k_souboru,  self.__name__)) from e
+    
+        root = tree.getroot()
+        if self.TAG != root.TAG:
+            raise TypeError('Soubor {} má kořenový element {}, ale chceme jej načíst pro element {}.'.format(cesta_k_souboru,  root.TAG,  self.TAG))
+
+        return root
+
+
+
 
 #    def __mod__(self,  vrátím):
 #        '''

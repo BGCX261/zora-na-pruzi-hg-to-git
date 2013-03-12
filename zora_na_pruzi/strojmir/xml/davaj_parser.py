@@ -9,7 +9,7 @@ Hen je program, který ...
 import lxml.etree
 import lxml.builder
 
-def davaj_parser(jméno_balíčku):
+def davaj_parser(jméno_balíčku,  NSMAP):
  
     from zora_na_pruzi.strojmir import importuji
     najdu_třídu = importuji.davaj_importéra(jméno_balíčku)
@@ -38,9 +38,9 @@ def davaj_parser(jméno_balíčku):
     parser = lxml.etree.XMLParser(remove_blank_text=True)
     parser.set_element_class_lookup(Lookup())
 
-    def make_element(tag, nsmap = None):
+    def make_element(tag, nsmap = NSMAP):
         třída = najdu_třídu_pro_element(tag)
-        return třída()
+        return třída(nsmap = NSMAP)
 
     def číslo_na_řetězec(none,  hodnota):
         return str(hodnota)

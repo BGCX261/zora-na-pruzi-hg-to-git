@@ -274,16 +274,36 @@ def e_factory():
 #    el = E.h1() AttributeError
     
 
+def open_xml():
+    from zora_na_pruzi.strojmir.xml.svg.SVG import SVG
+    
+    svg = SVG() << './testuji.svg'
+#    svg = SVG << './graf.graphml'
+    print(svg)
+    
+    from zora_na_pruzi.strojmir.xml.svg.G import G
+    g = G() << './testuji.svg'
+    print(g)
+
 def svg():
-    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
-   
-    svg = nové_svg(id = 'prvni_svg')
+#    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
+    
+    from zora_na_pruzi.strojmir.xml.svg import E
+    from zora_na_pruzi.strojmir.xml.svg.SVG import SVG
+    
+    svg = SVG(id = 'prvni_svg')
+    print(svg.nsmap)
+    
+    svg = E.SVG(id = 'prvni_svg')
+    print(svg.nsmap)
+    
+    
 #    svg = nové_svg() KeyError
 #    svg = načtu_svg('testuji.svg')
 #    print('TAG',  svg.TAG)
 #    print('tag',  svg.tag)
 #    print('TAG local',  svg.TAG.localname)
-    print(svg.E.DESC())
+    print(E.DESC())
 #    graf = načítám_graf()
 #    print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
@@ -295,7 +315,7 @@ def svg():
 #    svg.titulek = 'NOVÝ TITULEK'
     svg.popisek = 'popisuji svg'
     
-    kruh = svg.E.CIRCLE(cx = 50,  cy = 50,  r = 30)
+    kruh = E.CIRCLE(cx = 50,  cy = 50,  r = 30)
 #    print('---')
 #    print(kruh)
 #    print('---')

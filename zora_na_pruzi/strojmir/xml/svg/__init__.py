@@ -14,11 +14,17 @@ from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 from ..davaj_parser import davaj_parser
 
 NAMESPACE = 'http://www.w3.org/2000/svg'
+NSMAP = {None: NAMESPACE, 'xlink': 'http://www.w3.org/1999/xlink'}
+PARSER,  E = davaj_parser(jméno_balíčku = __name__,  NSMAP = NSMAP)
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    PARSER,  E = davaj_parser(jméno_balíčku = __name__)
+    PARSER = PARSER
     CSS = CSS_TABULKA()
+#    nsmap = {
+#                            None: NAMESPACE,
+#                            'xlink': 'http://www.w3.org/1999/xlink',
+#                    }
     
     @property
     def css_dle_elementu(self):
@@ -92,41 +98,54 @@ class __ELEMENT_SVG(__ELEMENT):
         from .DESC import DESC
         self.__nastav_obsah(třída_elementu = DESC,  hodnota = hodnota)
         
-        
+      
+    def definuji(self,  element):
+        id = element.attrib['id']
+        self.DEFS.append(element)
+    
     def __getattr__(self,  klíč):
-        element = getattr(self.E,  klíč.upper())()
-        self.append(element)
-        return element
+        klíč = klíč.upper()
+        element = getattr(E,  klíč)
+        jestvuje = self.findall(element.TAG)
+        nalezeno = len(jestvuje)
+        if nalezeno == 1:
+            return jestvuje[0]
+        elif nalezeno == 0:
+            element = element()
+            self.append(element)
+            return element
+        else:
+            raise ValueError('Pro klíč nalezeno více elementů {} v {}'.format(klíč,  element.__class__.__name__,  self.__class__.__name__))
     
-def načtu_svg(svg_soubor):
+#def načtu_svg(svg_soubor):
+#    
+#    if not os.path.isfile(svg_soubor):
+#        raise IOError('Soubor grafu {} nejestvuje.'.format(svg_soubor))
+#    
+#    tree = lxml.etree.parse(svg_soubor,  parser = __ELEMENT_SVG.PARSER)
+##    from ..__ELEMENT import print_info
+##    print_info(tree)
+#    return tree.getroot()
     
-    if not os.path.isfile(svg_soubor):
-        raise IOError('Soubor grafu {} nejestvuje.'.format(svg_soubor))
-    
-    tree = lxml.etree.parse(svg_soubor,  parser = __ELEMENT_SVG.PARSER)
-#    from ..__ELEMENT import print_info
-#    print_info(tree)
-    return tree.getroot()
-    
-def nové_svg(id = None):
-    from .SVG import SVG
-    
-    args = {
-            'nsmap': {
-                            None: NAMESPACE,
-                            'xlink': 'http://www.w3.org/1999/xlink',
-                    }, 
-                'version': '1.1'
-            
-            }
-    
-    if id is not None:
-        args['id'] = id
-    
-    svg = SVG(**args)
-
-#    tree = lxml.etree.ElementTree(svg)
-#    from ..__ELEMENT import print_info
-#    print_info(svg)
-    return svg
-
+#def nové_svg(id = None):
+#    from .SVG import SVG
+#    
+#    args = {
+#            'nsmap': {
+#                            None: NAMESPACE,
+#                            'xlink': 'http://www.w3.org/1999/xlink',
+#                    }, 
+#                'version': '1.1'
+#            
+#            }
+#    
+#    if id is not None:
+#        args['id'] = id
+#    
+#    svg = SVG(**args)
+#
+##    tree = lxml.etree.ElementTree(svg)
+##    from ..__ELEMENT import print_info
+##    print_info(svg)
+#    return svg
+#
