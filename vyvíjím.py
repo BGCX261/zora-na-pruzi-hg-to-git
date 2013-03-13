@@ -312,6 +312,7 @@ def svg():
     print(E.G())
     
     načtené_svg = E << 'testuji.svg'
+    
     print(načtené_svg)
     
 #    graf = načítám_graf()
@@ -324,13 +325,13 @@ def svg():
 #    print(svg)
 #    svg.titulek = 'NOVÝ TITULEK'
     svg.popisek = 'popisuji svg'
-    
-    kruh = E.CIRCLE(cx = 50,  cy = 50,  r = 30)
+
+    kruh = E.CIRCLE(cx = str(50),  cy = str(50),  r = str(30))
 #    print('---')
 #    print(kruh)
 #    print('---')
     
-    svg.append(kruh)
+    svg._ELEMENT.append(kruh._ELEMENT)
     
 #    print(svg)
 #    svg.titulek = None
@@ -454,7 +455,7 @@ if __name__ == '__main__':
             eval('{}()'.format(funkce))
         else:
             print('funkce {} nejestvuje'.format(funkce | TEXT.PŘÍKAZ)  | TEXT.CHYBA)
-            help
+            print(help)
             break
     
 #    @TODO: udělat z tohoto testy

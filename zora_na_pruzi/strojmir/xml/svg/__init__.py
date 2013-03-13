@@ -9,23 +9,20 @@ except ImportError:
      raise ImportError('SVG vyžaduje knihovnu lxml')
 
 from ..__ELEMENT import __ELEMENT
-from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
+from ..__DAVAJ_ELEMENT import __DAVAJ_ELEMENT as E
 
-from ..davaj_parser import __ElementMaker
-from ..PATH import TAGY
-#,  davaj_parser
+from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 
 NAMESPACE = 'http://www.w3.org/2000/svg'
 NSMAP = {None: NAMESPACE, 'xlink': 'http://www.w3.org/1999/xlink'}
-E = __ElementMaker(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
+E = E(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
 
-TAG = TAGY(NAMESPACE)
 
 #PARSER = davaj_parser(elementMaker = E)
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    _NAMESPACE = NAMESPACE
+    NAMESPACE = NAMESPACE
     _NSMAP = NSMAP
     
 #    PARSER = PARSER
@@ -37,8 +34,8 @@ class __ELEMENT_SVG(__ELEMENT):
     
     __atributy = 2
     namespace = 2
-    def __init__(self,  __element = None,  **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self,  _ELEMENT = None,  **kwargs):
+        super().__init__(_ELEMENT = _ELEMENT,  **kwargs)
         
     
     @property
@@ -54,7 +51,7 @@ class __ELEMENT_SVG(__ELEMENT):
         if element is None:
             selektor = '.{}'.format(třída)
         else:
-            selektor = '{}.{}'.format(self.TAG_QNAME.localname,  třída)
+            selektor = '{}.{}'.format(self.TAG,  třída)
         self.__class(třída)
         return self.CSS.get(selektor)
         
@@ -63,10 +60,10 @@ class __ELEMENT_SVG(__ELEMENT):
         přidá třídu do atributu class
         tuto metodu používám při přiřazení CSS stylu dle třídy
         '''
-        třídy = self.attrib.get('class',  '')
+        třídy = self._ELEMENT.attrib.get('class',  '')
         class_elementu = set(třídy.split())
         class_elementu.add(třída)     
-        self.attrib['class'] = ' '.join(class_elementu)
+        self._ELEMENT.attrib['class'] = ' '.join(class_elementu)
 
     
     def __davaj_obsah(self,  třída_elementu):
@@ -82,15 +79,15 @@ class __ELEMENT_SVG(__ELEMENT):
         '''
         pomocná metoda, která nastaví obsah nějakého vloženého elementu
         '''
-        element = self.find(třída_elementu.TAG)
+        element = self._ELEMENT.find(třída_elementu.TAG)
         if hodnota is None:
             if element is not None:
                 self.remove(element)
         else:
             if element is None:
-                element = třída_elementu()
+                element = třída_elementu()._ELEMENT
                 element.text = hodnota
-                self.append(element)
+                self._ELEMENT.append(element)
             return element.text
     
     @property

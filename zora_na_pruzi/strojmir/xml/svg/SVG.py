@@ -11,13 +11,6 @@ from . import __ELEMENT_SVG
 
 class SVG(__ELEMENT_SVG):
     
-#    TAG = '{{{}}}svg'.format(NAMESPACE)
-#    TAG = lxml.etree.QName(NAMESPACE, 'svg')
-#    nsmap = {
-#                            None: NAMESPACE,
-#                            'xlink': 'http://www.w3.org/1999/xlink',
-#                    }
-    
     __viewBox = [0,  0,  800,  600]
     __svg_version = '1.1'
 
@@ -43,13 +36,13 @@ class SVG(__ELEMENT_SVG):
             
         self.__viewBox[3] = hodnota
         
-#    def __str__(self):
-#        if self.attrib.get('version',  None) is None:
-#            self.set('version',  self.__svg_version)
-#            
-#        self.set('viewBox',  ' '.join(map(str,  self.__viewBox)))
-#        
-#        return super().__str__()
+    def __str__(self):
+        if self._ELEMENT.attrib.get('version',  None) is None:
+            self._ELEMENT.set('version',  self.__svg_version)
+            
+        self._ELEMENT.set('viewBox',  ' '.join(map(str,  self.__viewBox)))
+        
+        return super().__str__()
 
 
     @property

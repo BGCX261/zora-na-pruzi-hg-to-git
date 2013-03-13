@@ -11,7 +11,7 @@ import lxml.builder
 
 
 #class __ElementMaker(lxml.builder.ElementMaker):
-class __ElementMaker(object):
+class __DAVAJ_ELEMENT(object):
     
     _typemap = {
                int: str
@@ -89,7 +89,7 @@ class __ElementMaker(object):
         třída_elementu = getattr(self,  tag.localname.upper())
         
         try:
-            element =  třída_elementu(__element = root)
+            element =  třída_elementu(_ELEMENT = root)
         except TypeError as e:
 #            raise e
 #@TODO: Nyní vypnuté,  kontrolu provedu jen na tag,  nikolivěk na namespace
@@ -103,47 +103,47 @@ class __ElementMaker(object):
 #E = ElementMaker()
 
 
-def davaj_parser(elementMaker):
- 
-#    from zora_na_pruzi.strojmir import importuji
-#    najdu_třídu = importuji.davaj_importéra(jméno_balíčku)
+#def davaj_parser(elementMaker):
+# 
+##    from zora_na_pruzi.strojmir import importuji
+##    najdu_třídu = importuji.davaj_importéra(jméno_balíčku)
+##    
+##    def najdu_třídu_pro_element(tag):
+##        jméno_třídy = tag.lower()
+##        třída = najdu_třídu(jméno_třídy,  jméno_třídy)
+###        esli to není třída,  ale modul,  načteme třídu z toho modulu
+###        if not isinstance(třída, type):
+###            třída = getattr(třída,  jméno_třídy,  None)
+##        if not issubclass(třída,  lxml.etree.ElementBase):
+##            raise TypeError('Nenašel jsem třídu {} pro element <{} .. > v balíčku {}'.format(jméno_třídy,  tag,  jméno_balíčku))
+##        return třída
+# 
+#    class Lookup(lxml.etree.CustomElementClassLookup):
+#        def lookup(self, node_type, document, namespace, name):
+#            if node_type == 'element':
+##                třída = elementMaker._davaj_třídu_elementu(tag = name)
+#                třída = getattr(elementMaker,  name)
+#                return třída
+#    #            except KeyError as e:
+#    #                if not exception:
+#    #                    return výchozí_element
+#    #                else:
+#    #                    raise e
+#
+#    parser = lxml.etree.XMLParser(remove_blank_text=True)
+#    parser.set_element_class_lookup(Lookup())
+#
+##    def make_element(tag, nsmap = None):
+##        třída = najdu_třídu_pro_element(tag)
+##        return třída(nsmap = NSMAP)
+#
+##    def číslo_na_řetězec(none,  hodnota):
+##        return str(hodnota)
+#
 #    
-#    def najdu_třídu_pro_element(tag):
-#        jméno_třídy = tag.lower()
-#        třída = najdu_třídu(jméno_třídy,  jméno_třídy)
-##        esli to není třída,  ale modul,  načteme třídu z toho modulu
-##        if not isinstance(třída, type):
-##            třída = getattr(třída,  jméno_třídy,  None)
-#        if not issubclass(třída,  lxml.etree.ElementBase):
-#            raise TypeError('Nenašel jsem třídu {} pro element <{} .. > v balíčku {}'.format(jméno_třídy,  tag,  jméno_balíčku))
-#        return třída
- 
-    class Lookup(lxml.etree.CustomElementClassLookup):
-        def lookup(self, node_type, document, namespace, name):
-            if node_type == 'element':
-#                třída = elementMaker._davaj_třídu_elementu(tag = name)
-                třída = getattr(elementMaker,  name)
-                return třída
-    #            except KeyError as e:
-    #                if not exception:
-    #                    return výchozí_element
-    #                else:
-    #                    raise e
-
-    parser = lxml.etree.XMLParser(remove_blank_text=True)
-    parser.set_element_class_lookup(Lookup())
-
-#    def make_element(tag, nsmap = None):
-#        třída = najdu_třídu_pro_element(tag)
-#        return třída(nsmap = NSMAP)
-
-#    def číslo_na_řetězec(none,  hodnota):
-#        return str(hodnota)
-
-    
-#    element_builder = __ElementMaker(makeelement = make_element,  typemap = typemap,  nsmap = NSMAP)
-#    element_builder = __ElementMaker(str_z_balíčku = jméno_balíčku, nsmap = NSMAP)
-        
-    return parser
-    
-    
+##    element_builder = __ElementMaker(makeelement = make_element,  typemap = typemap,  nsmap = NSMAP)
+##    element_builder = __ElementMaker(str_z_balíčku = jméno_balíčku, nsmap = NSMAP)
+#        
+#    return parser
+#    
+#    

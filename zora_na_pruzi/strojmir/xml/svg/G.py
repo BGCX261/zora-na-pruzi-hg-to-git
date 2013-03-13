@@ -6,17 +6,14 @@
 Hen je třída, která ...
 '''
 #import lxml.etree
-from . import __ELEMENT_SVG
-#,  NAMESPACE
+from . import __ELEMENT_SVG,  E
 
 
 class G(__ELEMENT_SVG):
     
-#    TAG = '{{{}}}g'.format(NAMESPACE)
-    
     def kružnice(self,  střed,  poloměr):
-        circle = self.E.circle(cx = střed[0],  cy = střed[1],  r = poloměr)
-        self.append(circle)
+        circle = E.CIRCLE(cx = str(střed[0]),  cy = str(střed[1]),  r = str(poloměr))
+        self._ELEMENT.append(circle._ELEMENT)
         return circle
     
  

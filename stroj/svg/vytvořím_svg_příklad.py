@@ -8,14 +8,15 @@ Hen je program, který ...
 
 print('Jak udělám SVG soubor')
 
-from zora_na_pruzi.strojmir.xml.svg import nové_svg
+from zora_na_pruzi.strojmir.xml.svg import E
 
-svg = nové_svg()
+svg = E.SVG()
 
 svg.titulek = 'TITULEK'
 svg.popisek = 'popisuji svg'
-kruh = svg.G.kružnice(střed = (45,  50),  poloměr = 40)
-css_kruhu = kruh.css_dle_třídy('KOLO',  True)
+kruh = E.G().kružnice(střed = (45,  50),  poloměr = 40)
+svg._ELEMENT.append(kruh._ELEMENT)
+css_kruhu = kruh.css_dle_třídy('KOLO',  element = True)
 css_kruhu.fill(0xFFFF00).stroke(0x1100CC).stroke_width(4,  'px')
 
 print(svg)

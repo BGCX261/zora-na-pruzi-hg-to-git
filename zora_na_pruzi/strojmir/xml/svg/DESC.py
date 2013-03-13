@@ -6,11 +6,10 @@
 Hen je třída, která ...
 '''
 #import lxml.etree
-from . import __ELEMENT_SVG,  NAMESPACE
-#,  NAMESPACE
+from . import __ELEMENT_SVG
 
 
 class DESC(__ELEMENT_SVG):
-    TAG = '{{{}}}desc'.format(NAMESPACE)
+    pass
     
  
