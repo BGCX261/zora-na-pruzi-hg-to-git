@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-12, 20:53:50 -->
+<!-- Saved: 2013-03-13, 21:09:03 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -74,7 +74,6 @@
     <Source>zora_na_pruzi/strojmir/xml/svg/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/__ELEMENT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/davaj_parser.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/SVG.py</Source>
     <Source>stroj/validuji.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/__init__.py</Source>
@@ -106,7 +105,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/SVG.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
@@ -117,11 +115,7 @@
     <Source>web/moje_bottle.py</Source>
     <Source>web/index.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/PATH.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/PATH.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
     <Source>jak_naprogramovat/dynamický_import.py</Source>
     <Source>zora_na_pruzi/strojmir/css/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
@@ -145,15 +139,11 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/hlavička.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/tvořím_html.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
     <Source>jak_naprogramovat/webový_prohlížeč.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
     <Source>zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
     <Source>stroj/__init__.py</Source>
     <Source>stroj/svg/__init__.py</Source>
     <Source>stroj/svg/vytvořím_svg_příklad.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/G.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/G.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
@@ -162,6 +152,11 @@
     <Source>zora_na_pruzi/strojmir/xml/svg/g.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/svg.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/svg/title.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/svg.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/desc.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/title.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/g.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/circle.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
