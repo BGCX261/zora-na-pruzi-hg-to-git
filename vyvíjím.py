@@ -289,7 +289,7 @@ def svg():
 #    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
     
     from zora_na_pruzi.strojmir.xml.svg import E
-    from zora_na_pruzi.strojmir.xml.svg.svg import svg as SVG
+    from zora_na_pruzi.strojmir.xml.svg.SVG import SVG
     
 #    svg = SVG(id = 'prvni_svg')
 #    print(svg.nsmap)
@@ -306,11 +306,14 @@ def svg():
 #    print('TAG local',  svg.TAG.localname)
     print(E.DESC())
     
-    print(E.g())
+#    svg_vzor = E << './zora_na_pruzi/strojmir/xml/svg/__testuji_svg/prázdné.svg'
+#    g = E << './zora_na_pruzi/strojmir/xml/svg/__testuji_svg/fragment_g.svg'
+    
+    print(E.G())
     
     načtené_svg = E << 'testuji.svg'
     print(načtené_svg)
-    return
+    
 #    graf = načítám_graf()
 #    print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
@@ -322,7 +325,7 @@ def svg():
 #    svg.titulek = 'NOVÝ TITULEK'
     svg.popisek = 'popisuji svg'
     
-    kruh = E.circle(cx = 50,  cy = 50,  r = 30)
+    kruh = E.CIRCLE(cx = 50,  cy = 50,  r = 30)
 #    print('---')
 #    print(kruh)
 #    print('---')

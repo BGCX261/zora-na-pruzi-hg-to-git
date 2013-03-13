@@ -45,7 +45,7 @@ class __ELEMENT(object):
     _NAMESPACE = None
     _NSMAP = {}
     
-    def __init__(self, element = None,  **kwargs):
+    def __init__(self, __element = None,  **kwargs):
         
         if self._TAG is None:
             tag = self.__class__.__name__.lower()
@@ -53,10 +53,14 @@ class __ELEMENT(object):
         if self._NAMESPACE is not None:
             tag = '{{{}}}{}'.format(self._NAMESPACE,  tag)
         
-        if element is not None:
-            if tag != element.tag:
-                raise TypeError('Třída {} očekává kořenový element {}, ale chceme jí předat element {}.'.format(self.__name__,  tag,  element.tag))
-            self._ELEMENT = element
+        if __element is not None:
+            if tag != __element.tag:
+                tag_elementu = lxml.etree.QName(__element)
+                if tag_elementu.namespace is None and tag_elementu.localname ==  self.__class__.__name__.lower():
+                    self._ELEMENT = __element
+                else:
+                    raise TypeError('Třída {} očekává kořenový element {}, ale chceme jí předat element {}.'.format(self.__class__.__name__,  tag,  __element.tag))
+            
         else:        
             
             self._ELEMENT = lxml.etree.Element(tag,  nsmap = self._NSMAP)

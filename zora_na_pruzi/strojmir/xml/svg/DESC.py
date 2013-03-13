@@ -10,7 +10,7 @@ from . import __ELEMENT_SVG,  NAMESPACE
 #,  NAMESPACE
 
 
-class desc(__ELEMENT_SVG):
+class DESC(__ELEMENT_SVG):
     TAG = '{{{}}}desc'.format(NAMESPACE)
     
  

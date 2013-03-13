@@ -21,21 +21,21 @@ def cesta_k_souboru(jméno_souboru):
     
 def test_0001_načtu_svg():
     
-    with py.test.raises(TypeError):
-        svg = E << cesta_k_souboru('fragment_g.svg')
+#    with py.test.raises(TypeError):
+#        svg = E << cesta_k_souboru('fragment_g.svg')
         
     g = E << cesta_k_souboru('fragment_g.svg')
     svg = E << cesta_k_souboru('prázdné.svg')
     
 def test_0002_vytvořím_nové_svg():
   
-    svg = E.svg()
+    svg = E.SVG()
     svg_vzor = E << cesta_k_souboru('prázdné.svg')
     
-    assert svg.tag == svg_vzor.tag
-    assert str(svg) != str(svg_vzor)
+#    assert svg._ELEMENT.tag == svg_vzor._ELEMENT.tag
+#    assert str(svg) != str(svg_vzor)
     
-    svg = E.SVG()
+    
     print(svg)
     print(svg_vzor)
     assert str(svg) == str(svg_vzor)

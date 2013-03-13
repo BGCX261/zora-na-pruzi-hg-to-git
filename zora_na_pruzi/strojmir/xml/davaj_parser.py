@@ -89,9 +89,11 @@ class __ElementMaker(object):
         třída_elementu = getattr(self,  tag.localname.upper())
         
         try:
-            element =  třída_elementu(element = root)
+            element =  třída_elementu(__element = root)
         except TypeError as e:
-            raise TypeError('Soubor {} s kořenovým elementem {} se nepodařilo načíst do třídy {}.'.format(cesta_k_souboru,  root.tag,  třída_elementu.__class__.__name__)) from e
+#            raise e
+#@TODO: Nyní vypnuté,  kontrolu provedu jen na tag,  nikolivěk na namespace
+            raise TypeError('Soubor {} s kořenovým elementem {} se nepodařilo načíst do třídy {}.'.format(cesta_k_souboru,  root.tag,  třída_elementu.__name__)) from e
 
         return element
 

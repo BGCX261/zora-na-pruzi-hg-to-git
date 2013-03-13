@@ -9,7 +9,7 @@ import lxml.etree
 from . import __ELEMENT_SVG
 #,  NAMESPACE
 
-class svg(__ELEMENT_SVG):
+class SVG(__ELEMENT_SVG):
     
 #    TAG = '{{{}}}svg'.format(NAMESPACE)
 #    TAG = lxml.etree.QName(NAMESPACE, 'svg')

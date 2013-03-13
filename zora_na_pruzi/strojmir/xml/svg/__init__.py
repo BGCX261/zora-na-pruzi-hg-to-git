@@ -12,11 +12,14 @@ from ..__ELEMENT import __ELEMENT
 from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 
 from ..davaj_parser import __ElementMaker
+from ..PATH import TAGY
 #,  davaj_parser
 
 NAMESPACE = 'http://www.w3.org/2000/svg'
 NSMAP = {None: NAMESPACE, 'xlink': 'http://www.w3.org/1999/xlink'}
 E = __ElementMaker(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
+
+TAG = TAGY(NAMESPACE)
 
 #PARSER = davaj_parser(elementMaker = E)
 
@@ -34,7 +37,7 @@ class __ELEMENT_SVG(__ELEMENT):
     
     __atributy = 2
     namespace = 2
-    def __init__(self,  **kwargs):
+    def __init__(self,  __element = None,  **kwargs):
         super().__init__(**kwargs)
         
     
@@ -70,7 +73,7 @@ class __ELEMENT_SVG(__ELEMENT):
         '''
         pomocná metoda, která vrací obsah nějakého vloženého elementu
         '''
-        element = self.find(třída_elementu.TAG)
+        element = self._ELEMENT.find(třída_elementu.TAG)
         if element is not None:
             return element.text
         return None
@@ -93,22 +96,22 @@ class __ELEMENT_SVG(__ELEMENT):
     @property
     def titulek(self):
 #        from .TITLE import TITLE
-        return self.__davaj_obsah(třída_elementu = E.title)
+        return self.__davaj_obsah(třída_elementu = E.TITLE)
         
     @titulek.setter
     def titulek(self,  hodnota):
 #        from .TITLE import TITLE
-        self.__nastav_obsah(třída_elementu = E.title,  hodnota = hodnota)
+        self.__nastav_obsah(třída_elementu = E.TITLE,  hodnota = hodnota)
         
     @property
     def popisek(self):
 #        from .DESC import DESC
-        return self.__davaj_obsah(třída_elementu = E.desc)    
+        return self.__davaj_obsah(třída_elementu = E.DESC)    
         
     @popisek.setter
     def popisek(self,  hodnota):
 #        from .DESC import DESC
-        self.__nastav_obsah(třída_elementu = E.desc,  hodnota = hodnota)
+        self.__nastav_obsah(třída_elementu = E.DESC,  hodnota = hodnota)
         
       
     def definuji(self,  element):
