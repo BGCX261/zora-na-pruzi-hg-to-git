@@ -30,18 +30,45 @@ def print_info(tree):
     print('-'*44)
 
 
-class TAG_QNAME(dict):
-    
-    def __get__(self,  instance,  owner = None):
-        tag = instance.tag
-        if not tag in self:
-            self[instance.TAG] = lxml.etree.QName(tag)
-        return self[tag]
+#class TAG_QNAME(dict):
+#    
+#    def __get__(self,  instance,  owner = None):
+#        tag = instance.tag
+#        if not tag in self:
+#            self[instance.TAG] = lxml.etree.QName(tag)
+#        return self[tag]
 
-class __ELEMENT(lxml.etree.ElementBase):
+#class __ELEMENT(lxml.etree.ElementBase):
+class __ELEMENT(object):
     
+    _TAG = None
+    _NAMESPACE = None
+    _NSMAP = {}
     
-    TAG_QNAME = TAG_QNAME()
+    def __init__(self, element = None,  **kwargs):
+        
+        if self._TAG is None:
+            tag = self.__class__.__name__.lower()
+        
+        if self._NAMESPACE is not None:
+            tag = '{{{}}}{}'.format(self._NAMESPACE,  tag)
+        
+        if element is not None:
+            if tag != element.tag:
+                raise TypeError('Třída {} očekává kořenový element {}, ale chceme jí předat element {}.'.format(self.__name__,  tag,  element.tag))
+            self._ELEMENT = element
+        else:        
+            
+            self._ELEMENT = lxml.etree.Element(tag,  nsmap = self._NSMAP)
+    
+#    @property
+#    def TAG(self):
+#        if self._TAG is not None:
+#            return self._TAG
+#        if self._NAMESPACE is not None:
+#            return '{{{}}}{}'.format(NAMESPACE,  self.__class__.__name__)
+#        return self.__class__.__name__
+#    TAG_QNAME = TAG_QNAME()
     
 #    def __getattr__(self,  tag):
 #        return self.ELEMENT(tag)
@@ -54,7 +81,7 @@ class __ELEMENT(lxml.etree.ElementBase):
         return self.attrib['id']
     
     def __str__(self):
-        return lxml.etree.tounicode(self,  pretty_print=True)
+        return lxml.etree.tounicode(self._ELEMENT,  pretty_print=True)
 
     @property
     def xml_hlavička(self):
@@ -83,27 +110,6 @@ class __ELEMENT(lxml.etree.ElementBase):
         with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
             otevřený_soubor.write(self.xml_hlavička)
             otevřený_soubor.write(str(self))
-     
-    @classmethod
-    def __lshift__(self,  cesta_k_souboru):
-        '''
-        operátor SOUBOR << soubor:řetězec umožní načíst obsah ze souboru
-        '''
-        import os
-        if not os.path.isfile(cesta_k_souboru):
-            raise IOError('Soubor {} pro element {} nejestvuje.'.format(cesta_k_souboru,  self.__name__))
-    
-        try:
-            tree = lxml.etree.parse(cesta_k_souboru,  parser = self.PARSER)
-        except AttributeError as e:
-            raise IOError('Soubor {} nelze načíst pro element {}.'.format(cesta_k_souboru,  self.__name__)) from e
-    
-        root = tree.getroot()
-        if self.TAG != root.TAG:
-            raise TypeError('Soubor {} má kořenový element {}, ale chceme jej načíst pro element {}.'.format(cesta_k_souboru,  root.TAG,  self.TAG))
-
-        return root
-
 
 
 

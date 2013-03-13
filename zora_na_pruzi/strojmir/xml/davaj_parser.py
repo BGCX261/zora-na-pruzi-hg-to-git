@@ -51,10 +51,10 @@ class __ElementMaker(object):
         return element
 
     def __getattr__(self, tag):
-        from functools import partial
-        return partial(self, tag)
+#        from functools import partial
+#        return partial(self, tag)
 
-    def _davaj_třídu_elementu(self,  tag):
+#    def _davaj_třídu_elementu(self,  tag):
         try:
             jméno_modulu = '{}.{}'.format(self.__str_z_balíčku, tag)
             modul = __import__(jméno_modulu, globals(), locals(), [tag], 0)
@@ -65,6 +65,37 @@ class __ElementMaker(object):
         except AttributeError as e:
             raise AttributeError('V {} selhalo získání {} z {}: {}'.format(__name__,  tag, modul.__name__,  e)) from e
             
+
+    def __lshift__(self,  cesta_k_souboru):
+        '''
+        operátor SOUBOR << soubor:řetězec umožní načíst obsah ze souboru
+        '''
+        import os
+        if not os.path.isfile(cesta_k_souboru):
+            raise IOError('Soubor {} pro element {} nejestvuje.'.format(cesta_k_souboru,  self.__name__))
+    
+        try:
+            tree = lxml.etree.parse(cesta_k_souboru)
+        except AttributeError as e:
+            raise IOError('Soubor {} nelze načíst pro element {}.'.format(cesta_k_souboru,  self.__name__)) from e
+    
+        root = tree.getroot()
+        
+#        if self.TAG != root.TAG:
+#            raise TypeError('Soubor {} má kořenový element {}, ale chceme jej načíst pro element {}.'.format(cesta_k_souboru,  root.TAG,  self.TAG))
+
+        tag = lxml.etree.QName(root)
+
+        třída_elementu = getattr(self,  tag.localname.upper())
+        
+        try:
+            element =  třída_elementu(element = root)
+        except TypeError as e:
+            raise TypeError('Soubor {} s kořenovým elementem {} se nepodařilo načíst do třídy {}.'.format(cesta_k_souboru,  root.tag,  třída_elementu.__class__.__name__)) from e
+
+        return element
+
+
 
 # create factory object
 #E = ElementMaker()
@@ -88,7 +119,8 @@ def davaj_parser(elementMaker):
     class Lookup(lxml.etree.CustomElementClassLookup):
         def lookup(self, node_type, document, namespace, name):
             if node_type == 'element':
-                třída = elementMaker._davaj_třídu_elementu(tag = name)
+#                třída = elementMaker._davaj_třídu_elementu(tag = name)
+                třída = getattr(elementMaker,  name)
                 return třída
     #            except KeyError as e:
     #                if not exception:

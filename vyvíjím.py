@@ -291,19 +291,26 @@ def svg():
     from zora_na_pruzi.strojmir.xml.svg import E
     from zora_na_pruzi.strojmir.xml.svg.svg import svg as SVG
     
-    svg = SVG(id = 'prvni_svg')
-    print(svg.nsmap)
+#    svg = SVG(id = 'prvni_svg')
+#    print(svg.nsmap)
+#    
+    svg = E.SVG(id = 'prvni_svg')
+#    print(svg.nsmap)
     
-    svg = E.svg(id = 'prvni_svg')
-    print(svg.nsmap)
-    
+    print(svg)
     
 #    svg = nové_svg() KeyError
 #    svg = načtu_svg('testuji.svg')
 #    print('TAG',  svg.TAG)
 #    print('tag',  svg.tag)
 #    print('TAG local',  svg.TAG.localname)
-    print(E.desc())
+    print(E.DESC())
+    
+    print(E.g())
+    
+    načtené_svg = E << 'testuji.svg'
+    print(načtené_svg)
+    return
 #    graf = načítám_graf()
 #    print(graf.tag)
 #    print(svg.find('{{{}}}rect'.format(NAMESPACE)))
@@ -315,7 +322,7 @@ def svg():
 #    svg.titulek = 'NOVÝ TITULEK'
     svg.popisek = 'popisuji svg'
     
-    kruh = E.CIRCLE(cx = 50,  cy = 50,  r = 30)
+    kruh = E.circle(cx = 50,  cy = 50,  r = 30)
 #    print('---')
 #    print(kruh)
 #    print('---')

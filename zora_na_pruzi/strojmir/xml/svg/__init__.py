@@ -11,21 +11,32 @@ except ImportError:
 from ..__ELEMENT import __ELEMENT
 from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 
-from ..davaj_parser import __ElementMaker,  davaj_parser
+from ..davaj_parser import __ElementMaker
+#,  davaj_parser
 
 NAMESPACE = 'http://www.w3.org/2000/svg'
 NSMAP = {None: NAMESPACE, 'xlink': 'http://www.w3.org/1999/xlink'}
 E = __ElementMaker(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
-PARSER = davaj_parser(elementMaker = E)
+
+#PARSER = davaj_parser(elementMaker = E)
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    PARSER = PARSER
+    _NAMESPACE = NAMESPACE
+    _NSMAP = NSMAP
+    
+#    PARSER = PARSER
     CSS = CSS_TABULKA()
 #    nsmap = {
 #                            None: NAMESPACE,
 #                            'xlink': 'http://www.w3.org/1999/xlink',
 #                    }
+    
+    __atributy = 2
+    namespace = 2
+    def __init__(self,  **kwargs):
+        super().__init__(**kwargs)
+        
     
     @property
     def css_dle_elementu(self):
@@ -104,19 +115,19 @@ class __ELEMENT_SVG(__ELEMENT):
         id = element.attrib['id']
         self.DEFS.append(element)
     
-    def __getattr__(self,  klíč):
-        klíč = klíč.upper()
-        element = getattr(E,  klíč)
-        jestvuje = self.findall(element.TAG)
-        nalezeno = len(jestvuje)
-        if nalezeno == 1:
-            return jestvuje[0]
-        elif nalezeno == 0:
-            element = element()
-            self.append(element)
-            return element
-        else:
-            raise ValueError('Pro klíč nalezeno více elementů {} v {}'.format(klíč,  element.__class__.__name__,  self.__class__.__name__))
+#    def __getattr__(self,  klíč):
+#        klíč = klíč.upper()
+#        element = getattr(E,  klíč)
+#        jestvuje = self.findall(element.TAG)
+#        nalezeno = len(jestvuje)
+#        if nalezeno == 1:
+#            return jestvuje[0]
+#        elif nalezeno == 0:
+#            element = element()
+#            self.append(element)
+#            return element
+#        else:
+#            raise ValueError('Pro klíč nalezeno více elementů {} v {}'.format(klíč,  element.__class__.__name__,  self.__class__.__name__))
     
 #def načtu_svg(svg_soubor):
 #    

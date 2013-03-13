@@ -9,12 +9,12 @@ ADRESÁŘ_VZOROVÝCH_SVG = os.path.join(os.path.dirname(__file__),  './__testuji
 
 #import lxml.etree
 from . import E
-from .SVG import SVG
-from .G import G
+#from .svg import svg
+#from .g import g
 
-def soubor_svg_vzoru(číslo):
-    jméno = '{:0=3}.svg'.format(číslo)
-    return cesta_k_souboru(jméno)
+#def soubor_svg_vzoru(číslo):
+#    jméno = '{:0=3}.svg'.format(číslo)
+#    return cesta_k_souboru(jméno)
 
 def cesta_k_souboru(jméno_souboru):
     return os.path.join(ADRESÁŘ_VZOROVÝCH_SVG,  jméno_souboru)
@@ -22,15 +22,15 @@ def cesta_k_souboru(jméno_souboru):
 def test_0001_načtu_svg():
     
     with py.test.raises(TypeError):
-        svg = SVG() << cesta_k_souboru('fragment_g.svg')
+        svg = E << cesta_k_souboru('fragment_g.svg')
         
-    g = G() << cesta_k_souboru('fragment_g.svg')
-    svg = SVG() << cesta_k_souboru('prázdné.svg')
+    g = E << cesta_k_souboru('fragment_g.svg')
+    svg = E << cesta_k_souboru('prázdné.svg')
     
-def test_0001_vytvořím_nové_svg():  
+def test_0002_vytvořím_nové_svg():
   
-    svg = SVG()
-    svg_vzor = SVG() << cesta_k_souboru('prázdné.svg')
+    svg = E.svg()
+    svg_vzor = E << cesta_k_souboru('prázdné.svg')
     
     assert svg.tag == svg_vzor.tag
     assert str(svg) != str(svg_vzor)

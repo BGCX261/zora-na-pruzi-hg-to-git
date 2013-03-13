@@ -9,7 +9,7 @@ Hen je třída, která ...
 from . import __ELEMENT_SVG,  NAMESPACE
 
 
-class CIRCLE(__ELEMENT_SVG):
+class circle(__ELEMENT_SVG):
     
     TAG = '{{{}}}circle'.format(NAMESPACE)
     
