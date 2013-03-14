@@ -13,7 +13,7 @@ class G(__ELEMENT_SVG):
     
     def kružnice(self,  střed,  poloměr):
         circle = E.CIRCLE(cx = str(střed[0]),  cy = str(střed[1]),  r = str(poloměr))
-        self._ELEMENT.append(circle._ELEMENT)
+        self.append(circle)
         return circle
     
  

@@ -11,7 +11,10 @@ import lxml.builder
 
 
 #class __ElementMaker(lxml.builder.ElementMaker):
-class __DAVAJ_ELEMENT(object):
+class __DAVAJ_ELEMENT(dict):
+    
+    __parser = None
+    __namespace = None
     
     _typemap = {
                int: str
@@ -25,9 +28,7 @@ class __DAVAJ_ELEMENT(object):
         self.__str_z_balíčku = str_z_balíčku
                      
         if namespace is not None:
-            self._namespace = '{' + namespace + '}'
-        else:
-            self._namespace = None
+            self.__namespace = namespace
 
         if nsmap:
             self._nsmap = dict(nsmap)
@@ -37,34 +38,45 @@ class __DAVAJ_ELEMENT(object):
         if typemap is not None:
             self._typemap.update(typemap)
 
-    def __call__(self, tag, **atributy):
-        
-        třída_elementu = self._davaj_třídu_elementu(tag)
-        
-        element = třída_elementu(nsmap=self._nsmap)
-            
-        for klíč, hodnota in atributy.items():
-            if not isinstance(hodnota, str):
-                hodnota = self._typemap[type(hodnota)](hodnota)
-            element.attrib[klíč] = hodnota
+#    def __call__(self, tag, **atributy):
+#        
+#        třída_elementu = self._davaj_třídu_elementu(tag)
+#        
+#        element = třída_elementu(nsmap=self._nsmap)
+#            
+#        for klíč, hodnota in atributy.items():
+#            if not isinstance(hodnota, str):
+#                hodnota = self._typemap[type(hodnota)](hodnota)
+#            element.attrib[klíč] = hodnota
+#
+#        return element
 
-        return element
-
-    def __getattr__(self, tag):
+    def __getattr__(self, TAG):
 #        from functools import partial
 #        return partial(self, tag)
+        return self[TAG]
 
-#    def _davaj_třídu_elementu(self,  tag):
+    def __missing__(self,  TAG):
         try:
-            jméno_modulu = '{}.{}'.format(self.__str_z_balíčku, tag)
-            modul = __import__(jméno_modulu, globals(), locals(), [tag], 0)
-            objekt = getattr(modul,  tag)
-            return objekt
-        except ImportError as e:
-            raise ImportError('V {} selhal import: {}'.format(__name__,  e)) from e
-        except AttributeError as e:
-            raise AttributeError('V {} selhalo získání {} z {}: {}'.format(__name__,  tag, modul.__name__,  e)) from e
+            jméno_modulu = '{}.{}'.format(self.__str_z_balíčku, TAG)
+            modul = __import__(jméno_modulu, globals(), locals(), [TAG], 0)
+            objekt = getattr(modul,  TAG)
             
+            tag = TAG.lower()
+            
+            objekt.TAG = tag
+            objekt.NAMESPACE = self.__namespace
+            if self.__namespace is not None:
+                objekt.TAG_NAME = '{{{}}}{}'.format(self.__namespace,  tag)
+            else:
+                objekt.TAG_NAME = tag
+            self[TAG] = objekt
+            return self[TAG]
+        except ImportError as e:
+            raise ImportError('V {} selhal __import__({}, globals(), locals(), [{}], 0): {}'.format(__name__,jméno_modulu, TAG,   e)) from e
+        except AttributeError as e:
+            raise AttributeError('V {} selhalo získání {} z {}: {}'.format(__name__,  TAG, modul.__name__,  e)) from e
+        raise KeyError('Neznámá chyba při hledání třídy')
 
     def __lshift__(self,  cesta_k_souboru):
         '''
@@ -72,14 +84,15 @@ class __DAVAJ_ELEMENT(object):
         '''
         import os
         if not os.path.isfile(cesta_k_souboru):
-            raise IOError('Soubor {} pro element {} nejestvuje.'.format(cesta_k_souboru,  self.__name__))
+            raise IOError('Soubor {} nejestvuje.'.format(cesta_k_souboru))
     
         try:
-            tree = lxml.etree.parse(cesta_k_souboru)
+            tree = lxml.etree.parse(cesta_k_souboru,  parser = self.parser)
         except AttributeError as e:
             raise IOError('Soubor {} nelze načíst pro element {}.'.format(cesta_k_souboru,  self.__name__)) from e
     
         root = tree.getroot()
+        return root
         
 #        if self.TAG != root.TAG:
 #            raise TypeError('Soubor {} má kořenový element {}, ale chceme jej načíst pro element {}.'.format(cesta_k_souboru,  root.TAG,  self.TAG))
@@ -97,53 +110,24 @@ class __DAVAJ_ELEMENT(object):
 
         return element
 
+    @property
+    def parser(self):
+     
+        if self.__parser is None:
+     
+            davaj_element = self
+         
+            class Lookup(lxml.etree.CustomElementClassLookup):
+                def lookup(self, node_type, document, namespace, name):
+                    if node_type == 'element':
+                        třída = getattr(davaj_element,  name.upper())
+                        return třída
 
+            parser = lxml.etree.XMLParser(remove_blank_text=True)
+            parser.set_element_class_lookup(Lookup())
+            
+            self.__parser = parser
 
-# create factory object
-#E = ElementMaker()
-
-
-#def davaj_parser(elementMaker):
-# 
-##    from zora_na_pruzi.strojmir import importuji
-##    najdu_třídu = importuji.davaj_importéra(jméno_balíčku)
-##    
-##    def najdu_třídu_pro_element(tag):
-##        jméno_třídy = tag.lower()
-##        třída = najdu_třídu(jméno_třídy,  jméno_třídy)
-###        esli to není třída,  ale modul,  načteme třídu z toho modulu
-###        if not isinstance(třída, type):
-###            třída = getattr(třída,  jméno_třídy,  None)
-##        if not issubclass(třída,  lxml.etree.ElementBase):
-##            raise TypeError('Nenašel jsem třídu {} pro element <{} .. > v balíčku {}'.format(jméno_třídy,  tag,  jméno_balíčku))
-##        return třída
-# 
-#    class Lookup(lxml.etree.CustomElementClassLookup):
-#        def lookup(self, node_type, document, namespace, name):
-#            if node_type == 'element':
-##                třída = elementMaker._davaj_třídu_elementu(tag = name)
-#                třída = getattr(elementMaker,  name)
-#                return třída
-#    #            except KeyError as e:
-#    #                if not exception:
-#    #                    return výchozí_element
-#    #                else:
-#    #                    raise e
-#
-#    parser = lxml.etree.XMLParser(remove_blank_text=True)
-#    parser.set_element_class_lookup(Lookup())
-#
-##    def make_element(tag, nsmap = None):
-##        třída = najdu_třídu_pro_element(tag)
-##        return třída(nsmap = NSMAP)
-#
-##    def číslo_na_řetězec(none,  hodnota):
-##        return str(hodnota)
-#
-#    
-##    element_builder = __ElementMaker(makeelement = make_element,  typemap = typemap,  nsmap = NSMAP)
-##    element_builder = __ElementMaker(str_z_balíčku = jméno_balíčku, nsmap = NSMAP)
-#        
-#    return parser
-#    
-#    
+        return self.__parser 
+        
+        

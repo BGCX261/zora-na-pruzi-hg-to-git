@@ -15,7 +15,7 @@ svg = E.SVG()
 svg.titulek = 'TITULEK'
 svg.popisek = 'popisuji svg'
 kruh = E.G().kružnice(střed = (45,  50),  poloměr = 40)
-svg._ELEMENT.append(kruh._ELEMENT)
+svg.append(kruh)
 css_kruhu = kruh.css_dle_třídy('KOLO',  element = True)
 css_kruhu.fill(0xFFFF00).stroke(0x1100CC).stroke_width(4,  'px')
 

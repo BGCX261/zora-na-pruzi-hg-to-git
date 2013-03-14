@@ -9,23 +9,22 @@ import os
 
 VZOROVÝ_GRAF = os.path.join(os.path.dirname(__file__),  './testuji_vzorový_graf.graphml')
 
-#za účelem kontroly zda jsou objekty potomky správných instancí
-from . import graphml_elementy
 import lxml.etree
+from . import E
 
 def parsuji_graf(soubor = VZOROVÝ_GRAF):
-    from . import načtu_graf
+    
 #    import lxml.etree
     
-    tree = načtu_graf(soubor)
+    graf = E << soubor
     
-    return tree,  tree.getroot()
+    return graf
 
 def test_0001_namespace ():
-    from .graphml_elementy import GRAPH,  NAMESPACE,  NODE
+    from . import NAMESPACE,  E
     
-    assert GRAPH.TAG == '{{{}}}graph'.format(NAMESPACE)
-    assert NODE.TAG == '{{{}}}node'.format(NAMESPACE)
+    assert E.GRAPH.TAG_NAME == '{{{}}}graph'.format(NAMESPACE)
+    assert E.NODE.TAG_NAME == '{{{}}}node'.format(NAMESPACE)
 
 def test_0002_načtu_graphml_soubor ():
     '''
@@ -35,10 +34,9 @@ def test_0002_načtu_graphml_soubor ():
     with py.test.raises(IOError):
         parsuji_graf('nejestvující_soubor')
     
-    tree,  root = parsuji_graf()
+    root = parsuji_graf()
     
-    assert isinstance(tree,  lxml.etree._ElementTree)
-    assert isinstance(root,  lxml.etree.ElementBase) 
+    assert isinstance(root,  lxml.etree._Element) 
     
     uzly = list(root.uzly)
     assert len(uzly) == 14
@@ -63,7 +61,7 @@ def test_0002_načtu_graphml_soubor ():
 #    druhý graf 
     graphml_soubor = './testuji_vzorový_graf_2.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
-    tree2,  root2 = parsuji_graf(cesta_k_graphml_souboru)
+    root2 = parsuji_graf(cesta_k_graphml_souboru)
     uzly = list(root2.uzly)
     uzel = uzly[0]
     data = uzel.data
@@ -73,7 +71,7 @@ def test_0002_načtu_graphml_soubor ():
     
 def test_0003_klíče ():
         
-    tree,  root = parsuji_graf()
+    root = parsuji_graf()
     
     klíče = root.klíče
     from .seznam_klíčů import Seznam_klíčů
@@ -82,14 +80,15 @@ def test_0003_klíče ():
     with py.test.raises(KeyError):
         klíče['nejestvující klíč']
         
-    assert isinstance(klíče['d1'],  graphml_elementy.KEY)
+    assert isinstance(klíče['d1'],  E.KEY)
 
 def test_0004_grafy():
     
-    tree,  root = parsuji_graf()
-    
+    root = parsuji_graf()
     graf = root.graf
-    assert isinstance(graf,  graphml_elementy.GRAPH)
+    
+    from .GRAPH import GRAPH
+    assert isinstance(graf,  GRAPH)
     
     uzly_grafu = list(graf.uzly)
     uzly_graphml = list(root.uzly)
@@ -102,16 +101,16 @@ def test_0004_grafy():
         
     assert součet_uzlů == len(uzly_graphml)
     
-def test_0005_grafy():
-    
-    from .graphml_elementy import ATRIBUT
-    
-    id = ATRIBUT('id')
-    
-    assert str(id) == '[@id]'
-    
-    assert 'node' + id == 'node[@id]'
-    assert 'node' + ATRIBUT('id',  'moje_id') == 'node[@id="moje_id"]'
-    assert 'node' + ATRIBUT('id',  'moje_id') + ATRIBUT('jméno',  'uzlík') == 'node[@id="moje_id"][@jméno="uzlík"]'
+#def test_0005_atributy():
+#    
+#    from .graphml_elementy import ATRIBUT
+#    
+#    id = ATRIBUT('id')
+#    
+#    assert str(id) == '[@id]'
+#    
+#    assert 'node' + id == 'node[@id]'
+#    assert 'node' + ATRIBUT('id',  'moje_id') == 'node[@id="moje_id"]'
+#    assert 'node' + ATRIBUT('id',  'moje_id') + ATRIBUT('jméno',  'uzlík') == 'node[@id="moje_id"][@jméno="uzlík"]'
 
 

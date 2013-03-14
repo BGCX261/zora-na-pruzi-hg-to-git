@@ -1,12 +1,12 @@
 
 #@TODO: Toto je téměř stejné s __init__ v graphml,  asi by to chtělo spojit dohromady
 
-import os
+#import os
 
-try:
-    import lxml.etree
-except ImportError:
-     raise ImportError('SVG vyžaduje knihovnu lxml')
+#try:
+#    import lxml.etree
+#except ImportError:
+#     raise ImportError('SVG vyžaduje knihovnu lxml')
 
 from ..__ELEMENT import __ELEMENT
 from ..__DAVAJ_ELEMENT import __DAVAJ_ELEMENT as E
@@ -22,9 +22,6 @@ E = E(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
 
 class __ELEMENT_SVG(__ELEMENT):
     
-    NAMESPACE = NAMESPACE
-    _NSMAP = NSMAP
-    
 #    PARSER = PARSER
     CSS = CSS_TABULKA()
 #    nsmap = {
@@ -32,12 +29,7 @@ class __ELEMENT_SVG(__ELEMENT):
 #                            'xlink': 'http://www.w3.org/1999/xlink',
 #                    }
     
-    __atributy = 2
-    namespace = 2
-    def __init__(self,  _ELEMENT = None,  **kwargs):
-        super().__init__(_ELEMENT = _ELEMENT,  **kwargs)
-        
-    
+
     @property
     def css_dle_elementu(self):
         return self.CSS.get(self.TAG_QNAME.localname)
@@ -60,17 +52,17 @@ class __ELEMENT_SVG(__ELEMENT):
         přidá třídu do atributu class
         tuto metodu používám při přiřazení CSS stylu dle třídy
         '''
-        třídy = self._ELEMENT.attrib.get('class',  '')
+        třídy = self.attrib.get('class',  '')
         class_elementu = set(třídy.split())
         class_elementu.add(třída)     
-        self._ELEMENT.attrib['class'] = ' '.join(class_elementu)
+        self.attrib['class'] = ' '.join(class_elementu)
 
     
     def __davaj_obsah(self,  třída_elementu):
         '''
         pomocná metoda, která vrací obsah nějakého vloženého elementu
         '''
-        element = self._ELEMENT.find(třída_elementu.TAG)
+        element = self.find(třída_elementu.TAG)
         if element is not None:
             return element.text
         return None
@@ -79,15 +71,15 @@ class __ELEMENT_SVG(__ELEMENT):
         '''
         pomocná metoda, která nastaví obsah nějakého vloženého elementu
         '''
-        element = self._ELEMENT.find(třída_elementu.TAG)
+        element = self.find(třída_elementu.TAG)
         if hodnota is None:
             if element is not None:
                 self.remove(element)
         else:
             if element is None:
-                element = třída_elementu()._ELEMENT
+                element = třída_elementu()
                 element.text = hodnota
-                self._ELEMENT.append(element)
+                self.append(element)
             return element.text
     
     @property

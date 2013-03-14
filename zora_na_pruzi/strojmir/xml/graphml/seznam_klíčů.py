@@ -6,7 +6,8 @@
 Hen je program, který ...
 '''
 
-from .graphml_elementy import KEY,  ATRIBUT
+from . import E
+from ..__XML_CESTY import ATRIBUT
 
 class Seznam_klíčů(dict):
     
@@ -23,7 +24,7 @@ class Seznam_klíčů(dict):
 
 #        def najdi_definici(klíč):
         if klíč not in self:
-            element_klíče = self.__xml.find(KEY.TAG + ATRIBUT('id',  klíč))
+            element_klíče = self.__xml.find(E.KEY.TAG_NAME + ATRIBUT('id',  klíč))
             
             if element_klíče is None:
                 raise KeyError('Klíč <key id = "{}" ... > nejestvuje.'.format(klíč))
@@ -51,7 +52,7 @@ class Seznam_klíčů(dict):
         if self.__klíče is None:
             klíče = []
           
-            for definice in self.__xml.findall(KEY.TAG + ATRIBUT('for',  self.__for_element)):
+            for definice in self.__xml.findall(KEY.TAG_NAME + ATRIBUT('for',  self.__for_element)):
                 klíče.append(definice.attrib['id'])
             self.__klíče = klíče
         return iter(self.__klíče)

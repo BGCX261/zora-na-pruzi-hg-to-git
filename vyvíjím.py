@@ -131,114 +131,29 @@ def   validátor():
 
         validátor(soubor = './graf.graphml',  program = schéma.program)
         
-
-
-def   zkúšám():
+    
+def graf():
+    
+    from zora_na_pruzi.strojmir.xml.graphml import E
     import lxml.etree
-    from zora_na_pruzi.strojmir.xml.graphml import NS_GRAPHML
-    graphml_soubor = './graf.graphml'
-    tree = lxml.etree.parse(graphml_soubor)
-    print('TREE',  id(tree))
-    root = tree.getroot()
     
-    for node in root.findall('/'.join((NS_GRAPHML.graph,  NS_GRAPHML.node))):
-        print('node',  id(node))
-        print('tree',  id(node.getroottree()))
-        
-    nt = node.getroottree()
-       
-    print('GRAPH')   
-       
-    for graph in root.findall('/'.join((NS_GRAPHML.graph,  ))):
-        print('graph',  id(graph))
-        print('tree',  id(graph.getroottree()))
-        
-    if nt == graph.getroottree():
-        print('SA TETET')
-    else:
-        print('SA IN TTT')
+    graf = E.GRAPHML()
+    print(graf)
     return
-    
-    import py
-    
-    print(py.std.sys.stdout)
-    py.std.sys.stdout = open('hen',  mode = 'w',  encoding = 'UTF-8')
-    return
-    
-#    from zora_na_pruzi.strojmir.xml.graphml import načtu_graf,  NS_GRAPHML
-    
-    from zora_na_pruzi.strojmir.xml.graphml.Graf import Graf,  Graf_Graph_tool,  Graf_NetworkX
-    
-    graphml = './stroj/data/nested.graphml'
-#    graphml = './stroj/grafy/zora_na_pruzi.graphml'
-    
-#    tree = načtu_graf(graphml)
-#    print(tree)
-#    root = tree.getroot()
-#    print(root.__class__.__name__)
-#    
-#    for klíč in root.findall(NS_GRAPHML.key):
-#        print(klíč.__class__.__name__,  klíč.attrib)
-#        
-#    print('***********')
-#    for klíč in root.findall('{}[@for="edge"][@id]'.format(NS_GRAPHML.key)):
-#        print(klíč.__class__.__name__,  klíč.attrib)
-    
-    
-    
-    zora_na_pruzi_graf = Graf(graphml)
-    
-    kód = zora_na_pruzi_graf.graf %  ('graphml',  'hen.graphml')
-    print(kód)
-    
-    return
-    
-    networkx_graf = Graf_NetworkX(graphml)
-    
-    
-    graph_tool_graf = Graf_Graph_tool(graphml)
-    
-    
-    print('GRAFY' | TEXT.NADPIS)
-    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | TEXT.INFO)
-        print(graf)
-        
-    print('UZLY' | TEXT.NADPIS)
-    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | TEXT.INFO)
-        for uzel in graf.uzly:
-            print(uzel)
-            
-    print('HRANY' | TEXT.NADPIS)
-    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | TEXT.INFO)
-        for vazba in graf.vazby:
-            print(vazba)
-            
-    print('VLASTNOSTI' | TEXT.NADPIS)
-    for graf in zora_na_pruzi_graf,  networkx_graf,  graph_tool_graf:
-        print(graf.__class__.__name__ | TEXT.INFO)
-        for vlastnosti in graf.vlastnosti:
-            for vlastnost in vlastnosti:
-                print(vlastnost)
-    
-def načítám_graf():
-    
-    from zora_na_pruzi.strojmir.xml.graphml import načtu_graf
-    import lxml.etree
     
     graphml_soubor = './stroj/data/skupiny.graphml'
 #    graphml_soubor = './stroj/data/networkx.graphml'
     cesta_k_graphml_souboru = os.path.join(os.path.dirname(__file__),  graphml_soubor)
     
-    tree = načtu_graf(cesta_k_graphml_souboru)
+    cesta_k_graphml_souboru = './zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml'
     
-    root = tree.getroot()
+    root = E << cesta_k_graphml_souboru
     
-#    from zora_na_pruzi.strojmir.xml.graphml import graphml_elementy as gml
-#    print(root)
-    return root
+    uzly = list(root.uzly)
+    
+    
+#    print(graphml)
+     
     def piš(element,  level = 0):
         tag = element.__class__.__name__
         if tag in ('GRAPHML', 'GRAPH',  'NODE',  'EDGE'):
@@ -296,7 +211,10 @@ def svg():
 #    
     svg = E.SVG(id = 'prvni_svg')
 #    print(svg.nsmap)
-    
+    print(type(svg))
+    print(svg.TAG)
+    print(svg.TAG_NAME)
+    print(svg.tag)
     print(svg)
     
 #    svg = nové_svg() KeyError
@@ -331,7 +249,7 @@ def svg():
 #    print(kruh)
 #    print('---')
     
-    svg._ELEMENT.append(kruh._ELEMENT)
+    svg._ELEMENT.append(kruh)
     
 #    print(svg)
 #    svg.titulek = None

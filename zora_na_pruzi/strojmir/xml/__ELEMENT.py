@@ -30,38 +30,41 @@ def print_info(tree):
     print('-'*44)
 
 
-class __METATŘÍDA_ELEMENTU(type):
-    
-    def __init__(cls,  classname,  bases,  dictionary):
-        if not 'TAG' in dictionary:
-            setattr(cls,  'TAG',  classname.lower())
-            
-        namespace = getattr(cls, 'NAMESPACE',  None)
-            
-        if namespace is not None:
-            cls.TAG_NAME = '{{{}}}{}'.format(namespace,  cls.TAG)
-        else:
-            cls.TAG_NAME = cls.TAG
-            
-        return super().__init__(classname,  bases,  dictionary)
+#class __METATŘÍDA_ELEMENTU(type):
+#    
+#    def __new__(metacls,  classname,  bases,  dictionary):
+#        
+#        cls = super().__new__(metacls, classname,  bases,  dictionary)
+#        
+#        if not 'TAG' in dictionary:
+#            cls.TAG = classname.lower()
+#            
+#        namespace = getattr(cls, 'NAMESPACE',  None)
+#            
+#        if namespace is not None:
+#            cls.TAG_NAME = '{{{}}}{}'.format(namespace,  cls.TAG)
+#        else:
+#            cls.TAG_NAME = cls.TAG
+#            
+#        return cls
 
-class __ELEMENT(object,  metaclass = __METATŘÍDA_ELEMENTU):
+class __ELEMENT(lxml.etree._Element):
     
     _NSMAP = {}
     
-    def __init__(self, _ELEMENT = None,  **kwargs):
-        
-        if _ELEMENT is not None:
-            if  _ELEMENT.tag not in (self.TAG_NAME,  self.TAG):
-                    raise TypeError('Třída {} očekává kořenový element {}, ale chceme jí předat element {}.'.format(self.__class__.__name__,  self.TAG_NAME,  _ELEMENT.tag))
-            else:
-                self._ELEMENT = _ELEMENT
-        else:        
-            try:
-                self._ELEMENT = lxml.etree.Element(self.TAG_NAME,  nsmap = self._NSMAP,  **kwargs)
-            except TypeError as e:
-                raise TypeError('Selhalo lxml.etree.Element({},  nsmap = {},  **{})'.format(self.TAG_NAME, self._NSMAP,   kwargs)) from e
-        
+#    def __init__(self, _ELEMENT = None,  **kwargs):
+#        
+#        if _ELEMENT is not None:
+#            if  _ELEMENT.tag not in (self.TAG_NAME,  self.TAG):
+#                    raise TypeError('Třída {} očekává kořenový element {}, ale chceme jí předat element {}.'.format(self.__class__.__name__,  self.TAG_NAME,  _ELEMENT.tag))
+#            else:
+#                self._ELEMENT = _ELEMENT
+#        else:        
+#            try:
+#                self._ELEMENT = lxml.etree.Element(self.TAG_NAME,  nsmap = self._NSMAP,  **kwargs)
+#            except TypeError as e:
+#                raise TypeError('Selhalo lxml.etree.Element({},  nsmap = {},  **{})'.format(self.TAG_NAME, self._NSMAP,   kwargs)) from e
+#        
 #    @property
 #    def TAG(self):
 #        if self._TAG is not None:
@@ -79,10 +82,10 @@ class __ELEMENT(object,  metaclass = __METATŘÍDA_ELEMENTU):
 #        _id = self.attrib.get('id',  None)
 #        if _id is None:
 #            self.attrib['id'] = '{}_{}'.format(self.__class__.__name__,  id(self))
-        return self._ELEMENT.attrib['id']
+        return self.attrib['id']
     
     def __str__(self):
-        return lxml.etree.tounicode(self._ELEMENT,  pretty_print=True)
+        return lxml.etree.tounicode(self,  pretty_print=True)
 
     @property
     def xml_hlavička(self):
@@ -91,14 +94,12 @@ class __ELEMENT(object,  metaclass = __METATŘÍDA_ELEMENTU):
         
         from zora_na_pruzi.strojmir.hlavička import hlavička_automaticky_vytvořila, WEB_PROJEKTU,  WEB_ZDROJOVÝCH_KÓDŮ
 
-        _ELEMENT = self._ELEMENT
-
-        for komentář in _ELEMENT.iter(tag = lxml.etree.Comment):
+        for komentář in self.iter(tag = lxml.etree.Comment):
             self.remove(komentář)
     
-        _ELEMENT.insert(0, lxml.etree.Comment(hlavička_automaticky_vytvořila()))
-        _ELEMENT.insert(1, lxml.etree.Comment(WEB_PROJEKTU))
-        _ELEMENT.insert(2, lxml.etree.Comment(WEB_ZDROJOVÝCH_KÓDŮ))
+        self.insert(0, lxml.etree.Comment(hlavička_automaticky_vytvořila()))
+        self.insert(1, lxml.etree.Comment(WEB_PROJEKTU))
+        self.insert(2, lxml.etree.Comment(WEB_ZDROJOVÝCH_KÓDŮ))
         return xml_deklarace
 
     def __rshift__(self,  soubor):

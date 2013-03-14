@@ -37,10 +37,10 @@ class SVG(__ELEMENT_SVG):
         self.__viewBox[3] = hodnota
         
     def __str__(self):
-        if self._ELEMENT.attrib.get('version',  None) is None:
-            self._ELEMENT.set('version',  self.__svg_version)
+        if self.attrib.get('version',  None) is None:
+            self.set('version',  self.__svg_version)
             
-        self._ELEMENT.set('viewBox',  ' '.join(map(str,  self.__viewBox)))
+        self.set('viewBox',  ' '.join(map(str,  self.__viewBox)))
         
         return super().__str__()
 
