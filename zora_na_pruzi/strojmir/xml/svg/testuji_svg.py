@@ -24,8 +24,13 @@ def test_0001_načtu_svg():
 #    with py.test.raises(TypeError):
 #        svg = E << cesta_k_souboru('fragment_g.svg')
         
+    from .G import G
+    from .SVG import SVG
+        
     g = E << cesta_k_souboru('fragment_g.svg')
+    assert isinstance(g,  G)
     svg = E << cesta_k_souboru('prázdné.svg')
+    assert isinstance(svg,  SVG)
     
 def test_0002_vytvořím_nové_svg():
   

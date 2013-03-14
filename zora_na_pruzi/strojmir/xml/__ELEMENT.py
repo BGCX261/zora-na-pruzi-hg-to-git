@@ -48,9 +48,9 @@ def print_info(tree):
 #            
 #        return cls
 
-class __ELEMENT(lxml.etree._Element):
+class __ELEMENT(lxml.etree.ElementBase):
     
-    _NSMAP = {}
+#    _NSMAP = {}
     
 #    def __init__(self, _ELEMENT = None,  **kwargs):
 #        

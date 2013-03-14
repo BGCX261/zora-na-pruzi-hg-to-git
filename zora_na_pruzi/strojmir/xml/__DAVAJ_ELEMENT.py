@@ -32,45 +32,63 @@ class __DAVAJ_ELEMENT(dict):
 
         if nsmap:
             self._nsmap = dict(nsmap)
-        else:
-            self._nsmap = None
+#        else:
+#            self._nsmap = None
 
         if typemap is not None:
             self._typemap.update(typemap)
 
-#    def __call__(self, tag, **atributy):
-#        
-#        třída_elementu = self._davaj_třídu_elementu(tag)
-#        
-#        element = třída_elementu(nsmap=self._nsmap)
-#            
-#        for klíč, hodnota in atributy.items():
-#            if not isinstance(hodnota, str):
-#                hodnota = self._typemap[type(hodnota)](hodnota)
-#            element.attrib[klíč] = hodnota
-#
-#        return element
+    def __call__(self, TAG, **atributy):
+        
+        class __NSMAP_ELEMENT(object):
+#            __slots__ = ('__TŘÍDA_ELEMENTU',  '__NSMAP')
+            __NSMAP = self._nsmap
+            def __init__(self,  TŘÍDA,  **atributy):
+                self.__TŘÍDA_ELEMENTU = TŘÍDA
+                
+            def __getattr__(self,  klíč):
+                return getattr(self.__TŘÍDA_ELEMENTU,  klíč)
+                
+            def __call__(self,  *args,  **atributy):
+                if 'nsmap' in atributy:
+                    raise NotImplementedError('NSMAP nebereme, nastavíme si ho sami.')
+                if len(args) > 0:
+                    raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
+                element =  self.__TŘÍDA_ELEMENTU(nsmap = self.__NSMAP,  **atributy)
+                for klíč, hodnota in atributy.items():
+                    if not isinstance(hodnota, str):
+                        hodnota = self._typemap[type(hodnota)](hodnota)
+                    element.set(klíč,  hodnota)
+
+                return element
+        
+        TŘÍDA_ELEMENTU = self[TAG]
+        return __NSMAP_ELEMENT(TŘÍDA_ELEMENTU, **atributy)
 
     def __getattr__(self, TAG):
+        return self(TAG)
 #        from functools import partial
-#        return partial(self, tag)
-        return self[TAG]
+#        return partial(self, self[TAG])
+#        return self[TAG]
 
     def __missing__(self,  TAG):
         try:
             jméno_modulu = '{}.{}'.format(self.__str_z_balíčku, TAG)
             modul = __import__(jméno_modulu, globals(), locals(), [TAG], 0)
-            objekt = getattr(modul,  TAG)
+            TŘÍDA_ELEMENTU = getattr(modul,  TAG)
             
             tag = TAG.lower()
             
-            objekt.TAG = tag
-            objekt.NAMESPACE = self.__namespace
+            TŘÍDA_ELEMENTU.TAG = tag
+            TŘÍDA_ELEMENTU.NAMESPACE = self.__namespace
             if self.__namespace is not None:
-                objekt.TAG_NAME = '{{{}}}{}'.format(self.__namespace,  tag)
+                TŘÍDA_ELEMENTU.TAG_NAME = '{{{}}}{}'.format(self.__namespace,  tag)
             else:
-                objekt.TAG_NAME = tag
-            self[TAG] = objekt
+                TŘÍDA_ELEMENTU.TAG_NAME = tag
+                
+            TŘÍDA_ELEMENTU.PARSER = self.parser
+            
+            self[TAG] = TŘÍDA_ELEMENTU
             return self[TAG]
         except ImportError as e:
             raise ImportError('V {} selhal __import__({}, globals(), locals(), [{}], 0): {}'.format(__name__,jméno_modulu, TAG,   e)) from e
@@ -99,14 +117,14 @@ class __DAVAJ_ELEMENT(dict):
 
         tag = lxml.etree.QName(root)
 
-        třída_elementu = getattr(self,  tag.localname.upper())
+        TŘÍDA_ELEMENTU = getattr(self,  tag.localname.upper())
         
         try:
-            element =  třída_elementu(_ELEMENT = root)
+            element =  TŘÍDA_ELEMENTU(_ELEMENT = root)
         except TypeError as e:
 #            raise e
 #@TODO: Nyní vypnuté,  kontrolu provedu jen na tag,  nikolivěk na namespace
-            raise TypeError('Soubor {} s kořenovým elementem {} se nepodařilo načíst do třídy {}.'.format(cesta_k_souboru,  root.tag,  třída_elementu.__name__)) from e
+            raise TypeError('Soubor {} s kořenovým elementem {} se nepodařilo načíst do třídy {}.'.format(cesta_k_souboru,  root.tag,  TŘÍDA_ELEMENTU.__name__)) from e
 
         return element
 
@@ -120,7 +138,7 @@ class __DAVAJ_ELEMENT(dict):
             class Lookup(lxml.etree.CustomElementClassLookup):
                 def lookup(self, node_type, document, namespace, name):
                     if node_type == 'element':
-                        třída = getattr(davaj_element,  name.upper())
+                        třída = davaj_element[name.upper()]
                         return třída
 
             parser = lxml.etree.XMLParser(remove_blank_text=True)

@@ -13,8 +13,6 @@ class Graf(object):
         self.graf = načtu_graf(graphml_soubor)
         return 
         
-        
-        
         print(vlastnosti_grafů.get('hroch'))
         
 #        toto jestvuje a najde???

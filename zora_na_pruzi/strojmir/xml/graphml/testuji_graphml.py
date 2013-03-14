@@ -37,6 +37,7 @@ def test_0002_načtu_graphml_soubor ():
     root = parsuji_graf()
     
     assert isinstance(root,  lxml.etree._Element) 
+    assert isinstance(root,  lxml.etree.ElementBase) 
     
     uzly = list(root.uzly)
     assert len(uzly) == 14
@@ -79,9 +80,9 @@ def test_0003_klíče ():
     
     with py.test.raises(KeyError):
         klíče['nejestvující klíč']
-        
-    assert isinstance(klíče['d1'],  E.KEY)
-
+       
+    assert isinstance(klíče['d1'],  E['KEY'])
+    
 def test_0004_grafy():
     
     root = parsuji_graf()

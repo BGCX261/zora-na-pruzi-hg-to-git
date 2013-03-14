@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-14, 00:21:02 -->
+<!-- Saved: 2013-03-14, 19:52:50 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -86,7 +86,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/Formát.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/davaj_parser.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__ELEMENT.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/barvy_anglicky.py</Source>
@@ -113,7 +112,6 @@
     <Source>web/__init__.py</Source>
     <Source>web/moje_bottle.py</Source>
     <Source>web/index.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/PATH.py</Source>
     <Source>jak_naprogramovat/dynamický_import.py</Source>
     <Source>zora_na_pruzi/strojmir/css/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
@@ -157,6 +155,19 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/__XML_CESTY.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__XML_CESTY.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/instaluji_třídy.py</Source>
+    <Source>zora_na_pruzi/system/print_do_souboru.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/__graphml_elementy.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/EDGE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPH.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/NODE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/__PRVEK_GRAFU.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/KEY.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/DATA.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/DEFAULT.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -170,7 +181,6 @@
     <Other>stroj/grafy</Other>
     <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml</Other>
     <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf_2.graphml</Other>
-    <Other>zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT</Other>
     <Other>zora_na_pruzi/strojmir/xml/__XML_CESTY</Other>
   </Others>
   <Vcs>

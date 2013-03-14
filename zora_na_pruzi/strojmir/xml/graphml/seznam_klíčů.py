@@ -52,7 +52,7 @@ class Seznam_klíčů(dict):
         if self.__klíče is None:
             klíče = []
           
-            for definice in self.__xml.findall(KEY.TAG_NAME + ATRIBUT('for',  self.__for_element)):
+            for definice in self.__xml.findall(E.KEY.TAG_NAME + ATRIBUT('for',  self.__for_element)):
                 klíče.append(definice.attrib['id'])
             self.__klíče = klíče
         return iter(self.__klíče)

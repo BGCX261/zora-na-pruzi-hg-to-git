@@ -138,8 +138,13 @@ def graf():
     import lxml.etree
     
     graf = E.GRAPHML()
+    print(graf.TAG_NAME)
+    edge = E.EDGE()
+    print(edge.TAG_NAME)
+    graf.append(edge)
+    lxml.etree.tounicode(graf,  pretty_print=True)
+    
     print(graf)
-    return
     
     graphml_soubor = './stroj/data/skupiny.graphml'
 #    graphml_soubor = './stroj/data/networkx.graphml'
@@ -149,9 +154,14 @@ def graf():
     
     root = E << cesta_k_graphml_souboru
     
-    uzly = list(root.uzly)
+#    uzly = list(root.uzly)
+    print(root.TAG_NAME)
     
-    
+    print(E.DATA)
+    T_data = E.DATA
+    T_data.TAG
+    print(T_data.TAG)
+    return
 #    print(graphml)
      
     def piš(element,  level = 0):
@@ -204,7 +214,15 @@ def svg():
 #    from zora_na_pruzi.strojmir.xml.svg import nové_svg,  načtu_svg,  NAMESPACE
     
     from zora_na_pruzi.strojmir.xml.svg import E
-    from zora_na_pruzi.strojmir.xml.svg.SVG import SVG
+#    ,  NSMAP,  NAMESPACE
+#    from zora_na_pruzi.strojmir.xml.svg.SVG import SVG
+#    import lxml.etree
+    
+#    svg = SVG(id='44',  nsmap = NSMAP)
+#    print(svg)
+#    kod = lxml.etree.tounicode(svg,  pretty_print=True)
+#    print(kod)
+#    return
     
 #    svg = SVG(id = 'prvni_svg')
 #    print(svg.nsmap)
