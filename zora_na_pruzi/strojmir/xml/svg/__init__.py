@@ -1,34 +1,21 @@
+#!/usr/bin/env python3
+# Copyright (c) 2012 Домоглед  <domogled@domogled.eu>
+# @author Петр Болф <petr.bolf@domogled.eu>
 
-#@TODO: Toto je téměř stejné s __init__ v graphml,  asi by to chtělo spojit dohromady
-
-#import os
-
-#try:
-#    import lxml.etree
-#except ImportError:
-#     raise ImportError('SVG vyžaduje knihovnu lxml')
 
 from ..__ELEMENT import __ELEMENT
 from ..__DAVAJ_ELEMENT import __DAVAJ_ELEMENT as E
 
 from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
 
-NAMESPACE = 'http://www.w3.org/2000/svg'
-NSMAP = {None: NAMESPACE, 'xlink': 'http://www.w3.org/1999/xlink'}
-E = E(str_z_balíčku = __name__,  namespace = NAMESPACE,  nsmap = NSMAP)
+from . import __nastavení
+__nastavení.balíček = __name__
+E = E(__nastavení)
 
-
-#PARSER = davaj_parser(elementMaker = E)
 
 class __ELEMENT_SVG(__ELEMENT):
     
-#    PARSER = PARSER
     CSS = CSS_TABULKA()
-#    nsmap = {
-#                            None: NAMESPACE,
-#                            'xlink': 'http://www.w3.org/1999/xlink',
-#                    }
-    
 
     @property
     def css_dle_elementu(self):
@@ -121,35 +108,3 @@ class __ELEMENT_SVG(__ELEMENT):
 #        else:
 #            raise ValueError('Pro klíč nalezeno více elementů {} v {}'.format(klíč,  element.__class__.__name__,  self.__class__.__name__))
     
-#def načtu_svg(svg_soubor):
-#    
-#    if not os.path.isfile(svg_soubor):
-#        raise IOError('Soubor grafu {} nejestvuje.'.format(svg_soubor))
-#    
-#    tree = lxml.etree.parse(svg_soubor,  parser = __ELEMENT_SVG.PARSER)
-##    from ..__ELEMENT import print_info
-##    print_info(tree)
-#    return tree.getroot()
-    
-#def nové_svg(id = None):
-#    from .SVG import SVG
-#    
-#    args = {
-#            'nsmap': {
-#                            None: NAMESPACE,
-#                            'xlink': 'http://www.w3.org/1999/xlink',
-#                    }, 
-#                'version': '1.1'
-#            
-#            }
-#    
-#    if id is not None:
-#        args['id'] = id
-#    
-#    svg = SVG(**args)
-#
-##    tree = lxml.etree.ElementTree(svg)
-##    from ..__ELEMENT import print_info
-##    print_info(svg)
-#    return svg
-#

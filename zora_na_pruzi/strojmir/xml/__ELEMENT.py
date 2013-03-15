@@ -30,52 +30,7 @@ def print_info(tree):
     print('-'*44)
 
 
-#class __METATŘÍDA_ELEMENTU(type):
-#    
-#    def __new__(metacls,  classname,  bases,  dictionary):
-#        
-#        cls = super().__new__(metacls, classname,  bases,  dictionary)
-#        
-#        if not 'TAG' in dictionary:
-#            cls.TAG = classname.lower()
-#            
-#        namespace = getattr(cls, 'NAMESPACE',  None)
-#            
-#        if namespace is not None:
-#            cls.TAG_NAME = '{{{}}}{}'.format(namespace,  cls.TAG)
-#        else:
-#            cls.TAG_NAME = cls.TAG
-#            
-#        return cls
-
 class __ELEMENT(lxml.etree.ElementBase):
-    
-#    _NSMAP = {}
-    
-#    def __init__(self, _ELEMENT = None,  **kwargs):
-#        
-#        if _ELEMENT is not None:
-#            if  _ELEMENT.tag not in (self.TAG_NAME,  self.TAG):
-#                    raise TypeError('Třída {} očekává kořenový element {}, ale chceme jí předat element {}.'.format(self.__class__.__name__,  self.TAG_NAME,  _ELEMENT.tag))
-#            else:
-#                self._ELEMENT = _ELEMENT
-#        else:        
-#            try:
-#                self._ELEMENT = lxml.etree.Element(self.TAG_NAME,  nsmap = self._NSMAP,  **kwargs)
-#            except TypeError as e:
-#                raise TypeError('Selhalo lxml.etree.Element({},  nsmap = {},  **{})'.format(self.TAG_NAME, self._NSMAP,   kwargs)) from e
-#        
-#    @property
-#    def TAG(self):
-#        if self._TAG is not None:
-#            return self._TAG
-#        if self._NAMESPACE is not None:
-#            return '{{{}}}{}'.format(NAMESPACE,  self.__class__.__name__)
-#        return self.__class__.__name__
-#    TAG_QNAME = TAG_QNAME()
-    
-#    def __getattr__(self,  tag):
-#        return self.ELEMENT(tag)
         
     @property
     def id(self):
@@ -94,7 +49,7 @@ class __ELEMENT(lxml.etree.ElementBase):
         
         from zora_na_pruzi.strojmir.hlavička import hlavička_automaticky_vytvořila, WEB_PROJEKTU,  WEB_ZDROJOVÝCH_KÓDŮ
 
-        for komentář in self.iter(tag = lxml.etree.Comment):
+        for komentář in self.iterchildren(tag = lxml.etree.Comment):
             self.remove(komentář)
     
         self.insert(0, lxml.etree.Comment(hlavička_automaticky_vytvořila()))
@@ -109,33 +64,8 @@ class __ELEMENT(lxml.etree.ElementBase):
         if not isinstance(soubor,  (str, )):
             raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
         
-        print('uložím objekt {0} do souboru {1}'.format(self.__class__.__name__,  soubor))
+        print('uložím element <{2} ... > ... </{2}> třídy {0} do souboru {1}'.format(self.__class__.__name__,  soubor,  self.tag))
         
         with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
             otevřený_soubor.write(self.xml_hlavička)
             otevřený_soubor.write(str(self))
-
-
-
-#    def __mod__(self,  vrátím):
-#        '''
-#        operátor element:ELEMENT % vid:str vrátí reprezentaci uzlu v požadovaném pohledu
-#        operátor element:ELEMENT % (vid:str, soubor:str) uloží reprezentaci uzlu v požadovaném pohledu do souboru a také ji vrátí
-#        '''
-#        
-#        if isinstance(vrátím,  (tuple,  list)):
-#            vid,  soubor = vrátím
-#        else:
-#            vid,  soubor = vrátím,  None
-#        
-#        if not isinstance(vid,  (str,  SOUBOR)):
-#            raise TypeError('Operátor %  elementu očekává jako argument název souboru šablon, což musí býti řetězec a nikolivěk {}.'.format(type(vid)))
-#
-#        aktuální_vid = self.vid
-#        self.vid = vid
-#        if soubor is None:
-#            kód = str(self)
-#        else:
-#            kód = self >> soubor
-#        self.vid = aktuální_vid
-#        return kód

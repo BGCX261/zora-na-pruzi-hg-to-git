@@ -21,7 +21,8 @@ def parsuji_graf(soubor = VZOROVÝ_GRAF):
     return graf
 
 def test_0001_namespace ():
-    from . import NAMESPACE,  E
+    from .__nastavení import namespace as NAMESPACE
+    from . import  E
     
     assert E.GRAPH.TAG_NAME == '{{{}}}graph'.format(NAMESPACE)
     assert E.NODE.TAG_NAME == '{{{}}}node'.format(NAMESPACE)

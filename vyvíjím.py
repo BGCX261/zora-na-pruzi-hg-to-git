@@ -228,6 +228,7 @@ def svg():
 #    print(svg.nsmap)
 #    
     svg = E.SVG(id = 'prvni_svg')
+    
 #    print(svg.nsmap)
     print(type(svg))
     print(svg.TAG)
@@ -267,7 +268,7 @@ def svg():
 #    print(kruh)
 #    print('---')
     
-    svg._ELEMENT.append(kruh)
+    svg.append(kruh)
     
 #    print(svg)
 #    svg.titulek = None
@@ -346,6 +347,43 @@ def css():
 #    pravidlo.append(stroke)
     
     print(css)
+
+def html5():
+    from zora_na_pruzi.strojmir.xml.html5 import E
+    
+    zdroj = './html_šablony/HTML5_reset/index.html'
+#    stránka = E << './html_šablony/HTML5_boilerplate/index.html'
+    stránka = E << zdroj
+    
+    print(stránka)
+    
+#    stránka >> 'testuji.html5'
+    
+#    os.system('kdiff3 ./html_šablony/HTML5_boilerplate/index.html testuji.html5 &')
+
+
+    from zora_na_pruzi.system.print_do_souboru import DO_SOUBORU
+    import lxml.etree
+    import lxml.html
+    
+    doctype = 'html'
+    
+    with DO_SOUBORU('testuji_tounicode.html5'):
+        print(lxml.etree.tounicode(stránka,  pretty_print=True,   doctype=doctype))
+        
+    with DO_SOUBORU('testuji_tounicode_html.html5'):
+        print(lxml.etree.tounicode(stránka,  pretty_print=True,  method="html",  doctype=doctype))
+        
+#    with DO_SOUBORU('testuji_html_tostring.html5'):
+#        print(lxml.html.tostring(stránka,  pretty_print=True).decode('UTF-8'))
+    
+#    from lxml.html import  html5parser
+#    stránka2 = html5parser.parse(zdroj)
+#    with DO_SOUBORU('testuji_html5_tostring.html5'):
+#        print(lxml.html.tostring(stránka2,  pretty_print=True).decode('UTF-8'))
+#    
+    
+    os.system('kdiff3 ./testuji_tounicode_html.html5 ./testuji_tounicode.html5 &')
 
 
 if __name__ == '__main__':

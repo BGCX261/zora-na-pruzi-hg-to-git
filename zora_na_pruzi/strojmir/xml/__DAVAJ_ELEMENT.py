@@ -14,35 +14,24 @@ import lxml.builder
 class __DAVAJ_ELEMENT(dict):
     
     __parser = None
-    __namespace = None
     
-    _typemap = {
-               int: str
-               }
+    
+    
                
 
-    def __init__(self, str_z_balíčku, 
-                 typemap=None,
-                 namespace=None, nsmap=None):
-                     
-        self.__str_z_balíčku = str_z_balíčku
-                     
-        if namespace is not None:
-            self.__namespace = namespace
-
-        if nsmap:
-            self._nsmap = dict(nsmap)
-#        else:
-#            self._nsmap = None
-
-        if typemap is not None:
-            self._typemap.update(typemap)
+    def __init__(self, nastavení):
+        '''
+        nastavení je modul, kde jsou uvedeny všechny předvolby
+        '''
+        self.__nastavení = nastavení
 
     def __call__(self, TAG, **atributy):
         
+        nsmap = self.__nastavení.nsmap
+        
         class __NSMAP_ELEMENT(object):
 #            __slots__ = ('__TŘÍDA_ELEMENTU',  '__NSMAP')
-            __NSMAP = self._nsmap
+            __NSMAP = nsmap
             def __init__(self,  TŘÍDA,  **atributy):
                 self.__TŘÍDA_ELEMENTU = TŘÍDA
                 
@@ -57,7 +46,7 @@ class __DAVAJ_ELEMENT(dict):
                 element =  self.__TŘÍDA_ELEMENTU(nsmap = self.__NSMAP,  **atributy)
                 for klíč, hodnota in atributy.items():
                     if not isinstance(hodnota, str):
-                        hodnota = self._typemap[type(hodnota)](hodnota)
+                        hodnota = self.__nastavení.typemap[type(hodnota)](hodnota)
                     element.set(klíč,  hodnota)
 
                 return element
@@ -73,16 +62,16 @@ class __DAVAJ_ELEMENT(dict):
 
     def __missing__(self,  TAG):
         try:
-            jméno_modulu = '{}.{}'.format(self.__str_z_balíčku, TAG)
+            jméno_modulu = '{}.{}'.format(self.__nastavení.balíček, TAG)
             modul = __import__(jméno_modulu, globals(), locals(), [TAG], 0)
             TŘÍDA_ELEMENTU = getattr(modul,  TAG)
             
             tag = TAG.lower()
-            
+            namespace = self.__nastavení.namespace
             TŘÍDA_ELEMENTU.TAG = tag
-            TŘÍDA_ELEMENTU.NAMESPACE = self.__namespace
-            if self.__namespace is not None:
-                TŘÍDA_ELEMENTU.TAG_NAME = '{{{}}}{}'.format(self.__namespace,  tag)
+            TŘÍDA_ELEMENTU.NAMESPACE = namespace
+            if namespace is not None:
+                TŘÍDA_ELEMENTU.TAG_NAME = '{{{}}}{}'.format(namespace,  tag)
             else:
                 TŘÍDA_ELEMENTU.TAG_NAME = tag
                 
@@ -141,7 +130,7 @@ class __DAVAJ_ELEMENT(dict):
                         třída = davaj_element[name.upper()]
                         return třída
 
-            parser = lxml.etree.XMLParser(remove_blank_text=True)
+            parser = self.__nastavení.parser()
             parser.set_element_class_lookup(Lookup())
             
             self.__parser = parser
