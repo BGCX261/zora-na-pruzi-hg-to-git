@@ -43,51 +43,26 @@ class __ELEMENT_SVG(__ELEMENT):
         class_elementu = set(třídy.split())
         class_elementu.add(třída)     
         self.attrib['class'] = ' '.join(class_elementu)
-
-    
-    def __davaj_obsah(self,  třída_elementu):
-        '''
-        pomocná metoda, která vrací obsah nějakého vloženého elementu
-        '''
-        element = self.find(třída_elementu.TAG)
-        if element is not None:
-            return element.text
-        return None
-        
-    def __nastav_obsah(self,  třída_elementu,  hodnota):
-        '''
-        pomocná metoda, která nastaví obsah nějakého vloženého elementu
-        '''
-        element = self.find(třída_elementu.TAG)
-        if hodnota is None:
-            if element is not None:
-                self.remove(element)
-        else:
-            if element is None:
-                element = třída_elementu()
-                element.text = hodnota
-                self.append(element)
-            return element.text
     
     @property
     def titulek(self):
 #        from .TITLE import TITLE
-        return self.__davaj_obsah(třída_elementu = E.TITLE)
+        return self._davaj_obsah_jedinečného(třída_elementu = E.TITLE)
         
     @titulek.setter
     def titulek(self,  hodnota):
 #        from .TITLE import TITLE
-        self.__nastav_obsah(třída_elementu = E.TITLE,  hodnota = hodnota)
+        self._nastav_obsah_jedinečného(třída_elementu = E.TITLE,  hodnota = hodnota)
         
     @property
     def popisek(self):
 #        from .DESC import DESC
-        return self.__davaj_obsah(třída_elementu = E.DESC)    
+        return self._davaj_obsah_jedinečného(třída_elementu = E.DESC)    
         
     @popisek.setter
     def popisek(self,  hodnota):
 #        from .DESC import DESC
-        self.__nastav_obsah(třída_elementu = E.DESC,  hodnota = hodnota)
+        self._nastav_obsah_jedinečného(třída_elementu = E.DESC,  hodnota = hodnota)
         
       
     def definuji(self,  element):

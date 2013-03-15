@@ -11,14 +11,26 @@ class ATRIBUT(object):
     Tato třída umožní vytvořit vyhledávací parametr pomocí operátoru +
     '''
     
-    def __init__(self,  klíč,  hodnota = None):
+    def __init__(self,  _klíč = None,  _hodnota = None,  **kwargs):
+        self.__zápis = ''
+        
+        if _klíč is not None:
+            self.__atribut(_klíč,  _hodnota)
+            
+        for _klíč,  _hodnota in kwargs.items():
+            self.__atribut(_klíč,  _hodnota)
+            
+            
+    def __atribut(self,  klíč,  hodnota):
         if hodnota is None:
-            self.__zápis = '[@{}]'.format(klíč)
+            zápis = '[@{}]'.format(klíč)
         else:
-            self.__zápis = '[@{}="{}"]'.format(klíč,  hodnota)
+            zápis = '[@{}="{}"]'.format(klíč,  hodnota)
+            
+        self.__zápis = self.__zápis + zápis
             
     def __radd__(self,  tag):
-        return '{}{}'.format(tag,  self.__zápis)
+        return '{}{}'.format(str(tag),  self.__zápis)
 
     def __str__(self):
         return self.__zápis

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-14, 19:52:50 -->
+<!-- Saved: 2013-03-15, 21:41:26 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -34,7 +34,6 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
     <Source>jak_naprogramovat/locale_datum_a_čas.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
     <Source>stroj/data/nested.graphml</Source>
@@ -100,7 +99,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/graphml_elementy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
@@ -160,7 +158,6 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/instaluji_třídy.py</Source>
     <Source>zora_na_pruzi/system/print_do_souboru.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/__graphml_elementy.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/EDGE.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPH.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/NODE.py</Source>
@@ -168,6 +165,30 @@
     <Source>zora_na_pruzi/strojmir/xml/graphml/KEY.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/DATA.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/DEFAULT.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/print_do_souboru.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/GRAPH.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/KEY.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/DATA.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/instaluji_třídy.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/DEFAULT.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/NODE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/EDGE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__PRVEK_GRAFU.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/__nastavení.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/svg/__nastavení.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/graphml/__nastavení.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/__nastavení.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/HTML.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/instaluji_třídy.py</Source>
+    <Source>stroj/html5/__init__.py</Source>
+    <Source>stroj/html5/index_html.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/BODY.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/HEAD.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/LINK.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/META.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/SCRIPT.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/TITLE.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

@@ -69,3 +69,48 @@ class __ELEMENT(lxml.etree.ElementBase):
         with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
             otevřený_soubor.write(self.xml_hlavička)
             otevřený_soubor.write(str(self))
+
+    def _davaj_jedinečného(self,  třída_elementu):
+        '''
+        pomocná metoda, která vrací jedinečného potomka
+        '''
+        elementy = self.findall(str(třída_elementu))
+        počet_elementů = len(elementy)
+        
+        if počet_elementů == 0:
+            return None
+            
+        if počet_elementů == 1:
+            return elementy[0]
+            
+        raise ValueError('Žádáš jedinečného potomka {}, ale ten se v {} nachází {} krát.'.format(třída_elementu.TAG_NAME,  self.tag,  počet_elementů))
+            
+
+    def _davaj_či_vytvoř_jedinečného(self,  třída_elementu):
+        element = self._davaj_jedinečného(třída_elementu)
+        if element is None:
+            element = třída_elementu()
+            self.append(element)
+        return element
+
+    def _davaj_obsah_jedinečného(self,  třída_elementu):
+        '''
+        pomocná metoda, která vrací obsah nějakého vloženého elementu
+        '''
+        element = self._davaj_jedinečného(třída_elementu)
+        if element is not None:
+            return element.text
+        return None
+        
+    def _nastav_obsah_jedinečného(self,  třída_elementu,  hodnota):
+        '''
+        pomocná metoda, která nastaví obsah nějakého vloženého elementu
+        '''
+        
+        if hodnota is None:
+            element = self._davaj_jedinečného(třída_elementu)
+            if element is not None:
+                self.remove(element)
+        else:
+            element = self._davaj_či_vytvoř_jedinečného(třída_elementu)
+            element.text = hodnota

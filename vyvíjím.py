@@ -235,7 +235,7 @@ def svg():
     print(svg.TAG_NAME)
     print(svg.tag)
     print(svg)
-    
+    return
 #    svg = nové_svg() KeyError
 #    svg = načtu_svg('testuji.svg')
 #    print('TAG',  svg.TAG)

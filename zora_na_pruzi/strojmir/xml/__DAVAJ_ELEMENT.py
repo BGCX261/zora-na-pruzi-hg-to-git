@@ -29,21 +29,33 @@ class __DAVAJ_ELEMENT(dict):
         
         nsmap = self.__nastavení.nsmap
         
-        class __NSMAP_ELEMENT(object):
+        class __NSMAP_ELEMENT(dict):
 #            __slots__ = ('__TŘÍDA_ELEMENTU',  '__NSMAP')
-            __NSMAP = nsmap
+            __NSMAP = nsmap 
             def __init__(self,  TŘÍDA,  **atributy):
                 self.__TŘÍDA_ELEMENTU = TŘÍDA
                 
             def __getattr__(self,  klíč):
                 return getattr(self.__TŘÍDA_ELEMENTU,  klíč)
                 
+            def __str__(self):
+                zápis = []
+                for atribut,  hodnota in self.items():
+                    if hodnota is None:
+                        zápis.append('[@{}]'.format(atribut))
+                    else:
+                        zápis.append('[@{}="{}"]'.format(atribut,  hodnota))
+                        
+                return '{}{}'.format(self.TAG_NAME, ''.join(zápis))
+                
             def __call__(self,  *args,  **atributy):
                 if 'nsmap' in atributy:
                     raise NotImplementedError('NSMAP nebereme, nastavíme si ho sami.')
                 if len(args) > 0:
                     raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
-                element =  self.__TŘÍDA_ELEMENTU(nsmap = self.__NSMAP,  **atributy)
+                    
+                element =  self.__TŘÍDA_ELEMENTU(nsmap = self.__NSMAP)
+                atributy.update(self)
                 for klíč, hodnota in atributy.items():
                     if not isinstance(hodnota, str):
                         hodnota = self.__nastavení.typemap[type(hodnota)](hodnota)
@@ -69,8 +81,8 @@ class __DAVAJ_ELEMENT(dict):
             tag = TAG.lower()
             namespace = self.__nastavení.namespace
             TŘÍDA_ELEMENTU.TAG = tag
-            TŘÍDA_ELEMENTU.NAMESPACE = namespace
             if namespace is not None:
+                TŘÍDA_ELEMENTU.NAMESPACE = namespace
                 TŘÍDA_ELEMENTU.TAG_NAME = '{{{}}}{}'.format(namespace,  tag)
             else:
                 TŘÍDA_ELEMENTU.TAG_NAME = tag
@@ -82,7 +94,7 @@ class __DAVAJ_ELEMENT(dict):
         except ImportError as e:
             raise ImportError('V {} selhal __import__({}, globals(), locals(), [{}], 0): {}'.format(__name__,jméno_modulu, TAG,   e)) from e
         except AttributeError as e:
-            raise AttributeError('V {} selhalo získání {} z {}: {}'.format(__name__,  TAG, modul.__name__,  e)) from e
+            raise AttributeError('V {} selhalo získání {} z {}: {}'.format(__name__,  TAG, jméno_modulu,  e)) from e
         raise KeyError('Neznámá chyba při hledání třídy')
 
     def __lshift__(self,  cesta_k_souboru):
