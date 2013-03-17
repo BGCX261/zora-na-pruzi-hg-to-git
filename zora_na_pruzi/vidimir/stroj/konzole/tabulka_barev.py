@@ -24,40 +24,32 @@ Hen je skript, který vypíše tab ulku všech barev
 if __name__ == '__main__':
     
     import barvy as modul_barev
-    from Obarvi import Obarvi
+    from zora_na_pruzi.vidimir.stroj.konzole.dekorátory import obarvi
 
-    se_styly = None
-    
-    if se_styly is not None:
+    se_styly = True
 
-        barvy = ['BÍLÁ', 'TMAVĚ_MODRÁ', 'MODRÁ', 'ŽLUTÁ', 'SIVÁ', 'TMAVĚ_SIVÁ', 'AZUROVÁ', 'ČERNÁ', 'ČERVENÁ', 'TMAVĚ_ČERVENÁ', 'TMAVĚ_PURPUROVÁ', 'PURPUROVÁ', 'TMAVĚ_ZELENÁ', 'TMAVĚ_AZUROVÁ', 'TMAVĚ_ŽLUTÁ', 'ZELENÁ']
-        styly = ['PROHOĎ_BARVU_A_POZADÍ', 'BLIKACÍ', 'UKRYTÝ', 'TUČNĚ', 'PODTRŽENÝ']
-        pozadí = ['NA_TMAVĚ_AZUROVÉ', 'NA_TMAVĚ_ŽLUTÉ', 'NA_BÍLÉ', 'NA_AZUROVÉ', 'NA_TMAVĚ_ČERVENÉ', 'NA_ŽLUTÉ', 'NA_PURPUROVÉ', 'NA_TMAVĚ_ZELENÉ', 'NA_SIVÉ', 'NA_ČERVENÉ', 'NA_ČERNÉ', 'NA_TMAVĚ_MODRÉ', 'NA_MODRÉ', 'NA_TMAVĚ_PURPUROVÉ', 'NA_TMAVĚ_SIVÉ', 'NA_ZELENÉ']
-        for jméno_barvy in barvy:
-            barva = getattr(modul_barev,  jméno_barvy)
-            obarvím = Obarvi(barva)
-            print('barva: ',  jméno_barvy | obarvím)
-            for jméno_pozadí in pozadí:
-                barva_pozadí = getattr(modul_barev,  jméno_pozadí)
-                obarvím = Obarvi(barva,  barva_pozadí)
-                print(jméno_pozadí | obarvím,  end = ' ')
+    barvy = ['BÍLÁ', 'TMAVĚ_MODRÁ', 'MODRÁ', 'ŽLUTÁ', 'SIVÁ', 'TMAVĚ_SIVÁ', 'AZUROVÁ', 'ČERNÁ', 'ČERVENÁ', 'TMAVĚ_ČERVENÁ', 'TMAVĚ_PURPUROVÁ', 'PURPUROVÁ', 'TMAVĚ_ZELENÁ', 'TMAVĚ_AZUROVÁ', 'TMAVĚ_ŽLUTÁ', 'ZELENÁ']
+    styly = ['PROHOĎ_BARVU_A_POZADÍ', 'BLIKACÍ', 'UKRYTÝ', 'TUČNĚ', 'PODTRŽENÝ']
+    pozadí = ['NA_TMAVĚ_AZUROVÉ', 'NA_TMAVĚ_ŽLUTÉ', 'NA_BÍLÉ', 'NA_AZUROVÉ', 'NA_TMAVĚ_ČERVENÉ', 'NA_ŽLUTÉ', 'NA_PURPUROVÉ', 'NA_TMAVĚ_ZELENÉ', 'NA_SIVÉ', 'NA_ČERVENÉ', 'NA_ČERNÉ', 'NA_TMAVĚ_MODRÉ', 'NA_MODRÉ', 'NA_TMAVĚ_PURPUROVÉ', 'NA_TMAVĚ_SIVÉ', 'NA_ZELENÉ']
+    for jméno_barvy in barvy:
+        barva = getattr(modul_barev,  jméno_barvy)
+        @obarvi(barva)
+        def obarvím(text):
+            return text
+        print(obarvím('barva: {}'.format(jméno_barvy)))
+        for jméno_pozadí in pozadí:
+            barva_pozadí = getattr(modul_barev,  jméno_pozadí)
+            @obarvi(barva,  barva_pozadí)
+            def obarvím(text):
+                return text
+            print(obarvím(jméno_pozadí),  end = ' ')
+            if se_styly is not None:
                 for jméno_stylu in styly:
                     styl =  getattr(modul_barev,  jméno_stylu)
-                    obarvím = Obarvi(barva,  barva_pozadí,  styl)
-                    print(jméno_stylu | obarvím,  end = ' ')
-                print()
-            print('-'*44)
-            
-    else:
-        barvy = ['BÍLÁ', 'TMAVĚ_MODRÁ', 'MODRÁ', 'ŽLUTÁ', 'SIVÁ', 'TMAVĚ_SIVÁ', 'AZUROVÁ', 'ČERNÁ', 'ČERVENÁ', 'TMAVĚ_ČERVENÁ', 'TMAVĚ_PURPUROVÁ', 'PURPUROVÁ', 'TMAVĚ_ZELENÁ', 'TMAVĚ_AZUROVÁ', 'TMAVĚ_ŽLUTÁ', 'ZELENÁ']
-        pozadí = ['NA_TMAVĚ_AZUROVÉ', 'NA_TMAVĚ_ŽLUTÉ', 'NA_BÍLÉ', 'NA_AZUROVÉ', 'NA_TMAVĚ_ČERVENÉ', 'NA_ŽLUTÉ', 'NA_PURPUROVÉ', 'NA_TMAVĚ_ZELENÉ', 'NA_SIVÉ', 'NA_ČERVENÉ', 'NA_ČERNÉ', 'NA_TMAVĚ_MODRÉ', 'NA_MODRÉ', 'NA_TMAVĚ_PURPUROVÉ', 'NA_TMAVĚ_SIVÉ', 'NA_ZELENÉ']
-        for jméno_barvy in barvy:
-            barva = getattr(modul_barev,  jméno_barvy)
-            obarvím = Obarvi(barva)
-            print('barva: ',  jméno_barvy | obarvím)
-            for jméno_pozadí in pozadí:
-                barva_pozadí = getattr(modul_barev,  jméno_pozadí)
-                obarvím = Obarvi(barva,  barva_pozadí)
-                print(jméno_pozadí | obarvím,  end = ' ')
-            print('\n', '-'*44)
+                    @obarvi(barva,  barva_pozadí,  styl)
+                    def obarvím(text):
+                        return text
+                    print(obarvím(jméno_stylu),  end = ' ')
+            print()
+        print('-'*44)
 

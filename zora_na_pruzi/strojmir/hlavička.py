@@ -22,5 +22,5 @@ WEB_PROJEKTU = 'http://domogled.eu'
 WEB_ZDROJOVÝCH_KÓDŮ = 'http://code.google.com/p/zora-na-pruzi/'
 
 def hlavička_automaticky_vytvořila():
-    hlavička = 'Изготовила Зора на прузи {verze} ©Домоглед {autor} {rok} on {datum}'.format(verze = __version__, datum = date.today().isoformat(),  autor = __author__,  rok = práva_od_roku(2005))
+    hlavička = 'Изготовила Зора на прузи {verze} ©Домоглед {autor} {rok} б ден {datum}'.format(verze = __version__, datum = date.today().isoformat(),  autor = __author__,  rok = práva_od_roku(2005))
     return hlavička

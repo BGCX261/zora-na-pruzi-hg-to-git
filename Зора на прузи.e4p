@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-15, 21:41:26 -->
+<!-- Saved: 2013-03-17, 15:21:08 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -189,6 +189,21 @@
     <Source>zora_na_pruzi/strojmir/xml/html5/META.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/SCRIPT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/TITLE.py</Source>
+    <Source>element.py</Source>
+    <Source>zora_na_pruzi/strojmir/nastavení.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/nastavení.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__nastavení.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__nastavení.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/__nastavení.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/__nastavení.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/instaluji_třídy.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TITLE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HTML.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/META.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SCRIPT.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/BODY.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HEAD.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/LINK.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

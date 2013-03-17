@@ -12,10 +12,18 @@ from zora_na_pruzi.strojmir.xml.html5 import E
 from zora_na_pruzi.strojmir.hlavička import hlavička_automaticky_vytvořila
 
 stránka = E.HTML()
+stránka.set('lang',  'cz')
 
-stránka.titulek = 'TITULEK'
+hlavička = stránka.hlavička
+hlavička.append(E.META(charset = 'utf-8'))
 
-stránka.popisek = hlavička_automaticky_vytvořila()
+hlavička.titulek = 'TITULEK'
+hlavička.popisek = hlavička_automaticky_vytvořila()
+#hlavička.autor = 
+
+tělo = stránka.tělo
+
+
 #svg.popisek = 'popisuji svg'
 #kruh = E.G().kružnice(střed = (45,  50),  poloměr = 40)
 #svg.append(kruh)
