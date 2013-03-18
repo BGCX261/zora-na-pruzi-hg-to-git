@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-17, 15:21:08 -->
+<!-- Saved: 2013-03-18, 22:06:50 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -189,7 +189,6 @@
     <Source>zora_na_pruzi/strojmir/xml/html5/META.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/SCRIPT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/TITLE.py</Source>
-    <Source>element.py</Source>
     <Source>zora_na_pruzi/strojmir/nastavení.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/nastavení.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__nastavení.py</Source>
@@ -204,6 +203,24 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/BODY.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HEAD.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/LINK.py</Source>
+    <Source>diplomka/__init__.py</Source>
+    <Source>diplomka/obce.txt</Source>
+    <Source>diplomka/z_webu.py</Source>
+    <Source>diplomka/kódování.py</Source>
+    <Source>diplomka/hlodání_dat.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/TH.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/TD.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/TABLE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/TR.py</Source>
+    <Source>zora_na_pruzi/stroj/__init__.py</Source>
+    <Source>zora_na_pruzi/stroj/vytvořím_graf.py</Source>
+    <Source>zora_na_pruzi/stroj/načtu_graf.py</Source>
+    <Source>zora_na_pruzi/stroj/databáze_v_graphml.py</Source>
+    <Source>zora_na_pruzi/stroj/validuji.py</Source>
+    <Source>zora_na_pruzi/stroj/svg/__init__.py</Source>
+    <Source>zora_na_pruzi/stroj/svg/vytvořím_svg_příklad.py</Source>
+    <Source>zora_na_pruzi/stroj/html5/__init__.py</Source>
+    <Source>zora_na_pruzi/stroj/html5/index_html.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

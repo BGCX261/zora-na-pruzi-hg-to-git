@@ -33,7 +33,11 @@ if __name__ == '__main__':
                         'TITLE', 
                         'LINK', 
                         'SCRIPT', 
-                        'BODY'
+                        'BODY', 
+                        'TABLE', 
+                        'TR', 
+                        'TD', 
+                        'TH'
                         ):
         jméno_souboru = '{}.py'.format(TAG)
         

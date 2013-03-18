@@ -1,0 +1,19 @@
+Babice;http://www.rozpocetobce.cz/seznam-obci/592013-babice;http://www.rozpocetobce.cz/api/export/csv/00290777/cz
+Boršice;http://www.rozpocetobce.cz/seznam-obci/592064-borsice;http://www.rozpocetobce.cz/api/export/csv/00290823/cz
+Huštěnovice;http://www.rozpocetobce.cz/seznam-obci/592218-hustenovice;http://www.rozpocetobce.cz/api/export/csv/00290971/cz
+Jalubí;http://www.rozpocetobce.cz/seznam-obci/592226-jalubi;http://www.rozpocetobce.cz/api/export/csv/00290980/cz
+Jankovice;http://www.rozpocetobce.cz/seznam-obci/592234-jankovice;http://www.rozpocetobce.cz/api/export/csv/00542369/cz
+Kostelany nad Moravou;http://www.rozpocetobce.cz/seznam-obci/592293-kostelany-nad-moravou;http://www.rozpocetobce.cz/api/export/csv/00291048/cz
+Košíky;http://www.rozpocetobce.cz/seznam-obci/592307-kosiky;http://www.rozpocetobce.cz/api/export/csv/00542377/cz
+Kudlovice;http://www.rozpocetobce.cz/seznam-obci/592323-kudlovice
+Nedakonice;http://www.rozpocetobce.cz/seznam-obci/592412-nedakonice;http://www.rozpocetobce.cz/api/export/csv/00291153/cz
+Ořechov;http://www.rozpocetobce.cz/seznam-obci/592447-orechov
+Polešovice;http://www.rozpocetobce.cz/seznam-obci/592510-polesovice
+Staré Město;http://www.rozpocetobce.cz/seznam-obci/550752-stare-mesto
+Sušice;http://www.rozpocetobce.cz/seznam-obci/592650-susice
+Traplice;http://www.rozpocetobce.cz/seznam-obci/592706-traplice
+Tučapy;http://www.rozpocetobce.cz/seznam-obci/592714-tucapy
+Tupesy;http://www.rozpocetobce.cz/seznam-obci/592722-tupesy
+Újezdec;http://www.rozpocetobce.cz/seznam-obci/592757-ujezdec
+Vážany;http://www.rozpocetobce.cz/seznam-obci/592781-vazany
+Zlechov;http://www.rozpocetobce.cz/seznam-obci/592862-zlechov
