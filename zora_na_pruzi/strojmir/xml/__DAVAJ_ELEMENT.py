@@ -7,17 +7,12 @@ Hen je program, který ...
 '''
 
 import lxml.etree
-import lxml.builder
 
 
 #class __ElementMaker(lxml.builder.ElementMaker):
 class __DAVAJ_ELEMENT(dict):
     
     __parser = None
-    
-    
-    
-               
 
     def __init__(self, nastavení):
         '''

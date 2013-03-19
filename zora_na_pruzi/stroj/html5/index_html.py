@@ -40,23 +40,16 @@ def stránka():
     return stránka
 
 
-def záhlaví():
-    záhlaví = E.HEADER()
-    return záhlaví
- 
-def zápatí():
-    zápatí = E.FOOTER()
-    zápatí.text = HLAVIČKA.vytvořila()
-    práva = E.SMALL(id = 'copyright')
-    zápatí.append(práva)
-    práva.text = HLAVIČKA.práva()
-    return zápatí
-
 if __name__ == '__main__':
     print('Jak udělám HTML5 soubor')
     stránka = stránka()
     tělo = stránka.tělo
-    tělo.append(záhlaví())
-    tělo.append(zápatí())
+    tělo.záhlaví.text = 'záhlaví stránky'
+    
+    zápatí = tělo.zápatí
+    zápatí.text =  HLAVIČKA.vytvořila()
+    práva = E.SMALL(id = 'copyright')
+    zápatí.append(práva)
+    práva.text = HLAVIČKA.práva()
     
     print(stránka)
