@@ -6,11 +6,10 @@
 Hen je program, který ...
 '''
 
-print('Jak udělám HTML5 soubor')
+from zora_na_pruzi.strojmir.xml.html5 import E
+from zora_na_pruzi.strojmir import hlavička as HLAVIČKA
 
 def stránka():
-    from zora_na_pruzi.strojmir.xml.html5 import E
-    from zora_na_pruzi.strojmir.hlavička import hlavička_automaticky_vytvořila
 
     stránka = E.HTML()
     stránka.set('lang',  'cz')
@@ -19,10 +18,8 @@ def stránka():
     hlavička.append(E.META(charset = 'utf-8'))
 
     hlavička.titulek = 'TITULEK'
-    hlavička.popisek = hlavička_automaticky_vytvořila()
+    hlavička.popisek = HLAVIČKA.hlavička_automaticky_vytvořila()
     #hlavička.autor = 
-
-    tělo = stránka.tělo
 
 
     #svg.popisek = 'popisuji svg'
@@ -31,8 +28,6 @@ def stránka():
     #css_kruhu = kruh.css_dle_třídy('KOLO',  element = True)
     #css_kruhu.fill(0xFFFF00).stroke(0x1100CC).stroke_width(4,  'px')
 
-
-    print(stránka)
 
     #uložím_do_souboru = 'index.html'
     #import os
@@ -44,5 +39,24 @@ def stránka():
 
     return stránka
 
+
+def záhlaví():
+    záhlaví = E.HEADER()
+    return záhlaví
+ 
+def zápatí():
+    zápatí = E.FOOTER()
+    zápatí.text = HLAVIČKA.vytvořila()
+    práva = E.SMALL(id = 'copyright')
+    zápatí.append(práva)
+    práva.text = HLAVIČKA.práva()
+    return zápatí
+
 if __name__ == '__main__':
-    stránka()
+    print('Jak udělám HTML5 soubor')
+    stránka = stránka()
+    tělo = stránka.tělo
+    tělo.append(záhlaví())
+    tělo.append(zápatí())
+    
+    print(stránka)
