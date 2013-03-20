@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-19, 12:04:51 -->
+<!-- Saved: 2013-03-20, 19:28:35 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -142,7 +142,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/__XML_CESTY.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__XML_CESTY.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
@@ -191,11 +190,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/BODY.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HEAD.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/LINK.py</Source>
-    <Source>diplomka/__init__.py</Source>
-    <Source>diplomka/obce.txt</Source>
-    <Source>diplomka/z_webu.py</Source>
-    <Source>diplomka/kódování.py</Source>
-    <Source>diplomka/hlodání_dat.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/TH.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/TD.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/TABLE.py</Source>
@@ -222,6 +216,88 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/svg/vytvořím_svg_příklad.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/html5/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/html5/index_html.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/H2.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/SMALL.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/H5.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/DETAILS.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/SUMMARY.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/MARK.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/STRONG.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/HGROUP.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/HEADER.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/STYLE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/ARTICLE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/EM.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/DIVFIGURE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/LI.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/METER.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/UL.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/SECTION.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/P.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/FOOTER.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/H4.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/DIV.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/B.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/A.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/TIME.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/PROGRESS.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/H1.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/H3.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/NAV.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/OL.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/I.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/CITE.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/H6.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/FIGCAPTION.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/ASIDE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H2.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SMALL.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H5.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/DETAILS.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SUMMARY.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/MARK.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/STRONG.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HGROUP.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HEADER.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/STYLE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/ARTICLE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/EM.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/DIVFIGURE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/LI.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/METER.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/UL.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SECTION.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/P.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/FOOTER.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H4.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/DIV.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/B.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/A.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TIME.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/PROGRESS.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H1.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H3.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/NAV.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/OL.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/I.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/CITE.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H6.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/FIGCAPTION.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/ASIDE.py</Source>
+    <Source>dílna/forex/__init__.py</Source>
+    <Source>dílna/forex/qt_plot.py</Source>
+    <Source>dílna/forex/ipython_log.py</Source>
+    <Source>dílna/forex/qt_plot2.py</Source>
+    <Source>dílna/forex/talasnica.py</Source>
+    <Source>dílna/forex/matplot_geo.py</Source>
+    <Source>dílna/forex/mathplot.py</Source>
+    <Source>dílna/veřejné_rozpočty/__init__.py</Source>
+    <Source>dílna/veřejné_rozpočty/kódování.py</Source>
+    <Source>dílna/veřejné_rozpočty/z_webu.py</Source>
+    <Source>dílna/veřejné_rozpočty/hlodání_dat.py</Source>
+    <Source>zora_na_pruzi/stroj/svg/svg_html.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/funkce.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
