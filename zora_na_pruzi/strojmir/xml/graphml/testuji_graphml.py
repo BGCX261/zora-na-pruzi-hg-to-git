@@ -84,6 +84,10 @@ def test_0003_klíče ():
        
     assert isinstance(klíče['d1'],  E['KEY'])
     
+    assert len(tuple(klíče.keys())) == 3
+    for klíč in klíče.keys():
+        assert klíč in ('d0', 'd1',  'd2')
+    
 def test_0004_grafy():
     
     root = parsuji_graf()

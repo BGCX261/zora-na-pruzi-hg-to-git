@@ -43,7 +43,9 @@ def stránka():
 if __name__ == '__main__':
     print('Jak udělám HTML5 soubor')
     stránka = stránka()
+    
     tělo = stránka.tělo
+    
     tělo.záhlaví.text = 'záhlaví stránky'
     
     zápatí = tělo.zápatí

@@ -63,9 +63,6 @@ class __DAVAJ_ELEMENT(dict):
 
     def __getattr__(self, TAG):
         return self(TAG)
-#        from functools import partial
-#        return partial(self, self[TAG])
-#        return self[TAG]
 
     def __missing__(self,  TAG):
         try:

@@ -9,6 +9,7 @@ barvy jsou uvedeny v souboru barvy
 '''
 
 import os
+import functools
 
 __OBARVI = '\033[{}m'
 __RESET = '\033[0;39;49m'
@@ -29,12 +30,16 @@ def obarvi(*args):
         if barvím:
             barvím = ';'.join(barvím)
             barvím = __OBARVI.format(barvím)
+            
             def dekorátor(funkce):
+                
+                @functools.wraps(funkce)
                 def wrapper(*args,  **kwargs):
                     text = funkce(*args,  **kwargs)
                     text = text.replace(__RESET,  '{}{}'.format(__RESET,  barvím))
                     return '{}{}{}'.format(barvím,  text,  __RESET)
                 return wrapper
+                
             return dekorátor
               
         raise ValueError('Selhalo nastavení obarvovací funkce s parametry {}'.format(args))
@@ -46,6 +51,8 @@ def obarvi(*args):
 
 def orámuj(hore = None,   dole = None):
     def dekorátor(funkce):
+        
+        @functools.wraps(funkce)
         def wrapper(*args,  **kwargs):
             text = funkce(*args,  **kwargs)
             déka_textu = len(text)
@@ -68,7 +75,9 @@ def orámuj(hore = None,   dole = None):
 
 def odsaď(o_kolik):
     odsazení = ' '*o_kolik
+    
     def dekorátor(funkce):
+        @functools.wraps(funkce)
         def wrapper(*args,  **kwargs):
             text = funkce(*args,  **kwargs)
             text = text.replace('\n',  '{}{}'.format('\n', odsazení))
