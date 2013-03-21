@@ -180,21 +180,56 @@ def graf():
 
 def e_factory():
 #    from lxml.builder import ElementMaker
-    from lxml.builder import E
+    from lxml.builder import E as EM
+    import lxml.etree
 #    
-    from zora_na_pruzi.strojmir.xml.davaj_parser import davaj_parser
-    print('\ndefault')
-    el = E.SVG()
+    from zora_na_pruzi.strojmir.xml.svg import E
+    print('\n*** tu je od ElementMakera ***')
+    el = EM.SVG(id = str(245),  checked = True)
+    
+#    input = EM.input()
+#    input.checked = True
+#    el.append(input)
 #    el = E.SVG(id = 'x')
-    print(type(el))
-    print(el.tag)
+    print('type: ', type(el))
+    print('tag: ',  el.tag)
+    print('print: ',  el)
+    print('str: ',  str(el))
+    print('unicode html: ',  lxml.etree.tounicode(el,  pretty_print=True,  method="html"))
+    print('unicode xml: ',  lxml.etree.tounicode(el,  pretty_print=True))
     
+    return
+    print('\n*** tu je moje ***')
+    el = E.SVG()
+    print('type: ', type(el))
+    print('tag: ',  el.tag)
+    print('print: ',  el)
+    print('str: ',  str(el))
     
-    P,  E = davaj_parser('zora_na_pruzi.strojmir.xml.svg')
-    print('\nmoje')
-    el = E.svg()
-    print(type(el))
-    print(el.tag)
+    print('\n*** moj BUILDER ***')
+    html_builder = E.SVG
+    html_builder_2 = E('SVG')
+    print('str 1: ',  str(html_builder))
+    print('str 2: ',  str(html_builder_2))
+    print()
+    
+    html_builder['id'] = 245
+    html_builder_2 = E('SVG',  id = 245)
+    
+    print('str 1: ',  str(html_builder))
+    print('str 2: ',  str(html_builder_2))
+    print()
+    
+    html_builder['q'] = True
+    html_builder_2 = E('SVG',  q = True)
+    
+    print('str 1: ',  str(html_builder))
+    print('str 2: ',  str(html_builder_2))
+    print()
+    
+    html = html_builder(číslo = 245)
+    print(html)
+    
     
 #    el = E.h1() AttributeError
     

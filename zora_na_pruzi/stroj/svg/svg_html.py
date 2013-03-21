@@ -17,10 +17,13 @@ if __name__ == '__main__':
     
     print(html)
     
-    uložím_do_souboru = 'testuji.html'
-    import os
-    svg.CSS >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
-    html >> uložím_do_souboru
-
-    import webbrowser
-    webbrowser.open(uložím_do_souboru)
+    from lxml.html import open_in_browser
+    open_in_browser(html)
+    
+#    uložím_do_souboru = 'testuji.html'
+#    import os
+#    svg.CSS >> '{}.{}'.format(os.path.splitext(uložím_do_souboru)[0],  'css')
+#    html >> uložím_do_souboru
+#
+#    import webbrowser
+#    webbrowser.open(uložím_do_souboru)

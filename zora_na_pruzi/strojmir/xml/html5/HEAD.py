@@ -23,8 +23,8 @@ class HEAD(__ELEMENT_HTML5):
         
     @popisek.setter
     def popisek(self,  popisek):
-        tag = E.META
-        tag['name'] = 'description'
-        meta = self._davaj_či_vytvoř_jedinečného(tag)
+#        tag = E.META
+#        tag['name'] = 'description'
+        meta = self._davaj_či_vytvoř_jedinečného(E('META',  name = 'description'))
         meta.set('content',  popisek)
 

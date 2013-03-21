@@ -19,16 +19,28 @@ class __DAVAJ_ELEMENT(dict):
         nastavení je modul, kde jsou uvedeny všechny předvolby
         '''
         self.__nastavení = nastavení
+        
+    def __typemap(self,  atribut):
+        print(atribut)
+        klíč,  hodnota = atribut
+        if not isinstance(hodnota, str):
+            hodnota = self.__nastavení.typemap[type(hodnota)](hodnota)
+        return klíč,  hodnota
 
     def __call__(self, TAG, **atributy):
         
         nsmap = self.__nastavení.nsmap
+        typemap = self.__typemap
         
         class __NSMAP_ELEMENT(dict):
 #            __slots__ = ('__TŘÍDA_ELEMENTU',  '__NSMAP')
+
             __NSMAP = nsmap 
+            
             def __init__(self,  TŘÍDA,  **atributy):
                 self.__TŘÍDA_ELEMENTU = TŘÍDA
+                for atribut, hodnota in map(typemap,  atributy.items()):
+                    self[atribut] = hodnota
                 
             def __getattr__(self,  klíč):
                 return getattr(self.__TŘÍDA_ELEMENTU,  klíč)
@@ -50,10 +62,12 @@ class __DAVAJ_ELEMENT(dict):
                     raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
                     
                 element =  self.__TŘÍDA_ELEMENTU(nsmap = self.__NSMAP)
-                atributy.update(self)
-                for klíč, hodnota in atributy.items():
-                    if not isinstance(hodnota, str):
-                        hodnota = self.__nastavení.typemap[type(hodnota)](hodnota)
+                
+#                nejdříve původní atributy
+                for klíč, hodnota in self.items():
+                    element.set(klíč,  hodnota)
+                
+                for klíč, hodnota in map(typemap, atributy.items()):
                     element.set(klíč,  hodnota)
 
                 return element

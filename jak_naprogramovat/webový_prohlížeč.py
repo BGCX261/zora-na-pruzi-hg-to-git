@@ -13,5 +13,5 @@ webbrowser.open(url)
 
 #nebo v lxml,  který to výše uvedené používá
 
-from lxml import open_in_browser
+from lxml.html import open_in_browser
 open_in_browser(element)

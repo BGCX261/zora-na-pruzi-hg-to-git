@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-20, 19:28:35 -->
+<!-- Saved: 2013-03-21, 11:38:36 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -142,7 +142,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__XML_CESTY.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/graphml/instaluji_třídy.py</Source>
@@ -298,6 +297,11 @@
     <Source>zora_na_pruzi/stroj/svg/svg_html.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/funkce.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/funkce.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/svg/svg_html.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
+    <Source>jak_naprogramovat/itertools.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
