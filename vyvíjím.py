@@ -161,7 +161,7 @@ def graf():
     T_data = E.DATA
     T_data.TAG
     print(T_data.TAG)
-    return
+    
 #    print(graphml)
      
     def piš(element,  level = 0):
@@ -185,7 +185,7 @@ def e_factory():
 #    
     from zora_na_pruzi.strojmir.xml.svg import E
     print('\n*** tu je od ElementMakera ***')
-    el = EM.SVG(id = str(245),  checked = True)
+    el = EM.SVG(id = str(245))
     
 #    input = EM.input()
 #    input.checked = True
@@ -198,7 +198,6 @@ def e_factory():
     print('unicode html: ',  lxml.etree.tounicode(el,  pretty_print=True,  method="html"))
     print('unicode xml: ',  lxml.etree.tounicode(el,  pretty_print=True))
     
-    return
     print('\n*** tu je moje ***')
     el = E.SVG()
     print('type: ', type(el))
@@ -220,8 +219,8 @@ def e_factory():
     print('str 2: ',  str(html_builder_2))
     print()
     
-    html_builder['q'] = True
-    html_builder_2 = E('SVG',  q = True)
+    html_builder['q'] = None
+    html_builder_2 = E('SVG',  q = None)
     
     print('str 1: ',  str(html_builder))
     print('str 2: ',  str(html_builder_2))

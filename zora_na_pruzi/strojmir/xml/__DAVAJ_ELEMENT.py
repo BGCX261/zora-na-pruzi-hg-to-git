@@ -13,6 +13,9 @@ import lxml.etree
 class __DAVAJ_ELEMENT(dict):
     
     __parser = None
+    
+    class X(object):
+        pass
 
     def __init__(self, nastavení):
         '''
@@ -20,27 +23,22 @@ class __DAVAJ_ELEMENT(dict):
         '''
         self.__nastavení = nastavení
         
-    def __typemap(self,  atribut):
-        print(atribut)
-        klíč,  hodnota = atribut
-        if not isinstance(hodnota, str):
-            hodnota = self.__nastavení.typemap[type(hodnota)](hodnota)
-        return klíč,  hodnota
-
-    def __call__(self, TAG, **atributy):
+        NSMAP = self.__nastavení.nsmap
+        TYPEMAP = self.__nastavení.typemap
         
-        nsmap = self.__nastavení.nsmap
-        typemap = self.__typemap
+        TYPEMAP.setdefault(str,  lambda x: x)
+        
+        import itertools
         
         class __NSMAP_ELEMENT(dict):
 #            __slots__ = ('__TŘÍDA_ELEMENTU',  '__NSMAP')
 
-            __NSMAP = nsmap 
+#            __NSMAP = nsmap
+#            typemap = _typemap
             
             def __init__(self,  TŘÍDA,  **atributy):
                 self.__TŘÍDA_ELEMENTU = TŘÍDA
-                for atribut, hodnota in map(typemap,  atributy.items()):
-                    self[atribut] = hodnota
+                self.update(atributy)
                 
             def __getattr__(self,  klíč):
                 return getattr(self.__TŘÍDA_ELEMENTU,  klíč)
@@ -51,6 +49,7 @@ class __DAVAJ_ELEMENT(dict):
                     if hodnota is None:
                         zápis.append('[@{}]'.format(atribut))
                     else:
+                        hodnota = TYPEMAP[type(hodnota)](hodnota)
                         zápis.append('[@{}="{}"]'.format(atribut,  hodnota))
                         
                 return '{}{}'.format(self.TAG_NAME, ''.join(zápis))
@@ -61,19 +60,25 @@ class __DAVAJ_ELEMENT(dict):
                 if len(args) > 0:
                     raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
                     
-                element =  self.__TŘÍDA_ELEMENTU(nsmap = self.__NSMAP)
+                element =  self.__TŘÍDA_ELEMENTU(nsmap = NSMAP)
                 
 #                nejdříve původní atributy
-                for klíč, hodnota in self.items():
-                    element.set(klíč,  hodnota)
-                
-                for klíč, hodnota in map(typemap, atributy.items()):
+                for klíč, hodnota in itertools.chain(self.items(),  atributy.items()):
+                    if hodnota is None:
+#                        @TODO: chtěl bych v duchu HTML nikoliv psát <input require="required" > ale prosto <input required >
+                        hodnota = klíč
+                        
+                    hodnota = TYPEMAP[type(hodnota)](hodnota)
                     element.set(klíč,  hodnota)
 
                 return element
+
+        self.__NSMAP_ELEMENT = __NSMAP_ELEMENT
+
+    def __call__(self, TAG, **atributy):
         
         TŘÍDA_ELEMENTU = self[TAG]
-        return __NSMAP_ELEMENT(TŘÍDA_ELEMENTU, **atributy)
+        return self.__NSMAP_ELEMENT(TŘÍDA_ELEMENTU, **atributy)
 
     def __getattr__(self, TAG):
         return self(TAG)
