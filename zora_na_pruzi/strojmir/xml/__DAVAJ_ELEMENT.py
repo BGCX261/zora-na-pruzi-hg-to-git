@@ -58,12 +58,25 @@ class __DAVAJ_ELEMENT(dict):
                 if 'nsmap' in atributy:
                     raise NotImplementedError('NSMAP nebereme, nastavíme si ho sami.')
                     
-                if len(args) > 0:
-                    raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
+#                if len(args) > 0:
+#                    raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
                     
                 element =  self.__TŘÍDA_ELEMENTU(nsmap = NSMAP)
-                
-#                nejdříve přidám atributy
+
+#           přidám obsah
+                for obsah_elementu in args:
+                    if isinstance(obsah_elementu,  str):
+                        if len(element):
+                            element[-1].tail = (element[-1].tail or "") + obsah_elementu
+                        else:
+                            element.text = (element.text or "") + obsah_elementu
+                    elif lxml.etree.iselement(obsah_elementu):
+                        element.append(obsah_elementu)
+                    elif isinstance(obsah_elementu,  dict):
+#                        je-li předán slovník,  beru jej jako seznam atributů
+                        atributy.update(obsah_elementu)
+                        
+#             přidám atributy
                 for klíč, hodnota in itertools.chain(self.items(),  atributy.items()):
                     if hodnota is None:
 #                        @TODO: chtěl bych v duchu HTML nikoliv psát <input require="required" > ale prosto <input required >
@@ -71,13 +84,6 @@ class __DAVAJ_ELEMENT(dict):
                         
                     hodnota = TYPEMAP[type(hodnota)](hodnota)
                     element.set(klíč,  hodnota)
-
-                for potomek in args:
-                    if isinstance(potomek,  str)
-#                    if len(elem):
-#                elem[-1].tail = (elem[-1].tail or "") + item
-#            else:
-#                elem.text = (elem.text or "") + item
 
                 return element
 

@@ -188,9 +188,10 @@ def e_factory():
     
     
     html = EM.html(
+                   {'id': '45',  'class': 'medvěd '}, 
                   EM.head(
                          EM.title('Titulke jeste tut')
-                         ), 
+                        ), 
                          EM.body('stránka o ničem') 
                   
                   )

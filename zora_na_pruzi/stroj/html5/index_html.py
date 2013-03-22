@@ -9,7 +9,21 @@ Hen je program, který ...
 from zora_na_pruzi.strojmir.xml.html5 import E
 from zora_na_pruzi.strojmir import hlavička as HLAVIČKA
 
-def stránka():
+def stránka(nastavení = {}):
+    return \
+    E.HTML(
+        E.HEAD(
+                E.META(charset = nastavení.get('kódování', 'utf-8')), 
+                E.TITLE(nastavení.get('titulek', 'Зора на прузи')),
+                E.META(name = 'description',  content = nastavení.get('meta_popisek', HLAVIČKA.hlavička_automaticky_vytvořila()))
+        ),
+        E.BODY(
+               
+        ), 
+        lang = nastavení.get('jazyk', 'cz'), 
+        )
+
+def stránka2():
 
     stránka = E.HTML()
     stránka.set('lang',  'cz')
