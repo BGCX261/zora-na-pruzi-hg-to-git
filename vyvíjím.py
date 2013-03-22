@@ -185,6 +185,18 @@ def e_factory():
 #    
     from zora_na_pruzi.strojmir.xml.svg import E
     print('\n*** tu je od ElementMakera ***')
+    
+    
+    html = EM.html(
+                  EM.head(
+                         EM.title('Titulke jeste tut')
+                         ), 
+                         EM.body('stránka o ničem') 
+                  
+                  )
+    
+    print('unicode html: ',  lxml.etree.tounicode(html,  pretty_print=True,  method="html"))
+    return
     el = EM.SVG(id = str(245))
     
 #    input = EM.input()

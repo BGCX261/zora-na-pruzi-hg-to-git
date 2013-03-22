@@ -21,8 +21,6 @@ def test_0001_tvořím_elementy():
     assert html_builder.__class__.__name__ == html_builder_2.__class__.__name__
     assert str(html_builder) == str(html_builder_2)
     
-#############    
-    
     html = html_builder(id = 11)
     html_2 = html_builder_2(id = 11)
     assert str(html) == str(html_2)
@@ -39,12 +37,4 @@ def test_0001_tvořím_elementy():
     
     assert str(html_builder()) == str(html_builder_2())
     
-        
-#    from .G import G
-#    from .SVG import SVG
-#        
-#    g = E << cesta_k_souboru('fragment_g.svg')
-#    assert isinstance(g,  G)
-#    svg = E << cesta_k_souboru('prázdné.svg')
-#    assert isinstance(svg,  SVG)
     

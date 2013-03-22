@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-21, 11:38:36 -->
+<!-- Saved: 2013-03-22, 10:27:26 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -302,6 +302,7 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/svg/svg_html.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
     <Source>jak_naprogramovat/itertools.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

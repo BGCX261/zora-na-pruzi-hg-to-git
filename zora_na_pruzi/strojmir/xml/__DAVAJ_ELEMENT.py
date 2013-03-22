@@ -57,12 +57,13 @@ class __DAVAJ_ELEMENT(dict):
             def __call__(self,  *args,  **atributy):
                 if 'nsmap' in atributy:
                     raise NotImplementedError('NSMAP nebereme, nastavíme si ho sami.')
+                    
                 if len(args) > 0:
                     raise NotImplementedError('Tož ale argumenty zahodíme, toto nevím co je {}.'.format(str(args)))
                     
                 element =  self.__TŘÍDA_ELEMENTU(nsmap = NSMAP)
                 
-#                nejdříve původní atributy
+#                nejdříve přidám atributy
                 for klíč, hodnota in itertools.chain(self.items(),  atributy.items()):
                     if hodnota is None:
 #                        @TODO: chtěl bych v duchu HTML nikoliv psát <input require="required" > ale prosto <input required >
@@ -70,6 +71,13 @@ class __DAVAJ_ELEMENT(dict):
                         
                     hodnota = TYPEMAP[type(hodnota)](hodnota)
                     element.set(klíč,  hodnota)
+
+                for potomek in args:
+                    if isinstance(potomek,  str)
+#                    if len(elem):
+#                elem[-1].tail = (elem[-1].tail or "") + item
+#            else:
+#                elem.text = (elem.text or "") + item
 
                 return element
 
