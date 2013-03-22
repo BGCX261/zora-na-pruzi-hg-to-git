@@ -45,6 +45,7 @@ def do_ignore(soubor):
     
     with open('.hgignore',  mode='a',  encoding = 'UTF-8') as hgignore:
         hgignore.write(soubor)
+        hgignore.write('\n')
         
     print('Soubor {} úspěšně přidán do .hgignore.'.format(soubor))
 

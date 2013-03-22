@@ -36,7 +36,6 @@ def build():
     
 #build()
 
-
 def pisar():
 #    from zora_na_pruzi.vidimir.Pisar import Pisar
     

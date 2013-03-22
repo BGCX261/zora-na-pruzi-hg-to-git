@@ -21,3 +21,10 @@ class __ELEMENT_HTML5(__ELEMENT):
     
     def __str__(self):
         return lxml.etree.tounicode(self,  pretty_print=True,  method="html",  doctype='<!doctype html>')
+        
+    def css_link(self,  CSS):
+        soubor = CSS.soubor
+        print(soubor)
+        if soubor is None:
+            raise ValueError('CSS není uloženo do souboru.')
+        self.getroottree().getroot().hlavička.append(E.LINK(rel = 'stylesheet',  href = soubor))

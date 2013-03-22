@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-03-22, 15:38:24 -->
+<!-- Saved: 2013-03-22, 21:28:58 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -292,17 +292,18 @@
     <Source>zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
     <Source>jak_naprogramovat/itertools.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
-    <Source>element.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/davaj_parser.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/desc.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/g.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/svg.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/title.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/davaj_parser.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/desc.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/g.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/svg.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/title.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/funkce.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/funkce.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
+    <Source>dílna/forex/__init__.py</Source>
+    <Source>dílna/forex/qt_plot.py</Source>
+    <Source>dílna/forex/ipython_log.py</Source>
+    <Source>dílna/forex/qt_plot2.py</Source>
+    <Source>dílna/forex/talasnica.py</Source>
+    <Source>dílna/forex/matplot_geo.py</Source>
+    <Source>dílna/forex/mathplot.py</Source>
+    <Source>dílna/forex/talasnica_starší.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

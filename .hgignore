@@ -25,3 +25,4 @@ glob:nastavím/instalace
 glob:**.cache
 glob:dílna/veřejné_rozpočty/csv
 glob:html_šablony
+glob:dílna/forex
