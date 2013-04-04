@@ -16,8 +16,11 @@ if __name__ == '__main__':
     
     db = postgresql_připojím_se_k_databázi(pruga_test)
     
-    for sql_skript in ('funkce_najdu_či_vytvořím_klíč.sql', 
-                                'funkce_vytvořím_nový_uzel.sql'
+    for sql_skript in (
+                        'tabulka_klíče.sql', 
+                       'tabulka_uzly.sql', 
+                            'funkce_najdu_či_vytvořím_klíč.sql', 
+                            'funkce_vytvořím_nový_uzel.sql'
                                 ):
     
         print('SQL {}'.format(sql_skript))

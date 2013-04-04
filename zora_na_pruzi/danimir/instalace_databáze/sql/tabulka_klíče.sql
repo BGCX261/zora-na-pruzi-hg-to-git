@@ -4,7 +4,7 @@
 
 CREATE TABLE "pruga"."klíče"
 (
-  "id bigint" NOT NULL DEFAULT nextval('"pruga"."klíče_id_seq"'::regclass),
+  "id" bigint NOT NULL DEFAULT nextval('"pruga"."klíče_id_seq"'::regclass),
   "klíč" character varying,
   "tabulka_hodnot" character varying,
   CONSTRAINT "klíče_pkey" PRIMARY KEY ("id"),
