@@ -19,6 +19,7 @@ if __name__ == '__main__':
     for sql_skript in (
                         'tabulka_klíče.sql', 
                        'tabulka_uzly.sql', 
+                       'tabulka_slova.sql', 
                             'funkce_najdu_či_vytvořím_klíč.sql', 
                             'funkce_vytvořím_nový_uzel.sql'
                                 ):

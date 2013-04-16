@@ -17,8 +17,12 @@ def db():
     from zora_na_pruzi.danimir.db import db
     db = db(db_připojení)
     
-    from zora_na_pruzi.danimir.nový_uzel import nový_uzel
-    firma = nový_uzel('firma')
+    from zora_na_pruzi.danimir.najdu_či_vytvořím_klíč import najdu_či_vytvořím_klíč
+    id_klíče = najdu_či_vytvořím_klíč('jméno',  'medvěd')
+    print(id_klíče)
+    
+#    from zora_na_pruzi.danimir.nový_uzel import nový_uzel
+#    firma = nový_uzel('firma')
     
     
 

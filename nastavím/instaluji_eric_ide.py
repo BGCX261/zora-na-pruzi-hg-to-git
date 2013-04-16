@@ -26,7 +26,7 @@ def stáhnu(verze):
     h = httplib2.Http(GDE_ULOŽÍM_SOUBORY)
     
     zdroj = 'http://sourceforge.net/projects/eric-ide/files/eric5/stable/{0}/eric5-{0}.tar.gz/download'.format(verze)
-    zdroj_lokalizace = 'http://sourceforge.net/projects/eric-ide/files/eric5/stable/5.3.1/eric5-i18n-cs-{}.tar.gz/download'.format(verze)
+    zdroj_lokalizace = 'http://sourceforge.net/projects/eric-ide/files/eric5/stable/{0}/eric5-i18n-cs-{0}.tar.gz/download'.format(verze)
     
     def vytvářím_adresář(cesta):
         if not os.path.isdir(cesta):

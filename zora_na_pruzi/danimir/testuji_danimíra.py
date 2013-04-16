@@ -53,6 +53,12 @@ def test_nový_uzel():
         uzel = nový_uzel('nejestvující_klíč')
 
 
+def test_nové_slovo():
+    from zora_na_pruzi.danimir.najdu_či_vytvořím_klíč import najdu_či_vytvořím_klíč
+    id_klíče = najdu_či_vytvořím_klíč('jméno',  'slova')
+    from zora_na_pruzi.danimir.nový_uzel import nový_uzel
+    jméno = nový_uzel('jméno',  'Domogled')
+
 #def test_0001_tvořím_elementy():
 #    
 #    html_třída = E['HTML']
