@@ -82,12 +82,15 @@ class INFO(CSV_DATA):
     
     _převody = {
                  'MODE_DIGITS': (int, ), 
+                 'MODE_POINT':( float, ),
                  }
-                 
+
     def cena(self,  hodnota):
         přesnost = self['MODE_DIGITS']
-#        print('CENU YAOK',  hodnota,  round(hodnota,  přesnost))
-        return round(hodnota,  přesnost)
+#        point = self['MODE_POINT']
+#        hodnota = hodnota + point/100
+#        print('CENU {} => {}'.format(hodnota,  round(hodnota,  přesnost)))
+        return round(hodnota ,  přesnost)
         
     def velikost(self,  hodnota):
 

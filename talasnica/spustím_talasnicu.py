@@ -26,6 +26,9 @@ class Talasnica(object):
         self.hranice = [0.0,  0.0]
         self.směr = (1,  -1)
         
+    @property
+    def point(self):
+        return self._info['MODE_POINT']
         
     def prepocitam_obchody(self,  data,  směrem):
 
