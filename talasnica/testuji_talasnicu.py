@@ -43,15 +43,12 @@ def test_talasnica():
 #        ExtMapBuffer_byci_ohrada[pos] = byci_ohrada;
         assert talasnica.ohrada[BUY] == data['byci ohrada']
 #        ExtMapBuffer_velikost_medvedu[pos] = velikost_medvedu;
-        if not talasnica.velikost[SELL] == data['velikost medvedu']:
-            print(data)
         assert talasnica.velikost[SELL] == data['velikost medvedu']
 #        ExtMapBuffer_velikost_byku[pos] = velikost_byku;
-        if not talasnica.velikost[BUY] == data['velikost byku']:
-            print(data)
         assert talasnica.velikost[BUY] == data['velikost byku']
 #        ExtMapBuffer_cena_medvedu[pos] = cena_medvedu;
-        assert talasnica.cena[SELL] == data['cena medvedu']
+#        assert talasnica.cena[SELL] == data['cena medvedu']
+        assert talasnica.porovnám_cenu(talasnica.cena[SELL],  data['cena medvedu']) is True
 #        ExtMapBuffer_cena_byku[pos] = cena_byku;
         assert talasnica.cena[BUY] == data['cena byku']
 #        ExtMapBuffer_cekajici_medved[pos] = cena_ocekavaneho_medveda;

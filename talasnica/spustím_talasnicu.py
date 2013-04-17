@@ -27,6 +27,19 @@ class Talasnica(object):
         self.směr = (1,  -1)
         
         
+    def porovnám_cenu(self,  první,  druhá):
+        if první == druhá:
+            return True
+            
+        rozdíl = abs(první-druhá)
+        přesnost = self._info['MODE_DIGITS']
+        rozdíl = round(rozdíl,  přesnost)
+        if rozdíl == self._info['MODE_POINT']:
+            return True
+            
+        print("NEROVNO",  první,  druhá,  rozdíl,  self._info['MODE_POINT'])
+        return False
+        
     def prepocitam_obchody(self,  data,  směrem):
 
         if (self.hranice[směrem] - self.čekaná[směrem]) * self.směr[směrem] > 0:
@@ -158,15 +171,12 @@ if __name__ == '__main__':
 #        ExtMapBuffer_byci_ohrada[pos] = byci_ohrada;
         assert talasnica.ohrada[BUY] == data['byci ohrada']
 #        ExtMapBuffer_velikost_medvedu[pos] = velikost_medvedu;
-        if not talasnica.velikost[SELL] == data['velikost medvedu']:
-            print(data)
         assert talasnica.velikost[SELL] == data['velikost medvedu']
 #        ExtMapBuffer_velikost_byku[pos] = velikost_byku;
-        if not talasnica.velikost[BUY] == data['velikost byku']:
-            print(data)
         assert talasnica.velikost[BUY] == data['velikost byku']
 #        ExtMapBuffer_cena_medvedu[pos] = cena_medvedu;
-        assert talasnica.cena[SELL] == data['cena medvedu']
+#        assert talasnica.cena[SELL] == data['cena medvedu']
+        assert talasnica.porovnám_cenu(talasnica.cena[SELL],  data['cena medvedu']) is True
 #        ExtMapBuffer_cena_byku[pos] = cena_byku;
         assert talasnica.cena[BUY] == data['cena byku']
 #        ExtMapBuffer_cekajici_medved[pos] = cena_ocekavaneho_medveda;

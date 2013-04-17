@@ -82,6 +82,7 @@ class INFO(CSV_DATA):
     
     _převody = {
                  'MODE_DIGITS': (int, ), 
+                 'MODE_POINT':  (float, ), 
                  }
                  
     def cena(self,  hodnota):

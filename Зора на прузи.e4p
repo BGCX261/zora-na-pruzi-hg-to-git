@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-04-16, 12:32:27 -->
+<!-- Saved: 2013-04-17, 14:01:45 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -333,7 +333,6 @@
     <Source>dílna/forex/qt_plot.py</Source>
     <Source>dílna/forex/ipython_log.py</Source>
     <Source>dílna/forex/qt_plot2.py</Source>
-    <Source>dílna/forex/talasnica.py</Source>
     <Source>dílna/forex/matplot_geo.py</Source>
     <Source>dílna/forex/mathplot.py</Source>
     <Source>zora_na_pruzi/knjigovod/firmy/__init__.py</Source>
@@ -393,8 +392,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/zboží.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/faktura.py</Source>
     <Source>dílna/forex/profitmetr.py</Source>
-    <Source>dílna/forex/csv_data.py</Source>
-    <Source>dílna/forex/testuji_talasnica.py</Source>
     <Source>talasnica/__init__.py</Source>
     <Source>nastavím/nastavím_odkazy_na_talasnicu_na_vývojovém_počítači.py</Source>
     <Source>talasnica/csv_data.py</Source>
