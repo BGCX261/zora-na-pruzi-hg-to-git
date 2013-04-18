@@ -8,12 +8,7 @@ Hen je program, který ...
 
 import os
 
-from talasnica.spustím_talasnicu import Talasnica,  BUY,  SELL
-
-#jen pro testy
-from .csv_data import zjistím_cestu_k_info_csv
-
-
+from talasnica.Talasnica import Talasnica,  BUY,  SELL
 
 #medvedi_ohrada = 0
 #byci_ohrada = 0
@@ -21,61 +16,81 @@ from .csv_data import zjistím_cestu_k_info_csv
 #cena_ocekavaneho_byka = 0
 #cena_medvedu = 0
 #velikost_medvedu = 0
-#velikost_byku = 0
-#cena_byku = 0
+#velikost_býků = 0
+#cena_býků = 0
 
-csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/profitmetr/ladenka/EURJPY._60_2013-04-16-10-59-16.csv')
+csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/profitmetr/EURJPY._60_2013-04-18-20-27-49.csv')
     
-def test_zjistím_cestu_k_info_csv():
-    cesta = zjistím_cestu_k_info_csv(csv_soubor)
-    print(cesta)
-    assert cesta == os.path.join(os.path.dirname(__file__), 'experts/files/profitmetr/market_info/EURJPY._info.csv')
-    assert os.path.isfile(cesta)
 
 def test_talasnica():
         
     talasnica = Talasnica(csv_soubor)
     
-    point = talasnica.point
-    def porovnam_cenu(prvni,  druha):
+    def porovnám_cenu(prvni,  druha):
         if prvni == druha:
             return True
             
 #        zaokrouhleny rozdil
         rozdil = talasnica._info.cena(abs(prvni-druha))
-        if rozdil == point:
+        if rozdil == talasnica._info['POINT']:
             return True
             
-        print('porovnam_cenu',  prvni,  druha,  rozdil)
+        print('porovnávám ceny',  prvni,  druha,  'povolený rozdíl',  rozdil)
         return False
     
+#    přesnost_ceny = talasnica._info['POINT']
     
     for data in talasnica.start():
-       
-#        ExtMapBuffer_medvedi_ohrada[pos] = medvedi_ohrada;
-        assert talasnica.ohrada[SELL] == data['medvedi ohrada']
-#        ExtMapBuffer_byci_ohrada[pos] = byci_ohrada;
-        assert talasnica.ohrada[BUY] == data['byci ohrada']
-#        ExtMapBuffer_velikost_medvedu[pos] = velikost_medvedu;
-        assert talasnica.velikost[SELL] == data['velikost medvedu']
-#        ExtMapBuffer_velikost_byku[pos] = velikost_byku;
-        assert talasnica.velikost[BUY] == data['velikost byku']
-#        ExtMapBuffer_cena_medvedu[pos] = cena_medvedu;
-#        assert talasnica.cena[SELL] == data['cena medvedu']
-
-#        if not porovnam_cenu(talasnica.cena[SELL],  data['cena medvedu']):
-#            print(data)
-            
-        assert porovnam_cenu(talasnica.cena[SELL],  data['cena medvedu'])
-#        ExtMapBuffer_cena_byku[pos] = cena_byku;
-        assert talasnica.cena[BUY] == data['cena byku']
-#        ExtMapBuffer_cekajici_medved[pos] = cena_ocekavaneho_medveda;
-        assert talasnica.čekaná[SELL] == data['cena oc. medveda']
-#        ExtMapBuffer_cekajici_byk[pos] = cena_ocekavaneho_byka;
-        assert talasnica.čekaná[BUY] == data['cena oc. byka']
         
+        assert talasnica.hranice[BUY] == data['býčí maximum']
+        assert talasnica.hranice[SELL] == data['medvědí minimum']
+        
+        assert talasnica.ohrada[SELL] == data['medvědí ohrada']
+        assert talasnica.ohrada[BUY] == data['býčí ohrada']
+        
+        assert talasnica.čekaná[SELL] == data['medvědí čekaná']
+        assert talasnica.čekaná[BUY] == data['býčí čekaná']
+
+        assert talasnica.velikost[SELL] == data['velikost medvědů']
+#        assert talasnica.cena[SELL] == data['cena medvědů']
+#        if not porovnam_cenu(talasnica.cena[SELL],  data['cena medvědů']):
+#            print(data)
+        assert porovnám_cenu(talasnica.cena[SELL],  data['cena medvědů'])
+        
+        assert talasnica.velikost[BUY] == data['velikost býků']
+        assert talasnica.cena[BUY] == data['cena býků']
+        
+        assert talasnica.da_li_seju == data['da li seju']
+        print(';'.join(map(str,  (data['BAR'],  talasnica.velikost[SELL],  talasnica.cena[SELL],  talasnica.velikost[BUY],  talasnica.cena[BUY], 
+                       talasnica.profit[0],  talasnica.profit[1],  talasnica.profit[2],  talasnica.profit[3],  
+                       talasnica.uložený_zisk, 
+                       talasnica.swap
+                       ))))
+#        'profit hore',  'profit dole',  'profit při zavření'
+#        for číslo,  profit_v in enumerate(('profit při otevření',  )):
+#            rozdíl = abs(talasnica.profit[číslo] - data[profit_v])
+#            if rozdíl > přesnost_ceny:
+#                print('Bar {} rozdíl v {} {} - {} = {}'.format(data['BAR'],  profit_v,  talasnica.profit[číslo],  data[profit_v],  rozdíl))
+##            assert rozdíl < přesnost_ceny
+
+def export_talasnice():
+    
+    talasnica = Talasnica(csv_soubor)
+     
+    print(';'.join(('BAR',  'velikost medvědů',  'cena medvědů',  'velikost býků',  'cena býků', 
+                   'profit při otevření',  'profit hore',  'profit dole',  'profit při zavření',
+                   'celkové uložené zisky',  'celkový swap')))
+                   
+    for data in talasnica.start():
+        print(';'.join(map(str,  (data['BAR'],  talasnica.velikost[SELL],  talasnica.cena[SELL],  talasnica.velikost[BUY],  talasnica.cena[BUY], 
+                       talasnica.profit[0],  talasnica.profit[1],  talasnica.profit[2],  talasnica.profit[3],  
+                       talasnica.uložený_zisk, 
+                       talasnica.swap
+                       ))))
+        
+                   
+    
 
 if __name__ == '__main__':
-    test_zjistím_cestu_k_info_csv()
-    test_talasnica()
-    
+#    test_talasnica()
+    export_talasnice()
