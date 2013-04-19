@@ -19,10 +19,14 @@ from talasnica.Talasnica import Talasnica,  BUY,  SELL,  PROFIT_OPEN, PROFIT_HOR
 #velikost_býků = 0
 #cena_býků = 0
 
-csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/profitmetr/EURJPY._60_2013-04-18-20-27-49.csv')
+#csv_soubor = 'EURJPY._60_2013-04-19-14-21-45.csv'
+#csv_soubor = 'EURJPY._60_2013-04-19-14-25-33.csv'
+csv_soubor = 'EURJPY._60_2013-04-19-14-46-18.csv'
+
+csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/profitmetr/',  csv_soubor)
         
     
-def test_talasnica_ceny():
+def xxtest_talasnica_ceny():
     
     talasnica = Talasnica(csv_soubor)
     
@@ -49,7 +53,7 @@ def test_talasnica_ceny():
         assert talasnica.cena[SELL] == data['cena medvědů']
         assert talasnica.cena[BUY] == data['cena býků'] 
         
-def test_talasnica_profity():
+def xxtest_talasnica_profity():
 
     talasnica = Talasnica(csv_soubor)
     
@@ -63,6 +67,12 @@ def test_talasnica_profity():
         assert talasnica.zisk[SWAP] == data[SWAP] 
         
         assert talasnica.zisk[ULOŽENÝ_ZISK] == data[ULOŽENÝ_ZISK] 
+
+def test_výstupy():
+    talasnica = Talasnica(csv_soubor)
+    
+    for data in talasnica.start():
+        assert talasnica.imam_znameni_ke_sklizni() == data['znamení sklizně']
 
 def export_talasnice():
     
@@ -90,4 +100,5 @@ def analyzuji():
 
 if __name__ == '__main__':
 #    export_talasnice()
-    analyzuji()
+#    analyzuji()
+    test_výstupy()

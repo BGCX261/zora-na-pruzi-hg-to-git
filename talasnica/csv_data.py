@@ -67,6 +67,7 @@ class SVÍCA(CSV_DATA):
                 'LOW': ( float, ), 
                 'CLOSE': ( float, ), 
                 'da li seju': (na_číslo,  bool, ), 
+                'znamení sklizně': (na_číslo,  bool, ), 
                 'medvědí ohrada': ( float, ), 
                 'býčí ohrada': ( float, ), 
                 'medvědí minimum': ( float, ), 
