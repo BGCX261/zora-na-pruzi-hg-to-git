@@ -80,7 +80,14 @@ def export_talasnice():
                        ))))
         
                    
-    
+def analyzuji():
+    talasnica = Talasnica(csv_soubor)
+    for data in talasnica.start():
+        continue
+        
+#    print('Talasnica souboru {} dokončena'.format(csv_soubor))
+    talasnica.report()
 
 if __name__ == '__main__':
-    export_talasnice()
+#    export_talasnice()
+    analyzuji()

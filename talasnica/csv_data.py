@@ -91,12 +91,14 @@ class INFO(CSV_DATA):
     _převody = {
                  'DIGITS': (int, ), 
                  'POINT':( float, ),
+                 'TICKVALUE':( float, ),
                  'SPRED': (int, ), 
                  'odstup': (int, ), 
                  'rozestup': (int, ), 
                  'sázím loty':( float, ),
                  'býčí swap':( float, ),
                  'medvědí swap':( float, ),
+                 'sklízím při zisku':( float, ),
                  }
 
 

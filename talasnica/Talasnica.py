@@ -63,7 +63,13 @@ class Zisk(Cena):
 #        
 #        super().__setitem__(klíč,  hodnota)
         
-
+class Měna(object):
+    
+    def __init__(self,  symbol):
+        self.__symbol = symbol
+        
+    def __call__(self,  částka):
+        return '{:n} {}'.format(round(částka,  0),  self.__symbol)
 
 class Talasnica(object):
     
@@ -76,24 +82,36 @@ class Talasnica(object):
         
         self.data = None
         
-        přesnost = self._info['DIGITS']
+        self.směr = {BUY:1,  SELL: -1}
+        self.da_li_seju = None
         
+        self.zisk = Zisk(přesnost = 4)
+        self.vynuluji_počítadla()
+        
+        self.__swapovací_den = None
+        self.__pointy_na_peníze = None
+        
+        
+    def vynuluji_počítadla(self):
+        přesnost = self._info['DIGITS']
         self.cena = Cena(přesnost)
         self.velikost = Cena(přesnost = 2)
         self.ohrada = Cena(přesnost)
         self.čekaná = Cena(přesnost)
         self.hranice = Cena(přesnost)
-        self.směr = {BUY:1,  SELL: -1}
-        self.da_li_seju = None
-        
         self.profit = Profit(přesnost = 4)
-        self.zisk = Zisk(přesnost = 4)
-        self.__swapovací_den = None
-        
+        self.zisk[SWAP] = 0.0
         
     @property
     def čas_otevření_svíčky(self):
         return self.data['OPEN TIME']
+        
+    @property
+    def pointy_na_peníze(self):
+        if self.__pointy_na_peníze is None:
+            self.__pointy_na_peníze = self._info['TICKVALUE']/self._info['POINT']
+            
+        return self.__pointy_na_peníze
         
 #    def porovnám_cenu(self,  první,  druhá):
 #        if první == druhá:
@@ -108,7 +126,7 @@ class Talasnica(object):
 #        print("NEROVNO",  první,  druhá,  rozdíl,  self._info['MODE_POINT'])
 #        return False
         
-    def prepocitam_obchody(self,  data,  směrem):
+    def prepocitam_obchody(self,  směrem):
 
         if (self.hranice[směrem] - self.čekaná[směrem]) * self.směr[směrem] > 0:
 #          double citatel_nove_ceny = cena_medvědů * velikost_medvědů;
@@ -119,7 +137,7 @@ class Talasnica(object):
 
 
 #             if(cena_ocekavaneho_medveda > Open[pos]){
-                if (self.čekaná[směrem] - data['OPEN']) * self.směr[směrem] < 0:
+                if (self.čekaná[směrem] - self.data['OPEN']) * self.směr[směrem] < 0:
 #                    GAP
                     pass
                 else:
@@ -134,10 +152,7 @@ class Talasnica(object):
             self.cena[směrem]  = citatel_nove_ceny/jmenovatel_nove_ceny
             self.velikost[směrem]  = jmenovatel_nove_ceny
             
-#            if směrem == BUY: 
-#                assert self.velikost[směrem] == data['velikost býků']
-#            else:
-#                assert self.velikost[směrem] == data['velikost medvědů']
+
             return True
 
         return False
@@ -181,17 +196,20 @@ class Talasnica(object):
 #      // což dává nepřesný výsledek, ale měl by být horší, než skutečnost
 #      // je to tedy scénář nejméně příznivého vývoje
 #      prepocitam_profit_pri_otevreni(pos);
-            self._přepočítám_profit_při_otevření(data)
+            self._přepočítám_profit_při_otevření()
 #      
 #      // zjistím, zda mohu zavřít a případně pozavírám vše při open
-#      if(mozu_da_sklidim(pos)){
-#         if(imam_profit(pos)){
-#            zavru_vse_pri_otevreni_svice();
-#            if(kresli){
-#               ukoncim_obdelnik(OHRADA, Time[pos]);
-#            }
-#         }
-#      }
+#          if(imam_znameni_ke_sklizni(pos)){
+            if self.imam_znameni_ke_sklizni():
+#            if(imam_profit(pos)){
+                if self.imam_profit:
+#                zavru_vse_pri_otevreni_svice();
+                    self.zavru_vse_pri_otevreni_svice()
+#                if(kresli){
+#                ukoncim_obdelnik(OHRADA, Time[pos]);
+#               }
+#           }
+#       }
 
     #      da_li_seju = treba_zaset(pos);
     
@@ -239,8 +257,8 @@ class Talasnica(object):
     #            prepocitam_medvedy(data)
     #         prepocitam_byky(pos);
     #            prepocitam_byky(data)
-                self.prepocitam_obchody(data,  směrem = BUY)
-                self.prepocitam_obchody(data,  směrem = SELL)
+                self.prepocitam_obchody(směrem = BUY)
+                self.prepocitam_obchody(směrem = SELL)
     #      }
     #      
     #      // nové maximum a minimum
@@ -250,7 +268,7 @@ class Talasnica(object):
     #         byci_maximum = dHigh;
                 self.hranice[BUY] = Ask_High
     #         prepocitam_byky(pos);
-                self.prepocitam_obchody(data,  směrem = BUY)
+                self.prepocitam_obchody(směrem = BUY)
     #      }
     #      
     #      if (medvedi_minimum > dLow  && medvedi_minimum > 0) {
@@ -259,7 +277,7 @@ class Talasnica(object):
     #         medvedi_minimum = dLow;
                 self.hranice[SELL] = data['LOW']
     #         prepocitam_medvedy(pos);
-                self.prepocitam_obchody(data,  směrem = SELL)
+                self.prepocitam_obchody(směrem = SELL)
     #      }
         
 #        // včíl máme zjištěné koliko obchodů s eběhem svíce otevře
@@ -268,7 +286,7 @@ class Talasnica(object):
 #      // a dole naopak počítám s otevřenými všemi horními pozicemi
 #      // při zavření je to jasné, tam budou jistě otevřeny horní i dolní pozice
 #      prepocitam_profit_na_svici(pos);
-            self._přepočítám_profit_na_svíci(data)
+            self._přepočítám_profit_na_svíci()
             
             yield data
 
@@ -292,10 +310,10 @@ class Talasnica(object):
         return False
         
         
-    def _přepočítám_profit_při_otevření(self,  data):
-        self.profit[PROFIT_OPEN] = (data['OPEN'] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - data['OPEN'] - self.spred_v_pointech) * self.velikost[SELL]
+    def _přepočítám_profit_při_otevření(self):
+        self.profit[PROFIT_OPEN] = (self.data['OPEN'] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - self.data['OPEN'] - self.spred_v_pointech) * self.velikost[SELL]
         
-    def _přepočítám_profit_na_svíci(self,  data):
+    def _přepočítám_profit_na_svíci(self):
 #        double bid_Open = Open[pos];
 #       double ask_Open = bid_Open + SPREAD_V_POINTECH;
 #          
@@ -313,7 +331,7 @@ class Talasnica(object):
 #       profit_dole = (bid_Low - cena_byku) * velikost_byku + (cena_medvedu - ask_Low) * velikost_medvedu;
 #       profit_pri_zavreni = (bid_Close - cena_byku) * velikost_byku + (cena_medvedu - ask_Close) * velikost_medvedu;
         for klíč_tal,  klíč_data in {PROFIT_HORE: 'HIGHT',  PROFIT_DOLE:'LOW',  PROFIT_CLOSE: 'CLOSE'}.items():
-            self.profit[klíč_tal] = (data[klíč_data] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - data[klíč_data] - self.spred_v_pointech) * self.velikost[SELL]
+            self.profit[klíč_tal] = (self.data[klíč_data] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - self.data[klíč_data] - self.spred_v_pointech) * self.velikost[SELL]
 #       
 #       int vcilkajsi_den = TimeDay(Time[pos]);
         vcilkajsi_den = self.čas_otevření_svíčky.day
@@ -333,3 +351,67 @@ class Talasnica(object):
 #          swapovaci_den = vcilkajsi_den;
             self.__swapovací_den = vcilkajsi_den
 #       }
+
+    def imam_znameni_ke_sklizni(self):
+        return False
+        
+#    bool imam_profit(int pos) {
+    def imam_profit(self):
+#
+#       double zisk = profit_pri_otevreni * POINTY_NA_PENIZE + celkovy_swap;
+#       if(zisk > sklizim_pri_zisku) {
+        if self.profit[PROFIT_OPEN] * self.pointy_na_peníze + self.zisk[SWAP] > self._info['sklízím při zisku']:
+#          return(true);
+            return True
+#       }
+#       return(false);
+        return False
+#    }
+#
+#    void zavru_vse_pri_otevreni_svice() {
+    def zavru_vse_pri_otevreni_svice(self):
+#       ulozene_zisky = ulozene_zisky + profit_pri_otevreni * POINTY_NA_PENIZE + celkovy_swap;
+        self.zisk[ULOŽENÝ_ZISK] = self.zisk[ULOŽENÝ_ZISK] + self.profit[PROFIT_OPEN] * self.pointy_na_peníze + self.zisk[SWAP]
+#       
+        self.vynuluji_počítadla()
+#       medvedi_ohrada = 0;
+#       byci_ohrada  = 0;
+#       
+#       // na ohrade se take otevrou nejbližší obchody
+#       cena_ocekavaneho_medveda = 0;
+#       cena_ocekavaneho_byka = 0;
+#       
+#       // vychozi maximum a minimum
+#       byci_maximum = 0;
+#       medvedi_minimum = 0;
+#       
+#       cena_medvedu = 0;
+#       velikost_medvedu = 0;
+#       
+#       cena_byku = 0;
+#       velikost_byku = 0;
+#       
+#       
+#       profit_pri_otevreni = 0;
+#       profit_hore = 0;
+#       profit_dole = 0;
+#       profit_pri_zavreni = 0;
+#       celkovy_swap = 0;
+#       
+#    }
+
+    def report(self):
+        
+        print('REPORT TALASNICE')
+        print('soubor {}'.format(self._csv_soubor))
+        print('ZISK')
+        
+        měna = Měna(self._info['měna účtu'])
+        
+        for klíč,  hodnota in self.zisk.items():
+            print('{} {}'.format(klíč,  měna(hodnota)))
+        print('PROFIT')
+        for klíč,  hodnota in self.profit.items():
+            print('{} {} pipsů'.format(klíč,  hodnota))
+            v_penězách = hodnota * self.pointy_na_peníze
+            print('{} {}'.format(klíč,  měna(v_penězách)))
