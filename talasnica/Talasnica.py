@@ -8,14 +8,62 @@ Hen je program, který ...
 
 import datetime,  pytz
 
-BUY = 0
-SELL = 1
-OPEN = 0
-#HORE = 1
-#DOLE = 2
-#CLOSE = 3
+from .konstanty import BUY,  SELL,  PROFIT_OPEN,  PROFIT_HORE, PROFIT_DOLE, PROFIT_CLOSE,  SWAP,  ULOŽENÝ_ZISK
 
 from talasnica.csv_data import INFO,  SVÍCA
+
+
+#class Zaokrouhluji():
+
+class Cena(dict):
+    
+    def __init__(self,  přesnost):
+        self._přesnost = přesnost
+        self[BUY] = 0.0
+        self[SELL] = 0.0
+    
+    def __setitem__(self,  klíč,  hodnota):
+
+#        print('cena {} => '.format(hodnota),  end = ' ')
+        
+#       kvůli zaokrouhlování v pythonu přičtu maličkou hodnotičku aby se vždy X.0005 zaokrouhlilo hore
+        hodnota = hodnota + 10**(-1 * self._přesnost * self._přesnost)
+        hodnota = round(hodnota,  self._přesnost)
+        
+#        print(hodnota)
+        
+        super().__setitem__(klíč,  hodnota)
+        
+class Profit(Cena):
+    
+    def __init__(self,  přesnost):
+        self._přesnost = přesnost
+        self[PROFIT_OPEN] = 0.0
+        self[PROFIT_HORE] = 0.0
+        self[PROFIT_DOLE] = 0.0
+        self[PROFIT_CLOSE] = 0.0
+        
+        
+class Zisk(Cena):
+    
+    def __init__(self,  přesnost):
+        self._přesnost = přesnost
+        self[SWAP] = 0.0
+        self[ULOŽENÝ_ZISK] = 0.0
+        
+#    def __setitem__(self,  klíč,  hodnota):
+#
+#        print('cena {} => '.format(hodnota),  end = ' ')
+#        
+##       kvůli zaokrouhlování v pythonu přičtu maličkou hodnotičku aby se vždy X.0005 zaokrouhlilo hore
+#        hodnota = hodnota + 10**(-1 * self._přesnost * self._přesnost)
+#        hodnota = round(hodnota,  self._přesnost)
+#        
+#        print(hodnota)
+#        
+#        super().__setitem__(klíč,  hodnota)
+        
+
 
 class Talasnica(object):
     
@@ -26,18 +74,26 @@ class Talasnica(object):
         self.rozestup_v_pointech = self._info['rozestup'] * self._info['POINT']
         self.spred_v_pointech = self._info['SPRED'] * self._info['POINT']
         
-        self.čas_otevření_svíčky = None
-        self.cena = [0.0,  0.0]
-        self.velikost = [0.0,  0.0]
-        self.ohrada = [0.0,  0.0]
-        self.čekaná = [0.0,  0.0]
-        self.hranice = [0.0,  0.0]
-        self.směr = (1,  -1)
+        self.data = None
+        
+        přesnost = self._info['DIGITS']
+        
+        self.cena = Cena(přesnost)
+        self.velikost = Cena(přesnost = 2)
+        self.ohrada = Cena(přesnost)
+        self.čekaná = Cena(přesnost)
+        self.hranice = Cena(přesnost)
+        self.směr = {BUY:1,  SELL: -1}
         self.da_li_seju = None
         
-        self.profit = [None,  None,  None,  None]
-        self.swap = None
-        self.uložený_zisk = 0
+        self.profit = Profit(přesnost = 4)
+        self.zisk = Zisk(přesnost = 4)
+        self.__swapovací_den = None
+        
+        
+    @property
+    def čas_otevření_svíčky(self):
+        return self.data['OPEN TIME']
         
 #    def porovnám_cenu(self,  první,  druhá):
 #        if první == druhá:
@@ -58,7 +114,6 @@ class Talasnica(object):
 #          double citatel_nove_ceny = cena_medvědů * velikost_medvědů;
             citatel_nove_ceny = self.cena[směrem] * self.velikost[směrem]
             jmenovatel_nove_ceny = self.velikost[směrem]
-            cas_svicky = data['OPEN TIME']
 
             while (self.hranice[směrem] - self.čekaná[směrem]) * self.směr[směrem] > 0:
 
@@ -74,11 +129,10 @@ class Talasnica(object):
 #             // a idu o kus dál
                 self.čekaná[směrem] = self.čekaná[směrem] + self.směr[směrem] * self.rozestup_v_pointech
 
-            self.čekaná[směrem] = self._info.cena(self.čekaná[směrem])
+            self.čekaná[směrem] = self.čekaná[směrem]
             
-            self.cena[směrem]  = self._info.cena(citatel_nove_ceny/jmenovatel_nove_ceny)
-#            float(int(citatel_nove_ceny/jmenovatel_nove_ceny*PRESNOST))/PRESNOST
-            self.velikost[směrem]  = self._info.velikost(jmenovatel_nove_ceny)
+            self.cena[směrem]  = citatel_nove_ceny/jmenovatel_nove_ceny
+            self.velikost[směrem]  = jmenovatel_nove_ceny
             
 #            if směrem == BUY: 
 #                assert self.velikost[směrem] == data['velikost býků']
@@ -113,14 +167,13 @@ class Talasnica(object):
     #   {
          
         for data in self._data_z_csv():
-            
-            self.čas_otevření_svíčky = data['OPEN TIME']
-            
+            self.data = data
 #            if data['BAR'] == 18686:
 #                print('DEBUGUJU')
             
     #      //Print("while pos > 0, pos = " + pos);
     #      dHigh = High[pos] + MarketInfo(Symbol(),MODE_SPREAD) * Point;
+            Ask_High = data['HIGHT'] + self.spred_v_pointech 
     #      dLow = Low[pos];
     
 #        // nejprve přepočítám profit při otevření, kterýžto se počítá z počtu pozic otevřených do předchozí svíce
@@ -173,7 +226,7 @@ class Talasnica(object):
     #         // vychozi maximum a minimum
     #         byci_maximum = dHigh;
     #            byci_maximum
-                self.hranice[BUY] = data['HIGHT'] + self.spred_v_pointech 
+                self.hranice[BUY] = Ask_High
                 self.hranice[SELL] = data['LOW']
     #            assert byci_maximum == data['býčí maximum']
                 assert self.hranice[BUY] == data['býčí maximum']
@@ -192,10 +245,10 @@ class Talasnica(object):
     #      
     #      // nové maximum a minimum
     #      if (byci_maximum < dHigh && byci_maximum > 0) {
-            if self.hranice[BUY] < data['HIGHT'] and self.hranice[BUY] > 0:
+            if self.hranice[BUY] < Ask_High and self.hranice[BUY] > 0:
     #         //Print(pos + " byci_maximum < dHigh && byci_maximum > 0, byci_maximum = " + byci_maximum + " dHigh = " + dHigh);
     #         byci_maximum = dHigh;
-                self.hranice[BUY] = data['HIGHT'] + self.spred_v_pointech 
+                self.hranice[BUY] = Ask_High
     #         prepocitam_byky(pos);
                 self.prepocitam_obchody(data,  směrem = BUY)
     #      }
@@ -240,7 +293,7 @@ class Talasnica(object):
         
         
     def _přepočítám_profit_při_otevření(self,  data):
-        self.profit[OPEN] = (data['OPEN'] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - data['OPEN'] - self.spred_v_pointech) * self.velikost[SELL]
+        self.profit[PROFIT_OPEN] = (data['OPEN'] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - data['OPEN'] - self.spred_v_pointech) * self.velikost[SELL]
         
     def _přepočítám_profit_na_svíci(self,  data):
 #        double bid_Open = Open[pos];
@@ -259,17 +312,24 @@ class Talasnica(object):
 #       profit_hore = (bid_High - cena_byku) * velikost_byku + (cena_medvedu - ask_High) * velikost_medvedu;
 #       profit_dole = (bid_Low - cena_byku) * velikost_byku + (cena_medvedu - ask_Low) * velikost_medvedu;
 #       profit_pri_zavreni = (bid_Close - cena_byku) * velikost_byku + (cena_medvedu - ask_Close) * velikost_medvedu;
-        for číslo,  profit_v in enumerate(('HIGHT',  'LOW',  'CLOSE'),  start = 1):
-            self.profit[číslo] = (data[profit_v] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - data[profit_v] - self.spred_v_pointech) * self.velikost[SELL]
+        for klíč_tal,  klíč_data in {PROFIT_HORE: 'HIGHT',  PROFIT_DOLE:'LOW',  PROFIT_CLOSE: 'CLOSE'}.items():
+            self.profit[klíč_tal] = (data[klíč_data] - self.cena[BUY]) * self.velikost[BUY] + (self.cena[SELL] - data[klíč_data] - self.spred_v_pointech) * self.velikost[SELL]
 #       
 #       int vcilkajsi_den = TimeDay(Time[pos]);
+        vcilkajsi_den = self.čas_otevření_svíčky.day
 #       
 #       if(swapovaci_den != vcilkajsi_den){
+        if not self.__swapovací_den == vcilkajsi_den:
+            
 #          double swap = velikost_byku * MarketInfo(Symbol(), MODE_SWAPLONG) + velikost_medvedu * MarketInfo(Symbol(), MODE_SWAPSHORT);
-#          
+            swap = self.velikost[BUY] * self._info['býčí swap'] + self.velikost[SELL] * self._info['medvědí swap']
 #          if(TimeDayOfWeek(Time[pos]) == 3){
+            if self.čas_otevření_svíčky.isoweekday() == 3:
 #             swap = swap * 3;
+                swap = swap * 3
 #          }
 #          celkovy_swap = celkovy_swap + swap;
+            self.zisk[SWAP] = self.zisk[SWAP] + swap
 #          swapovaci_den = vcilkajsi_den;
+            self.__swapovací_den = vcilkajsi_den
 #       }

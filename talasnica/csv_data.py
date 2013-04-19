@@ -31,7 +31,8 @@ class CSV_DATA(dict):
         except IndexError:
             print('Nema klíča {}'.format(klíč))
             hodnota = None
-            print(klíč,  hodnota)    
+            print(klíč,  hodnota)
+            
         for funkce in self._převody.get(klíč,  []):
             hodnota = funkce(hodnota)
             
@@ -80,6 +81,9 @@ class SVÍCA(CSV_DATA):
                 'profit hore':( float, ), 
                 'profit dole':( float, ), 
                 'profit při zavření':( float, ), 
+                'celkový swap':( float, ),
+                'celkové uložené zisky':( float, ),
+                
                  }
     
 class INFO(CSV_DATA):
@@ -91,14 +95,10 @@ class INFO(CSV_DATA):
                  'odstup': (int, ), 
                  'rozestup': (int, ), 
                  'sázím loty':( float, ),
+                 'býčí swap':( float, ),
+                 'medvědí swap':( float, ),
                  }
 
-    def cena(self,  hodnota):
-        return round(hodnota ,  self['DIGITS'])
-        
-    def velikost(self,  hodnota):
-
-        return round(hodnota,  2)
 
 
 #
