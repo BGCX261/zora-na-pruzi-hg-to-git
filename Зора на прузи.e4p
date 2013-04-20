@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-04-18, 20:51:39 -->
+<!-- Saved: 2013-04-20, 23:36:06 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -325,79 +325,11 @@
     <Source>talasnica/__init__.py</Source>
     <Source>nastavím/nastavím_odkazy_na_talasnicu_na_vývojovém_počítači.py</Source>
     <Source>talasnica/csv_data.py</Source>
-    <Source>talasnica/spustím_talasnicu.py</Source>
     <Source>talasnica/testuji_talasnicu.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/funkce.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/funkce.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
-    <Source>zora_na_pruzi/knjigovod/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/__init__.py</Source>
-    <Source>dílna/forex/__init__.py</Source>
-    <Source>dílna/forex/talasnica_starší.py</Source>
-    <Source>dílna/forex/qt_plot.py</Source>
-    <Source>dílna/forex/ipython_log.py</Source>
-    <Source>dílna/forex/qt_plot2.py</Source>
-    <Source>dílna/forex/matplot_geo.py</Source>
-    <Source>dílna/forex/profitmetr.py</Source>
-    <Source>dílna/forex/mathplot.py</Source>
-    <Source>zora_na_pruzi/knjigovod/firmy/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/firmy/ares.py</Source>
-    <Source>zora_na_pruzi/knjigovod/dotazy/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/dotazy/faktury.py</Source>
-    <Source>zora_na_pruzi/knjigovod/uzávěrka/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/uzávěrka/obraty_na_účtech.py</Source>
-    <Source>zora_na_pruzi/knjigovod/uzávěrka/exportuji_obraty_účtů_do_excelu.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/modely/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/firmy/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/firmy/ares.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/dotazy/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/dotazy/faktury.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/uzávěrka/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/uzávěrka/obraty_na_účtech.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/uzávěrka/exportuji_obraty_účtů_do_excelu.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/upravím_tabulky_flexibee_v_knjigovodě.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/propojím_účetní_deník_a_položky_faktur.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/importuji_flexibee_do_knjigovoda.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/vypíšu_nezaučtované_položky_faktur_z_deníku.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/zapíšu_položky_faktur_do_deníku.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/flexibee/zapíšu_chybějící_čísla_účtu_faktur_do_deníku.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/bankovní_výpisy/importuji_csv_výpis_do_databáze.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/bankovní_výpisy/automaticky_zaúčtuji_položky_výpisu.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/faktury_z_flexibee.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/zora_na_pruzi.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/adresář_firem_z_flexibee.py</Source>
-    <Source>zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/faktury_z_flexibee_nouzovka.py</Source>
-    <Source>zora_na_pruzi/knjigovod/modely/účetnictví/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/modely/účetnictví/firma.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/upravím_tabulky_flexibee_v_knjigovodě.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/propojím_účetní_deník_a_položky_faktur.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/importuji_flexibee_do_knjigovoda.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/vypíšu_nezaučtované_položky_faktur_z_deníku.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/zapíšu_položky_faktur_do_deníku.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/flexibee/zapíšu_chybějící_čísla_účtu_faktur_do_deníku.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/bankovní_výpisy/importuji_csv_výpis_do_databáze.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/bankovní_výpisy/automaticky_zaúčtuji_položky_výpisu.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/faktury_z_flexibee.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/zora_na_pruzi.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/adresář_firem_z_flexibee.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/import/jednorázový_staré_účetnictví/faktury_z_flexibee_nouzovka.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/firma.py</Source>
-    <Source>zora_na_pruzi/knjigovod/modely/účetnictví/obchod/__init__.py</Source>
-    <Source>zora_na_pruzi/knjigovod/modely/účetnictví/obchod/zboží.py</Source>
-    <Source>zora_na_pruzi/knjigovod/modely/účetnictví/obchod/faktura.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/zboží.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/faktura.py</Source>
     <Source>talasnica/Talasnica.py</Source>
+    <Source>element.py</Source>
+    <Source>talasnica/konstanty.py</Source>
+    <Source>talasnica/spustím_talasnicu.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
