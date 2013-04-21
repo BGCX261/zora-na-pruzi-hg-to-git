@@ -70,8 +70,7 @@ def export_talasnice():
 
     talasnica = Talasnica(csv_soubor)
 
-    print(';'.join(('BAR',  'velikost medvědů',  'cena medvědů',  'velikost býků',  'cena býků',
-                    
+    print(';'.join(('BAR', 
                     'hranice býka',  'hranice medvěda', 
                     'býčí ohrada',  'medvědí ohrada', 
                     'býčí čekaná',  'medvědí čekaná', 
@@ -107,5 +106,8 @@ def analyzuji():
     talasnica.report()
 
 if __name__ == '__main__':
-    export_talasnice()
-#    analyzuji()
+#    export_talasnice()
+
+    
+    analyzuji()
+    

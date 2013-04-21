@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-04-20, 23:36:06 -->
+<!-- Saved: 2013-04-21, 22:21:09 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -329,7 +329,6 @@
     <Source>talasnica/Talasnica.py</Source>
     <Source>element.py</Source>
     <Source>talasnica/konstanty.py</Source>
-    <Source>talasnica/spustím_talasnicu.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
