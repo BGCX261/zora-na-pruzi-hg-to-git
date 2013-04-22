@@ -11,15 +11,6 @@ import os
 from talasnica.Talasnica_ladenka_metatraderu import Talasnica
 from talasnica.konstanty import BUY,  SELL,  PROFIT_OPEN, PROFIT_HORE, PROFIT_DOLE, PROFIT_CLOSE,  SWAP,  ULOŽENÝ_ZISK
 
-#medvedi_ohrada = 0
-#byci_ohrada = 0
-#cena_ocekavaneho_medveda = 0
-#cena_ocekavaneho_byka = 0
-#cena_medvedu = 0
-#velikost_medvedu = 0
-#velikost_býků = 0
-#cena_býků = 0
-
 csv_soubor = 'EURJPY._60_2013-04-22-16-18-37.csv'
 csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/profitmetr',  csv_soubor)
 

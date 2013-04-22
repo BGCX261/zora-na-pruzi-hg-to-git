@@ -86,6 +86,12 @@ class SVÍCA(CSV_DATA):
                 'celkové uložené zisky':( float, ),
 
                  }
+                 
+    @property
+    def čas(self):
+        index = self._klíče.index('OPEN TIME')
+        return self._hodnoty[index]
+
 
 class INFO(CSV_DATA):
 

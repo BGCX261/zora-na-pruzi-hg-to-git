@@ -10,7 +10,7 @@ import datetime,  pytz
 
 from talasnica.konstanty import BUY,  SELL,  PROFIT_OPEN,  PROFIT_HORE, PROFIT_DOLE, PROFIT_CLOSE,  SWAP,  ULOŽENÝ_ZISK
 
-from talasnica.csv_data import data_z_csv,  info_z_csv
+from talasnica.csv_data import data_z_csv,  info_z_csv,  Numero
 
 
 #class Zaokrouhluji():
