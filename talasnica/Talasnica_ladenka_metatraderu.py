@@ -10,7 +10,7 @@ import datetime,  pytz
 
 from talasnica.konstanty import BUY,  SELL,  PROFIT_OPEN,  PROFIT_HORE, PROFIT_DOLE, PROFIT_CLOSE,  SWAP,  ULOŽENÝ_ZISK
 
-from talasnica.csv_data import INFO,  SVÍCA
+from talasnica.csv_data import data_z_csv,  info_z_csv
 
 
 #class Zaokrouhluji():
@@ -75,7 +75,7 @@ class Talasnica(object):
 
     def __init__(self,  csv_soubor):
         self._csv_soubor = csv_soubor
-        self._info = self._nactu_info()
+        self._info = info_z_csv(self._csv_soubor)
         self.odstup_v_pointech = self._info['odstup'] * self._info['POINT']
         self.rozestup_v_pointech = self._info['rozestup'] * self._info['POINT']
         self.spred_v_pointech = self._info['SPRED'] * self._info['POINT']
@@ -97,30 +97,10 @@ class Talasnica(object):
     @property
     def pointy_na_peníze(self):
         if self.__pointy_na_peníze is None:
-            self.__pointy_na_peníze = self._info['TICKVALUE']/self._info['POINT']
+            self.__pointy_na_peníze = self._info['TICKVALUE'] / self._info['POINT']
 
         return self.__pointy_na_peníze
 
-
-    def _nactu_info(self):
-        with open(self._csv_soubor,  mode = "r",  encoding = "windows-1250") as čtu_soubor:
-            hlavička = čtu_soubor.readline()
-            info = čtu_soubor.readline()
-            return INFO(hlavička,  info)
-
-    def _data_z_csv(self):
-
-#        print('IMPORTUJI {}'.format(self._csv_soubor))
-
-        with open(self._csv_soubor,  mode = "r",  encoding = "windows-1250") as čtu_soubor:
-
-            čtu_soubor.readline()
-            čtu_soubor.readline()
-
-            hlavička = čtu_soubor.readline()
-
-            for řádek in čtu_soubor:
-                yield SVÍCA(hlavička,  řádek)
 
     def start(self):
         
@@ -131,11 +111,11 @@ class Talasnica(object):
         
     #    while(pos > 0)
     #   {
-        for data in self._data_z_csv():
+        for data in data_z_csv(self._csv_soubor):
             
             self.data = data
             
-            #print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
+#            print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
             
 #            if data['BAR'] == 18686:
 #                print('DEBUGUJU')

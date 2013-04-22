@@ -8,7 +8,8 @@ Hen je program, který ...
 
 import os
 
-from talasnica.Talasnica import Talasnica,  BUY,  SELL,  PROFIT_OPEN, PROFIT_HORE, PROFIT_DOLE, PROFIT_CLOSE,  SWAP,  ULOŽENÝ_ZISK
+from talasnica.Talasnica_ladenka_metatraderu import Talasnica
+from talasnica.konstanty import BUY,  SELL,  PROFIT_OPEN, PROFIT_HORE, PROFIT_DOLE, PROFIT_CLOSE,  SWAP,  ULOŽENÝ_ZISK
 
 #medvedi_ohrada = 0
 #byci_ohrada = 0
@@ -19,14 +20,11 @@ from talasnica.Talasnica import Talasnica,  BUY,  SELL,  PROFIT_OPEN, PROFIT_HOR
 #velikost_býků = 0
 #cena_býků = 0
 
-csv_soubor = 'EURJPY._60_2013-04-19-21-59-59.csv'
+csv_soubor = 'EURJPY._60_2013-04-22-16-18-37.csv'
 csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/profitmetr',  csv_soubor)
-csv_soubor = 'EURJPY._60_2013-04-19-14-46-18.csv'
-
-csv_soubor = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/profitmetr/',  csv_soubor)
 
 
-def xxtest_talasnica_ceny():
+def test_talasnica_ceny():
 
     talasnica = Talasnica(csv_soubor)
 
@@ -54,7 +52,7 @@ def xxtest_talasnica_ceny():
         assert talasnica.cena[SELL] == data['cena medvědů']
         assert talasnica.cena[BUY] == data['cena býků']
 
-def xxtest_talasnica_profity():
+def test_talasnica_profity():
 
     talasnica = Talasnica(csv_soubor)
 
@@ -98,8 +96,8 @@ def export_talasnice():
                     talasnica.čekaná[BUY],  talasnica.čekaná[SELL],
                     talasnica.velikost[BUY],  talasnica.velikost[SELL],
                     talasnica.cena[BUY],  talasnica.cena[SELL],
-                    talasnica.da_li_seju,
-                    talasnica.znamení_sklizně ,
+                    int(talasnica.da_li_seju),
+                    int(talasnica.znamení_sklizně) ,
                        talasnica.profit[PROFIT_OPEN],  talasnica.profit[PROFIT_HORE],  talasnica.profit[PROFIT_DOLE],  talasnica.profit[PROFIT_CLOSE],
                        talasnica.zisk[ULOŽENÝ_ZISK],
                        talasnica.zisk[SWAP]
@@ -115,8 +113,8 @@ def analyzuji():
     talasnica.report()
 
 if __name__ == '__main__':
-#    export_talasnice()
+    export_talasnice()
 
     
-    analyzuji()
+#    analyzuji()
     
