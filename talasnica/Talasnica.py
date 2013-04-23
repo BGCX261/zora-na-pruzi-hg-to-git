@@ -91,7 +91,7 @@ class seznam_obchodů(object):
             if callable(filtr):
                 if not filtr(obchod):
                     continue
-                    obchod[ČAS_ZAVŘENÍ] = čas
+            obchod[ČAS_ZAVŘENÍ] = čas
             obchod[ZAVÍRACÍ_CENA] = cena
             smazané_obchody.append(obchod)
             smazané_klíče.append(klíč)
@@ -153,7 +153,7 @@ class Talasnica(object):
             if data['OPEN'] == 0:
                 continue
                 
-            print('*' * 44)
+            print('-' * 44)
             print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
             
             self.data = data
@@ -192,12 +192,12 @@ class Talasnica(object):
                 self.medvědiště = generátor_medvědů(start = data[OPEN] + odstup,  rozestup = rozestup)
                 self.býčiště = generátor_býků(start = data[OPEN] + odstup + spred, rozestup = rozestup)
                 
-            for čekaná,  klíč,  spred in (self.býčiště,  HIGHT,  self.info['SPRED']),  (self.medvědiště,  LOW,  0):
+            for čekaná,  směr,  klíč,  spred in (self.býčiště,  HORE,  HIGHT,  self.info['SPRED']),  (self.medvědiště,  DOLE,  LOW,  0):
                 if čekaná is not None:
                     k_ceně = data[klíč] + spred
                     for nová_cena in čekaná(k_ceně):
-                        self.obchody[čekaná.směr](cena = nová_cena,  velikost = self.info['sázím loty'],  čas = self.data['OPEN TIME'])
-                        print('nový obchod z ' + čekaná.směr,  nová_cena,  čekaná)
+                        self.obchody[směr](cena = nová_cena,  velikost = self.info['sázím loty'],  čas = self.data['OPEN TIME'])
+                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
             
             yield self
             
@@ -207,7 +207,7 @@ class Talasnica(object):
         
     def __da_li_třeba_zaset(self):
 
-        if self.data['OPEN TIME'] < datetime.datetime(
+        if self.data['OPEN TIME'].datum < datetime.datetime(
                                                         year = 2010,
                                                         month = 4,
                                                         day = 9,
@@ -229,11 +229,11 @@ class Talasnica(object):
         
     def __přepočítám_swap(self,  *args):
 
-        vcilkajsi_den = self.data['OPEN TIME'].day
+        vcilkajsi_den = self.data['OPEN TIME'].datum.day
 
         if not self.__swapovací_den == vcilkajsi_den:
             
-            if self.data['OPEN TIME'].isoweekday() == 3:
+            if self.data['OPEN TIME'].datum.isoweekday() == 3:
                 násobek = 3
             else:
                 násobek = 1

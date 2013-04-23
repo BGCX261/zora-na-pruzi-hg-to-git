@@ -19,6 +19,21 @@ def na_číslo(hodnota):
 
     return int(hodnota)
 
+class Datum():
+    def __init__(self,  timestamp):
+        self.timestamp = timestamp
+        self.__datum = None
+        
+    @property
+    def datum(self):
+        if self.__datum is None:
+            self.__datum = datetime.datetime.fromtimestamp(self.timestamp, tz = pytz.UTC)
+        return self.__datum
+        
+    def __str__(self):
+        return datetime.datetime.strftime(self.datum, "%A, %d.%B %Y, %H:%M:%S")
+    
+
 class CSV_DATA(dict):
     def __init__(self,  hlavička = '',  řádek_dat = ''):
         self._klíče = hlavička.strip().split(';')
@@ -53,15 +68,11 @@ class CSV_DATA(dict):
 #        self._hodnoty.append(hodnota)
 
 
-def správné_datetime(timestamp):
-    return datetime.datetime.fromtimestamp(timestamp, tz = pytz.UTC)
-
-
 class SVÍCA(CSV_DATA):
 
     _převody = {
                  'BAR': (int, ),
-                 'OPEN TIME': (int,  správné_datetime),
+                 'OPEN TIME': (int,  Datum),
                  'OPEN': ( float, ),
                 'HIGHT': ( float, ),
                 'LOW': ( float, ),

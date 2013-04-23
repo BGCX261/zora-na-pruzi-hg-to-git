@@ -15,87 +15,46 @@ import os
 from talasnica.Talasnica import Talasnica
 from talasnica.konstanty import *
 
-csv_adresář = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/python')
 
-
-def uložím_data_do_csv(cílové_csv,  zdrojové_csv,  zpracuji_řádek,  hlavička = None):
-    '''
-    spouštím funkci main()
-    '''
+class Exportuji_talasnicu(object):
     
-    csv_cesta_k_souboru = os.path.join(csv_adresář,  csv_soubor)
+    csv_adresář = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/python')
+    encoding = 'utf-8'
     
- 
-    talasnica = Talasnica()
-    
-    with open(csv_cesta_k_souboru,  mode = "w",  encoding = "windows-1250") as do_souboru:
-        i = 0
+    def __init__(self,  cílové_csv,  zdrojové_csv):
+        self.cílové_csv = cílové_csv
+        self.zdrojové_csv = zdrojové_csv
         
-        if hlavička is not None:
-            do_souboru.write(hlavička + '\n')
-            
-        for data in talasnica(zdrojové_csv):
-#            print(data)
-            řádek = ';'.join(map(str,  zpracuji_řádek(data)))
-            print(řádek)
-            do_souboru.write(řádek + '\n')
-            i = i + 1
-            if i > 10:
-                    break
-    
+    def cesta_k_souboru(self,  soubor):
+        return os.path.join(self.csv_adresář,  soubor)
 
-if __name__ == '__main__':
-
-    from talasnica.testuji_talasnicu import csv_soubor as zdrojové_csv 
-
-    def cena_obchodů(talasnica):
-        return (talasnica.data.čas, 
-                    talasnica.obchody[HORE].cena, 
-                    talasnica.obchody[DOLE].cena
-                       )
+    def __call__(self):
      
-    class Exportuji_vše(object):
+        talasnica = Talasnica()
         
-        def __init__(self,  *args):
-            self.hlavička = ';'.join(map(str,  args))
-            print(self.hlavička)
-        
-        def __call__(self,  talasnica):
+        with open(self.cesta_k_souboru(self.cílové_csv),  mode = "w",  encoding = self.encoding) as do_souboru:
+    #        i = 0
             
-            def ima(to,  ono):
-                if to is not None:
-                    return getattr(to,  ono)
-                    
-                return 0
+            if self.hlavička is not None:
+                do_souboru.write(self.csv_řádek(self.hlavička))
+                
+            for data in talasnica(self.zdrojové_csv):
+    #            print(data)
+                řádek = self.zpracuji_řádek(data)
+                
+                do_souboru.write(self.csv_řádek(řádek))
+    #            i = i + 1
+    #            if i > 10:
+    #                    break
 
-            return (
-                    talasnica.data.čas, talasnica.data['OPEN TIME'],  
-                     talasnica.data['BAR'], 
-                     0,  0, 
-                     ima(talasnica.býčiště,  'start'),  ima(talasnica.medvědiště,  'start'), 
-                     ima(talasnica.býčiště,  'čekaná'),  ima(talasnica.medvědiště,  'čekaná'), 
-                     
-                     talasnica.obchody[DOLE].velikost,  talasnica.obchody[HORE].velikost, 
-                    talasnica.obchody[HORE].cena, talasnica.obchody[DOLE].cena, 
-                    talasnica.znamení_setby, 
-                    talasnica.znamení_sklizně, 
-                    talasnica.profit(talasnica.data[OPEN]), 
-                    talasnica.profit(talasnica.data[HIGHT]), 
-                    talasnica.profit(talasnica.data[LOW]), 
-                    talasnica.profit(talasnica.data[CLOSE]), 
-                    talasnica.uložený_zisk, 
-                    talasnica.swap
-                           )
+                       
+    def csv_řádek(self,  data,  oddělovač=';'):
+        return oddělovač.join(map(str,  data)) + '\n'
 
-
-    symbol = 'EURJPY.'
-    perioda = 60
-    
-    csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
-#    uložím_data_do_csv(csv_soubor, zdrojové_csv,  zpracuji_řádek = cena_obchodů,  hlavička = None)
-    
-    exportuji_vše = Exportuji_vše('timestamp',  'čas', 
-                    'BAR'
+class Exportuji_vše(Exportuji_talasnicu):
+        
+    hlavička = ('timestamp',  'čas', 
+                    'BAR', 
                     'hranice býka',  'hranice medvěda', 
                     'býčí ohrada',  'medvědí ohrada', 
                     'býčí čekaná',  'medvědí čekaná', 
@@ -106,6 +65,94 @@ if __name__ == '__main__':
 
                    PROFIT_OPEN,  PROFIT_HORE,  PROFIT_DOLE,  PROFIT_CLOSE,
                    ULOŽENÝ_ZISK,  SWAP)
-                   
+    
+    def zpracuji_řádek(self,  talasnica):
+        
+        def ima(to,  ono):
+            if to is not None:
+                return getattr(to,  ono)
+                
+            return 0
+
+        return (
+                talasnica.data.čas, talasnica.data['OPEN TIME'],  
+                 talasnica.data['BAR'], 
+                 0,  0, 
+                 ima(talasnica.býčiště,  'start'),  ima(talasnica.medvědiště,  'start'), 
+                 ima(talasnica.býčiště,  'čekaná'),  ima(talasnica.medvědiště,  'čekaná'), 
+                 
+                 talasnica.obchody[DOLE].velikost,  talasnica.obchody[HORE].velikost, 
+                talasnica.obchody[HORE].cena, talasnica.obchody[DOLE].cena, 
+                talasnica.znamení_setby, 
+                talasnica.znamení_sklizně, 
+                talasnica.profit(talasnica.data[OPEN]), 
+                talasnica.profit(talasnica.data[HIGHT]), 
+                talasnica.profit(talasnica.data[LOW]), 
+                talasnica.profit(talasnica.data[CLOSE]), 
+                talasnica.uložený_zisk, 
+                talasnica.swap
+                       )
+
+class Cena_obchodů(Exportuji_talasnicu):
+    encoding = "windows-1250"
+    
+    def zpracuji_řádek(self,  talasnica):
+        return (talasnica.data.čas, 
+                    talasnica.obchody[HORE].cena, 
+                    talasnica.obchody[DOLE].cena
+                       )
+
+
+class Exportuji_graf(Exportuji_talasnicu):
+    encoding = "windows-1250"
+    
+    def __call__(self):
+     
+        talasnica = Talasnica()
+        
+#        csv_soubor_profitu = 'profit_' + self.cílové_csv
+#        csv_soubor_ohrada = 'profit_' + self.cílové_csv
+#        csv_soubor_býčí_čekaná = 'profit_' + self.cílové_csv
+#        csv_soubor_medvědí_čekaná = 'profit_' + self.cílové_csv
+        csv_soubor_obchodů = 'obchody_' + self.cílové_csv
+        csv_soubor_obchodů = open(self.cesta_k_souboru(csv_soubor_obchodů),  mode = "w",  encoding = self.encoding)
+        
+#        with open(csv_soubor_profitu,  mode = "w",  encoding = self.encoding) as soubor_ohrada:
+#            pass
+
+        for talas in talasnica(self.zdrojové_csv):
+            continue
+            
+#        print(talasnica.uzavřené_obchody)
+            
+        for obchod in talasnica.uzavřené_obchody:
+#            print(obchod)
+            
+
+            print(obchod[ČAS_OTEVŘENÍ].timestamp, 
+                    obchod[OTEVÍRACÍ_CENA], 
+                    obchod[ČAS_ZAVŘENÍ].timestamp, 
+                    obchod[ZAVÍRACÍ_CENA],
+                   int(obchod[SMÉR] == DOLE) , 
+                    sep = ';', 
+                    file = csv_soubor_obchodů
+                  )
+                  
+        csv_soubor_obchodů.close()
+                
+
+if __name__ == '__main__':
+
+    from talasnica.testuji_talasnicu import csv_soubor as zdrojové_csv 
+
+    symbol = 'EURJPY.'
+    perioda = 60
+    
+    csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
+#  exporter = Cena_obchodů(csv_soubor, zdrojové_csv)
+    
     csv_soubor = 'export_{}_{}.csv'.format(symbol,  perioda)
-    uložím_data_do_csv(csv_soubor,  zdrojové_csv,  zpracuji_řádek = exportuji_vše,  hlavička = exportuji_vše.hlavička)
+#    exporter = Exportuji_vše(csv_soubor,  zdrojové_csv)
+    exporter = Exportuji_graf(csv_soubor,  zdrojové_csv)
+    
+    exporter()
