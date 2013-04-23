@@ -17,3 +17,18 @@ PROFIT_DOLE = 'profit dole'
 PROFIT_CLOSE = 'profit při zavření'
 SWAP = 'celkový swap'
 ULOŽENÝ_ZISK = 'celkové uložené zisky'
+
+OPEN = 'OPEN'
+HIGHT = 'HIGHT'
+LOW = 'LOW'
+CLOSE = 'CLOSE'
+
+HORE = 'býk'
+DOLE = 'medvěd'
+
+VELIKOST = 'velikost obchodu'
+ČAS_OTEVŘENÍ = 'čas otevření'
+ČAS_ZAVŘENÍ = 'čas zavření'
+OTEVÍRACÍ_CENA = 'otevírací cena'
+ZAVÍRACÍ_CENA = 'zavírací cena'
+SMÉR = 'směr'

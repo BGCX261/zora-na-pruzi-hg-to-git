@@ -45,12 +45,12 @@ class CSV_DATA(dict):
 
         return super().__str__()
 
-    def pridavam(self,  klíč,  hodnota):
-        if klíč in self._klíče:
-            raise KeyError('Už jestvuje klíč {}'.format(klíč))
-
-        self._klíče.append(klíč)
-        self._hodnoty.append(hodnota)
+#    def pridavam(self,  klíč,  hodnota):
+#        if klíč in self._klíče:
+#            raise KeyError('Už jestvuje klíč {}'.format(klíč))
+#
+#        self._klíče.append(klíč)
+#        self._hodnoty.append(hodnota)
 
 
 def správné_datetime(timestamp):

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-04-22, 21:24:13 -->
+<!-- Saved: 2013-04-23, 12:25:39 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -400,6 +400,7 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/faktura.py</Source>
     <Source>talasnica/exportuji_graf.py</Source>
     <Source>talasnica/Talasnica_ladenka_metatraderu.py</Source>
+    <Source>talasnica/testuji_talasnicu_stare.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
