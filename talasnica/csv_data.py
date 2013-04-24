@@ -19,7 +19,7 @@ def na_číslo(hodnota):
 
     return int(hodnota)
 
-class Datum():
+class Datum(object):
     def __init__(self,  timestamp):
         self.timestamp = timestamp
         self.__datum = None

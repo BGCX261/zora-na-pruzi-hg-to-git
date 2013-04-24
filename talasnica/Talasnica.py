@@ -6,15 +6,17 @@
 Hen je třída, která ...
 '''
 
-from talasnica.csv_data import data_z_csv,  info_z_csv
+from talasnica.csv_data import data_z_csv,  info_z_csv,  Datum
 import datetime,  pytz
 
 from talasnica.konstanty import (
+                                 OPEN_TIME, 
                                  OPEN,  HIGHT,  LOW,  CLOSE, 
                                  HORE,  DOLE, 
                                  VELIKOST,  ČAS_OTEVŘENÍ,  ČAS_ZAVŘENÍ,  
                                  OTEVÍRACÍ_CENA,  ZAVÍRACÍ_CENA, 
-                                 SMÉR
+                                 SMÉR, 
+                                 ZNAMÉNKO_SMÉRU
                                  )
 #,  SWAP,  ULOŽENÝ_ZISK
 
@@ -43,7 +45,7 @@ class generátor_býků(__generátor_obchodů):
 #    směr = HORE
 #    znaménko_směru = 1
     def __call__(self,  k_ceně):
-        if k_ceně > self.čekaná:
+        while k_ceně > self.čekaná:
             yield self.čekaná
             self.čekaná = self.čekaná + self.rozestup
             
@@ -51,7 +53,7 @@ class generátor_medvědů(__generátor_obchodů):
 #    směr = DOLE
 #    znaménko_směru = -1
     def __call__(self, k_ceně):
-        if k_ceně < self.čekaná:
+        while k_ceně < self.čekaná:
             yield self.čekaná
             self.čekaná = self.čekaná - self.rozestup
 
@@ -80,7 +82,7 @@ class seznam_obchodů(object):
         return "cena {} velikost {}".format(self.cena,  self.velikost)
         
     def profit(self, od_ceny):
-        return (od_ceny - self.cena) * self.velikost
+        return (od_ceny - self.cena) * self.velikost * ZNAMÉNKO_SMÉRU[self.směr]
         
     def zavři_vše(self, čas,  cena,  filtr = None):
         
@@ -138,6 +140,10 @@ class Talasnica(object):
         self.znamení_setby = None
         self.znamení_sklizně = None
         
+#         při otevření svíce potřebuji profit pouze z obchodů, které byly otevřeny nejpopzději na předchozí svíci
+#          při exportu s evšak k takové hodnotě nemohu dostat, neboť získávám až data s nově otevřenými obchody
+#       proto si ten profit spočtu a uložím při započetí průchoud
+        self.profit_při_otevření = None
         self.swap = 0.0
         self.__swapovací_den = None
         
@@ -153,11 +159,11 @@ class Talasnica(object):
             if data['OPEN'] == 0:
                 continue
                 
-            print('-' * 44)
-            print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
+#            print('-' * 44)
+#            print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
             
             self.data = data
-            
+            self.profit_při_otevření = self.profit(self.data['OPEN'])
             self.__přepočítám_swap()
             
             self.znamení_sklizně = self.__imam_znameni_ke_sklizni()
@@ -165,12 +171,12 @@ class Talasnica(object):
             
 #            sklizeň
             if self.znamení_sklizně is True:
-                if  self.profit(self.data['OPEN']) + self.swap > self.info['sklízím při zisku']:
+                if self.profit_při_otevření  + self.swap > self.info['sklízím při zisku']:
                     self.__zavřu_vše_při_otevření_svíce()
             
             
             self.znamení_setby = self.__da_li_třeba_zaset()
-            print('znamení_setby = ',  self.znamení_setby)
+#            print('znamení_setby = ',  self.znamení_setby)
             
 #            if self.maximum is None:
 #                self.maximum = data[HIGHT]
@@ -189,15 +195,27 @@ class Talasnica(object):
                 spred = self.info['SPRED']
 #                dosadím a spočítám
 #                self.ohrada = {HORE: data[OPEN] + odstup + spred,  DOLE: data[OPEN] - odstup}
-                self.medvědiště = generátor_medvědů(start = data[OPEN] + odstup,  rozestup = rozestup)
+                self.medvědiště = generátor_medvědů(start = data[OPEN] - odstup,  rozestup = rozestup)
                 self.býčiště = generátor_býků(start = data[OPEN] + odstup + spred, rozestup = rozestup)
                 
             for čekaná,  směr,  klíč,  spred in (self.býčiště,  HORE,  HIGHT,  self.info['SPRED']),  (self.medvědiště,  DOLE,  LOW,  0):
                 if čekaná is not None:
                     k_ceně = data[klíč] + spred
                     for nová_cena in čekaná(k_ceně):
-                        self.obchody[směr](cena = nová_cena,  velikost = self.info['sázím loty'],  čas = self.data['OPEN TIME'])
-                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
+                        #                    GAP
+                        if (nová_cena - data[OPEN]) * ZNAMÉNKO_SMÉRU[směr] < 0:
+                            obchod = {SMÉR: směr, 
+                                      VELIKOST: self.info['sázím loty'], 
+                                      ČAS_OTEVŘENÍ: Datum(0), 
+                                      OTEVÍRACÍ_CENA: 0, 
+                                      ČAS_ZAVŘENÍ: self.data['OPEN TIME'], 
+                                      ZAVÍRACÍ_CENA: nová_cena
+                                      }
+                            self.uzavřené_obchody.append(obchod)
+                
+                        else:
+                            self.obchody[směr](cena = nová_cena,  velikost = self.info['sázím loty'],  čas = self.data['OPEN TIME'])
+#                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
             
             yield self
             

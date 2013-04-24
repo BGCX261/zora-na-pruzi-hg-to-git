@@ -18,6 +18,7 @@ PROFIT_CLOSE = 'profit při zavření'
 SWAP = 'celkový swap'
 ULOŽENÝ_ZISK = 'celkové uložené zisky'
 
+OPEN_TIME = 'OPEN TIME'
 OPEN = 'OPEN'
 HIGHT = 'HIGHT'
 LOW = 'LOW'
@@ -32,3 +33,4 @@ VELIKOST = 'velikost obchodu'
 OTEVÍRACÍ_CENA = 'otevírací cena'
 ZAVÍRACÍ_CENA = 'zavírací cena'
 SMÉR = 'směr'
+ZNAMÉNKO_SMÉRU = {HORE: 1,  DOLE: -1}
