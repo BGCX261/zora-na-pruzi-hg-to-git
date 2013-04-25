@@ -113,14 +113,11 @@ class Exportuji_graf(Exportuji_talasnicu):
 #        jména souborů
         csv_soubory = {}
         
-        for prefix in 'obchody',  'býčí_ohrada',  'medvědí_ohrada',  'otevřené_obchody',  'zisky':
+        for prefix in 'postavení', 'uzavřené_obchody',  'býčí_ohrada',  'medvědí_ohrada',  'otevřené_obchody',  'zisky':
             jméno = '{}_{}'.format(prefix,  self.cílové_csv)
             cesta = self.cesta_k_souboru(jméno)
             csv_soubory[prefix] = open(cesta,  mode = "w",  encoding = self.encoding)
             
-        
-        
-        
         csv_soubory_ohrady = {
                     HORE: csv_soubory['býčí_ohrada'], 
                     DOLE: csv_soubory['medvědí_ohrada']
@@ -146,7 +143,20 @@ class Exportuji_graf(Exportuji_talasnicu):
                                     sep = ';', 
                                     file = csv_soubory_ohrady[směrem]
                         )
-                      
+#                    zapíšu obchodní pozice
+            print(talas.data[OPEN_TIME].timestamp, 
+                        talas.data['BAR'], 
+                        talas.data[OPEN],
+                        talas.obchody[HORE].cena, 
+                        talas.obchody[HORE].velikost, 
+                        talas.obchody[DOLE].cena, 
+                        talas.obchody[DOLE].velikost, 
+                        int(talas.znamení_setby), 
+                        int(talas.znamení_sklizně), 
+                        sep = ';', 
+                        file = csv_soubory['postavení']
+                        )
+                        
 #                    zapíšu zisky
             print(talas.data[OPEN_TIME].timestamp, 
                   talas.data['BAR'], 
@@ -176,7 +186,7 @@ class Exportuji_graf(Exportuji_talasnicu):
                     obchod[ZAVÍRACÍ_CENA],
                     
                     sep = ';', 
-                    file = csv_soubory['obchody']
+                    file = csv_soubory['uzavřené_obchody']
                   )
            
         for směr,  seznam_otevřených_obchodů in talasnica.obchody.items():
