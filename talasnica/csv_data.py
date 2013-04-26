@@ -121,10 +121,10 @@ class INFO(CSV_DATA):
 
 
 def info_z_csv(csv_soubor):
-        with open(csv_soubor,  mode = "r",  encoding = "windows-1250") as čtu_soubor:
-            hlavička = čtu_soubor.readline()
-            info = čtu_soubor.readline()
-            return INFO(hlavička,  info)
+    with open(csv_soubor,  mode = "r",  encoding = "windows-1250") as čtu_soubor:
+        hlavička = čtu_soubor.readline()
+        info = čtu_soubor.readline()
+        return INFO(hlavička,  info)
 
 def data_z_csv(csv_soubor):
 

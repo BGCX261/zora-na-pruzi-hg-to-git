@@ -21,9 +21,10 @@ class Exportuji_talasnicu(object):
     csv_adresář = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/python')
     encoding = 'utf-8'
     
-    def __init__(self,  cílové_csv,  zdrojové_csv):
+    def __init__(self,  cílové_csv,  zdrojové_csv,  parametry):
         self.cílové_csv = cílové_csv
         self.zdrojové_csv = zdrojové_csv
+        self.parametry = parametry
         
     def cesta_k_souboru(self,  soubor):
         return os.path.join(self.csv_adresář,  soubor)
@@ -38,7 +39,7 @@ class Exportuji_talasnicu(object):
             if self.hlavička is not None:
                 do_souboru.write(self.csv_řádek(self.hlavička))
                 
-            for data in talasnica(self.zdrojové_csv):
+            for data in talasnica(self.zdrojové_csv, self.parametry):
     #            print(data)
                 řádek = self.zpracuji_řádek(data)
                 
@@ -129,47 +130,47 @@ class Exportuji_graf(Exportuji_talasnicu):
         ohrada = {HORE: None,  DOLE: None}
         hranice = {HORE: None,  DOLE: None}
         
-        for talas in talasnica(self.zdrojové_csv):
+        for talasnica_svíce in talasnica(self.zdrojové_csv, self.parametry):
 #            nějaké změny v ohradě,  či hranicích
-            for směrem,  generátor in (HORE,  talas.býčiště),  (DOLE,  talas.medvědiště):
+            for směrem,  generátor in (HORE,  talasnica_svíce.býčiště),  (DOLE,  talasnica_svíce.medvědiště):
                 if generátor is not None:
                     if not hranice[směrem] == generátor.čekaná or not ohrada[směrem] == generátor.start:
                         ohrada[směrem] = generátor.start
                         hranice[směrem] = generátor.čekaná
                         
-                        print(talas.data[OPEN_TIME].timestamp, 
+                        print(talasnica_svíce.data[OPEN_TIME].timestamp, 
                                     generátor.start, 
                                     generátor.čekaná, 
                                     sep = ';', 
                                     file = csv_soubory_ohrady[směrem]
                         )
 #                    zapíšu obchodní pozice
-            print(talas.data[OPEN_TIME].timestamp, 
-                        talas.data['BAR'], 
-                        talas.data[OPEN],
-                        talas.obchody[HORE].cena, 
-                        talas.obchody[HORE].velikost, 
-                        talas.obchody[DOLE].cena, 
-                        talas.obchody[DOLE].velikost, 
-                        int(talas.znamení_setby), 
-                        int(talas.znamení_sklizně), 
+            print(talasnica_svíce.data[OPEN_TIME].timestamp, 
+                        talasnica_svíce.data['BAR'], 
+                        talasnica_svíce.data[OPEN],
+                        talasnica_svíce.obchody[HORE].cena, 
+                        talasnica_svíce.obchody[HORE].velikost, 
+                        talasnica_svíce.obchody[DOLE].cena, 
+                        talasnica_svíce.obchody[DOLE].velikost, 
+                        int(talasnica_svíce.znamení_setby), 
+                        int(talasnica_svíce.znamení_sklizně), 
                         sep = ';', 
                         file = csv_soubory['postavení']
                         )
                         
 #                    zapíšu zisky
-            print(talas.data[OPEN_TIME].timestamp, 
-                  talas.data['BAR'], 
-                       talas.profit_při_otevření, 
-                        talas.profit(talas.data[HIGHT]), 
-                        talas.profit(talas.data[LOW]), 
-                        talas.profit(talas.data[CLOSE]), 
-                        talas.uložený_zisk, 
-                        talas.swap,
-                        talas.obchody[HORE].cena, 
-                        talas.obchody[HORE].velikost, 
-                        talas.obchody[DOLE].cena, 
-                        talas.obchody[DOLE].velikost, 
+            print(talasnica_svíce.data[OPEN_TIME].timestamp, 
+                  talasnica_svíce.data['BAR'], 
+                       talasnica_svíce.profit_při_otevření, 
+                        talasnica_svíce.profit(talasnica_svíce.data[HIGHT]), 
+                        talasnica_svíce.profit(talasnica_svíce.data[LOW]), 
+                        talasnica_svíce.profit(talasnica_svíce.data[CLOSE]), 
+                        talasnica_svíce.uložený_zisk, 
+                        talasnica_svíce.swap,
+                        talasnica_svíce.obchody[HORE].cena, 
+                        talasnica_svíce.obchody[HORE].velikost, 
+                        talasnica_svíce.obchody[DOLE].cena, 
+                        talasnica_svíce.obchody[DOLE].velikost, 
                         sep = ';', 
                         file = csv_soubory['zisky']
                         )
@@ -230,7 +231,8 @@ if __name__ == '__main__':
 
     if zdrojové_csv is None:
         print('Není zadán zdrojový soubor')
-        from talasnica.testuji_talasnicu import csv_soubor as zdrojové_csv 
+#        from talasnica.testuji_talasnicu import csv_soubor as zdrojové_csv 
+        zdrojové_csv  = 'experts/files/talasnica/export/data/EURJPY._60_2013-04-26-21-56-42.csv'
         print('\t načtu {}'.format(zdrojové_csv))
     else:
         print('Načtu {}'.format(zdrojové_csv))
@@ -238,14 +240,20 @@ if __name__ == '__main__':
     symbol = 'EURJPY.'
     perioda = 60
     
+    parametry = {'sklízím při zisku': 1000, 
+                        'odstup':200, 
+                        'rozestup': 200, 
+                        'sázím loty': 0.1
+                 }
+    
     if args.tabulka is True:
         csv_soubor = 'tabulka_{}_{}.csv'.format(symbol,  perioda)
         print('Exportuji tabulku do {}'.format(csv_soubor))
-        exporter = Exportuji_vše(csv_soubor,  zdrojové_csv)
+        exporter = Exportuji_vše(csv_soubor,  zdrojové_csv,  parametry)
         exporter()
     
     if args.graf is True:
         csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
         print('Exportuji graf do *{}'.format(csv_soubor))
-        exporter = Exportuji_graf(csv_soubor,  zdrojové_csv)
+        exporter = Exportuji_graf(csv_soubor,  zdrojové_csv,  parametry)
         exporter()

@@ -148,9 +148,15 @@ class Talasnica(object):
         self.__swapovací_den = None
         
     
-    def __call__(self,  csv_soubor):
+    def __call__(self,  csv_soubor,  parametry = None):
         
         self.info = info_z_csv(csv_soubor)
+        
+        if parametry is not None:
+            if isinstance(parametry,  dict):
+                self.info.update(parametry)
+            else:
+                raise ValueError('Parametry musí být slovníkem a nikolivěk {}'. format(type(parametry)))
         
         for data in data_z_csv(csv_soubor):
             
