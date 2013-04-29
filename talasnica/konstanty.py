@@ -34,3 +34,15 @@ OTEVÍRACÍ_CENA = 'otevírací cena'
 ZAVÍRACÍ_CENA = 'zavírací cena'
 SMÉR = 'směr'
 ZNAMÉNKO_SMÉRU = {HORE: 1,  DOLE: -1}
+
+JMÉNO_GRAFU = {
+               1: 'minutový', 
+               5: 'pětiminutový',
+               15: 'čtvrthodinový', 
+               30:  'půlhodinový',
+               60: 'hodinový',
+               240: 'čtyřhodinový',
+               1440: 'denní',
+               10000: 'měsíční',
+               
+               }

@@ -111,6 +111,7 @@ class INFO(CSV_DATA):
                  'POINT':( float, ),
                  'TICKVALUE':( float, ),
                  'SPRED': (int, ),
+                 'časový rámec': (int, ),
                  'odstup': (int, ),
                  'rozestup': (int, ),
                  'sázím loty':( float, ),

@@ -47,6 +47,8 @@ class Exportuji_talasnicu(object):
     #            i = i + 1
     #            if i > 10:
     #                    break
+    
+        return talasnica
 
                        
     def csv_řádek(self,  data,  oddělovač=';'):
@@ -206,6 +208,8 @@ class Exportuji_graf(Exportuji_talasnicu):
              
         for soubor in csv_soubory.values():
             soubor.close()
+            
+        return talasnica
                 
 
 if __name__ == '__main__':
@@ -232,7 +236,7 @@ if __name__ == '__main__':
     if zdrojové_csv is None:
         print('Není zadán zdrojový soubor')
 #        from talasnica.testuji_talasnicu import csv_soubor as zdrojové_csv 
-        zdrojové_csv  = 'experts/files/talasnica/export/data/EURJPY._60_2013-04-26-21-56-42.csv'
+        zdrojové_csv  = 'experts/files/talasnica/export/data/EURJPY._60_2013-04-26-21-59-59.csv'
         print('\t načtu {}'.format(zdrojové_csv))
     else:
         print('Načtu {}'.format(zdrojové_csv))
@@ -256,4 +260,5 @@ if __name__ == '__main__':
         csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
         print('Exportuji graf do *{}'.format(csv_soubor))
         exporter = Exportuji_graf(csv_soubor,  zdrojové_csv,  parametry)
-        exporter()
+        talasnica = exporter()
+        print(talasnica)

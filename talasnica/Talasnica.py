@@ -16,7 +16,8 @@ from talasnica.konstanty import (
                                  VELIKOST,  ČAS_OTEVŘENÍ,  ČAS_ZAVŘENÍ,  
                                  OTEVÍRACÍ_CENA,  ZAVÍRACÍ_CENA, 
                                  SMÉR, 
-                                 ZNAMÉNKO_SMÉRU
+                                 ZNAMÉNKO_SMÉRU, 
+                                 JMÉNO_GRAFU
                                  )
 #,  SWAP,  ULOŽENÝ_ZISK
 
@@ -79,7 +80,7 @@ class seznam_obchodů(object):
         return len(self.obchody)
   
     def __str__(self):
-        return "cena {} velikost {}".format(self.cena,  self.velikost)
+        return "směr {} cena {} velikost {}".format(self.směr,  self.cena,  self.velikost)
         
     def profit(self, od_ceny):
         return (od_ceny - self.cena) * self.velikost * ZNAMÉNKO_SMÉRU[self.směr]
@@ -147,6 +148,15 @@ class Talasnica(object):
         self.swap = 0.0
         self.__swapovací_den = None
         
+        self.počáteční_čas = None
+        self.konečný_čas = None
+        self.samoj_bolšoj_profit = [None,  None]
+        self.samoj_bolšoj_zisk = [None,  None]
+        self.samaja_bolšaja_velikost = {HORE: None,  DOLE: None}
+        self.samoj_bolšoj_býk = None
+        self.samoj_bolšoj_medvěd = None
+        self.počet_svíček = None
+        
     
     def __call__(self,  csv_soubor,  parametry = None):
         
@@ -167,10 +177,21 @@ class Talasnica(object):
                 
 #            print('-' * 44)
 #            print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
+
+            if self.počáteční_čas is None:
+                self.počáteční_čas = data['OPEN TIME']
+                
+            if self.počet_svíček is None:
+                self.počet_svíček = data['BAR']
+                
+            self.konečný_čas = data['OPEN TIME']
             
             self.data = data
             self.profit_při_otevření = self.profit(self.data['OPEN'])
             self.__přepočítám_swap()
+            
+            self.samoj_bolšoj_profit = [max(self.samoj_bolšoj_profit[0] or 0,  self.profit_při_otevření),  min(self.samoj_bolšoj_profit[1] or 0,  self.profit_při_otevření)]
+            self.samoj_bolšoj_zisk = [max(self.samoj_bolšoj_zisk[0] or 0,  self.profit_při_otevření + self.uložený_zisk + self.swap),  min(self.samoj_bolšoj_zisk[1] or 0,  self.profit_při_otevření + self.uložený_zisk + self.swap)]
             
             self.znamení_sklizně = self.__imam_znameni_ke_sklizni()
 #            assert self.znamení_sklizně == data['znamení sklizně']
@@ -222,6 +243,14 @@ class Talasnica(object):
                         else:
                             self.obchody[směr](cena = nová_cena,  velikost = self.info['sázím loty'],  čas = self.data['OPEN TIME'])
 #                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
+            
+            
+            self.samoj_bolšoj_býk = max(self.samoj_bolšoj_býk or 0, self.obchody[HORE].velikost )
+            self.samoj_bolšoj_medvěd = max(self.samoj_bolšoj_medvěd or 0,  self.obchody[DOLE].velikost)
+            
+            pozice = self.obchody[HORE].velikost - self.obchody[DOLE].velikost
+            self.samaja_bolšaja_velikost[HORE] = max(self.samaja_bolšaja_velikost[HORE] or 0,  pozice)
+            self.samaja_bolšaja_velikost[DOLE] = min(self.samaja_bolšaja_velikost[DOLE] or 0,  pozice)
             
             yield self
             
@@ -287,6 +316,52 @@ class Talasnica(object):
             
         self.medvědiště = None
         self.býčiště = None
+        
+        
+    def __str__(self):
+        import io
+        import sys
+        import datetime
+        
+        stdout = sys.stdout
+        output_buffer = io.StringIO("")
+        # přesměrování
+        sys.stdout = output_buffer
+        
+        print("TALASNICA")
+        
+        print('symbol {}'.format(self.info['SYMBOL']))
+        print('svíčky {} - {}'.format(self.počet_svíček,  self.data['BAR']))
+        print('graf {}'.format(JMÉNO_GRAFU[self.info['časový rámec']]))
+        
+        print('započato {}'.format(self.počáteční_čas))
+        print('ukončeno {}'.format(self.konečný_čas))
+        print('doba {}'.format(self.konečný_čas.datum - self.počáteční_čas.datum))
+        
+        print('-'*20)
+        
+        print('největší býk {:,.2f}'.format(self.samoj_bolšoj_býk).replace(",", " ").replace(".", ","))
+        print('největší medvěd {:,.2f}'.format(self.samoj_bolšoj_býk).replace(",", " ").replace(".", ","))
+        
+        print('největší pozice {:,.2f} a {:,.2f}'.format(self.samaja_bolšaja_velikost[HORE],  self.samaja_bolšaja_velikost[DOLE]).replace(",", " ").replace(".", ","))
+        
+        print('-'*20)
+        
+        print('otevřený zisk {1:,.2f} {0} a {2:,.2f} {0}'.format(self.info['měna účtu'],  *self.samoj_bolšoj_profit).replace(",", " ").replace(".", ","))
+        print('celkový zisk {1:,.2f} {0} a {2:,.2f} {0}'.format(self.info['měna účtu'],  *self.samoj_bolšoj_zisk).replace(",", " ").replace(".", ","))
+
+        print('-'*20)
+        
+        print('{:<25}{:>18,.2f}'.format('uložený zisk ',  self.uložený_zisk).replace(",", " ").replace(".", ","))
+        print('{:<25}{:>18,.2f}'.format('+ swap',  self.swap).replace(",", " ").replace(".", ","))
+        print('{:>25}{:>18,.2f}'.format('= ',  self.uložený_zisk + self.swap).replace(",", " ").replace(".", ","))
+        print('{:<25}{:>18,.2f}'.format('+ otevřené pozice ', self.profit_při_otevření).replace(",", " ").replace(".", ","))
+        print('{:>25}{:>18,.2f}'.format('= ',  self.uložený_zisk + self.swap + self.profit_při_otevření).replace(",", " ").replace(".", ","))
+        
+        
+        # obnovíme standartní výstup
+        sys.stdout = stdout
+        return(output_buffer.getvalue())
 
 if __name__ == '__main__':
     from talasnica.testuji_talasnicu import csv_soubor
