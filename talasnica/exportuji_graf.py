@@ -84,7 +84,7 @@ class Exportuji_vše(Exportuji_talasnicu):
                  ima(talasnica.býčiště,  'start'),  ima(talasnica.medvědiště,  'start'), 
                  ima(talasnica.býčiště,  'čekaná'),  ima(talasnica.medvědiště,  'čekaná'), 
                  
-                 talasnica.obchody[HORE].velikost,  talasnica.obchody[DOLE].velikost, 
+                talasnica.obchody[HORE].velikost,  talasnica.obchody[DOLE].velikost, 
                 talasnica.obchody[HORE].cena, talasnica.obchody[DOLE].cena, 
                 int(talasnica.znamení_setby), 
                 int(talasnica.znamení_sklizně), 
@@ -149,7 +149,7 @@ class Exportuji_graf(Exportuji_talasnicu):
 #                    zapíšu obchodní pozice
             print(talasnica_svíce.data[OPEN_TIME].timestamp, 
                         talasnica_svíce.data['BAR'], 
-                        talasnica_svíce.data[OPEN],
+                        talasnica_svíce.data[OPEN].prodej,
                         talasnica_svíce.obchody[HORE].cena, 
                         talasnica_svíce.obchody[HORE].velikost, 
                         talasnica_svíce.obchody[DOLE].cena, 
@@ -182,11 +182,11 @@ class Exportuji_graf(Exportuji_talasnicu):
         
         for obchod in talasnica.uzavřené_obchody:
             print(
-                  int(obchod[SMÉR] == DOLE) ,
-                  obchod[ČAS_OTEVŘENÍ].timestamp, 
-                    obchod[OTEVÍRACÍ_CENA], 
-                    obchod[ČAS_ZAVŘENÍ].timestamp, 
-                    obchod[ZAVÍRACÍ_CENA],
+                  int(obchod.směr == DOLE) ,
+                  obchod.čas_otevření.timestamp, 
+                  obchod.cena_otevření, 
+                    obchod.čas_zavření.timestamp, 
+                    obchod.cena_zavření,
                     
                     sep = ';', 
                     file = csv_soubory['uzavřené_obchody']
@@ -195,9 +195,9 @@ class Exportuji_graf(Exportuji_talasnicu):
         for směr,  seznam_otevřených_obchodů in talasnica.obchody.items():
             for obchod in seznam_otevřených_obchodů.obchody.values():
                 print(
-                      int(obchod[SMÉR] == DOLE) ,
-                      obchod[ČAS_OTEVŘENÍ].timestamp, 
-                        obchod[OTEVÍRACÍ_CENA], 
+                      int(obchod.směr == DOLE) ,
+                      obchod.čas_otevření.timestamp, 
+                        obchod.cena_otevření, 
 #                        nemá čas zavření
 #                        obchod[ČAS_ZAVŘENÍ].timestamp, 
 #                        obchod[ZAVÍRACÍ_CENA],
