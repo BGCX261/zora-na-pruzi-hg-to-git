@@ -11,6 +11,8 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
 
 import os
+import datetime
+from talasnica.csv_data import Datum
 
 from talasnica.Talasnica import Talasnica
 from talasnica.konstanty import *
@@ -146,7 +148,7 @@ class Exportuji_graf(Exportuji_talasnicu):
                                     sep = ';', 
                                     file = csv_soubory_ohrady[směrem]
                         )
-#                    zapíšu obchodní pozice
+#                    zapíšu postavení, to jest stav obchodů na aktuální svíci
             print(talasnica_svíce.data[OPEN_TIME].timestamp, 
                         talasnica_svíce.data['BAR'], 
                         talasnica_svíce.data[OPEN].prodej,
@@ -212,6 +214,56 @@ class Exportuji_graf(Exportuji_talasnicu):
         return talasnica
                 
 
+class Soubor(object):
+    '''
+    zapíše do souboru
+    '''
+    
+    csv_adresář = os.path.join(os.path.dirname(__file__), 'experts/files/talasnica/python')
+    
+    def __init__(self, jméno,  symbol,  časový_rámec,  encoding = 'UTF-8'):
+        self.encoding = encoding
+        
+        csv_adresář = self.csv_adresář
+        for adresář in symbol,  JMÉNO_GRAFU[časový_rámec]:
+            csv_adresář = os.path.join(csv_adresář,  adresář)
+            if not os.path.isdir(csv_adresář):
+                print('vytvářím adresář {}'.format(csv_adresář))
+                os.mkdir(csv_adresář)
+        
+        self.cesta = os.path.join(csv_adresář,  '{}.csv'.format(jméno))
+        print('uložím do souboru {}'.format(self.cesta))
+
+
+    def __enter__(self):
+        print('enter {}'.format(self.cesta))
+        self.soubor = open(self.cesta,  mode = "w",  encoding = self.encoding)
+        print(datetime.datetime.utcnow())
+        časová_značka = datetime.datetime.now(tz = pytz.UTC) - UNIX_EPOCH
+        
+        print(časová_značka)
+        
+        
+    def __exit__(self, *args):
+        print('exit {}'.format(self.cesta))
+        self.soubor.close()
+
+def exportuji_talasnicu(zdrojové_csv,  parametry):
+    print('exportuji Talasnicu')
+    print('zdrojový soubor {}'.format(zdrojové_csv))
+    print('parametry {}'.format(parametry))
+    
+    talasnica = Talasnica(zdrojové_csv = zdrojové_csv,  parametry = parametry)
+    
+#    print(talasnica.info)
+    
+    with Soubor(jméno = 'svíčky',  symbol = talasnica.info['SYMBOL'],  časový_rámec = talasnica.info['časový rámec'],  encoding = "windows-1250") as soubor:
+        for talasnica_na_svíčce in talasnica:
+#            print('tal')
+            continue;
+    
+    return talasnica
+
 if __name__ == '__main__':
     
     import argparse
@@ -250,15 +302,18 @@ if __name__ == '__main__':
                         'sázím loty': 0.1
                  }
     
-    if args.tabulka is True:
-        csv_soubor = 'tabulka_{}_{}.csv'.format(symbol,  perioda)
-        print('Exportuji tabulku do {}'.format(csv_soubor))
-        exporter = Exportuji_vše(csv_soubor,  zdrojové_csv,  parametry)
-        exporter()
+    talasnica = exportuji_talasnicu(zdrojové_csv,  parametry)
+    print(talasnica)
     
-    if args.graf is True:
-        csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
-        print('Exportuji graf do *{}'.format(csv_soubor))
-        exporter = Exportuji_graf(csv_soubor,  zdrojové_csv,  parametry)
-        talasnica = exporter()
-        print(talasnica)
+#    if args.tabulka is True:
+#        csv_soubor = 'tabulka_{}_{}.csv'.format(symbol,  perioda)
+#        print('Exportuji tabulku do {}'.format(csv_soubor))
+#        exporter = Exportuji_vše(csv_soubor,  zdrojové_csv,  parametry)
+#        exporter()
+#    
+#    if args.graf is True:
+#        csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
+#        print('Exportuji graf do *{}'.format(csv_soubor))
+#        exporter = Exportuji_graf(csv_soubor,  zdrojové_csv,  parametry)
+#        talasnica = exporter()
+#        print(talasnica)

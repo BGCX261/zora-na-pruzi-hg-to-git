@@ -9,6 +9,9 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
+import datetime,  pytz
+UNIX_EPOCH = datetime.datetime(1970, 1, 1, 0, 0, tzinfo = pytz.utc)
+
 BUY = 'nákup'
 SELL = 'prodej'
 PROFIT_OPEN = 'profit při otevření'

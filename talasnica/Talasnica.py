@@ -377,17 +377,27 @@ class Talasnica(object):
 #    minimum = None
 #    ohrada = None
     
-    def __init__(self):
-        self.info = None
+    def __init__(self,  zdrojové_csv,  parametry = None):
+        
+        self.zdrojové_csv = zdrojové_csv
+        self.info = info_z_csv(zdrojové_csv)
+        
+        self.Třída_ceny = davaj_cenu(spred = self.info['SPRED'],  přesnost = self.info['DIGITS'],  point = self.info['POINT'])
+        
+        self.obchody = Celkové_obchodní_postavení(info = self.info)
+        
+        if parametry is not None:
+            if isinstance(parametry,  dict):
+                self.info.update(parametry)
+            else:
+                raise ValueError('Parametry musí být slovníkem a nikolivěk {}'. format(type(parametry)))
+                
         self.data = None
         
 #        generátory nových pozic
         self.býčiště = None
         self.medvědiště = None
         
-        self.obchody = None
-#        self.uzavřené_obchody = []
-#        self.uložený_zisk = 0
         self.znamení_setby = None
         self.znamení_sklizně = None
         
@@ -406,26 +416,17 @@ class Talasnica(object):
         self.počet_svíček = None
         
     
-    def __call__(self,  csv_soubor,  parametry = None):
+    def __iter__(self):
         
-        self.info = info_z_csv(csv_soubor)
-        třída_ceny = davaj_cenu(spred = self.info['SPRED'],  přesnost = self.info['DIGITS'],  point = self.info['POINT'])
-        
-        self.obchody = Celkové_obchodní_postavení(info = self.info)
-        
-        if parametry is not None:
-            if isinstance(parametry,  dict):
-                self.info.update(parametry)
-            else:
-                raise ValueError('Parametry musí být slovníkem a nikolivěk {}'. format(type(parametry)))
-        
-        for data in data_z_csv(csv_soubor):
+        for data in data_z_csv(self.zdrojové_csv):
             
-            upravím_data_ceny_na_int(data,  třída_ceny)
+            upravím_data_ceny_na_int(data,  self.Třída_ceny)
             
             if data['OPEN'] is None:
                 print('Přeskakuji svíčku {} koja nemá ceny'.format(data['BAR']))
                 continue
+                
+            self.data = data
                 
 #            print(data['OPEN'])
                 
@@ -440,8 +441,7 @@ class Talasnica(object):
                 
             self.konečný_čas = data['OPEN TIME']
             
-            self.data = data
-            self.profit_při_otevření = self.obchody.profit(self.data['OPEN'])
+            self.profit_při_otevření = self.obchody.profit(data['OPEN'])
             self.obchody.swapuji(data['OPEN TIME'])
             
             self.samoj_bolšoj_profit = [max(self.samoj_bolšoj_profit[0] or 0,  self.profit_při_otevření),  min(self.samoj_bolšoj_profit[1] or 0,  self.profit_při_otevření)]
@@ -488,25 +488,25 @@ class Talasnica(object):
                         #                    GAP
 #                        if (nová_cena - data[OPEN]) * ZNAMÉNKO_SMÉRU[směr] < 0:
                         if čekaná < data[OPEN]:
-                            self.obchody.zruším_obchod_gapem(směrem = čekaná.směrem,  čas = self.data['OPEN TIME'],  cena = nová_cena,  velikost = self.info['sázím loty'])
+                            self.obchody.zruším_obchod_gapem(směrem = čekaná.směrem,  čas = data['OPEN TIME'],  cena = nová_cena,  velikost = self.info['sázím loty'])
 #                            if směr == HORE:
 #                                třída = Býk
 #                            if směr == DOLE:
 #                                třída = Medvěd
 #                                
 #                            obchod = třída(velikost = self.info['sázím loty'],  čas_otevření = Datum(0),  cena = nová_cena)
-#                            obchod.zavřu(čas = self.data['OPEN TIME'],  cena = nová_cena)
+#                            obchod.zavřu(čas = data['OPEN TIME'],  cena = nová_cena)
 ##                            obchod = {SMÉR: směr, 
 ##                                      VELIKOST: self.info['sázím loty'], 
 ##                                      ČAS_OTEVŘENÍ: Datum(0), 
 ##                                      OTEVÍRACÍ_CENA: 0, 
-##                                      ČAS_ZAVŘENÍ: self.data['OPEN TIME'], 
+##                                      ČAS_ZAVŘENÍ: data['OPEN TIME'], 
 ##                                      ZAVÍRACÍ_CENA: nová_cena
 ##                                      }
 #                            self.uzavřené_obchody.append(obchod)
                 
                         else:
-                            self.obchody.otevřu_nový_obchod(směrem = čekaná.směrem,  cena = nová_cena,  velikost = self.info['sázím loty'],  čas = self.data['OPEN TIME'])
+                            self.obchody.otevřu_nový_obchod(směrem = čekaná.směrem,  cena = nová_cena,  velikost = self.info['sázím loty'],  čas = data['OPEN TIME'])
 #                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
             
             
