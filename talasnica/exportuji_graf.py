@@ -84,16 +84,16 @@ class Exportuji_vše(Exportuji_talasnicu):
                  ima(talasnica.býčiště,  'start'),  ima(talasnica.medvědiště,  'start'), 
                  ima(talasnica.býčiště,  'čekaná'),  ima(talasnica.medvědiště,  'čekaná'), 
                  
-                talasnica.obchody[HORE].velikost,  talasnica.obchody[DOLE].velikost, 
-                talasnica.obchody[HORE].cena, talasnica.obchody[DOLE].cena, 
+                talasnica.obchody.býci.velikost,  talasnica.obchody.medvědi.velikost, 
+                talasnica.obchody.býci.cena, talasnica.obchody.medvědi.cena, 
                 int(talasnica.znamení_setby), 
                 int(talasnica.znamení_sklizně), 
                 talasnica.profit_při_otevření, 
-                talasnica.profit(talasnica.data[HIGHT]), 
-                talasnica.profit(talasnica.data[LOW]), 
-                talasnica.profit(talasnica.data[CLOSE]), 
-                talasnica.uložený_zisk, 
-                talasnica.swap
+                talasnica.obchody.profit(talasnica.data[HIGHT]), 
+                talasnica.obchody.profit(talasnica.data[LOW]), 
+                talasnica.obchody.profit(talasnica.data[CLOSE]), 
+                talasnica.obchody.uložený_zisk, 
+                talasnica.obchody.swap
                        )
 
 class Cena_obchodů(Exportuji_talasnicu):
@@ -101,8 +101,8 @@ class Cena_obchodů(Exportuji_talasnicu):
     
     def zpracuji_řádek(self,  talasnica):
         return (talasnica.data.čas, 
-                    talasnica.obchody[HORE].cena, 
-                    talasnica.obchody[DOLE].cena
+                    talasnica.obchody.býci.cena, 
+                    talasnica.obchody.medvědi.cena
                        )
 
 
@@ -150,10 +150,10 @@ class Exportuji_graf(Exportuji_talasnicu):
             print(talasnica_svíce.data[OPEN_TIME].timestamp, 
                         talasnica_svíce.data['BAR'], 
                         talasnica_svíce.data[OPEN].prodej,
-                        talasnica_svíce.obchody[HORE].cena, 
-                        talasnica_svíce.obchody[HORE].velikost, 
-                        talasnica_svíce.obchody[DOLE].cena, 
-                        talasnica_svíce.obchody[DOLE].velikost, 
+                        talasnica_svíce.obchody.býci.cena, 
+                        talasnica_svíce.obchody.býci.velikost, 
+                        talasnica_svíce.obchody.medvědi.cena, 
+                        talasnica_svíce.obchody.medvědi.velikost, 
                         int(talasnica_svíce.znamení_setby), 
                         int(talasnica_svíce.znamení_sklizně), 
                         sep = ';', 
@@ -164,15 +164,15 @@ class Exportuji_graf(Exportuji_talasnicu):
             print(talasnica_svíce.data[OPEN_TIME].timestamp, 
                   talasnica_svíce.data['BAR'], 
                        talasnica_svíce.profit_při_otevření, 
-                        talasnica_svíce.profit(talasnica_svíce.data[HIGHT]), 
-                        talasnica_svíce.profit(talasnica_svíce.data[LOW]), 
-                        talasnica_svíce.profit(talasnica_svíce.data[CLOSE]), 
-                        talasnica_svíce.uložený_zisk, 
-                        talasnica_svíce.swap,
-                        talasnica_svíce.obchody[HORE].cena, 
-                        talasnica_svíce.obchody[HORE].velikost, 
-                        talasnica_svíce.obchody[DOLE].cena, 
-                        talasnica_svíce.obchody[DOLE].velikost, 
+                        talasnica_svíce.obchody.profit(talasnica_svíce.data[HIGHT]), 
+                        talasnica_svíce.obchody.profit(talasnica_svíce.data[LOW]), 
+                        talasnica_svíce.obchody.profit(talasnica_svíce.data[CLOSE]), 
+                        talasnica_svíce.obchody.uložený_zisk, 
+                        talasnica_svíce.obchody.swap,
+                        talasnica_svíce.obchody.býci.cena, 
+                        talasnica_svíce.obchody.býci.velikost, 
+                        talasnica_svíce.obchody.medvědi.cena, 
+                        talasnica_svíce.obchody.medvědi.velikost, 
                         sep = ';', 
                         file = csv_soubory['zisky']
                         )
@@ -180,7 +180,7 @@ class Exportuji_graf(Exportuji_talasnicu):
 #        print(talasnica.uzavřené_obchody)
             
         
-        for obchod in talasnica.uzavřené_obchody:
+        for obchod in talasnica.obchody.uzavřené:
             print(
                   int(obchod.směr == DOLE) ,
                   obchod.čas_otevření.timestamp, 
@@ -192,7 +192,7 @@ class Exportuji_graf(Exportuji_talasnicu):
                     file = csv_soubory['uzavřené_obchody']
                   )
            
-        for směr,  seznam_otevřených_obchodů in talasnica.obchody.items():
+        for  seznam_otevřených_obchodů in talasnica.obchody.býci, talasnica.obchody.medvědi:
             for obchod in seznam_otevřených_obchodů.obchody.values():
                 print(
                       int(obchod.směr == DOLE) ,
@@ -244,7 +244,7 @@ if __name__ == '__main__':
     symbol = 'EURJPY.'
     perioda = 60
     
-    parametry = {'sklízím při zisku': 1000, 
+    parametry = {'sklízím při zisku': 5000, 
                         'odstup':200, 
                         'rozestup': 200, 
                         'sázím loty': 0.1
