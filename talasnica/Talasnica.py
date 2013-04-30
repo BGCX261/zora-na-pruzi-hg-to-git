@@ -132,7 +132,7 @@ class Obchod(object):
         self.cena_zavření = None
         self.velikost = velikost
         self.čas_otevření = čas_otevření
-        self.čas_zavření = None
+        self.čas_zavření = Datum(0)
         self.swap = 0
         
         
@@ -211,8 +211,8 @@ class Seznam_obchodů(object):
         for obchod in self.obchody.values():
             if obchod.otevřeno is True:
                 swap = swap_za_lot * obchod.velikost
-                obchod.swap = obchod.swap + swap
-                self._swap = self._swap + swap
+                obchod.swap = round(obchod.swap + swap,  2)
+                self._swap = round(self._swap + swap,  2)
       
     @property
     def cena(self):
@@ -344,6 +344,13 @@ class Celkové_obchodní_postavení(object):
     @property
     def velikost(self):
         return self.býci.velikost - self.medvědi.velikost
+        
+    @property
+    def cena(self):
+        velikost = self.velikost
+        if velikost == 0:
+            return (self.býci.cena + self.medvědi.cena) / 2
+        return (self.býci.cena * self.býci.velikost - self.medvědi.cena * self.medvědi.velikost) / (self.býci.velikost + self.medvědi.velikost)
         
     @property
     def swap(self):
