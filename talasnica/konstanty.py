@@ -46,6 +46,7 @@ JMÉNO_GRAFU = {
                60: 'hodinový',
                240: 'čtyřhodinový',
                1440: 'denní',
-               10000: 'měsíční',
-               
+               10080: 'týdenní',
+               43200: 'měsíční',
                }
+
