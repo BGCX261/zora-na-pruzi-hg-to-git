@@ -164,7 +164,7 @@ class Obchod(object):
         
     @property
     def otevřeno(self):
-        return self.čas_otevření is not None and self.čas_zavření is None
+        return self.čas_otevření > 0 and self.čas_zavření == 0
 
 class Býk(Obchod):
     směr = HORE
@@ -202,7 +202,9 @@ class Seznam_obchodů(object):
 #            self.cena = int(cena)
       
     def swapuji(self,  swap_za_lot):
+        
         for obchod in self.obchody.values():
+            
             if obchod.otevřeno is True:
                 swap = swap_za_lot * obchod.velikost
                 obchod.swap = round(obchod.swap + swap,  2)
@@ -460,17 +462,6 @@ class Talasnica(object):
             
             
             self.znamení_setby = self.__da_li_třeba_zaset()
-#            print('znamení_setby = ',  self.znamení_setby)
-            
-#            if self.maximum is None:
-#                self.maximum = data[HIGHT]
-#            else:
-#                self.maximum = max(self.maximum,  data[HIGHT])
-#                
-#            if self.minimum is None:
-#                self.minimum = data[LOW]
-#            else:
-#                self.minimum = max(self.minimum,  data[LOW])
                 
             if self.znamení_setby is True:
 #                vytáhnu z info
@@ -486,25 +477,8 @@ class Talasnica(object):
                     k_ceně = data[klíč]
                     for nová_cena in čekaná(k_ceně):
                         #                    GAP
-#                        if (nová_cena - data[OPEN]) * ZNAMÉNKO_SMÉRU[směr] < 0:
                         if čekaná < data[OPEN]:
                             self.obchody.zruším_obchod_gapem(směrem = čekaná.směrem,  čas = data['OPEN TIME'],  cena = nová_cena,  velikost = self.info['sázím loty'])
-#                            if směr == HORE:
-#                                třída = Býk
-#                            if směr == DOLE:
-#                                třída = Medvěd
-#                                
-#                            obchod = třída(velikost = self.info['sázím loty'],  čas_otevření = Datum(0),  cena = nová_cena)
-#                            obchod.zavřu(čas = data['OPEN TIME'],  cena = nová_cena)
-##                            obchod = {SMÉR: směr, 
-##                                      VELIKOST: self.info['sázím loty'], 
-##                                      ČAS_OTEVŘENÍ: Datum(0), 
-##                                      OTEVÍRACÍ_CENA: 0, 
-##                                      ČAS_ZAVŘENÍ: data['OPEN TIME'], 
-##                                      ZAVÍRACÍ_CENA: nová_cena
-##                                      }
-#                            self.uzavřené_obchody.append(obchod)
-                
                         else:
                             self.obchody.otevřu_nový_obchod(směrem = čekaná.směrem,  cena = nová_cena,  velikost = self.info['sázím loty'],  čas = data['OPEN TIME'])
 #                        print('nový obchod z ' + směr,  nová_cena,  čekaná)

@@ -32,6 +32,33 @@ class Datum(object):
         
     def __str__(self):
         return datetime.datetime.strftime(self.datum, "%A, %d.%B %Y, %H:%M:%S")
+        
+    def __eq__(self,  other):
+        if isinstance(other,  (int,  float)):
+            return self.timestamp == other
+            
+        if isinstance(other,  datetime.datetime):
+            return self.datum == other
+            
+        raise TypeError("Nemožeš porovnávat {} == {}".format(type(self),  type(other)))
+        
+    def __lt__(self,  other):
+        if isinstance(other,  (int,  float)):
+            return self.timestamp < other
+            
+        if isinstance(other,  datetime.datetime):
+            return self.datum < other
+            
+        raise TypeError("Nemožeš porovnávat {} < {}".format(type(self),  type(other)))
+        
+    def __gt__(self,  other):
+            if isinstance(other,  (int,  float)):
+                return self.timestamp > other
+                
+            if isinstance(other,  datetime.datetime):
+                return self.datum > other
+                
+            raise TypeError("Nemožeš porovnávat {} > {}".format(type(self),  type(other)))
     
 
 class CSV_DATA(dict):
