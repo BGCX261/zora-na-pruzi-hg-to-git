@@ -42,7 +42,7 @@ class Exportuji_svíčku(object):
         return (
                 talasnica.data.čas, talasnica.data['OPEN TIME'],
                  talasnica.data['BAR'],
-                 talasnica.data['OPEN'],
+                 talasnica.data['OPEN'].prodej,
                  ima(talasnica.býčiště,  'start'),  ima(talasnica.medvědiště,  'start'),
                  ima(talasnica.býčiště,  'čekaná'),  ima(talasnica.medvědiště,  'čekaná'),
                 talasnica.obchody.býci.velikost,  talasnica.obchody.medvědi.velikost,

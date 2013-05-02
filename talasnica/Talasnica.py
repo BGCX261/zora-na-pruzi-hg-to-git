@@ -350,7 +350,7 @@ class Celkové_obchodní_postavení(object):
         velikost = self.velikost
         if velikost == 0:
             return (self.býci.cena + self.medvědi.cena) / 2
-        return (self.býci.cena * self.býci.velikost - self.medvědi.cena * self.medvědi.velikost) / (self.býci.velikost + self.medvědi.velikost)
+        return (self.býci.cena * self.býci.velikost - self.medvědi.cena * self.medvědi.velikost) / self.velikost
         
     @property
     def swap(self):
