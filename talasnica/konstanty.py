@@ -21,7 +21,7 @@ PROFIT_CLOSE = 'profit při zavření'
 SWAP = 'celkový swap'
 ULOŽENÝ_ZISK = 'celkové uložené zisky'
 
-#OPEN_TIME = 'OPEN TIME'
+OPEN_TIME = 'OPEN TIME'
 OPEN = 'OPEN'
 HIGHT = 'HIGHT'
 LOW = 'LOW'

@@ -165,14 +165,44 @@ class Obchod(object):
     @property
     def otevřeno(self):
         return self.čas_otevření > 0 and self.čas_zavření == 0
+        
+    @property
+    def uložený_profit(self):
+        if self.otevřeno:
+            return 0
+            
+        return self.profit(self.cena_zavření)
+        
+    def otevřený_profit(self,  k_ceně):
+        if self.otevřeno:
+            return self.profit(k_ceně)
+            
+        return 0
 
 class Býk(Obchod):
     směr = HORE
     
+    def profit(self, od_ceny):
+        if self.cena_otevření > 0:
+            if not isinstance(od_ceny,  (int,  float)):
+                od_ceny = od_ceny.prodej
+            return (od_ceny - self.cena_otevření) * self.velikost
+            
+        return 0
+        
+    
 class Medvěd(Obchod):
     směr = DOLE
 
-
+    def profit(self, od_ceny):
+        if self.cena_otevření > 0:
+            if not isinstance(od_ceny,  (int,  float)):
+                od_ceny = od_ceny.nákup
+            return (self.cena_otevření - od_ceny) * self.velikost
+            
+        return 0
+        
+        
 class Seznam_obchodů(object):
     
     def __init__(self):
