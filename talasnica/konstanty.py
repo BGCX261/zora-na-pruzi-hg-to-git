@@ -21,7 +21,7 @@ PROFIT_CLOSE = 'profit při zavření'
 SWAP = 'celkový swap'
 ULOŽENÝ_ZISK = 'celkové uložené zisky'
 
-OPEN_TIME = 'OPEN TIME'
+#OPEN_TIME = 'OPEN TIME'
 OPEN = 'OPEN'
 HIGHT = 'HIGHT'
 LOW = 'LOW'
@@ -30,13 +30,13 @@ CLOSE = 'CLOSE'
 HORE = 'býk'
 DOLE = 'medvěd'
 
-VELIKOST = 'velikost obchodu'
-ČAS_OTEVŘENÍ = 'čas otevření'
-ČAS_ZAVŘENÍ = 'čas zavření'
-OTEVÍRACÍ_CENA = 'otevírací cena'
-ZAVÍRACÍ_CENA = 'zavírací cena'
-SMÉR = 'směr'
-ZNAMÉNKO_SMÉRU = {HORE: 1,  DOLE: -1}
+#VELIKOST = 'velikost obchodu'
+#ČAS_OTEVŘENÍ = 'čas otevření'
+#ČAS_ZAVŘENÍ = 'čas zavření'
+#OTEVÍRACÍ_CENA = 'otevírací cena'
+#ZAVÍRACÍ_CENA = 'zavírací cena'
+#SMÉR = 'směr'
+#ZNAMÉNKO_SMÉRU = {HORE: 1,  DOLE: -1}
 
 JMÉNO_GRAFU = {
                1: 'minutový', 

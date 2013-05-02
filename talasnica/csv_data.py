@@ -6,7 +6,7 @@
 Hen je program, který ...
 '''
 
-import os
+#import os
 import datetime,  pytz
 
 import locale

@@ -136,7 +136,7 @@ def davaj_třídu_souboru(symbol,  časový_rámec,  parametry,  encoding):
 
 
         def __enter__(self):
-            print('enter {}'.format(self.cesta))
+            print('otevírám pro zápis soubor {}'.format(self.cesta))
             self.soubor = open(self.cesta,  mode = "w",  encoding = self.encoding)
             časová_značka = time.time()
             self.řádek(int(časová_značka))
@@ -153,7 +153,7 @@ def davaj_třídu_souboru(symbol,  časový_rámec,  parametry,  encoding):
             print(csv_řádek, file = self.soubor)
 
         def __exit__(self, *args):
-            print('exit {}'.format(self.cesta))
+            print('zapsáno do souboru {}'.format(self.cesta))
             self.soubor.close()
 
     return Soubor
@@ -169,16 +169,17 @@ def exportuji_talasnicu(zdrojové_csv,  parametry):
 
     Soubor = davaj_třídu_souboru(symbol = talasnica.info['SYMBOL'],  časový_rámec = talasnica.info['časový rámec'],  parametry = parametry,  encoding = "windows-1250")
 
-    ohrada = {HORE: None,  DOLE: None}
-    hranice = {HORE: None,  DOLE: None}
+#    ohrada = {HORE: None,  DOLE: None}
+#    hranice = {HORE: None,  DOLE: None}
 
-    with Soubor(jméno = 'svíčky') as soubor,  Soubor(jméno = 'býčí_ohrada') as soubor_býčí_ohrady,  Soubor(jméno = 'medvědí_ohrada') as soubor_medvědí_ohrady:
+#    with Soubor(jméno = 'svíčky') as soubor,  Soubor(jméno = 'býčí_ohrada') as soubor_býčí_ohrady,  Soubor(jméno = 'medvědí_ohrada') as soubor_medvědí_ohrady:
+    with Soubor(jméno = 'svíčky') as soubor:
         exportér = Exportuji_svíčku()
         soubor.řádek(*exportér.hlavička)
 
-        exportér_generátoru = Exportuji_ohradu()
-        soubor_býčí_ohrady.řádek(*exportér_generátoru.hlavička)
-        soubor_medvědí_ohrady.řádek(*exportér_generátoru.hlavička)
+#        exportér_generátoru = Exportuji_ohradu()
+#        soubor_býčí_ohrady.řádek(*exportér_generátoru.hlavička)
+#        soubor_medvědí_ohrady.řádek(*exportér_generátoru.hlavička)
 
         for talasnica_na_svíčce in talasnica:
 #            svíčky
@@ -187,16 +188,16 @@ def exportuji_talasnicu(zdrojové_csv,  parametry):
 
 #            generátor
 
-            for směrem,  generátor in (HORE,  talasnica_na_svíčce.býčiště),  (DOLE,  talasnica_na_svíčce.medvědiště):
-                if generátor is not None:
-                    if not hranice[směrem] == generátor.čekaná or not ohrada[směrem] == generátor.start:
-                        ohrada[směrem] = generátor.start
-                        hranice[směrem] = generátor.čekaná
-
-                        if směrem == HORE:
-                            soubor_býčí_ohrady.řádek(*exportér_generátoru(talasnica = talasnica_na_svíčce,  generátor = generátor))
-                        elif směrem == DOLE:
-                            soubor_medvědí_ohrady.řádek(*exportér_generátoru(talasnica = talasnica_na_svíčce,  generátor = generátor))
+#            for směrem,  generátor in (HORE,  talasnica_na_svíčce.býčiště),  (DOLE,  talasnica_na_svíčce.medvědiště):
+#                if generátor is not None:
+#                    if not hranice[směrem] == generátor.čekaná or not ohrada[směrem] == generátor.start:
+#                        ohrada[směrem] = generátor.start
+#                        hranice[směrem] = generátor.čekaná
+#
+#                        if směrem == HORE:
+#                            soubor_býčí_ohrady.řádek(*exportér_generátoru(talasnica = talasnica_na_svíčce,  generátor = generátor))
+#                        elif směrem == DOLE:
+#                            soubor_medvědí_ohrady.řádek(*exportér_generátoru(talasnica = talasnica_na_svíčce,  generátor = generátor))
 
     with Soubor(jméno = 'obchody') as soubor:
         exportér = Exportuji_obchody()

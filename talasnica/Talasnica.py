@@ -10,16 +10,10 @@ from talasnica.csv_data import data_z_csv,  info_z_csv,  Datum
 import datetime,  pytz
 
 from talasnica.konstanty import (
-                                 OPEN_TIME, 
                                  OPEN,  HIGHT,  LOW,  CLOSE, 
                                  HORE,  DOLE, 
-                                 VELIKOST,  ČAS_OTEVŘENÍ,  ČAS_ZAVŘENÍ,  
-                                 OTEVÍRACÍ_CENA,  ZAVÍRACÍ_CENA, 
-                                 SMÉR, 
-                                 ZNAMÉNKO_SMÉRU, 
                                  JMÉNO_GRAFU
                                  )
-#,  SWAP,  ULOŽENÝ_ZISK
 
 
 class __generátor_obchodů(object):
@@ -482,7 +476,6 @@ class Talasnica(object):
 #                vytáhnu z info
                 odstup = self.info['odstup']
                 rozestup = self.info['rozestup']
-                spred = self.info['SPRED']
 #                dosadím a spočítám
 #                self.ohrada = {HORE: data[OPEN] + odstup + spred,  DOLE: data[OPEN] - odstup}
                 self.medvědiště = generátor_medvědů(start = data[OPEN],  odstup = odstup,  rozestup = rozestup)
@@ -555,7 +548,6 @@ class Talasnica(object):
     def __str__(self):
         import io
         import sys
-        import datetime
         
         stdout = sys.stdout
         output_buffer = io.StringIO("")
