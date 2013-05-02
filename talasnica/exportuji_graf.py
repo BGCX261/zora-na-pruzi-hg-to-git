@@ -19,6 +19,7 @@ class Exportuji_svíčku(object):
 
     hlavička = ('timestamp',  'čas',
                     'BAR',
+                    'otevírací cena', 
                     'býčí ohrada',  'medvědí ohrada',
                     'býčí čekaná',  'medvědí čekaná',
                     'velikost býků', 'velikost medvědů',
@@ -41,6 +42,7 @@ class Exportuji_svíčku(object):
         return (
                 talasnica.data.čas, talasnica.data['OPEN TIME'],
                  talasnica.data['BAR'],
+                 talasnica.data['OPEN'],
                  ima(talasnica.býčiště,  'start'),  ima(talasnica.medvědiště,  'start'),
                  ima(talasnica.býčiště,  'čekaná'),  ima(talasnica.medvědiště,  'čekaná'),
                 talasnica.obchody.býci.velikost,  talasnica.obchody.medvědi.velikost,
