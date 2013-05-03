@@ -6,7 +6,7 @@
 Hen je program, který ...
 '''
 
-#import os
+import os
 import datetime,  pytz
 
 import locale
@@ -148,20 +148,20 @@ class INFO(CSV_DATA):
                  }
 
 
-def info_z_csv(csv_soubor):
+def info_z_csv(csv_zdrojový_adresář):
+    
+    csv_soubor = os.path.join(csv_zdrojový_adresář,  'mt_info.csv')
+    
     with open(csv_soubor,  mode = "r",  encoding = "windows-1250") as čtu_soubor:
         hlavička = čtu_soubor.readline()
         info = čtu_soubor.readline()
         return INFO(hlavička,  info)
 
-def data_z_csv(csv_soubor):
-
+def data_z_csv(csv_zdrojový_adresář):
+    csv_soubor = os.path.join(csv_zdrojový_adresář,  'mt_data.csv')
 #        print('IMPORTUJI {}'.format(self._csv_soubor))
 
     with open(csv_soubor,  mode = "r",  encoding = "windows-1250") as čtu_soubor:
-
-        čtu_soubor.readline()
-        čtu_soubor.readline()
 
         hlavička = čtu_soubor.readline()
 

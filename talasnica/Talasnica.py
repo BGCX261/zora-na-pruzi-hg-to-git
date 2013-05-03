@@ -12,7 +12,8 @@ import datetime,  pytz
 from talasnica.konstanty import (
                                  OPEN,  HIGHT,  LOW,  CLOSE, 
                                  HORE,  DOLE, 
-                                 JMÉNO_GRAFU
+                                 JMÉNO_GRAFU, 
+                                 PROFIT_OPEN,  PROFIT_HORE,  PROFIT_DOLE,  PROFIT_CLOSE
                                  )
 
 
@@ -358,7 +359,7 @@ class Celkové_obchodní_postavení(object):
 
     def zavřu_obchody(self,  čas_zavření,  cena_zavření,  *filtry):
         
-        self.uložený_zisk = self.uložený_zisk + self.profit(cena_zavření)
+        self.uložený_zisk = self.uložený_zisk + self.zisk(cena_zavření)
         
         zavření_býci = self.býci.zavřu_vše(čas_zavření = čas_zavření,  cena_zavření = cena_zavření.prodej,  *filtry)
         zavření_medvědi = self.medvědi.zavřu_vše(čas_zavření = čas_zavření,  cena_zavření = cena_zavření.nákup,  *filtry)
@@ -398,7 +399,7 @@ class Celkové_obchodní_postavení(object):
 
             self.__swapovací_den = vcilkajsi_den.day
             
-    def profit(self,  při_ceně):
+    def zisk(self,  při_ceně):
         profit_býků = self.býci.profit(při_ceně)
         profit_medvědů = self.medvědi.profit(při_ceně)
         return (profit_býků + profit_medvědů) * self.info['TICKVALUE'] 
@@ -439,10 +440,13 @@ class Talasnica(object):
 #       proto si ten profit spočtu a uložím při započetí průchoud
         self.profit_při_otevření = None
         
+#        statistické informace
         self.počáteční_čas = None
         self.konečný_čas = None
-        self.samoj_bolšoj_profit = [None,  None]
-        self.samoj_bolšoj_zisk = [None,  None]
+        self.samoj_bolšoj_otevřený_zisk = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
+        self.samaja_bolšaja_otevřená_ztráta = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
+        self.samoj_bolšoj_celkový_zisk = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
+        self.samaja_bolšaja_celková_ztráta = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
         self.samaja_bolšaja_velikost = {HORE: None,  DOLE: None}
         self.samoj_bolšoj_býk = None
         self.samoj_bolšoj_medvěd = None
@@ -474,18 +478,21 @@ class Talasnica(object):
                 
             self.konečný_čas = data['OPEN TIME']
             
-            self.profit_při_otevření = self.obchody.profit(data['OPEN'])
+            self.zisk_při_otevření = self.obchody.zisk(data['OPEN'])
             self.obchody.swapuji(data['OPEN TIME'])
             
-            self.samoj_bolšoj_profit = [max(self.samoj_bolšoj_profit[0] or 0,  self.profit_při_otevření),  min(self.samoj_bolšoj_profit[1] or 0,  self.profit_při_otevření)]
-            self.samoj_bolšoj_zisk = [max(self.samoj_bolšoj_zisk[0] or 0,  self.profit_při_otevření + self.obchody.uložený_zisk + self.obchody.swap),  min(self.samoj_bolšoj_zisk[1] or 0,  self.profit_při_otevření + self.obchody.uložený_zisk + self.obchody.swap)]
+            self.samoj_bolšoj_otevřený_zisk[OPEN] = max(self.samoj_bolšoj_otevřený_zisk[OPEN] or 0,  self.zisk_při_otevření)
+            self.samaja_bolšaja_otevřená_ztráta[OPEN] = min(self.samaja_bolšaja_otevřená_ztráta[OPEN] or 0,  self.zisk_při_otevření)
+            celkový_zisk = self.zisk_při_otevření + self.obchody.uložený_zisk + self.obchody.swap
+            self.samoj_bolšoj_celkový_zisk[OPEN] = max(self.samoj_bolšoj_celkový_zisk[OPEN] or 0,  celkový_zisk)
+            self.samaja_bolšaja_celková_ztráta[OPEN] = min(self.samaja_bolšaja_celková_ztráta[OPEN] or 0,  celkový_zisk)
             
             self.znamení_sklizně = self.__imam_znameni_ke_sklizni()
 #            assert self.znamení_sklizně == data['znamení sklizně']
             
 #            sklizeň
             if self.znamení_sklizně is True:
-                if self.profit_při_otevření  + self.obchody.swap > self.info['sklízím při zisku']:
+                if self.zisk_při_otevření  + self.obchody.swap > self.info['sklízím při zisku']:
                     self.obchody.zavřu_obchody(cena_zavření = data['OPEN'],  čas_zavření = data['OPEN TIME'])
                     self.medvědiště = None
                     self.býčiště = None
@@ -520,6 +527,14 @@ class Talasnica(object):
             velikost_postavení = self.obchody.velikost
             self.samaja_bolšaja_velikost[HORE] = max(self.samaja_bolšaja_velikost[HORE] or 0,  velikost_postavení)
             self.samaja_bolšaja_velikost[DOLE] = min(self.samaja_bolšaja_velikost[DOLE] or 0,  velikost_postavení)
+            
+            for KLÍČ_NA_CENĚ in HIGHT,  LOW,  CLOSE:
+                zisk = self.obchody.zisk(data[KLÍČ_NA_CENĚ])
+                self.samoj_bolšoj_otevřený_zisk[KLÍČ_NA_CENĚ] = max(self.samoj_bolšoj_otevřený_zisk[KLÍČ_NA_CENĚ] or 0,  zisk)
+                self.samaja_bolšaja_otevřená_ztráta[KLÍČ_NA_CENĚ] = min(self.samaja_bolšaja_otevřená_ztráta[KLÍČ_NA_CENĚ] or 0, zisk)
+                celkový_zisk = zisk + self.obchody.uložený_zisk + self.obchody.swap
+                self.samoj_bolšoj_celkový_zisk[KLÍČ_NA_CENĚ] = max(self.samoj_bolšoj_celkový_zisk[KLÍČ_NA_CENĚ] or 0,  celkový_zisk)
+                self.samaja_bolšaja_celková_ztráta[KLÍČ_NA_CENĚ] = min(self.samaja_bolšaja_celková_ztráta[KLÍČ_NA_CENĚ] or 0,  celkový_zisk)
             
             yield self
             
@@ -558,39 +573,55 @@ class Talasnica(object):
         # přesměrování
         sys.stdout = output_buffer
         
-        print("TALASNICA")
+        ODDELOVAC = '='*40
         
+        print("*********")
+        print("TALASNICA")
+        print("*********")
+        print('závěrečná zpráva')
+        print()
         print('symbol {}'.format(self.info['SYMBOL']))
-        print('svíčky {} - {}'.format(self.počet_svíček,  self.data['BAR']))
+        print('svíčky od {} do {}'.format(self.počet_svíček,  self.data['BAR']))
         print('graf {}'.format(JMÉNO_GRAFU[self.info['časový rámec']]))
         
         print('započato {}'.format(self.počáteční_čas))
         print('ukončeno {}'.format(self.konečný_čas))
         print('doba {}'.format(self.konečný_čas.datum - self.počáteční_čas.datum))
-        
-        print('-'*20)
-        
+        print()
+        print(ODDELOVAC)
+        print()
         print('největší býk {:,.2f}'.format(self.samoj_bolšoj_býk).replace(",", " ").replace(".", ","))
         print('největší medvěd {:,.2f}'.format(self.samoj_bolšoj_medvěd).replace(",", " ").replace(".", ","))
         
         print('největší pozice {:,.2f} a {:,.2f}'.format(self.samaja_bolšaja_velikost[HORE],  self.samaja_bolšaja_velikost[DOLE]).replace(",", " ").replace(".", ","))
-        
-        print('-'*20)
-        
-        print('otevřený zisk {1:,.2f} {0} a {2:,.2f} {0}'.format(self.info['měna účtu'],  *self.samoj_bolšoj_profit).replace(",", " ").replace(".", ","))
-        print('celkový zisk {1:,.2f} {0} a {2:,.2f} {0}'.format(self.info['měna účtu'],  *self.samoj_bolšoj_zisk).replace(",", " ").replace(".", ","))
+        print()
+        print(ODDELOVAC)
+        print()
+        for klíč,  popis in ((OPEN,  PROFIT_OPEN),  (HIGHT,  PROFIT_HORE),  (LOW,  PROFIT_DOLE),  (CLOSE,  PROFIT_CLOSE)):
+            print(popis)
+            print('-'*40)
+            print('{1:,.2f}{0:4} | {2:,.2f}{0:4}'.format(self.info['měna účtu'],  self.samoj_bolšoj_otevřený_zisk[klíč],  self.samaja_bolšaja_otevřená_ztráta[klíč]).replace(",", " ").replace(".", ","))
+            print('{1:,.2f}{0:4} | {2:,.2f}{0:4}'.format(self.info['měna účtu'],  self.samoj_bolšoj_celkový_zisk[klíč],  self.samaja_bolšaja_celková_ztráta[klíč]).replace(",", " ").replace(".", ","))
+            print('-'*40)
+            print()
 
-        print('-'*20)
+        print()
+        print(ODDELOVAC)
+        print()
         
+        print("na poslední svíci")
+        print("cena open",  self.data[OPEN])
+        print()
         uložený_zisk = self.obchody.uložený_zisk
         swap = self.obchody.swap
-        profit_při_otevření = self.profit_při_otevření
+        zisk_při_otevření = self.zisk_při_otevření
         print('{:<25}{:>18,.2f}'.format('uložený zisk ',  uložený_zisk).replace(",", " ").replace(".", ","))
         print('{:<25}{:>18,.2f}'.format('+ swap',  swap).replace(",", " ").replace(".", ","))
+        print('-'*40)
         print('{:>25}{:>18,.2f}'.format('= ',  uložený_zisk + swap).replace(",", " ").replace(".", ","))
-        print('{:<25}{:>18,.2f}'.format('+ otevřené pozice ', profit_při_otevření).replace(",", " ").replace(".", ","))
-        print('{:>25}{:>18,.2f}'.format('= ',  uložený_zisk + swap + profit_při_otevření).replace(",", " ").replace(".", ","))
-        
+        print('{:<25}{:>18,.2f}'.format('+ otevřené pozice ', zisk_při_otevření).replace(",", " ").replace(".", ","))
+        print('-'*40)
+        print('{:>25}{:>18,.2f}'.format('= ',  uložený_zisk + swap + zisk_při_otevření).replace(",", " ").replace(".", ","))
         
         # obnovíme standartní výstup
         sys.stdout = stdout

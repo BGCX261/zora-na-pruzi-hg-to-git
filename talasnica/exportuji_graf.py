@@ -51,9 +51,9 @@ class Exportuji_svíčku(object):
                 int(talasnica.znamení_setby),
                 int(talasnica.znamení_sklizně),
                 talasnica.profit_při_otevření,
-                talasnica.obchody.profit(talasnica.data[HIGHT]),
-                talasnica.obchody.profit(talasnica.data[LOW]),
-                talasnica.obchody.profit(talasnica.data[CLOSE]),
+                talasnica.obchody.zisk(talasnica.data[HIGHT]),
+                talasnica.obchody.zisk(talasnica.data[LOW]),
+                talasnica.obchody.zisk(talasnica.data[CLOSE]),
                 talasnica.obchody.uložený_zisk,
                 talasnica.obchody.swap
                        )
@@ -255,47 +255,33 @@ if __name__ == '__main__':
 #   a pak mu nastavím jaké příkazy a parametry má přijímat
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
 
-    parser.add_argument('--zdrojový_soubor',  '-z')
-    parser.add_argument('--graf',  '-g',  action='store_true')
-    parser.add_argument('--tabulka',  '-t',  action='store_true')
+    parser.add_argument('zdrojový_adresář')
+#    parser.add_argument('--graf',  '-g',  action='store_true')
+#    parser.add_argument('--tabulka',  '-t',  action='store_true')
 
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
 
-    print(args)
+#    print(args)
 
-    zdrojové_csv = args.zdrojový_soubor
+    
+    zdrojový_adresář = args.zdrojový_adresář
+#    zdrojové_csv = args.zdrojový_soubor
 #    csv_soubor = args.soubor
 
-    if zdrojové_csv is None:
-        print('Není zadán zdrojový soubor')
-#        from talasnica.testuji_talasnicu import csv_soubor as zdrojové_csv
-        zdrojové_csv  = 'experts/files/talasnica/export/data/EURJPY._60_2013-04-26-21-59-59.csv'
-        print('\t načtu {}'.format(zdrojové_csv))
+    if zdrojový_adresář is None:
+        print('Není zadán zdrojový adresář')
     else:
-        print('Načtu {}'.format(zdrojové_csv))
+        print('Načtu data z adresáře {}'.format(zdrojový_adresář))
 
-    symbol = 'EURJPY.'
-    perioda = 60
+        symbol = 'EURJPY.'
+        perioda = 60
 
-    parametry = {'sklízím při zisku': 1000,
-                        'odstup':200,
-                        'rozestup': 200,
-                        'sázím loty': 0.1
-                 }
+        parametry = {'sklízím při zisku': 1000,
+                            'odstup':200,
+                            'rozestup': 200,
+                            'sázím loty': 0.1
+                     }
 
-    talasnica = exportuji_talasnicu(zdrojové_csv,  parametry)
-    print(talasnica)
-
-#    if args.tabulka is True:
-#        csv_soubor = 'tabulka_{}_{}.csv'.format(symbol,  perioda)
-#        print('Exportuji tabulku do {}'.format(csv_soubor))
-#        exporter = Exportuji_vše(csv_soubor,  zdrojové_csv,  parametry)
-#        exporter()
-#
-#    if args.graf is True:
-#        csv_soubor = 'graf_{}_{}.csv'.format(symbol,  perioda)
-#        print('Exportuji graf do *{}'.format(csv_soubor))
-#        exporter = Exportuji_graf(csv_soubor,  zdrojové_csv,  parametry)
-#        talasnica = exporter()
-#        print(talasnica)
+        talasnica = exportuji_talasnicu(zdrojový_adresář,  parametry)
+        print(talasnica)
