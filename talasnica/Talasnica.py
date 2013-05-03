@@ -544,17 +544,15 @@ class Talasnica(object):
         
     def __da_li_třeba_zaset(self):
 
-        if self.data['OPEN TIME'].datum < datetime.datetime(
-                                                        year = 2010,
-                                                        month = 4,
-                                                        day = 9,
-                                                        hour=10,
-                                                        minute=0,
-                                                        tzinfo = pytz.UTC
-                                                        ):
-#            print(self.data['OPEN TIME'])
-            #print('neseju bo není správný čas')
-            return False
+#        if self.data['OPEN TIME'].datum < datetime.datetime(
+#                                                        year = 2010,
+#                                                        month = 4,
+#                                                        day = 9,
+#                                                        hour=10,
+#                                                        minute=0,
+#                                                        tzinfo = pytz.UTC
+#                                                        ):
+#            return False
 
         if self.medvědiště is None and self.býčiště is None:
             #print('seju bo {} + {} == 0'.format(self.čekaná[BUY],  self.čekaná[SELL]))

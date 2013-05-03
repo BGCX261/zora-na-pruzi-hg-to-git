@@ -256,13 +256,13 @@ if __name__ == '__main__':
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
 
     parser.add_argument('zdrojový_adresář')
-#    parser.add_argument('--graf',  '-g',  action='store_true')
-#    parser.add_argument('--tabulka',  '-t',  action='store_true')
+    parser.add_argument('--odstup',  '-o',  type=int)
+    parser.add_argument('--rozestup',  '-r',  type=int)
 
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
 
-#    print(args)
+    print(args)
 
     
     zdrojový_adresář = args.zdrojový_adresář
@@ -274,12 +274,10 @@ if __name__ == '__main__':
     else:
         print('Načtu data z adresáře {}'.format(zdrojový_adresář))
 
-        symbol = 'EURJPY.'
-        perioda = 60
 
         parametry = {'sklízím při zisku': 1000,
-                            'odstup':200,
-                            'rozestup': 200,
+                            'odstup':args.odstup or 200,
+                            'rozestup': args.rozestup or 200,
                             'sázím loty': 0.1
                      }
 
