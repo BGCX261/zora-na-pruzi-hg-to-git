@@ -9,11 +9,16 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
-import datetime,  pytz
-UNIX_EPOCH = datetime.datetime(1970, 1, 1, 0, 0, tzinfo = pytz.utc)
+
+#import datetime,  pytz
+#UNIX_EPOCH = datetime.datetime(1970, 1, 1, 0, 0, tzinfo = pytz.utc)
+
+PŘESNOST_CENY = 2
+PŘESNOST_LOTU = 2
 
 BUY = 'nákup'
 SELL = 'prodej'
+
 PROFIT_OPEN = 'profit při otevření'
 PROFIT_HORE = 'profit hore'
 PROFIT_DOLE = 'profit dole'
@@ -21,11 +26,19 @@ PROFIT_CLOSE = 'profit při zavření'
 SWAP = 'celkový swap'
 ULOŽENÝ_ZISK = 'celkové uložené zisky'
 
+BAR = 'BAR'
+
 OPEN_TIME = 'OPEN TIME'
 OPEN = 'OPEN'
 HIGHT = 'HIGHT'
 LOW = 'LOW'
 CLOSE = 'CLOSE'
+
+BB_MAIN = 'bb hlavní'
+BB_HORE = 'bb hore'
+BB_DOLE = 'bb dole'
+
+PSAR = 'psar'
 
 HORE = 'býk'
 DOLE = 'medvěd'

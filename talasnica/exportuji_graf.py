@@ -6,8 +6,7 @@
 Hen je program, který ...
 '''
 
-__version__ = '0.0.1'
-__author__ = 'Петр Болф <petr.bolf@domogled.eu>'
+from konstanty import __version__
 
 import os
 import time
@@ -50,7 +49,7 @@ class Exportuji_svíčku(object):
                 talasnica.obchody.velikost,  talasnica.obchody.cena,
                 int(talasnica.znamení_setby),
                 int(talasnica.znamení_sklizně),
-                talasnica.profit_při_otevření,
+                talasnica.zisk_při_otevření,
                 talasnica.obchody.zisk(talasnica.data[HIGHT]),
                 talasnica.obchody.zisk(talasnica.data[LOW]),
                 talasnica.obchody.zisk(talasnica.data[CLOSE]),

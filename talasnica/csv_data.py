@@ -12,6 +12,7 @@ import datetime,  pytz
 import locale
 locale.setlocale(locale.LC_ALL, '')
 
+from .konstanty import *
 
 def na_číslo(hodnota):
     if hodnota is None:
@@ -62,9 +63,11 @@ class Datum(object):
     
 
 class CSV_DATA(dict):
-    def __init__(self,  hlavička = '',  řádek_dat = ''):
+    def __init__(self,  hlavička = '',  řádek_dat = '',  mapa_tříd = None):
         self._klíče = hlavička.strip().split(';')
         self._hodnoty = řádek_dat.strip().split(';')
+        
+        self.mapa_tříd = mapa_tříd
 
     def __missing__(self,  klíč):
         index = self._klíče.index(klíč)
@@ -77,6 +80,11 @@ class CSV_DATA(dict):
 
         for funkce in self._převody.get(klíč,  []):
             hodnota = funkce(hodnota)
+            
+        if self.mapa_tříd is not None:
+            Třída = self.mapa_tříd.get(klíč,  None)
+            if Třída is not None:
+                hodnota = Třída(hodnota)
 
         self[klíč] = hodnota
         return self[klíč]
@@ -98,30 +106,34 @@ class CSV_DATA(dict):
 class SVÍCA(CSV_DATA):
 
     _převody = {
-                 'BAR': (int, ),
-                 'OPEN TIME': (int,  Datum),
-                 'OPEN': ( float, ),
-                'HIGHT': ( float, ),
-                'LOW': ( float, ),
-                'CLOSE': ( float, ),
-                'da li seju': (na_číslo,  bool, ),
-                'znamení sklizně': (na_číslo,  bool, ),
-                'medvědí ohrada': ( float, ),
-                'býčí ohrada': ( float, ),
-                'hranice medvěda': ( float, ),
-                'hranice býka': ( float, ),
-                'velikost býků': ( float, ),
-                'velikost medvědů': ( float, ),
-                'cena býků': ( float, ),
-                'cena medvědů': ( float, ),
-                'býčí čekaná': ( float, ),
-                'medvědí čekaná': ( float, ),
-                'profit při otevření':( float, ),
-                'profit hore':( float, ),
-                'profit dole':( float, ),
-                'profit při zavření':( float, ),
-                'celkový swap':( float, ),
-                'celkové uložené zisky':( float, ),
+                BAR: (int, ),
+                 OPEN_TIME: (int,  Datum),
+                 OPEN: ( float, ),
+                HIGHT: ( float, ),
+                LOW: ( float, ),
+                CLOSE: ( float, ),
+                BB_MAIN: ( float, ),
+                BB_HORE: ( float, ),
+                BB_DOLE: ( float, ),
+                PSAR: ( float, ),
+#                'da li seju': (na_číslo,  bool, ),
+#                'znamení sklizně': (na_číslo,  bool, ),
+#                'medvědí ohrada': ( float, ),
+#                'býčí ohrada': ( float, ),
+#                'hranice medvěda': ( float, ),
+#                'hranice býka': ( float, ),
+#                'velikost býků': ( float, ),
+#                'velikost medvědů': ( float, ),
+#                'cena býků': ( float, ),
+#                'cena medvědů': ( float, ),
+#                'býčí čekaná': ( float, ),
+#                'medvědí čekaná': ( float, ),
+#                'profit při otevření':( float, ),
+#                'profit hore':( float, ),
+#                'profit dole':( float, ),
+#                'profit při zavření':( float, ),
+#                'celkový swap':( float, ),
+#                'celkové uložené zisky':( float, ),
 
                  }
                  
@@ -157,7 +169,7 @@ def info_z_csv(csv_zdrojový_adresář):
         info = čtu_soubor.readline()
         return INFO(hlavička,  info)
 
-def data_z_csv(csv_zdrojový_adresář):
+def data_z_csv(csv_zdrojový_adresář,  mapa_tříd = None):
     csv_soubor = os.path.join(csv_zdrojový_adresář,  'mt_data.csv')
 #        print('IMPORTUJI {}'.format(self._csv_soubor))
 
@@ -166,7 +178,7 @@ def data_z_csv(csv_zdrojový_adresář):
         hlavička = čtu_soubor.readline()
 
         for řádek in čtu_soubor:
-            yield SVÍCA(hlavička,  řádek)
+            yield SVÍCA(hlavička,  řádek,  mapa_tříd = mapa_tříd)
                 
 #
 #def zjistím_cestu_k_info_csv(cesta_k_csv_datům):
