@@ -19,6 +19,7 @@ from talasnica.konstanty import (
                                  PROFIT_OPEN,  PROFIT_HORE,  PROFIT_DOLE,  PROFIT_CLOSE, 
                                  PŘESNOST_CENY, 
                                  PŘESNOST_LOTU, 
+                                 PŘESNOST_PŘEPOČTU_PROFITU, 
                                  BB_MAIN,  BB_HORE,  BB_DOLE,  PSAR
                                  )
 
@@ -46,6 +47,16 @@ class generátor_býků(__generátor_obchodů):
             
     def __lt__(self,  k_ceně):
         return self.čekaná > 0 and self.čekaná < k_ceně.nákup
+        
+    def přitáhni_k_ceně(self,  k_ceně):
+        print("přitáhnu býčí start", self.start,  "ku",  k_ceně.nákup)
+        if k_ceně.nákup < self.start:
+            while self.start > k_ceně.nákup:
+                self.start = self.start - self.rozestup
+                print(self.start)
+            self.start = self.start + self.rozestup
+            print("přitaženo na",  self.start)
+            self.čekaná = self.start
             
 class generátor_medvědů(__generátor_obchodů):
     směrem = DOLE
@@ -62,6 +73,16 @@ class generátor_medvědů(__generátor_obchodů):
             
     def __lt__(self,  k_ceně):
         return self.čekaná > k_ceně.prodej
+        
+    def přitáhni_k_ceně(self,  k_ceně):
+        print("přitáhnu medvědí start", self.start,  "ku",  k_ceně.prodej)
+        if k_ceně.prodej > self.start:
+            while self.start < k_ceně.nákup:
+                self.start = self.start + self.rozestup
+                print(self.start)
+            self.start = self.start - self.rozestup
+            print("přitaženo na",  self.start)
+            self.čekaná = self.start
 
     
 def davaj_cenu(spred,  přesnost,  point):
@@ -135,6 +156,8 @@ class Obchod(object):
             raise TypeError('Cena je {}'.format(type(cena_zavření)))
         self.cena_zavření = cena_zavření
         self.čas_zavření = čas_zavření
+        
+        print("zavřel jsem ",  self.tiket,  " ",  čas_zavření,  cena_zavření,  " profit ",  self.profit(cena_zavření))
             
 #    def __call__(self):
 #        return 
@@ -156,7 +179,7 @@ class Obchod(object):
                 čitatel = self.velikost * self.cena_otevření + další_obchod.velikost * další_obchod.cena_otevření
                 jmenovatel = self.velikost + další_obchod.velikost
                 cena = čitatel / jmenovatel
-                self.velikost = round(jmenovatel,  2)
+                self.velikost = PŘESNOST_LOTU(jmenovatel)
                 self.cena_otevření = int(cena)
                 return self
                 
@@ -186,7 +209,7 @@ class Býk(Obchod):
         if self.cena_otevření > 0:
             if not isinstance(od_ceny,  (int,  float)):
                 od_ceny = od_ceny.prodej
-            return (od_ceny - self.cena_otevření) * self.velikost
+            return PŘESNOST_PŘEPOČTU_PROFITU((od_ceny - self.cena_otevření) * self.velikost)
             
         return 0
         
@@ -198,7 +221,7 @@ class Medvěd(Obchod):
         if self.cena_otevření > 0:
             if not isinstance(od_ceny,  (int,  float)):
                 od_ceny = od_ceny.nákup
-            return (self.cena_otevření - od_ceny) * self.velikost
+            return PŘESNOST_PŘEPOČTU_PROFITU((self.cena_otevření - od_ceny) * self.velikost)
             
         return 0
         
@@ -228,7 +251,7 @@ class Seznam_obchodů(object):
 #            čitatel = self.velikost * self.cena + velikost * cena
 #            jmenovatel = self.velikost + velikost
 #            cena = čitatel / jmenovatel
-#            self.velikost = round(jmenovatel,  2)
+#            self.velikost = PŘESNOST_LOTU(jmenovatel)
 #            self.cena = int(cena)
       
     def swapuji(self,  swap_za_lot):
@@ -237,8 +260,8 @@ class Seznam_obchodů(object):
             
             if obchod.otevřeno is True:
                 swap = swap_za_lot * obchod.velikost
-                obchod.swap = round(obchod.swap + swap,  2)
-                self._swap = round(self._swap + swap,  2)
+                obchod.swap = PŘESNOST_CENY(obchod.swap + swap)
+                self._swap = PŘESNOST_CENY(self._swap + swap)
       
     @property
     def cena(self):
@@ -299,7 +322,7 @@ class Seznam_obchodů(object):
 #            
 #        if jmenovatel > 0:
 #            cena = čitatel / jmenovatel
-#            self.velikost = round(jmenovatel,  2)
+#            self.velikost = PŘESNOST_CENY(jmenovatel)
 #            self.cena = int(cena)
         
         return smazané_obchody
@@ -393,12 +416,12 @@ class Celkové_obchodní_postavení(object):
                 if profit < self.info['rozestup'] * obchod.velikost:
                     break
                 
-                velikost_profitujících = velikost_profitujících + obchod.velikost
+                velikost_profitujících = PŘESNOST_LOTU(velikost_profitujících + obchod.velikost)
                 
                 if not velikost_profitujících < abs_velikosti:
                     break
                     
-                profit_profitujících = profit_profitujících + profit
+                profit_profitujících = PŘESNOST_CENY(profit_profitujících + profit)
                 k_zavření.append(obchod.tiket)
                
             přetlačeno = profit_profitujících
@@ -406,7 +429,7 @@ class Celkové_obchodní_postavení(object):
             for cena_brzdící in  brzdící_ceny:
                 obchod = brzdící.obchody[cena_brzdící]
                 profit = obchod.profit(cena_zavření)
-                přetlačeno = přetlačeno + profit
+                přetlačeno = PŘESNOST_CENY(přetlačeno + profit)
                 if not přetlačeno > self.info['rozestup'] * obchod.velikost:
                     break
                     
@@ -422,13 +445,14 @@ class Celkové_obchodní_postavení(object):
                     return False
                 
                 self.zavřu_obchody(čas_zavření = čas_zavření,  cena_zavření = cena_zavření,   filtr = filtr)
+                print("umenšeno jest")
                 return True
                 
         return False
 
     @property
     def velikost(self):
-        return round(self.býci.velikost - self.medvědi.velikost, PŘESNOST_LOTU)
+        return PŘESNOST_CENY(self.býci.velikost - self.medvědi.velikost)
         
     @property
     def cena(self):
@@ -460,7 +484,7 @@ class Celkové_obchodní_postavení(object):
     def zisk(self,  při_ceně):
         profit_býků = self.býci.profit(při_ceně)
         profit_medvědů = self.medvědi.profit(při_ceně)
-        return round((profit_býků + profit_medvědů) * self.info['TICKVALUE'] ,  PŘESNOST_CENY)
+        return PŘESNOST_CENY((profit_býků + profit_medvědů) * self.info['TICKVALUE'] )
        
     @property
     def uložený_zisk(self):
@@ -468,7 +492,7 @@ class Celkové_obchodní_postavení(object):
         for obchod in self.uzavřené:
             zisk = zisk + obchod.profit(obchod.cena_zavření)
             
-        return round(zisk * self.info['TICKVALUE'] ,  PŘESNOST_CENY)
+        return PŘESNOST_CENY(zisk * self.info['TICKVALUE'] )
 
 class Talasnica(object):
     
@@ -526,7 +550,7 @@ class Talasnica(object):
         self.počítadlo_znamení_vstupů = 0
         
     
-    def __iter__(self):
+    def __iter__(self,  AOSy = []):
         
         for data in data_z_csv(self.zdrojové_csv,  self.mapa_tříd):
             
@@ -535,6 +559,11 @@ class Talasnica(object):
                 continue
                 
             self.data = data
+            
+#            for aos in AOSy:
+#                funkce_události = aos.get('pří_otevření_svíčky',  None)
+#                if callable(funkce_události):
+#                    funkce_události(self)
                 
 #            print(data[OPEN])
                 
@@ -569,9 +598,9 @@ class Talasnica(object):
                     self.býčiště = None
                 else:
                     umenšeno =  self.obchody.umenším_pozice(čas_zavření = data[OPEN_TIME],  cena_zavření = data[OPEN])
-#                    if umenšeno:
-#                        self.medvědiště = None
-#                        self.býčiště = None
+                    if umenšeno:
+                        self.medvědiště.přitáhni_k_ceně(data[OPEN])
+                        self.býčiště.přitáhni_k_ceně(data[OPEN])
                     
             
             
@@ -592,7 +621,8 @@ class Talasnica(object):
                     for nová_cena in čekaná(k_ceně):
                         #                    GAP
                         if čekaná < data[OPEN]:
-                            self.obchody.zruším_obchod_gapem(směrem = čekaná.směrem,  čas = data[OPEN_TIME],  cena = nová_cena,  velikost = self.info['sázím loty'])
+                            if not čekaná < self.předchozí_data[CLOSE]:
+                                self.obchody.zruším_obchod_gapem(směrem = čekaná.směrem,  čas = data[OPEN_TIME],  cena = nová_cena,  velikost = self.info['sázím loty'])
                         else:
                             self.obchody.otevřu_nový_obchod(směrem = čekaná.směrem,  cena = nová_cena,  velikost = self.info['sázím loty'],  čas = data[OPEN_TIME])
 #                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
@@ -710,6 +740,8 @@ class Talasnica(object):
         
         print("na poslední svíci")
         print("cena open",  self.data[OPEN])
+        print()
+        print('velikost hore {:,.2f} dole {:,.2f} celkem {:,.2f}'.format(self.obchody.býci.velikost,  self.obchody.medvědi.velikost,  self.obchody.velikost).replace(",", " ").replace(".", ","))
         print()
         uložený_zisk = self.obchody.uložený_zisk
         swap = self.obchody.swap
