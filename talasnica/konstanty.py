@@ -16,15 +16,6 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 #PŘESNOST_CENY = 2
 #PŘESNOST_LOTU = 2
 
-def PŘESNOST_CENY(cena):
-    return round(cena,  2)
-    
-def PŘESNOST_LOTU(velikost):
-    return round(velikost,  2)
-    
-def PŘESNOST_PŘEPOČTU_PROFITU(velikost):
-    return round(velikost,  4)
-
 BUY = 'nákup'
 SELL = 'prodej'
 

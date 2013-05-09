@@ -49,7 +49,7 @@ class Exportuji_svíčku(object):
                 talasnica.obchody.velikost,  talasnica.obchody.cena,
                 int(talasnica.znamení_setby),
                 int(talasnica.znamení_sklizně),
-                talasnica.zisk_při_otevření,
+                talasnica.statistika.zisk_při_otevření,
                 talasnica.obchody.zisk(talasnica.data[HIGHT]),
                 talasnica.obchody.zisk(talasnica.data[LOW]),
                 talasnica.obchody.zisk(talasnica.data[CLOSE]),

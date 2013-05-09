@@ -17,11 +17,16 @@ from talasnica.konstanty import (
                                  HORE,  DOLE, 
                                  JMÉNO_GRAFU, 
                                  PROFIT_OPEN,  PROFIT_HORE,  PROFIT_DOLE,  PROFIT_CLOSE, 
-                                 PŘESNOST_CENY, 
-                                 PŘESNOST_LOTU, 
-                                 PŘESNOST_PŘEPOČTU_PROFITU, 
                                  BB_MAIN,  BB_HORE,  BB_DOLE,  PSAR
                                  )
+from talasnica.funkce import ( 
+                                PŘESNOST_CENY, 
+                                 PŘESNOST_LOTU, 
+                                 PŘESNOST_PŘEPOČTU_PROFITU, 
+                                 max_nákupu,  min_prodeje
+                                 )
+
+from talasnica.AOS.Statistika import Statistika
 
 
 class __generátor_obchodů(object):
@@ -49,13 +54,13 @@ class generátor_býků(__generátor_obchodů):
         return self.čekaná > 0 and self.čekaná < k_ceně.nákup
         
     def přitáhni_k_ceně(self,  k_ceně):
-        print("přitáhnu býčí start", self.start,  "ku",  k_ceně.nákup)
+#        print("přitáhnu býčí start", self.start,  "ku",  k_ceně.nákup)
         if k_ceně.nákup < self.start:
             while self.start > k_ceně.nákup:
                 self.start = self.start - self.rozestup
-                print(self.start)
+#                print(self.start)
             self.start = self.start + self.rozestup
-            print("přitaženo na",  self.start)
+#            print("přitaženo na",  self.start)
             self.čekaná = self.start
             
 class generátor_medvědů(__generátor_obchodů):
@@ -75,26 +80,29 @@ class generátor_medvědů(__generátor_obchodů):
         return self.čekaná > k_ceně.prodej
         
     def přitáhni_k_ceně(self,  k_ceně):
-        print("přitáhnu medvědí start", self.start,  "ku",  k_ceně.prodej)
+#        print("přitáhnu medvědí start", self.start,  "ku",  k_ceně.prodej)
         if k_ceně.prodej > self.start:
             while self.start < k_ceně.nákup:
                 self.start = self.start + self.rozestup
-                print(self.start)
+#                print(self.start)
             self.start = self.start - self.rozestup
-            print("přitaženo na",  self.start)
+#            print("přitaženo na",  self.start)
             self.čekaná = self.start
 
-    
+
+def davaj_cenu_na_int(spred,  přesnost,  point):
+    Třída_ceny = davaj_cenu(spred,  přesnost,  point)
+    def cena_na_int(cena):
+        cena = int(cena * 10 ** přesnost)
+        return Třída_ceny(prodej = cena)
+        
+    return cena_na_int
+
 def davaj_cenu(spred,  přesnost,  point):
 
     class Cena(object):
         
-        def __init__(self,  prodej,  nákup = None,  cena_už_je_int = None):
-            
-            if cena_už_je_int is None:
-                prodej = int(prodej * 10 ** přesnost)
-                if nákup is not None:
-                    nákup = int(nákup * 10 ** přesnost)
+        def __init__(self,  prodej,  nákup = None):
             
             if nákup is None:
                 self.nákup = prodej + spred
@@ -112,17 +120,13 @@ def davaj_cenu(spred,  přesnost,  point):
             
         def __add__(self,  posun_ceny):
             if isinstance(posun_ceny,  int):
-                self.prodej = self.prodej + posun_ceny
-                self.nákup = self.nákup + posun_ceny
-                return self
+                return Cena(nákup = self.nákup + posun_ceny,  prodej = self.prodej + posun_ceny)
                 
                 raise TypeError('TypeError: nepodporuji operátor sčítání {} + {}'.format(type(self),  type(posun_ceny)))
                 
         def __sub__(self,  posun_ceny):
             if isinstance(posun_ceny,  int):
-                self.prodej = self.prodej - posun_ceny
-                self.nákup = self.nákup - posun_ceny
-                return self
+                return Cena(nákup = self.nákup - posun_ceny,  prodej = self.prodej - posun_ceny)
                 
                 raise TypeError('TypeError: nepodporuji operátor sčítání {} + {}'.format(type(self),  type(posun_ceny)))
                 
@@ -496,20 +500,18 @@ class Celkové_obchodní_postavení(object):
 
 class Talasnica(object):
     
-    obchody = {}
-#    maximum = None
-#    minimum = None
-#    ohrada = None
+    __slots__ = ('zdrojové_csv',  'info',  'mapa_tříd',  'obchody',  'data',  'předchozí_data',  'býčiště',  'medvědiště',  'znamení_setby',  'znamení_sklizně',  'statistika')
+
     
     def __init__(self,  zdrojové_csv,  parametry = None):
         
         self.zdrojové_csv = zdrojové_csv
         self.info = info_z_csv(zdrojové_csv)
         
-        Třída_ceny = davaj_cenu(spred = self.info['SPRED'],  přesnost = self.info['DIGITS'],  point = self.info['POINT'])
+        dám_cenu_na_int = davaj_cenu_na_int(spred = self.info['SPRED'],  přesnost = self.info['DIGITS'],  point = self.info['POINT'])
         self.mapa_tříd = {}
         for klíč in OPEN,  HIGHT,  LOW,  CLOSE,  BB_MAIN,  BB_HORE,  BB_DOLE,  PSAR:
-            self.mapa_tříd[klíč] = Třída_ceny
+            self.mapa_tříd[klíč] = dám_cenu_na_int
       
         
         self.obchody = Celkové_obchodní_postavení(info = self.info)
@@ -530,27 +532,12 @@ class Talasnica(object):
         self.znamení_setby = None
         self.znamení_sklizně = None
         
-#         při otevření svíce potřebuji profit pouze z obchodů, které byly otevřeny nejpopzději na předchozí svíci
-#          při exportu s evšak k takové hodnotě nemohu dostat, neboť získávám až data s nově otevřenými obchody
-#       proto si ten profit spočtu a uložím při započetí průchoud
-        self.profit_při_otevření = None
-        
-#        statistické informace
-        self.počáteční_čas = None
-        self.konečný_čas = None
-        self.samoj_bolšoj_otevřený_zisk = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
-        self.samaja_bolšaja_otevřená_ztráta = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
-        self.samoj_bolšoj_celkový_zisk = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
-        self.samaja_bolšaja_celková_ztráta = {OPEN: None,  HIGHT: None,  LOW: None,  CLOSE: None}
-        self.samaja_bolšaja_velikost = {HORE: None,  DOLE: None}
-        self.samoj_bolšoj_býk = None
-        self.samoj_bolšoj_medvěd = None
-        self.počet_svíček = None
-        
-        self.počítadlo_znamení_vstupů = 0
+        self.statistika = Statistika(talasnica = self)
         
     
     def __iter__(self,  AOSy = []):
+        
+        první_svíčka = True
         
         for data in data_z_csv(self.zdrojové_csv,  self.mapa_tříd):
             
@@ -578,29 +565,22 @@ class Talasnica(object):
 #            print('-' * 44)
 #            print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
 
-            if self.počáteční_čas is None:
-                self.počáteční_čas = data[OPEN_TIME]
+
+            if první_svíčka is True:
+                self.statistika.na_první_svíčce()
+                první_svíčka = False
                 
-            if self.počet_svíček is None:
-                self.počet_svíček = data[BAR]
                 
-            self.konečný_čas = data[OPEN_TIME]
-            
-            self.zisk_při_otevření = self.obchody.zisk(data[OPEN])
             self.obchody.swapuji(data[OPEN_TIME])
-            
-            self.samoj_bolšoj_otevřený_zisk[OPEN] = max(self.samoj_bolšoj_otevřený_zisk[OPEN] or 0,  self.zisk_při_otevření)
-            self.samaja_bolšaja_otevřená_ztráta[OPEN] = min(self.samaja_bolšaja_otevřená_ztráta[OPEN] or 0,  self.zisk_při_otevření)
-            celkový_zisk = self.zisk_při_otevření + self.obchody.uložený_zisk + self.obchody.swap
-            self.samoj_bolšoj_celkový_zisk[OPEN] = max(self.samoj_bolšoj_celkový_zisk[OPEN] or 0,  celkový_zisk)
-            self.samaja_bolšaja_celková_ztráta[OPEN] = min(self.samaja_bolšaja_celková_ztráta[OPEN] or 0,  celkový_zisk)
+                
+            self.statistika.pří_otevření_svíčky()
+            zisk_při_otevření = self.statistika.zisk_při_otevření
             
             self.znamení_sklizně = self.__imam_znameni_ke_sklizni()
-#            assert self.znamení_sklizně == data['znamení sklizně']
             
 #            sklizeň
             if self.znamení_sklizně is True:
-                if self.zisk_při_otevření  + self.obchody.swap > self.info['sklízím při zisku']:
+                if zisk_při_otevření  + self.obchody.swap > self.info['sklízím při zisku']:
                     self.obchody.zavřu_obchody(čas_zavření = data[OPEN_TIME],  cena_zavření = data[OPEN])
 #                    self.medvědiště = None
 #                    self.býčiště = None
@@ -614,19 +594,26 @@ class Talasnica(object):
             
             self.znamení_setby = self.__da_li_třeba_zaset()
                 
-            if self.znamení_setby is True:
+#            if self.znamení_setby is True:
 #                vytáhnu z info
-                odstup = self.info['odstup']
-                rozestup = self.info['rozestup']
-                bb_hore = data[BB_HORE]
-                bb_dole = data[BB_DOLE]
-                open = data[OPEN]
-                horní_cena = max(open.nákup,  bb_hore.nákup)
-                dolní_cena = min(open.prodej,  bb_dole.prodej)
-                if self.býčiště is None:
-                    self.býčiště = generátor_býků(start = horní_cena,  odstup = odstup, rozestup = rozestup)
-                if self.medvědiště is None:
-                    self.medvědiště = generátor_medvědů(start = dolní_cena,  odstup = odstup,  rozestup = rozestup)
+            odstup = self.info['odstup']
+            rozestup = self.info['rozestup']
+            bb_hore = data[BB_HORE]
+            bb_dole = data[BB_DOLE]
+            open = data[OPEN]
+
+            if self.býčiště is None:
+                horní_cena = max_nákupu(open  + odstup,  bb_hore)
+                self.býčiště = generátor_býků(start = horní_cena,  odstup = 0, rozestup = rozestup)
+            else:
+                if open.nákup < bb_hore.nákup:
+                    self.býčiště.přitáhni_k_ceně(bb_hore)
+            if self.medvědiště is None:
+                dolní_cena = min_prodeje(open - odstup,  bb_dole)
+                self.medvědiště = generátor_medvědů(start = dolní_cena,  odstup = 0,  rozestup = rozestup)
+            else:
+                if open.prodej > bb_dole.prodej:
+                    self.medvědiště.přitáhni_k_ceně(bb_dole)
                 
                
 #            pootvírám nové obchody
@@ -643,27 +630,14 @@ class Talasnica(object):
 #                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
             
             
-            self.samoj_bolšoj_býk = max(self.samoj_bolšoj_býk or 0, self.obchody.býci.velikost )
-            self.samoj_bolšoj_medvěd = max(self.samoj_bolšoj_medvěd or 0,  self.obchody.medvědi.velikost)
-            
-            velikost_postavení = self.obchody.velikost
-            self.samaja_bolšaja_velikost[HORE] = max(self.samaja_bolšaja_velikost[HORE] or 0,  velikost_postavení)
-            self.samaja_bolšaja_velikost[DOLE] = min(self.samaja_bolšaja_velikost[DOLE] or 0,  velikost_postavení)
-            
-            for KLÍČ_NA_CENĚ in HIGHT,  LOW,  CLOSE:
-                zisk = self.obchody.zisk(data[KLÍČ_NA_CENĚ])
-                self.samoj_bolšoj_otevřený_zisk[KLÍČ_NA_CENĚ] = max(self.samoj_bolšoj_otevřený_zisk[KLÍČ_NA_CENĚ] or 0,  zisk)
-                self.samaja_bolšaja_otevřená_ztráta[KLÍČ_NA_CENĚ] = min(self.samaja_bolšaja_otevřená_ztráta[KLÍČ_NA_CENĚ] or 0, zisk)
-                celkový_zisk = zisk + self.obchody.uložený_zisk + self.obchody.swap
-                self.samoj_bolšoj_celkový_zisk[KLÍČ_NA_CENĚ] = max(self.samoj_bolšoj_celkový_zisk[KLÍČ_NA_CENĚ] or 0,  celkový_zisk)
-                self.samaja_bolšaja_celková_ztráta[KLÍČ_NA_CENĚ] = min(self.samaja_bolšaja_celková_ztráta[KLÍČ_NA_CENĚ] or 0,  celkový_zisk)
+            self.statistika.pří_zavření_svíčky()
             
             yield self
             self.předchozí_data = data
             
 
     def __imam_znameni_ke_sklizni(self):
-        self.počítadlo_znamení_vstupů = self.počítadlo_znamení_vstupů + 1
+        self.statistika.pří_znamení_ke_vstupu()
         return True
         
     def da_li_překračuji_bb(self,  bb_čára):
@@ -706,72 +680,7 @@ class Talasnica(object):
         
         
     def __str__(self):
-        import io
-        import sys
-        
-        stdout = sys.stdout
-        output_buffer = io.StringIO("")
-        # přesměrování
-        sys.stdout = output_buffer
-        
-        ODDELOVAC = '='*40
-        
-        print("*********")
-        print("TALASNICA")
-        print("*********")
-        print('závěrečná zpráva')
-        print()
-        print('symbol {}'.format(self.info['SYMBOL']))
-        print('svíčky od {} do {}'.format(self.počet_svíček,  self.data[BAR]))
-        print('graf {}'.format(JMÉNO_GRAFU[self.info['časový rámec']]))
-        
-        print('započato {}'.format(self.počáteční_čas))
-        print('ukončeno {}'.format(self.konečný_čas))
-        doba = self.konečný_čas.datum - self.počáteční_čas.datum
-        print('doba {}'.format(doba))
-        print()
-        print('počet znamení vstupů ',  self.počítadlo_znamení_vstupů)
-        print('v průměru každých ',  doba/self.počítadlo_znamení_vstupů)
-        print(ODDELOVAC)
-        print()
-        print('největší býk {:,.2f}'.format(self.samoj_bolšoj_býk).replace(",", " ").replace(".", ","))
-        print('největší medvěd {:,.2f}'.format(self.samoj_bolšoj_medvěd).replace(",", " ").replace(".", ","))
-        
-        print('největší pozice {:,.2f} a {:,.2f}'.format(self.samaja_bolšaja_velikost[HORE],  self.samaja_bolšaja_velikost[DOLE]).replace(",", " ").replace(".", ","))
-        print()
-        print(ODDELOVAC)
-        print()
-        for klíč,  popis in ((OPEN,  PROFIT_OPEN),  (HIGHT,  PROFIT_HORE),  (LOW,  PROFIT_DOLE),  (CLOSE,  PROFIT_CLOSE)):
-            print(popis)
-            print('-'*40)
-            print('{1:,.2f}{0:4} | {2:,.2f}{0:4}'.format(self.info['měna účtu'],  self.samoj_bolšoj_otevřený_zisk[klíč],  self.samaja_bolšaja_otevřená_ztráta[klíč]).replace(",", " ").replace(".", ","))
-            print('{1:,.2f}{0:4} | {2:,.2f}{0:4}'.format(self.info['měna účtu'],  self.samoj_bolšoj_celkový_zisk[klíč],  self.samaja_bolšaja_celková_ztráta[klíč]).replace(",", " ").replace(".", ","))
-            print('-'*40)
-            print()
-
-        print()
-        print(ODDELOVAC)
-        print()
-        
-        print("na poslední svíci")
-        print("cena open",  self.data[OPEN])
-        print()
-        print('velikost hore {:,.2f} dole {:,.2f} celkem {:,.2f}'.format(self.obchody.býci.velikost,  self.obchody.medvědi.velikost,  self.obchody.velikost).replace(",", " ").replace(".", ","))
-        print()
-        uložený_zisk = self.obchody.uložený_zisk
-        swap = self.obchody.swap
-        zisk_při_otevření = self.zisk_při_otevření
-        print('{:<25}{:>18,.2f}'.format('uložený zisk ',  uložený_zisk).replace(",", " ").replace(".", ","))
-        print('{:<25}{:>18,.2f}'.format('+ swap',  swap).replace(",", " ").replace(".", ","))
-        print('-'*40)
-        print('{:>25}{:>18,.2f}'.format('= ',  uložený_zisk + swap).replace(",", " ").replace(".", ","))
-        print('{:<25}{:>18,.2f}'.format('+ otevřené pozice ', zisk_při_otevření).replace(",", " ").replace(".", ","))
-        print('-'*40)
-        print('{:>25}{:>18,.2f}'.format('= ',  uložený_zisk + swap + zisk_při_otevření).replace(",", " ").replace(".", ","))
-        
-        # obnovíme standartní výstup
-        sys.stdout = stdout
-        return(output_buffer.getvalue())
+        return str(self.statistika)
 
 if __name__ == '__main__':
     import argparse
