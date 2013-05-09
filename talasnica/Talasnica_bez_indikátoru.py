@@ -555,15 +555,7 @@ class Talasnica(object):
         for data in data_z_csv(self.zdrojové_csv,  self.mapa_tříd):
             
             if data[OPEN_TIME].timestamp == 0:
-                print('Přeskakuji svíčku {} koja nemá otevírací dobu'.format(data[BAR]))
-                continue
-                
-            if data[OPEN].prodej == 0:
                 print('Přeskakuji svíčku {} koja nemá ceny'.format(data[BAR]))
-                continue
-                
-            if data[BB_MAIN].prodej == 0:
-                print('Přeskakuji svíčku {} koja nemá bb indikátor'.format(data[BAR]))
                 continue
                 
             self.data = data
@@ -602,13 +594,13 @@ class Talasnica(object):
             if self.znamení_sklizně is True:
                 if self.zisk_při_otevření  + self.obchody.swap > self.info['sklízím při zisku']:
                     self.obchody.zavřu_obchody(čas_zavření = data[OPEN_TIME],  cena_zavření = data[OPEN])
-#                    self.medvědiště = None
-#                    self.býčiště = None
+                    self.medvědiště = None
+                    self.býčiště = None
                 else:
                     umenšeno =  self.obchody.umenším_pozice(čas_zavření = data[OPEN_TIME],  cena_zavření = data[OPEN])
-#                    if umenšeno:
-#                        self.medvědiště.přitáhni_k_ceně(data[OPEN])
-#                        self.býčiště.přitáhni_k_ceně(data[OPEN])
+                    if umenšeno:
+                        self.medvědiště.přitáhni_k_ceně(data[OPEN])
+                        self.býčiště.přitáhni_k_ceně(data[OPEN])
                     
             
             
@@ -618,18 +610,11 @@ class Talasnica(object):
 #                vytáhnu z info
                 odstup = self.info['odstup']
                 rozestup = self.info['rozestup']
-                bb_hore = data[BB_HORE]
-                bb_dole = data[BB_DOLE]
-                open = data[OPEN]
-                horní_cena = max(open.nákup,  bb_hore.nákup)
-                dolní_cena = min(open.prodej,  bb_dole.prodej)
-                if self.býčiště is None:
-                    self.býčiště = generátor_býků(start = horní_cena,  odstup = odstup, rozestup = rozestup)
-                if self.medvědiště is None:
-                    self.medvědiště = generátor_medvědů(start = dolní_cena,  odstup = odstup,  rozestup = rozestup)
+#                dosadím a spočítám
+#                self.ohrada = {HORE: data[OPEN] + odstup + spred,  DOLE: data[OPEN] - odstup}
+                self.medvědiště = generátor_medvědů(start = data[OPEN],  odstup = odstup,  rozestup = rozestup)
+                self.býčiště = generátor_býků(start = data[OPEN],  odstup = odstup, rozestup = rozestup)
                 
-               
-#            pootvírám nové obchody
             for čekaná,  klíč in (self.býčiště,  HIGHT),  (self.medvědiště,  LOW):
                 if čekaná is not None:
                     k_ceně = data[klíč]
@@ -666,13 +651,12 @@ class Talasnica(object):
         self.počítadlo_znamení_vstupů = self.počítadlo_znamení_vstupů + 1
         return True
         
-    def da_li_překračuji_bb(self,  bb_čára):
         if self.předchozí_data is None:
             return False
         
-        bb_čára = self.předchozí_data[bb_čára].prodej
+        bb_main = self.předchozí_data[BB_MAIN].prodej
         
-        if bb_čára == 0:
+        if bb_main == 0:
             return False
         
         open = self.předchozí_data[OPEN].prodej
@@ -681,7 +665,8 @@ class Talasnica(object):
         hore = max(open,  close)
         dole = min(open,  close)
         
-        if bb_čára <= hore and bb_čára >= dole:
+        if bb_main <= hore and bb_main >= dole:
+            self.počítadlo_znamení_vstupů = self.počítadlo_znamení_vstupů + 1
             return True 
         return False
         
