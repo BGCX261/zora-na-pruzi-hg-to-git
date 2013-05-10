@@ -32,6 +32,8 @@ class Datum(object):
         return self.__datum
         
     def __str__(self):
+        if self.timestamp == 0:
+            return '---'
         return datetime.datetime.strftime(self.datum, "%A, %d.%B %Y, %H:%M:%S")
         
     def __eq__(self,  other):

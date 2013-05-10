@@ -160,14 +160,12 @@ class Obchod(object):
             raise TypeError('Cena je {}'.format(type(cena_zavření)))
         self.cena_zavření = cena_zavření
         self.čas_zavření = čas_zavření
-        
-        print("zavřel jsem ",  self.tiket,  " ",  čas_zavření,  cena_zavření,  " profit ",  self.profit(cena_zavření))
             
 #    def __call__(self):
 #        return 
         
     def __str__(self):
-        return "směr {} cena otevření {} velikost {} čas otevření {} čas zavření {}".format(self.směr,  self.cena_otevření,  self.velikost,  self.čas_otevření,  self.čas_zavření)
+        return "#{} směr {} cena otevření {} velikost {} čas otevření {} čas zavření {}".format(self.tiket, self.směr,  self.cena_otevření,  self.velikost,  self.čas_otevření,  self.čas_zavření)
         
     def __radd__(self,  další_obchod):
         if další_obchod is None:
@@ -251,6 +249,8 @@ class Seznam_obchodů(object):
             
 #            print(obchod)
             self.obchod = self.obchod + obchod
+            
+            print("otevřel jsem",  obchod)
                 
 #            čitatel = self.velikost * self.cena + velikost * cena
 #            jmenovatel = self.velikost + velikost
@@ -309,6 +309,7 @@ class Seznam_obchodů(object):
             obchod.zavřu(čas_zavření = čas_zavření,  cena_zavření = cena_zavření)
             smazané_obchody.append(obchod)
             smazané_klíče.append(klíč)
+            print("zavřel jsem",  obchod)
         
         for klíč in smazané_klíče:
             del self.obchody[klíč]
@@ -378,7 +379,7 @@ class Celkové_obchodní_postavení(object):
                             
         obchod = Třída(velikost = velikost,  čas_otevření = Datum(0),  cena_otevření = 0)
         obchod.zavřu(čas_zavření = čas,  cena_zavření = cena)
-
+        print("gap vyřadil",  obchod)
         self.uzavřené.append(obchod)
 
     def zavřu_obchody(self,  čas_zavření,  cena_zavření,   filtr = None):
@@ -397,7 +398,6 @@ class Celkové_obchodní_postavení(object):
         abs_velikosti = abs(self.velikost)
         profit_profitujících = 0
         velikost_profitujících = 0
-        
         
         k_zavření = []
         
@@ -441,6 +441,9 @@ class Celkové_obchodní_postavení(object):
                 přetlačímos = True
                     
             if přetlačímos:
+#                print(čas_zavření, "profit profitujících",  profit_profitujících,  ">", přetlačeno, "velikost",  velikost_profitujících, "ku",  velikost_býků, velikost_medvědů, "k zavření",  k_zavření)
+                print('-'*44)
+                print('sklízím da umenším')
                 print(čas_zavření, "profit profitujících",  profit_profitujících,  ">", přetlačeno, "velikost",  velikost_profitujících, "ku",  velikost_býků, velikost_medvědů, "k zavření",  k_zavření)
                 
                 def filtr(obchod):
@@ -449,7 +452,7 @@ class Celkové_obchodní_postavení(object):
                     return False
                 
                 self.zavřu_obchody(čas_zavření = čas_zavření,  cena_zavření = cena_zavření,   filtr = filtr)
-                print("umenšeno jest")
+#                print("umenšeno jest")
                 return True
                 
         return False
@@ -565,6 +568,10 @@ class Talasnica(object):
 #            print('-' * 44)
 #            print('BAR {} {}'.format(data['BAR'],  data['OPEN TIME']))
 
+#            print('*'*44)
+#            print(data[BAR],  data[OPEN_TIME],  data[OPEN])
+#            print('-'*44)
+
 
             if první_svíčka is True:
                 self.statistika.na_první_svíčce()
@@ -581,6 +588,8 @@ class Talasnica(object):
 #            sklizeň
             if self.znamení_sklizně is True:
                 if zisk_při_otevření  + self.obchody.swap > self.info['sklízím při zisku']:
+                    print('-'*44)
+                    print('sklízím při dosažení zisku')
                     self.obchody.zavřu_obchody(čas_zavření = data[OPEN_TIME],  cena_zavření = data[OPEN])
 #                    self.medvědiště = None
 #                    self.býčiště = None
@@ -599,15 +608,28 @@ class Talasnica(object):
             odstup = self.info['odstup']
             rozestup = self.info['rozestup']
             bb_hore = data[BB_HORE]
+            bb_main = data[BB_MAIN]
             bb_dole = data[BB_DOLE]
             open = data[OPEN]
-
+            
+#            hen vrátím startování obchodů na horní či dolní bb,  vyžaduje indikaci změnu trendu
+#                což řeším jako protnutí bb main 
+            if open.prodej < bb_main.prodej:
+                if self.býčiště is not None and self.býčiště.start < open.prodej:
+                    self.býčiště = None
+                    
+            if open.prodej > bb_main.prodej:
+                if self.medvědiště is not None and self.medvědiště.start > open.prodej:
+                    self.medvědiště = None
+                    
+#            hen vytvořím objednávky obchodů ak nejestvují
             if self.býčiště is None:
                 horní_cena = max_nákupu(open  + odstup,  bb_hore)
                 self.býčiště = generátor_býků(start = horní_cena,  odstup = 0, rozestup = rozestup)
             else:
                 if open.nákup < bb_hore.nákup:
                     self.býčiště.přitáhni_k_ceně(bb_hore)
+                    
             if self.medvědiště is None:
                 dolní_cena = min_prodeje(open - odstup,  bb_dole)
                 self.medvědiště = generátor_medvědů(start = dolní_cena,  odstup = 0,  rozestup = rozestup)
@@ -625,6 +647,8 @@ class Talasnica(object):
                         if čekaná < data[OPEN]:
                             if not čekaná < self.předchozí_data[CLOSE]:
                                 self.obchody.zruším_obchod_gapem(směrem = čekaná.směrem,  čas = data[OPEN_TIME],  cena = nová_cena,  velikost = self.info['sázím loty'])
+                            else:
+                                print("moram da prošetřím ovoj případ")
                         else:
                             self.obchody.otevřu_nový_obchod(směrem = čekaná.směrem,  cena = nová_cena,  velikost = self.info['sázím loty'],  čas = data[OPEN_TIME])
 #                        print('nový obchod z ' + směr,  nová_cena,  čekaná)
