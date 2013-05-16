@@ -11,13 +11,12 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
 
 import os
+import glob
 
 def čtu_hg_ignore():
     '''
     spouštím funkci main()
     '''
-    
-    import glob
     
     with open('.hgignore',  mode='r',  encoding = 'UTF-8') as soubor:
         for ignore in soubor:
@@ -65,7 +64,11 @@ if __name__ == '__main__':
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
-    print('soubor {} přidám do .hgignore'.format(args.soubor))
+    print('soubory {} přidám do .hgignore'.format(args.soubor))
 
 #    čtu_hg_ignore()
-    do_ignore(args.soubor)
+
+    for soubor in glob.glob(args.soubor):
+        print('soubor {} přidám do .hgignore'.format(soubor))
+        do_ignore(soubor)
+#    do_ignore(args.soubor)
