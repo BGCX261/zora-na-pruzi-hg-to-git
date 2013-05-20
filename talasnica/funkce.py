@@ -30,3 +30,7 @@ def min_prodeje(první_cena,  druhá_cena):
     if první_cena.prodej < druhá_cena.prodej:
         return první_cena
     return druhá_cena
+    
+def zaokrouhlím_cenu(cena,  rozestup):
+    
+    return cena // rozestup * rozestup
