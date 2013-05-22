@@ -1,0 +1,1 @@
+301	1	84326	2010-03-04 13:45:05+0100	4031751	"ref"=>"3707","admin_level"=>"8","source"=>"cuzk","name"=>"Velký Beranov","type"=>"boundary","boundary"=>"administrative"

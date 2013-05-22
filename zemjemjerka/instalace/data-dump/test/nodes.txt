@@ -1,0 +1,4 @@
+101	1	10	2009-12-13 15:13:49+0100	3363138		0101000020E6100000B5F171B7353F2E406E7CDC6DCD8F4840
+102	1	11	2010-01-05 18:52:41+0100	3547363		0101000020E6100000DBF8B8DB9A1F30406E7CDC6DCD0F4940
+103	1	12	2009-08-18 10:38:42+0200	2186419	"source:addr"=>"mvcr:adresa","addr:conscriptionnumber"=>"12","addr:country"=>"CZ","is_in"=>"Petrovice, Puklice, Vysočina kraj, CZ","addr:housenumber"=>"12"	0101000020E6100000DBF8B8DB9A1F31406E7CDC6DCD8F4940
+104	1	134948	2009-08-18 10:38:42+0200	2186419	"source:addr"=>"mvcr:adresa","addr:conscriptionnumber"=>"3","addr:country"=>"CZ","is_in"=>"Petrovice, Puklice, Vysočina kraj, CZ","addr:housenumber"=>"3"	0101000020E610000009B5954D6F552F403A9A7EE431B04840

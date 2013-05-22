@@ -1,0 +1,18 @@
+OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+   /tmp/hsperfdata_golf/3788
+Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+
+
+Hen je program, který převede pbf soubor do pgsql databáze pomocí programu osmosis
+
+Pro import do databáze toto již nepoužívám, funguje mi lépe přímý import
+pomocí skriptu načtu_pbf_do_pgsql_databáze
+
+Zpracuji soubor '/home/pruga/data/osm/pbf/czech_republic.osm.pbf' a výsledky uložím do databáze 'zemjemjerka'.
+
+*** spúšťám program ***
+	 osmosis --read-pbf file=/home/pruga/data/osm/pbf/czech_republic.osm.pbf --write-pgsql host=localhost database=zemjemjerka user=golf password=marihuana
+	vráceno 1
+ 
+*** konec ***
+

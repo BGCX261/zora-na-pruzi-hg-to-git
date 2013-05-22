@@ -1,0 +1,1 @@
+201	2	134948	2010-01-05 18:52:50+0100	3547363	"source"=>"uhul:ortofoto;survey","highway"=>"track"	{101,102,103}
