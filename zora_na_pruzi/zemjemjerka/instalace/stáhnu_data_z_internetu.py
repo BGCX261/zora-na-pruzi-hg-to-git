@@ -11,7 +11,7 @@ PAZI wget nefunguje jak má, nestáhne celé soubory, možná nějaké nastaven�
 
 #sys.path.insert(1,  os.path.realpath("../"))
 
-from pruga.zemjemjerka.nastavení .adresáře import *
+from zora_na_pruzi.zemjemjerka.nastavení .adresáře import *
 
 if __name__ == "__main__":
     
