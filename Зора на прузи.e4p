@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-05-20, 17:52:36 -->
+<!-- Saved: 2013-05-22, 23:41:01 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -405,6 +405,105 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/zboží.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/modely/účetnictví/obchod/faktura.py</Source>
+    <Source>zemjemjerka/__init__.py</Source>
+    <Source>zemjemjerka/hrdv/hrdv_do_smapy.py</Source>
+    <Source>zemjemjerka/tražimir/__init__.py</Source>
+    <Source>zemjemjerka/tražimir/željeznice/__init__.py</Source>
+    <Source>zemjemjerka/tražimir/željeznice/stanice.py</Source>
+    <Source>zemjemjerka/tražimir/željeznice/proložím_trať.py</Source>
+    <Source>zemjemjerka/tražimir/željeznice/trať.py</Source>
+    <Source>zemjemjerka/tražimir/željeznice/test/__init__.py</Source>
+    <Source>zemjemjerka/tražimir/željeznice/test/da_li_sú_body_v_cestách_ve_sloupci_a_v_relaci_stejné.py</Source>
+    <Source>zemjemjerka/nastavení/__init__.py</Source>
+    <Source>zemjemjerka/nastavení/databáze.py</Source>
+    <Source>zemjemjerka/nastavení/adresáře.py</Source>
+    <Source>zemjemjerka/instalace/__init__.py</Source>
+    <Source>zemjemjerka/instalace/stáhnu_data_z_internetu.py</Source>
+    <Source>zemjemjerka/instalace/načtu_pbf_do_pgsql_databáze.py</Source>
+    <Source>zemjemjerka/instalace/nainstaluji_strukturu_databáze_postgis_a_osm.py</Source>
+    <Source>zemjemjerka/instalace/nainstaluji_strukturu_databáze_zemjemjerky.py</Source>
+    <Source>zemjemjerka/instalace/převedu_pbf_do_pgsql_dump.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_zemjemjerky/__init__.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_zemjemjerky/nainstaluji_schéma_a_funkce_zemjemjerky.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_zemjemjerky/nastavím_výchozí_schémy_pro_uživatele.py</Source>
+    <Source>zemjemjerka/instalace/udělátka/__init__.py</Source>
+    <Source>zemjemjerka/instalace/udělátka/vytvořím_schéma.py</Source>
+    <Source>zemjemjerka/instalace/udělátka/spustím_sql_skript.py</Source>
+    <Source>zemjemjerka/instalace/udělátka/nastavím_schéma.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_postgis_a_osm/__init__.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_postgis_a_osm/vytvořím_databázi.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_postgis.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_křovákovo_zobrazení_do_SRID.py</Source>
+    <Source>zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_osm_databázi.py</Source>
+    <Source>zemjemjerka/instalace/dílčí_úkoly/__init__.py</Source>
+    <Source>zemjemjerka/instalace/dílčí_úkoly/importuji_data_ze_zalohy_do_databaze.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/hrdv/hrdv_do_smapy.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/željeznice/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/željeznice/stanice.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/željeznice/proložím_trať.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/željeznice/trať.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/željeznice/test/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/tražimir/željeznice/test/da_li_sú_body_v_cestách_ve_sloupci_a_v_relaci_stejné.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/nastavení/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/nastavení/databáze.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/nastavení/adresáře.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/stáhnu_data_z_internetu.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/načtu_pbf_do_pgsql_databáze.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/nainstaluji_strukturu_databáze_postgis_a_osm.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/nainstaluji_strukturu_databáze_zemjemjerky.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/převedu_pbf_do_pgsql_dump.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_zemjemjerky/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_zemjemjerky/nainstaluji_schéma_a_funkce_zemjemjerky.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_zemjemjerky/nastavím_výchozí_schémy_pro_uživatele.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/udělátka/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/udělátka/vytvořím_schéma.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/udělátka/spustím_sql_skript.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/udělátka/nastavím_schéma.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/vytvořím_databázi.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_postgis.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_křovákovo_zobrazení_do_SRID.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_osm_databázi.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/dílčí_úkoly/__init__.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/instalace/dílčí_úkoly/importuji_data_ze_zalohy_do_databaze.py</Source>
+    <Source>zora_na_pruzi/zemjemjerka/nastavení/seznamy_souborů_ke_stažení/geofabrik.txt</Source>
+    <Source>zora_na_pruzi/pruga/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/databáze.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/zkúšám_danimír_hstore_eval.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/zkúšám_soup.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/zkúšám_danimír_eval.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/zkúšám_danimir.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/zkúšám_alchemy.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/nástroje/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/nástroje/seznam_sloupců.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/test/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/test/unit_test.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/test/test.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/databázové_typy/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/databázové_typy/účetnictví_číslo_účtu.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/příkazy/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/příkazy/update.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/příkazy/insert.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/příkazy/_příkaz.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/příkazy/select.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/příkazy/podmínky/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/výsledky/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/výsledky/objektový_přístup_k_výsledku.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/prvky_databáze/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/prvky_databáze/výraz.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/prvky_databáze/formát.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/prvky_databáze/sloupec_tabulky.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/prvky_databáze/spojení.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/prvky_databáze/tabulka_databáze.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/připojení/__init__.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/připojení/forex.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/připojení/testovací_databáze.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/připojení/účetnictví.py</Source>
+    <Source>zora_na_pruzi/pruga/danimir/připojení/zemjemjerka.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
