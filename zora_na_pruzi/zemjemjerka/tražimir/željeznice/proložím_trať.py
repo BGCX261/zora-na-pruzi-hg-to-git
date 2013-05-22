@@ -161,8 +161,8 @@ def najdu_body_pro_hrany_v_grafu(graf):
     for hrana in graf.edge_list():
         data = graf.edge_data(hrana)
         body = davaj_body_v_cestě(data['id'],  data.get('otoč',  None))
-        for bod in body:
-            print(bod)
+#        for bod in body:
+#            print(bod)
 
 
 def nakreslím_graf(graf):

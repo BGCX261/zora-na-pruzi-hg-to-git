@@ -5,7 +5,7 @@
 Hen je program, který vrátí relaci 
 '''
 
-from pruga.zemjemjerka.nastavení.databáze import davaj_připojení
+from zora_na_pruzi.zemjemjerka.nastavení.databáze import davaj_připojení
 
 db = davaj_připojení()
 
