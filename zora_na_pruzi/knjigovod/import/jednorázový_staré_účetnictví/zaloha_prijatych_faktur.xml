@@ -1,0 +1,3613 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<winstrom version="1.0">
+  <!-- Doklady faktur -->
+  <faktura-prijata>
+    <!-- ID (celé číslo) - -->
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:73</id>
+    <!-- Poslední změna (datum a čas) - -->
+    <lastUpdate>2012-04-09T14:51:06.491+02:00</lastUpdate>
+    <!-- Interní číslo (řetězec) - max. délka: 20 -->
+    <kod>PF0001/2012</kod>
+    <!-- Zámek 
+      Otevřeno - zamek.otevreno
+      Prohlédnuto - zamek.prohlednuto
+      Zamknuto mimo účetní - zamek.polozamceno
+      Zamknuto - zamek.zamceno -->
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <!-- Číslo došlé (řetězec) - max. délka: 30 -->
+    <cisDosle>1885/11</cisDosle>
+    <!-- Variabilní symbol (řetězec) - max. délka: 30 -->
+    <varSym>188511</varSym>
+    <!-- Číslo smlouvy (řetězec) - max. délka: 30 -->
+    <cisSml></cisSml>
+    <!-- Číslo objednávky (řetězec) - max. délka: 30 -->
+    <cisObj></cisObj>
+    <!-- Objednáno (datum) - -->
+    <datObj></datObj>
+    <!-- Dodací list (řetězec) - max. délka: 30 -->
+    <cisDodak></cisDodak>
+    <!-- Doprava a vyskladnění (řetězec) - max. délka: 255 -->
+    <doprava></doprava>
+    <!-- Vystaveno (datum) - -->
+    <datVyst>2012-03-13+01:00</datVyst>
+    <!-- Dat. zdan. pl. (datum) - -->
+    <duzpPuv>2012-03-13+01:00</duzpPuv>
+    <!-- Zdan. pl. účto (datum) - -->
+    <duzpUcto>2012-03-13+01:00</duzpUcto>
+    <!-- Splatnost (datum) - -->
+    <datSplat>2012-03-13+01:00</datSplat>
+    <!-- Datum úhrady (datum) - -->
+    <datUhr>2012-03-13+01:00</datUhr>
+    <!-- Termín (datum) - -->
+    <datTermin></datTermin>
+    <!-- Realizace (datum) - -->
+    <datReal></datReal>
+    <!-- Popis (řetězec) - max. délka: 255 -->
+    <popis></popis>
+    <!-- Poznámka (řetězec) - -->
+    <poznam></poznam>
+    <!-- Osvob., bez DPH [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumOsv>0.0</sumOsv>
+    <!-- Základ DPH sníž. [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumZklSniz>0.0</sumZklSniz>
+    <!-- Základ DPH zákl. [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumZklZakl>34030.0</sumZklZakl>
+    <!-- Základ celkem [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumZklCelkem>34030.0</sumZklCelkem>
+    <!-- DPH snížená [Kč] (desetinné číslo) - -->
+    <sumDphSniz>0.0</sumDphSniz>
+    <!-- DPH základní [Kč] (desetinné číslo) - -->
+    <sumDphZakl>6806.0</sumDphZakl>
+    <!-- DPH celkem [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumDphCelkem>6806.0</sumDphCelkem>
+    <!-- Celkem vč. DPH - sníž. [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <!-- Celkem vč. DPH - zákl. [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumCelkZakl>40836.0</sumCelkZakl>
+    <!-- Celkem [Kč] (desetinné číslo) - počet číslic: 15 -->
+    <sumCelkem>40836.0</sumCelkem>
+    <!-- Osvob., bez DPH [měna] (desetinné číslo) - -->
+    <sumOsvMen>0.0</sumOsvMen>
+    <!-- Základ DPH sníž. [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <!-- Základ DPH zákl. [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <!-- Základ celkem [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <!-- DPH základní [měna] (desetinné číslo) - -->
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <!-- DPH snížená [měna] (desetinné číslo) - -->
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <!-- DPH celkem [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <!-- Celkem vč. DPH - sníž. [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <!-- Celkem vč. DPH - zákl. [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <!-- Celkem [měna] (desetinné číslo) - počet číslic: 15 -->
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <!-- Kurz (desetinné číslo) - počet číslic: 10 -->
+    <kurz>0.0</kurz>
+    <!-- Kurz. množství (desetinné číslo) - min. hodnota: 0.0 počet číslic: 19 -->
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <!-- V příkazu ? 
+      Bez příkazu - stavUziv.bezPrikazu
+      Obsažen v příkazu - stavUziv.obsaPrikaz
+      Odeslán částečný příkaz - stavUziv.castPrikaz
+      Odeslán příkaz - stavUziv.celPrikaz
+      Načteno elektronicky - stavUziv.nactenoEl
+      Naposledy načteno elektronicky - stavUziv.nactenoElPosledni
+      Vygenerován z kasy - stavUziv.genKasa
+      Zaúčtováno do pokladny - stavUziv.zauctovano
+      Změněno po zaúčtování - stavUziv.zaucZmena -->
+    <stavUzivK></stavUzivK>
+    <!-- Název firmy (řetězec) - max. délka: 255 -->
+    <nazFirmy>Mgr. Ing. Josef Cingroš</nazFirmy>
+    <!-- Ulice (řetězec) - max. délka: 255 -->
+    <ulice>Bohunická 728/24a</ulice>
+    <!-- Město (řetězec) - max. délka: 255 -->
+    <mesto>Brno 19</mesto>
+    <!-- PSČ (řetězec) - max. délka: 255 -->
+    <psc>61900</psc>
+    <!-- EAN (řetězec) - max. délka: 20 -->
+    <eanKod></eanKod>
+    <!-- IČ (řetězec) - max. délka: 20 -->
+    <ic>63386461</ic>
+    <!-- DIČ (řetězec) - max. délka: 20 -->
+    <dic>CZ6211030408</dic>
+    <!-- Číslo bank. účtu (řetězec) - max. délka: 255 -->
+    <buc></buc>
+    <!-- IBAN (řetězec) - max. délka: 255 -->
+    <iban></iban>
+    <!-- BIC (řetězec) - max. délka: 255 -->
+    <bic></bic>
+    <!-- Specifický symbol (řetězec) - max. délka: 255 -->
+    <specSym></specSym>
+    <!-- Bezpol. dokl. (logická hodnota) - -->
+    <bezPolozek>false</bezPolozek>
+    <!-- Je účetní (logická hodnota) - -->
+    <ucetni>true</ucetni>
+    <!-- Snížená sazba DPH (desetinné číslo) - počet číslic: 6 -->
+    <szbDphSniz>14.0</szbDphSniz>
+    <!-- Základní sazba DPH (desetinné číslo) - počet číslic: 6 -->
+    <szbDphZakl>20.0</szbDphZakl>
+    <!-- Zaúčtováno (logická hodnota) - -->
+    <zuctovano>true</zuctovano>
+    <!-- Datum zaúčt. (datum) - -->
+    <datUcto>2012-03-13+01:00</datUcto>
+    <!-- Vynechat ze salda (logická hodnota) - -->
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <!-- Storno (logická hodnota) - -->
+    <storno>false</storno>
+    <!-- Štítky (řetězec) - -->
+    <stitky></stitky>
+    <!-- Typ faktury (objekt) - max. délka: 20 -->
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <!-- Měna (objekt) - max. délka: 20 -->
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <!-- Konst. sym. (objekt) - max. délka: 20 -->
+    <konSym></konSym>
+    <!-- Firma (objekt) - max. délka: 20 -->
+    <firma showAs="CINGROŠ: Mgr. Ing. Josef Cingroš">code:CINGROŠ</firma>
+    <!-- Stát (objekt) - max. délka: 3 -->
+    <stat showAs="Česká republika">code:CZ</stat>
+    <!-- Účet dodavatele (objekt) - max. délka: 20 -->
+    <banSpojDod></banSpojDod>
+    <!-- Bankovní účet (objekt) - max. délka: 20 -->
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <!-- Předpis zaúčtování (objekt) - max. délka: 20 -->
+    <typUcOp></typUcOp>
+    <!-- Účet DAL (objekt) - max. délka: 6 -->
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <!-- Účet MD (objekt) - max. délka: 6 -->
+    <protiUcet></protiUcet>
+    <!-- Účet DPH zákl. (objekt) - max. délka: 6 -->
+    <dphZaklUcet></dphZaklUcet>
+    <!-- Účet DPH sníž. (objekt) - max. délka: 6 -->
+    <dphSnizUcet></dphSnizUcet>
+    <!-- Směr.kód (objekt) - max. délka: 20 -->
+    <smerKod></smerKod>
+    <!-- Stát DPH (objekt) - max. délka: 3 -->
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <!-- Řádky DPH (objekt) - max. délka: 20 -->
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <!-- Uživatel (objekt) - max. délka: 20 -->
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <!-- Čís. řada (objekt) - max. délka: 20 -->
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <!-- Pol. dokl. řady (objekt) - max. délka: 20 -->
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <!-- Osvobozená sazba DPH (objekt) - max. délka: 20 -->
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <!-- Snížená sazba DPH  (objekt) - max. délka: 20 -->
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <!-- Základní sazba DPH (objekt) - max. délka: 20 -->
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <!-- Smlouva (objekt) - max. délka: 20 -->
+    <smlouva></smlouva>
+    <!-- Uuid (řetězec) - max. délka: 50 -->
+    <uuid>76edcda370cc5e861ab33b01bd19d6f8b75254b2</uuid>
+    <!-- Zdroj (řetězec) - max. délka: 50 -->
+    <source></source>
+    <!-- Datum penalizace (datum) - -->
+    <datPenale></datPenale>
+    <!-- Podpis příkazu (logická hodnota) - -->
+    <podpisPrik>false</podpisPrik>
+    <!-- Příkazy [Kč] (desetinné číslo) - -->
+    <prikazSum>0.0</prikazSum>
+    <!-- Příkazy [měna] (desetinné číslo) - -->
+    <prikazSumMen>0.0</prikazSumMen>
+    <!-- Již uhrazeno [Kč] (desetinné číslo) - -->
+    <juhSum>40836.0</juhSum>
+    <!-- Již uhrazeno [měna] (desetinné číslo) - -->
+    <juhSumMen>0.0</juhSumMen>
+    <!-- Uhr. k datu [Kč] (desetinné číslo) - -->
+    <juhDat>0.0</juhDat>
+    <!-- Uhr. k datu [měna] (desetinné číslo) - -->
+    <juhDatMen>0.0</juhDatMen>
+    <!-- Zbývá uhradit [Kč] (desetinné číslo) - -->
+    <zbyvaUhradit>0.0</zbyvaUhradit>
+    <!-- Zbývá uhradit [měna] (desetinné číslo) - -->
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <!-- Forma úhrady 
+      převodem - formaUhr.prevod
+      hotově - formaUhr.hotove
+      složenkou - formaUhr.slozenka
+      dobírkou - formaUhr.dobirka
+      platební kartou - formaUhr.platKart
+      zápočtem - formaUhr.zapocet
+      nespecifikováno - formaUhr.nespec
+      šekem - formaUhr.sek -->
+    <formaUhrK showAs="hotově">formaUhr.hotove</formaUhrK>
+    <!-- Stav úhrady 
+      Částečně uhrazeno - stavUhr.castUhr
+      Uhrazeno - stavUhr.uhrazeno
+      Uhrazeno (ručně) - stavUhr.uhrazenoRucne -->
+    <stavUhrK showAs="Uhrazeno">stavUhr.uhrazeno</stavUhrK>
+    <!-- Zálohy (desetinné číslo) - -->
+    <sumZalohy>0.0</sumZalohy>
+    <!-- Zálohy [měna] (desetinné číslo) - -->
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <!-- Odpočet zál. 
+      Částečně odpočteno - stavOdp.cast
+      Odpočteno - stavOdp.komplet
+      Vytvořen ZDD - stavOdp.vytvZdd -->
+    <stavOdpocetK></stavOdpocetK>
+    <!-- Generovat sklad. doklady (logická hodnota) - -->
+    <generovatSkl>true</generovatSkl>
+    <!-- Hrom. fakturace (logická hodnota) - -->
+    <hromFakt>false</hromFakt>
+    <!-- Zdroj pro sklad. doklady (logická hodnota) - -->
+    <zdrojProSkl>true</zdrojProSkl>
+    <!-- Stav mailu 
+      Neodesílat - stavMail.neodesilat
+      Odeslat - stavMail.odeslat
+      Odesláno - stavMail.odeslano -->
+    <stavMailK></stavMailK>
+    <polozkyFaktury>
+      <!-- Položky faktur -->
+      <faktura-prijata-polozka>
+        <!-- ID (celé číslo) - -->
+        <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:90</id>
+        <!-- Poslední změna (datum a čas) - -->
+        <lastUpdate>2012-03-29T13:36:43.299+02:00</lastUpdate>
+        <!-- Úč. pol. (logická hodnota) - -->
+        <ucetni>true</ucetni>
+        <!-- Modul (řetězec) - -->
+        <modul>FAP</modul>
+        <!-- Označení (řetězec) - max. délka: 20 -->
+        <kod></kod>
+        <!-- EAN (řetězec) - max. délka: 20 -->
+        <eanKod></eanKod>
+        <!-- Název (řetězec) - max. délka: 255 -->
+        <nazev>náklady exekutora</nazev>
+        <!-- Název SK (řetězec) - max. délka: 255 -->
+        <nazevA></nazevA>
+        <!-- Název RU (řetězec) - max. délka: 255 -->
+        <nazevB></nazevB>
+        <!-- Název EN (řetězec) - max. délka: 255 -->
+        <nazevC></nazevC>
+        <!-- Pořadí (celé číslo) - počet číslic: 4 -->
+        <cisRad>1</cisRad>
+        <!-- Typ položky 
+      Položka s cenou a množstvím - typPolozky.obecny
+      Položka z ceníku - typPolozky.katalog
+      Položka pro zaúčtování - typPolozky.ucetni
+      Textový řádek - typPolozky.text -->
+        <typPolozkyK showAs="Položka s cenou a množstvím">typPolozky.obecny</typPolozkyK>
+        <!-- Balení (celé číslo) - min. hodnota: 1 max.hodnota: 5.0 počet číslic: 1 -->
+        <baleniId>0</baleniId>
+        <!-- Počet balení (desetinné číslo) - počet číslic: 19 -->
+        <mnozBaleni>0.0</mnozBaleni>
+        <!-- Množství (desetinné číslo) - počet číslic: 19 -->
+        <mnozMj>1.0</mnozMj>
+        <!-- Typ ceny 
+      bez DPH - typCeny.bezDph
+      včetně DPH (přesně) - typCeny.sDph
+      včetně DPH (koeficient) - typCeny.sDphKoef -->
+        <typCenyDphK showAs="včetně DPH (přesně)">typCeny.sDph</typCenyDphK>
+        <!-- Typ sazby DPH 
+      osvobozeno - typSzbDph.dphOsv
+      snížená - typSzbDph.dphSniz
+      základní - typSzbDph.dphZakl -->
+        <typSzbDphK showAs="základní">typSzbDph.dphZakl</typSzbDphK>
+        <!-- DPH [%] (desetinné číslo) - počet číslic: 6 -->
+        <szbDph>20.0</szbDph>
+        <!-- Cena za MJ (desetinné číslo) - počet číslic: 19 -->
+        <cenaMj>24960.0</cenaMj>
+        <!-- Základ [Kč] (desetinné číslo) - počet číslic: 15 -->
+        <sumZkl>20800.0</sumZkl>
+        <!-- DPH [Kč] (desetinné číslo) - počet číslic: 15 -->
+        <sumDph>4160.0</sumDph>
+        <!-- Celkem [Kč] (desetinné číslo) - počet číslic: 15 -->
+        <sumCelkem>24960.0</sumCelkem>
+        <!-- Základ [měna] (desetinné číslo) - počet číslic: 15 -->
+        <sumZklMen>0.0</sumZklMen>
+        <!-- DPH [měna] (desetinné číslo) - počet číslic: 15 -->
+        <sumDphMen>0.0</sumDphMen>
+        <!-- Celkem [měna] (desetinné číslo) - počet číslic: 15 -->
+        <sumCelkemMen>0.0</sumCelkemMen>
+        <!-- Objem (desetinné číslo) - počet číslic: 19 -->
+        <objem>0.0</objem>
+        <!-- Cen. jednotka (desetinné číslo) - počet číslic: 19 -->
+        <cenJednotka>0.0</cenJednotka>
+        <!-- Způsob výpočtu 
+      marže - typVypCeny.marze
+      rabat - typVypCeny.rabat
+      sleva - typVypCeny.sleva
+      neuveden - typVypCeny.neuveden -->
+        <typVypCenyK></typVypCenyK>
+        <!-- Nákupní cena za MJ z ceníku (desetinné číslo) - počet číslic: 19 -->
+        <cenaMjNakup>0.0</cenaMjNakup>
+        <!-- Prodejní cena za MJ z ceníku (desetinné číslo) - počet číslic: 19 -->
+        <cenaMjProdej>0.0</cenaMjProdej>
+        <!-- Marže / Rabat / Sleva [%] (desetinné číslo) - počet číslic: 6 -->
+        <procZakl>0.0</procZakl>
+        <!-- Množstevní sleva [%] (desetinné číslo) - min. hodnota: 0.0 max.hodnota: 100.0 počet číslic: 6 -->
+        <slevaMnoz>0.0</slevaMnoz>
+        <!-- Způsob zaokr. ceny 
+      nahoru - zaokrJak.nahoru
+      dolů - zaokrJak.dolu
+      matematicky - zaokrJak.matem -->
+        <zaokrJakK></zaokrJakK>
+        <!-- Řád zaokr. ceny 
+      nezaokrouhlovat - zaokrNa.zadne
+      tisíciny - zaokrNa.tisiciny
+      setiny - zaokrNa.setiny
+      desetiny - zaokrNa.desetiny
+      jednotky - zaokrNa.jednotky
+      desítky - zaokrNa.desitky
+      stovky - zaokrNa.stovky
+      tisíce - zaokrNa.tisice -->
+        <zaokrNaK></zaokrNaK>
+        <!-- Šarže (řetězec) - max. délka: 100 -->
+        <sarze></sarze>
+        <!-- Expirace (datum) - -->
+        <expirace></expirace>
+        <!-- Uživatelský stav -->
+        <stavUzivK></stavUzivK>
+        <!-- Plán MJ (desetinné číslo) - počet číslic: 19 -->
+        <mnozMjPlan>0.0</mnozMjPlan>
+        <!-- Real. MJ (desetinné číslo) - počet číslic: 19 -->
+        <mnozMjReal>0.0</mnozMjReal>
+        <!-- Zaokr. pol. (logická hodnota) - -->
+        <autoZaokr>false</autoZaokr>
+        <!-- Auto. pol. (logická hodnota) - -->
+        <autogen>false</autogen>
+        <!-- Poznámka (řetězec) - -->
+        <poznam></poznam>
+        <!-- Datum vyst. (datum) - -->
+        <datVyst>2012-03-13+01:00</datVyst>
+        <!-- Kopírovat MD účet základu (logická hodnota) - -->
+        <kopZklMdUcet>false</kopZklMdUcet>
+        <!-- Kopírovat D účet základu (logická hodnota) - -->
+        <kopZklDalUcet>true</kopZklDalUcet>
+        <!-- Kopírovat MD účet DPH (logická hodnota) - -->
+        <kopDphMdUcet>false</kopDphMdUcet>
+        <!-- Kopírovat D účet DPH (logická hodnota) - -->
+        <kopDphDalUcet>true</kopDphDalUcet>
+        <!-- Kopírovat předpis (logická hodnota) - -->
+        <kopTypUcOp>false</kopTypUcOp>
+        <!-- Kopírovat štítky (logická hodnota) - -->
+        <kopKlice>true</kopKlice>
+        <!-- Kopírovat řádek DPH (logická hodnota) - -->
+        <kopClenDph>false</kopClenDph>
+        <!-- Datum zaúčt. (datum) - -->
+        <datUcto>2012-03-13+01:00</datUcto>
+        <!-- Storno (logická hodnota) - -->
+        <storno>false</storno>
+        <!-- Storno položky (logická hodnota) - -->
+        <stornoPol>false</stornoPol>
+        <!-- Sklad (objekt) - max. délka: 20 -->
+        <sklad></sklad>
+        <!-- Měna (objekt) - max. délka: 20 -->
+        <mena showAs="CZK: Česká koruna">code:CZK</mena>
+        <!-- Předpis zaúčtování (objekt) - max. délka: 20 -->
+        <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+        <!-- Účet MD zákl. (objekt) - max. délka: 6 -->
+        <zklMdUcet showAs="518001: Ostatní služby">code:518001</zklMdUcet>
+        <!-- Účet Dal zákl. (objekt) - max. délka: 6 -->
+        <zklDalUcet showAs="321001: Závazky z obchodních vztahů">code:321001</zklDalUcet>
+        <!-- Účet MD DPH (objekt) - max. délka: 6 -->
+        <dphMdUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphMdUcet>
+        <!-- Účet Dal DPH (objekt) - max. délka: 6 -->
+        <dphDalUcet showAs="321001: Závazky z obchodních vztahů">code:321001</dphDalUcet>
+        <!-- Dodavatel (objekt) - max. délka: 20 -->
+        <dodavatel></dodavatel>
+        <!-- Řádky DPH (objekt) - max. délka: 20 -->
+        <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+        <!-- Kód přenesení DPH (objekt) - max. délka: 20 -->
+        <dphPren></dphPren>
+        <!-- Kód z ceníku (objekt) - max. délka: 20 -->
+        <cenik></cenik>
+        <!-- MJ (objekt) - max. délka: 20 -->
+        <mj></mj>
+        <!-- MJ objemu (objekt) - max. délka: 20 -->
+        <mjObjem></mjObjem>
+        <!-- Sazba DPH (objekt) - max. délka: 20 -->
+        <sazbaDph showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDph>
+        <!-- Výr. čísla OK (logická hodnota) - -->
+        <vyrobniCislaOk>false</vyrobniCislaOk>
+        <!-- Zdroj (řetězec) - max. délka: 50 -->
+        <source></source>
+        <!-- Doklad (objekt) - max. délka: 20 -->
+        <doklFak showAs="PF0001/2012">code:PF0001/2012</doklFak>
+        <!-- Poplatek k položce (objekt) - max. délka: 20 -->
+        <poplatekParentPolFak></poplatekParentPolFak>
+        <!-- Zdroj pro sklad. doklady (logická hodnota) - -->
+        <zdrojProSkl>true</zdrojProSkl>
+        <vyrobniCislaPrijata></vyrobniCislaPrijata>
+        <vyrobniCislaVydana></vyrobniCislaVydana>
+      </faktura-prijata-polozka>
+      <faktura-prijata-polozka>
+        <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:91</id>
+        <lastUpdate>2012-03-29T13:37:11.108+02:00</lastUpdate>
+        <ucetni>true</ucetni>
+        <modul>FAP</modul>
+        <kod></kod>
+        <eanKod></eanKod>
+        <nazev></nazev>
+        <nazevA></nazevA>
+        <nazevB></nazevB>
+        <nazevC></nazevC>
+        <cisRad>2</cisRad>
+        <typPolozkyK showAs="Položka s cenou a množstvím">typPolozky.obecny</typPolozkyK>
+        <baleniId>0</baleniId>
+        <mnozBaleni>0.0</mnozBaleni>
+        <mnozMj>1.0</mnozMj>
+        <typCenyDphK showAs="včetně DPH (přesně)">typCeny.sDph</typCenyDphK>
+        <typSzbDphK showAs="základní">typSzbDph.dphZakl</typSzbDphK>
+        <szbDph>20.0</szbDph>
+        <cenaMj>15876.0</cenaMj>
+        <sumZkl>13230.0</sumZkl>
+        <sumDph>2646.0</sumDph>
+        <sumCelkem>15876.0</sumCelkem>
+        <sumZklMen>0.0</sumZklMen>
+        <sumDphMen>0.0</sumDphMen>
+        <sumCelkemMen>0.0</sumCelkemMen>
+        <objem>0.0</objem>
+        <cenJednotka>0.0</cenJednotka>
+        <typVypCenyK></typVypCenyK>
+        <cenaMjNakup>0.0</cenaMjNakup>
+        <cenaMjProdej>0.0</cenaMjProdej>
+        <procZakl>0.0</procZakl>
+        <slevaMnoz>0.0</slevaMnoz>
+        <zaokrJakK></zaokrJakK>
+        <zaokrNaK></zaokrNaK>
+        <sarze></sarze>
+        <expirace></expirace>
+        <stavUzivK></stavUzivK>
+        <mnozMjPlan>0.0</mnozMjPlan>
+        <mnozMjReal>0.0</mnozMjReal>
+        <autoZaokr>false</autoZaokr>
+        <autogen>false</autogen>
+        <poznam></poznam>
+        <datVyst>2012-03-13+01:00</datVyst>
+        <kopZklMdUcet>false</kopZklMdUcet>
+        <kopZklDalUcet>true</kopZklDalUcet>
+        <kopDphMdUcet>false</kopDphMdUcet>
+        <kopDphDalUcet>true</kopDphDalUcet>
+        <kopTypUcOp>false</kopTypUcOp>
+        <kopKlice>true</kopKlice>
+        <kopClenDph>false</kopClenDph>
+        <datUcto>2012-03-13+01:00</datUcto>
+        <storno>false</storno>
+        <stornoPol>false</stornoPol>
+        <sklad></sklad>
+        <mena showAs="CZK: Česká koruna">code:CZK</mena>
+        <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+        <zklMdUcet showAs="518001: Ostatní služby">code:518001</zklMdUcet>
+        <zklDalUcet showAs="321001: Závazky z obchodních vztahů">code:321001</zklDalUcet>
+        <dphMdUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphMdUcet>
+        <dphDalUcet showAs="321001: Závazky z obchodních vztahů">code:321001</dphDalUcet>
+        <dodavatel></dodavatel>
+        <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+        <dphPren></dphPren>
+        <cenik></cenik>
+        <mj></mj>
+        <mjObjem></mjObjem>
+        <sazbaDph showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDph>
+        <vyrobniCislaOk>false</vyrobniCislaOk>
+        <source></source>
+        <doklFak showAs="PF0001/2012">code:PF0001/2012</doklFak>
+        <poplatekParentPolFak></poplatekParentPolFak>
+        <zdrojProSkl>true</zdrojProSkl>
+        <vyrobniCislaPrijata></vyrobniCislaPrijata>
+        <vyrobniCislaVydana></vyrobniCislaVydana>
+      </faktura-prijata-polozka>
+    </polozkyFaktury>
+    <!-- Typ skladového dokladu (objekt) - max. délka: 20 -->
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:76</id>
+    <lastUpdate>2012-07-19T17:06:36.280+02:00</lastUpdate>
+    <kod>PF0004/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>201227</cisDosle>
+    <varSym>201227</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-04-27+02:00</datVyst>
+    <duzpPuv>2012-04-27+02:00</duzpPuv>
+    <duzpUcto>2012-04-27+02:00</duzpUcto>
+    <datSplat>2012-05-11+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>6500.0</sumZklZakl>
+    <sumZklCelkem>6500.0</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>1300.0</sumDphZakl>
+    <sumDphCelkem>1300.0</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>7800.0</sumCelkZakl>
+    <sumCelkem>7800.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Ing. Petr Novotný, Ph.D.</nazFirmy>
+    <ulice>nábřeží Závodu míru 2739</ulice>
+    <mesto>Pardubice</mesto>
+    <psc>53002</psc>
+    <eanKod></eanKod>
+    <ic>15014886</ic>
+    <dic>CZ6408200304</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-04-27+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="PARDUBICE NOVOTNÝ : Ing. Petr Novotný, Ph.D.">code:PARDUBICE NOVOTNÝ </firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>c3af845c36a9f85bb10f10cd78f1565980bcfa96</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>7800.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:77</id>
+    <lastUpdate>2012-07-19T17:09:03.099+02:00</lastUpdate>
+    <kod>PF0005/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>120036</cisDosle>
+    <varSym>120036</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-05-21+02:00</datVyst>
+    <duzpPuv>2012-05-21+02:00</duzpPuv>
+    <duzpUcto>2012-05-21+02:00</duzpUcto>
+    <datSplat>2012-05-30+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>5600.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>0.0</sumZklZakl>
+    <sumZklCelkem>5600.0</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>0.0</sumDphZakl>
+    <sumDphCelkem>0.0</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>0.0</sumCelkZakl>
+    <sumCelkem>5600.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Ing. Michal Witiska</nazFirmy>
+    <ulice>Svatopluka Čecha 1734/9</ulice>
+    <mesto>Jihlava</mesto>
+    <psc>58601</psc>
+    <eanKod></eanKod>
+    <ic>74748831</ic>
+    <dic>CZ74748831</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-05-21+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="WITISKA: Ing. Michal Witiska">code:WITISKA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>5e72e57240ba68fae5246a76a938384dcf0a9b3b</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>5600.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:79</id>
+    <lastUpdate>2012-07-19T17:24:30.099+02:00</lastUpdate>
+    <kod>PF0007/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>117292</cisDosle>
+    <varSym>117292</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-04-25+02:00</datVyst>
+    <duzpPuv>2012-04-25+02:00</duzpPuv>
+    <duzpUcto>2012-04-25+02:00</duzpUcto>
+    <datSplat>2012-05-08+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>103.33</sumZklZakl>
+    <sumZklCelkem>103.33</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>20.67</sumDphZakl>
+    <sumDphCelkem>20.67</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>124.0</sumCelkZakl>
+    <sumCelkem>124.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Vodafone Czech Republic a.s.</nazFirmy>
+    <ulice>Vinohradská 3217/167</ulice>
+    <mesto>Praha</mesto>
+    <psc>10000</psc>
+    <eanKod></eanKod>
+    <ic>25788001</ic>
+    <dic>CZ25788001</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-04-25+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VODAFONE: Vodafone Czech Republic a.s.">code:VODAFONE</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>87d8076066f411e62e2e6f8839ee0bc6b6039e93</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>124.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:80</id>
+    <lastUpdate>2012-07-19T17:25:53.861+02:00</lastUpdate>
+    <kod>PF0008/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>256935758</cisDosle>
+    <varSym>256935758</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-05-24+02:00</datVyst>
+    <duzpPuv>2012-05-24+02:00</duzpPuv>
+    <duzpUcto>2012-05-24+02:00</duzpUcto>
+    <datSplat>2012-06-12+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>446.65</sumZklZakl>
+    <sumZklCelkem>446.65</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>89.35</sumDphZakl>
+    <sumDphCelkem>89.35</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>536.0</sumCelkZakl>
+    <sumCelkem>536.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Vodafone Czech Republic a.s.</nazFirmy>
+    <ulice>Vinohradská 3217/167</ulice>
+    <mesto>Praha</mesto>
+    <psc>10000</psc>
+    <eanKod></eanKod>
+    <ic>25788001</ic>
+    <dic>CZ25788001</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-05-24+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VODAFONE: Vodafone Czech Republic a.s.">code:VODAFONE</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>e82ed2c18d468b470b4151384381c0cdedfe9059</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>536.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:81</id>
+    <lastUpdate>2012-07-19T17:28:16.139+02:00</lastUpdate>
+    <kod>PF0009/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>260932606</cisDosle>
+    <varSym>260932606</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-24+02:00</datVyst>
+    <duzpPuv>2012-06-24+02:00</duzpPuv>
+    <duzpUcto>2012-06-24+02:00</duzpUcto>
+    <datSplat>2012-06-30+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>890.8</sumZklZakl>
+    <sumZklCelkem>890.8</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>178.2</sumDphZakl>
+    <sumDphCelkem>178.2</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>1069.0</sumCelkZakl>
+    <sumCelkem>1069.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Vodafone Czech Republic a.s.</nazFirmy>
+    <ulice>Vinohradská 3217/167</ulice>
+    <mesto>Praha</mesto>
+    <psc>10000</psc>
+    <eanKod></eanKod>
+    <ic>25788001</ic>
+    <dic>CZ25788001</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-24+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VODAFONE: Vodafone Czech Republic a.s.">code:VODAFONE</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>e45b20a2ce66392f9d4ca48f5d0b586f6529dedc</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>1069.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:82</id>
+    <lastUpdate>2012-07-19T17:33:39.199+02:00</lastUpdate>
+    <kod>PF0010/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>91153/5</cisDosle>
+    <varSym>911535</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-05-01+02:00</datVyst>
+    <duzpPuv>2012-05-01+02:00</duzpPuv>
+    <duzpUcto>2012-05-01+02:00</duzpUcto>
+    <datSplat>2012-05-25+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>219.99</sumZklZakl>
+    <sumZklCelkem>219.99</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>44.01</sumDphZakl>
+    <sumDphCelkem>44.01</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>264.0</sumCelkZakl>
+    <sumCelkem>264.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Net-Connect s.r.o.</nazFirmy>
+    <ulice>Velkomoravská 4036/33a</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>27735052</ic>
+    <dic>CZ27735052</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-05-01+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="NET-CONNECT: Net-Connect s.r.o.">code:NET-CONNECT</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>9baadf3116311c5ccf98dd97787119ff44940078</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>264.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:83</id>
+    <lastUpdate>2012-07-19T17:34:47.442+02:00</lastUpdate>
+    <kod>PF0011/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>91153/6</cisDosle>
+    <varSym>911536</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-01+02:00</datVyst>
+    <duzpPuv>2012-06-01+02:00</duzpPuv>
+    <duzpUcto>2012-06-01+02:00</duzpUcto>
+    <datSplat>2012-06-26+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>219.99</sumZklZakl>
+    <sumZklCelkem>219.99</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>44.01</sumDphZakl>
+    <sumDphCelkem>44.01</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>264.0</sumCelkZakl>
+    <sumCelkem>264.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Net-Connect s.r.o.</nazFirmy>
+    <ulice>Velkomoravská 4036/33a</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>27735052</ic>
+    <dic>CZ27735052</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-01+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="NET-CONNECT: Net-Connect s.r.o.">code:NET-CONNECT</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>0caa1c35089a83c626bcfe212a72ba5c0c774758</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>264.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:84</id>
+    <lastUpdate>2012-07-19T17:37:21.290+02:00</lastUpdate>
+    <kod>PF0012/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>201207</cisDosle>
+    <varSym>201207</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-12+02:00</datVyst>
+    <duzpPuv>2012-06-12+02:00</duzpPuv>
+    <duzpUcto>2012-06-12+02:00</duzpUcto>
+    <datSplat>2012-06-19+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>20999.16</sumZklZakl>
+    <sumZklCelkem>20999.16</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>4200.84</sumDphZakl>
+    <sumDphCelkem>4200.84</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>25200.0</sumCelkZakl>
+    <sumCelkem>25200.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>schrapnel s.r.o.</nazFirmy>
+    <ulice>Brněnská 561/52</ulice>
+    <mesto>Jihlava</mesto>
+    <psc>58601</psc>
+    <eanKod></eanKod>
+    <ic>29188563</ic>
+    <dic>CZ29188563</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-12+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="SCHRAPNEL: schrapnel s.r.o.">code:SCHRAPNEL</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>e1970ce72cf3f2d7820213419e20d1d4ebd386be</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>25200.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:85</id>
+    <lastUpdate>2012-07-19T17:46:44.089+02:00</lastUpdate>
+    <kod>PF0013/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>112024006</cisDosle>
+    <varSym>112024006</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-13+02:00</datVyst>
+    <duzpPuv>2012-06-13+02:00</duzpPuv>
+    <duzpUcto>2012-06-13+02:00</duzpUcto>
+    <datSplat>2012-06-20+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>429.87</sumZklZakl>
+    <sumZklCelkem>429.87</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>86.02</sumDphZakl>
+    <sumDphCelkem>86.02</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>515.89</sumCelkZakl>
+    <sumCelkem>429.87</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>16.59</sumZklZaklMen>
+    <sumZklCelkemMen>16.59</sumZklCelkemMen>
+    <sumDphZaklMen>3.32</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>3.32</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>19.91</sumCelkZaklMen>
+    <sumCelkemMen>16.59</sumCelkemMen>
+    <kurz>25.911</kurz>
+    <kurzMnozstvi>1.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Websupport, s.r.o.</nazFirmy>
+    <ulice>Staré grunty 12</ulice>
+    <mesto>Bratislava</mesto>
+    <psc>84104</psc>
+    <eanKod></eanKod>
+    <ic>36421928</ic>
+    <dic>SK2021869234</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-13+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="EUR: Euro">code:EUR</mena>
+    <konSym></konSym>
+    <firma showAs="WEBSUPPORT: Websupport, s.r.o.">code:WEBSUPPORT</firma>
+    <stat showAs="Slovensko">code:SK</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="05-06, 43-44: Příjetí služby s místem plnění podle 49 odst. 1 od osoby registrované k dani v jiném členském státě">code:05-06, 43-44</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>50d3dbf3b4435f2a9901004f9b9a57b365a8894c</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>429.87</zbyvaUhradit>
+    <zbyvaUhraditMen>16.59</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:86</id>
+    <lastUpdate>2012-07-19T17:48:22.956+02:00</lastUpdate>
+    <kod>PF0014/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>4043</cisDosle>
+    <varSym>4043</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-01+02:00</datVyst>
+    <duzpPuv>2012-06-01+02:00</duzpPuv>
+    <duzpUcto>2012-06-01+02:00</duzpUcto>
+    <datSplat>2012-06-01+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>83.33</sumZklZakl>
+    <sumZklCelkem>83.33</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>16.67</sumDphZakl>
+    <sumDphCelkem>16.67</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>100.0</sumCelkZakl>
+    <sumCelkem>100.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Česká pošta, s.p.</nazFirmy>
+    <ulice>Politických vězňů 909/4</ulice>
+    <mesto>Praha</mesto>
+    <psc>11000</psc>
+    <eanKod></eanKod>
+    <ic>47114983</ic>
+    <dic>CZ47114983</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-01+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="ČESKÁ: Česká pošta, s.p.">code:ČESKÁ</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>a604d51405ece6539beac4c6c6b34ab6eef6cd5c</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>100.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:96</id>
+    <lastUpdate>2012-07-19T18:05:35.281+02:00</lastUpdate>
+    <kod>PF0024/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>fvt1204641146</cisDosle>
+    <varSym>1204641146</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-11+02:00</datVyst>
+    <duzpPuv>2012-06-11+02:00</duzpPuv>
+    <duzpUcto>2012-06-11+02:00</duzpUcto>
+    <datSplat>2012-06-25+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>368.32</sumZklZakl>
+    <sumZklCelkem>368.32</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>73.68</sumDphZakl>
+    <sumDphCelkem>73.68</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>442.0</sumCelkZakl>
+    <sumCelkem>442.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Mountfield a.s.</nazFirmy>
+    <ulice>Mirošovická 697</ulice>
+    <mesto>Mnichovice</mesto>
+    <psc>25164</psc>
+    <eanKod></eanKod>
+    <ic>25620991</ic>
+    <dic>CZ25620991</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-11+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="MOUNTFIELD: Mountfield a.s.">code:MOUNTFIELD</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>f151072adfa6f3e4f93a1c09b965304916528dcc</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>442.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:99</id>
+    <lastUpdate>2012-07-19T18:14:01.027+02:00</lastUpdate>
+    <kod>PF0027/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>4245</cisDosle>
+    <varSym>4245</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-26+02:00</datVyst>
+    <duzpPuv>2012-06-26+02:00</duzpPuv>
+    <duzpUcto>2012-06-26+02:00</duzpUcto>
+    <datSplat>2012-06-26+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup ostatních služeb</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>75.0</sumZklZakl>
+    <sumZklCelkem>75.0</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>15.0</sumDphZakl>
+    <sumDphCelkem>15.0</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>90.0</sumCelkZakl>
+    <sumCelkem>90.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Česká pošta, s.p.</nazFirmy>
+    <ulice>Politických vězňů 909/4</ulice>
+    <mesto>Praha</mesto>
+    <psc>11000</psc>
+    <eanKod></eanKod>
+    <ic>47114983</ic>
+    <dic>CZ47114983</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-26+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="ČESKÁ: Česká pošta, s.p.">code:ČESKÁ</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SLUŽBY: Nákup ostatních služeb">code:NÁKUP SLUŽBY</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="518001: Ostatní služby">code:518001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>6669470694d3fc403e30eba888803f37c2a1ddd8</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>90.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:75</id>
+    <lastUpdate>2012-04-09T14:51:29.430+02:00</lastUpdate>
+    <kod>PF0003/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>196671</cisDosle>
+    <varSym>196671</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-03-28+02:00</datVyst>
+    <duzpPuv>2012-03-28+02:00</duzpPuv>
+    <duzpUcto>2012-03-28+02:00</duzpUcto>
+    <datSplat>2012-03-28+02:00</datSplat>
+    <datUhr>2012-03-28+02:00</datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup spotřebního materiálu</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>228.07</sumZklSniz>
+    <sumZklZakl>0.0</sumZklZakl>
+    <sumZklCelkem>228.07</sumZklCelkem>
+    <sumDphSniz>31.93</sumDphSniz>
+    <sumDphZakl>0.0</sumDphZakl>
+    <sumDphCelkem>31.93</sumDphCelkem>
+    <sumCelkSniz>260.0</sumCelkSniz>
+    <sumCelkZakl>0.0</sumCelkZakl>
+    <sumCelkem>260.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>OSEVA,AGRO Brno, spol. s r.o.</nazFirmy>
+    <ulice>Přízova</ulice>
+    <mesto>Brno</mesto>
+    <psc>65792</psc>
+    <eanKod></eanKod>
+    <ic>60707925</ic>
+    <dic>CZ60707925</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-03-28+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="OSEVA: OSEVA,AGRO Brno, spol. s r.o.">code:OSEVA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SPOTŘ. MATER.: Nákup spotřebního materiálu">code:NÁKUP SPOTŘ. MATER.</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="501001: Spotřeba materiálu">code:501001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>4bce4793253ca4870c273747d16ce382c147e4ae</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>260.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>0.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK showAs="hotově">formaUhr.hotove</formaUhrK>
+    <stavUhrK showAs="Uhrazeno">stavUhr.uhrazeno</stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:88</id>
+    <lastUpdate>2012-07-19T17:52:07.345+02:00</lastUpdate>
+    <kod>PF0016/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>4524</cisDosle>
+    <varSym>4524</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-12+02:00</datVyst>
+    <duzpPuv>2012-06-12+02:00</duzpPuv>
+    <duzpUcto>2012-06-12+02:00</duzpUcto>
+    <datSplat>2012-06-12+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup spotřebního materiálu</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>240.82</sumZklZakl>
+    <sumZklCelkem>240.82</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>48.18</sumDphZakl>
+    <sumDphCelkem>48.18</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>289.0</sumCelkZakl>
+    <sumCelkem>289.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>KANZELSBERGER a.s.</nazFirmy>
+    <ulice>Václavské náměstí 796/42</ulice>
+    <mesto>Praha</mesto>
+    <psc>11000</psc>
+    <eanKod></eanKod>
+    <ic>25693654</ic>
+    <dic>CZ25693654</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-12+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="KANZELSBERGER: KANZELSBERGER a.s.">code:KANZELSBERGER</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SPOTŘ. MATER.: Nákup spotřebního materiálu">code:NÁKUP SPOTŘ. MATER.</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="501001: Spotřeba materiálu">code:501001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>7a2fef39724eac6ef02af3ea6c96234e11ac333b</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>289.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:89</id>
+    <lastUpdate>2012-07-19T17:53:23.337+02:00</lastUpdate>
+    <kod>PF0017/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>12h03801</cisDosle>
+    <varSym>1203801</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-05-30+02:00</datVyst>
+    <duzpPuv>2012-05-30+02:00</duzpPuv>
+    <duzpUcto>2012-05-30+02:00</duzpUcto>
+    <datSplat>2012-05-30+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup spotřebního materiálu</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>27.5</sumZklZakl>
+    <sumZklCelkem>27.5</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>5.5</sumDphZakl>
+    <sumDphCelkem>5.5</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>33.0</sumCelkZakl>
+    <sumCelkem>33.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Milan Novák</nazFirmy>
+    <ulice>Chlumova 1436/3</ulice>
+    <mesto>Jihlava</mesto>
+    <psc>58601</psc>
+    <eanKod></eanKod>
+    <ic>40470377</ic>
+    <dic>CZ521109134</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-05-30+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="LENA, MILAN NOVÁK: Milan Novák">code:LENA, MILAN NOVÁK</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SPOTŘ. MATER.: Nákup spotřebního materiálu">code:NÁKUP SPOTŘ. MATER.</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="501001: Spotřeba materiálu">code:501001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>2335fa6db2b767e48851b19dbd7724465cf69427</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>33.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:98</id>
+    <lastUpdate>2012-07-19T18:10:59.733+02:00</lastUpdate>
+    <kod>PF0026/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>5002502120625000176</cisDosle>
+    <varSym>5002502120625000176</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-25+02:00</datVyst>
+    <duzpPuv>2012-06-25+02:00</duzpPuv>
+    <duzpUcto>2012-06-25+02:00</duzpUcto>
+    <datSplat>2012-06-25+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup spotřebního materiálu</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>190.35</sumZklSniz>
+    <sumZklZakl>0.0</sumZklZakl>
+    <sumZklCelkem>190.35</sumZklCelkem>
+    <sumDphSniz>26.65</sumDphSniz>
+    <sumDphZakl>0.0</sumDphZakl>
+    <sumDphCelkem>26.65</sumDphCelkem>
+    <sumCelkSniz>217.0</sumCelkSniz>
+    <sumCelkZakl>0.0</sumCelkZakl>
+    <sumCelkem>217.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Levné knihy a.s.</nazFirmy>
+    <ulice>Do Čertous 2660/16</ulice>
+    <mesto>Praha</mesto>
+    <psc>19300</psc>
+    <eanKod></eanKod>
+    <ic>28226909</ic>
+    <dic>CZ28226909</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-25+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="LEVNÉ KNIHY: Levné knihy a.s.">code:LEVNÉ KNIHY</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP SPOTŘ. MATER.: Nákup spotřebního materiálu">code:NÁKUP SPOTŘ. MATER.</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="501001: Spotřeba materiálu">code:501001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>c74bced756b5390d293ca15b47a1a473cc813f1e</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>217.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:74</id>
+    <lastUpdate>2012-04-09T14:51:45.828+02:00</lastUpdate>
+    <kod>PF0002/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>196661</cisDosle>
+    <varSym>196661</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-03-28+02:00</datVyst>
+    <duzpPuv>2012-03-28+02:00</duzpPuv>
+    <duzpUcto>2012-03-28+02:00</duzpUcto>
+    <datSplat>2012-03-28+02:00</datSplat>
+    <datUhr>2012-03-28+02:00</datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>242.98</sumZklSniz>
+    <sumZklZakl>0.0</sumZklZakl>
+    <sumZklCelkem>242.98</sumZklCelkem>
+    <sumDphSniz>34.02</sumDphSniz>
+    <sumDphZakl>0.0</sumDphZakl>
+    <sumDphCelkem>34.02</sumDphCelkem>
+    <sumCelkSniz>277.0</sumCelkSniz>
+    <sumCelkZakl>0.0</sumCelkZakl>
+    <sumCelkem>277.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>OSEVA,AGRO Brno, spol. s r.o.</nazFirmy>
+    <ulice>Přízova</ulice>
+    <mesto>Brno</mesto>
+    <psc>65792</psc>
+    <eanKod></eanKod>
+    <ic>60707925</ic>
+    <dic>CZ60707925</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-03-28+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="OSEVA: OSEVA,AGRO Brno, spol. s r.o.">code:OSEVA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>0f835e0cd6f71dbdec8fd8b83190fa7cc1bce453</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>277.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>0.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK showAs="hotově">formaUhr.hotove</formaUhrK>
+    <stavUhrK showAs="Uhrazeno">stavUhr.uhrazeno</stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:78</id>
+    <lastUpdate>2012-07-19T17:11:21.879+02:00</lastUpdate>
+    <kod>PF0006/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>12PH02831</cisDosle>
+    <varSym>1202831</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-05-11+02:00</datVyst>
+    <duzpPuv>2012-05-11+02:00</duzpPuv>
+    <duzpUcto>2012-05-11+02:00</duzpUcto>
+    <datSplat>2012-05-11+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>87.5</sumZklZakl>
+    <sumZklCelkem>87.5</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>17.5</sumDphZakl>
+    <sumDphCelkem>17.5</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>105.0</sumCelkZakl>
+    <sumCelkem>105.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>VAĎURA s.r.o.</nazFirmy>
+    <ulice>Průmyslová 3899/6</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>27754693</ic>
+    <dic>CZ27754693</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-05-11+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VAĎURA: VAĎURA s.r.o.">code:VAĎURA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>35e1c528dfeaebcaacbbbac3e4fdbdd7afc44457</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>105.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:87</id>
+    <lastUpdate>2012-07-19T17:50:49.233+02:00</lastUpdate>
+    <kod>PF0015/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>458844</cisDosle>
+    <varSym>458844</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-01+02:00</datVyst>
+    <duzpPuv>2012-06-01+02:00</duzpPuv>
+    <duzpUcto>2012-06-01+02:00</duzpUcto>
+    <datSplat>2012-06-01+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>749.14</sumZklZakl>
+    <sumZklCelkem>749.14</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>149.86</sumDphZakl>
+    <sumDphCelkem>149.86</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>899.0</sumCelkZakl>
+    <sumCelkem>899.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>Intersport ČR s.r.o.</nazFirmy>
+    <ulice>Na strži 1702/65</ulice>
+    <mesto>Praha</mesto>
+    <psc>14000</psc>
+    <eanKod></eanKod>
+    <ic>25670816</ic>
+    <dic>CZ25670816</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-01+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="INTERSPORT: Intersport ČR s.r.o.">code:INTERSPORT</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>9d95041b9331e158ccbae538df6436ff37164855</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>899.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:90</id>
+    <lastUpdate>2012-07-19T17:54:38.587+02:00</lastUpdate>
+    <kod>PF0018/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>17</cisDosle>
+    <varSym>17</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-14+02:00</datVyst>
+    <duzpPuv>2012-06-14+02:00</duzpPuv>
+    <duzpUcto>2012-06-14+02:00</duzpUcto>
+    <datSplat>2012-06-14+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>1580.77</sumZklZakl>
+    <sumZklCelkem>1580.77</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>316.23</sumDphZakl>
+    <sumDphCelkem>316.23</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>1897.0</sumCelkZakl>
+    <sumCelkem>1897.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>TVARBET MORAVIA, a.s.</nazFirmy>
+    <ulice>Dolní Valy 3739/4</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>13690558</ic>
+    <dic>CZ13690558</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-14+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="TVARBET: TVARBET MORAVIA, a.s.">code:TVARBET</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>d7467782fe05eb98e2e04796fcce054d380cd2f4</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>1897.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:91</id>
+    <lastUpdate>2012-07-19T17:56:10.329+02:00</lastUpdate>
+    <kod>PF0019/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>62-11-06-12</cisDosle>
+    <varSym>62110612</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-11+02:00</datVyst>
+    <duzpPuv>2012-06-11+02:00</duzpPuv>
+    <duzpUcto>2012-06-11+02:00</duzpUcto>
+    <datSplat>2012-06-11+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>3246.54</sumZklZakl>
+    <sumZklCelkem>3246.54</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>649.46</sumDphZakl>
+    <sumDphCelkem>649.46</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>3896.0</sumCelkZakl>
+    <sumCelkem>3896.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>STAIRS, společnost s ručením omezený</nazFirmy>
+    <ulice>Brněnská 1243/51</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>60732181</ic>
+    <dic>CZ60732181</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-11+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="STAIRS: STAIRS, společnost s ručením omezený">code:STAIRS</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>72f9a12c680d93079a51c3e85cd28ea7664b0f00</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>3896.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:92</id>
+    <lastUpdate>2012-07-19T17:57:42.010+02:00</lastUpdate>
+    <kod>PF0020/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>12120253</cisDosle>
+    <varSym>12120253</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-18+02:00</datVyst>
+    <duzpPuv>2012-06-18+02:00</duzpPuv>
+    <duzpUcto>2012-06-18+02:00</duzpUcto>
+    <datSplat>2012-06-18+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>186.66</sumZklZakl>
+    <sumZklCelkem>186.66</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>37.34</sumDphZakl>
+    <sumDphCelkem>37.34</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>224.0</sumCelkZakl>
+    <sumCelkem>224.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>TRIPO STEEL s.r.o.</nazFirmy>
+    <ulice>Pávov 142</ulice>
+    <mesto>Jihlava</mesto>
+    <psc>58601</psc>
+    <eanKod></eanKod>
+    <ic>28344065</ic>
+    <dic>CZ28344065</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-18+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="TRIPO: TRIPO STEEL s.r.o.">code:TRIPO</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>d192c163d90de335297d71921ec62271f3e198bb</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>224.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:93</id>
+    <lastUpdate>2012-07-19T17:58:53.721+02:00</lastUpdate>
+    <kod>PF0021/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>skvy112792</cisDosle>
+    <varSym>112792</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-18+02:00</datVyst>
+    <duzpPuv>2012-06-18+02:00</duzpPuv>
+    <duzpUcto>2012-06-18+02:00</duzpUcto>
+    <datSplat>2012-06-18+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>1235.78</sumZklZakl>
+    <sumZklCelkem>1235.78</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>247.22</sumDphZakl>
+    <sumDphCelkem>247.22</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>1483.0</sumCelkZakl>
+    <sumCelkem>1483.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>VaP Bransouze, spol. s r.o.</nazFirmy>
+    <ulice>Heroltická 5449/19</ulice>
+    <mesto>Jihlava</mesto>
+    <psc>58601</psc>
+    <eanKod></eanKod>
+    <ic>46342516</ic>
+    <dic>CZ46342516</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-18+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VAP: VaP Bransouze, spol. s r.o.">code:VAP</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>d5d49f74bffe9725d535925d65e76bda721c4423</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>1483.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:94</id>
+    <lastUpdate>2012-07-19T17:59:31.632+02:00</lastUpdate>
+    <kod>PF0022/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>skvy112793</cisDosle>
+    <varSym>112793</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-18+02:00</datVyst>
+    <duzpPuv>2012-06-18+02:00</duzpPuv>
+    <duzpUcto>2012-06-18+02:00</duzpUcto>
+    <datSplat>2012-06-18+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>55.0</sumZklZakl>
+    <sumZklCelkem>55.0</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>11.0</sumDphZakl>
+    <sumDphCelkem>11.0</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>66.0</sumCelkZakl>
+    <sumCelkem>66.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>VaP Bransouze, spol. s r.o.</nazFirmy>
+    <ulice>Heroltická 5449/19</ulice>
+    <mesto>Jihlava</mesto>
+    <psc>58601</psc>
+    <eanKod></eanKod>
+    <ic>46342516</ic>
+    <dic>CZ46342516</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-18+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VAP: VaP Bransouze, spol. s r.o.">code:VAP</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>ed428cbcec3c5d99ef0f853d3c36d9715882468a</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>66.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:95</id>
+    <lastUpdate>2012-07-19T18:03:28.269+02:00</lastUpdate>
+    <kod>PF0023/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>329-2-209</cisDosle>
+    <varSym>3292209</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-18+02:00</datVyst>
+    <duzpPuv>2012-06-18+02:00</duzpPuv>
+    <duzpUcto>2012-06-18+02:00</duzpUcto>
+    <datSplat>2012-06-18+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>3610.69</sumZklZakl>
+    <sumZklCelkem>3610.69</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>722.31</sumDphZakl>
+    <sumDphCelkem>722.31</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>4333.0</sumCelkZakl>
+    <sumCelkem>4333.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>BAUMAX ČR s.r.o.</nazFirmy>
+    <ulice>Türkova 1272/7</ulice>
+    <mesto>Praha</mesto>
+    <psc>14900</psc>
+    <eanKod></eanKod>
+    <ic>18631991</ic>
+    <dic>CZ18631991</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-18+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="BAUMAX: BAUMAX ČR s.r.o.">code:BAUMAX</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>d59fcf8e6d824c14127b39cba4240944e32550c3</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>4333.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:97</id>
+    <lastUpdate>2012-07-19T18:08:09.180+02:00</lastUpdate>
+    <kod>PF0025/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>000204</cisDosle>
+    <varSym>000204</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-13+02:00</datVyst>
+    <duzpPuv>2012-06-13+02:00</duzpPuv>
+    <duzpUcto>2012-06-13+02:00</duzpUcto>
+    <datSplat>2012-06-23+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>525.44</sumZklSniz>
+    <sumZklZakl>189.99</sumZklZakl>
+    <sumZklCelkem>715.43</sumZklCelkem>
+    <sumDphSniz>73.56</sumDphSniz>
+    <sumDphZakl>38.01</sumDphZakl>
+    <sumDphCelkem>111.57</sumDphCelkem>
+    <sumCelkSniz>599.0</sumCelkSniz>
+    <sumCelkZakl>228.0</sumCelkZakl>
+    <sumCelkem>827.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>MAITREA a.s.</nazFirmy>
+    <ulice>Týnská ulička 1064/6</ulice>
+    <mesto>Praha</mesto>
+    <psc>11000</psc>
+    <eanKod></eanKod>
+    <ic>49240617</ic>
+    <dic>CZ49240617</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-13+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="MAITREA: MAITREA a.s.">code:MAITREA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>8b12913d3a6b6b7ff3ca0c553c08526c189ebbc5</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>827.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:100</id>
+    <lastUpdate>2012-07-19T18:14:44.276+02:00</lastUpdate>
+    <kod>PF0028/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>12ph04143</cisDosle>
+    <varSym>1204143</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-27+02:00</datVyst>
+    <duzpPuv>2012-06-27+02:00</duzpPuv>
+    <duzpUcto>2012-06-27+02:00</duzpUcto>
+    <datSplat>2012-06-27+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>461.65</sumZklZakl>
+    <sumZklCelkem>461.65</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>92.35</sumDphZakl>
+    <sumDphCelkem>92.35</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>554.0</sumCelkZakl>
+    <sumCelkem>554.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>VAĎURA s.r.o.</nazFirmy>
+    <ulice>Průmyslová 3899/6</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>27754693</ic>
+    <dic>CZ27754693</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-27+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VAĎURA: VAĎURA s.r.o.">code:VAĎURA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>dfc9a0c5067a2bf7ec515a14de8fd658cb58cdab</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>554.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+  <faktura-prijata>
+    <id>ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:101</id>
+    <lastUpdate>2012-07-19T18:15:50.913+02:00</lastUpdate>
+    <kod>PF0029/2012</kod>
+    <zamekK showAs="Otevřeno">zamek.otevreno</zamekK>
+    <cisDosle>12ph04136</cisDosle>
+    <varSym>1204136</varSym>
+    <cisSml></cisSml>
+    <cisObj></cisObj>
+    <datObj></datObj>
+    <cisDodak></cisDodak>
+    <doprava></doprava>
+    <datVyst>2012-06-27+02:00</datVyst>
+    <duzpPuv>2012-06-27+02:00</duzpPuv>
+    <duzpUcto>2012-06-27+02:00</duzpUcto>
+    <datSplat>2012-06-27+02:00</datSplat>
+    <datUhr></datUhr>
+    <datTermin></datTermin>
+    <datReal></datReal>
+    <popis>Nákup materiálu (způsob A)</popis>
+    <poznam></poznam>
+    <sumOsv>0.0</sumOsv>
+    <sumZklSniz>0.0</sumZklSniz>
+    <sumZklZakl>1316.61</sumZklZakl>
+    <sumZklCelkem>1316.61</sumZklCelkem>
+    <sumDphSniz>0.0</sumDphSniz>
+    <sumDphZakl>263.39</sumDphZakl>
+    <sumDphCelkem>263.39</sumDphCelkem>
+    <sumCelkSniz>0.0</sumCelkSniz>
+    <sumCelkZakl>1580.0</sumCelkZakl>
+    <sumCelkem>1580.0</sumCelkem>
+    <sumOsvMen>0.0</sumOsvMen>
+    <sumZklSnizMen>0.0</sumZklSnizMen>
+    <sumZklZaklMen>0.0</sumZklZaklMen>
+    <sumZklCelkemMen>0.0</sumZklCelkemMen>
+    <sumDphZaklMen>0.0</sumDphZaklMen>
+    <sumDphSnizMen>0.0</sumDphSnizMen>
+    <sumDphCelkemMen>0.0</sumDphCelkemMen>
+    <sumCelkSnizMen>0.0</sumCelkSnizMen>
+    <sumCelkZaklMen>0.0</sumCelkZaklMen>
+    <sumCelkemMen>0.0</sumCelkemMen>
+    <kurz>0.0</kurz>
+    <kurzMnozstvi>0.0</kurzMnozstvi>
+    <stavUzivK></stavUzivK>
+    <nazFirmy>VAĎURA s.r.o.</nazFirmy>
+    <ulice>Průmyslová 3899/6</ulice>
+    <mesto>Hodonín</mesto>
+    <psc>69501</psc>
+    <eanKod></eanKod>
+    <ic>27754693</ic>
+    <dic>CZ27754693</dic>
+    <buc></buc>
+    <iban></iban>
+    <bic></bic>
+    <specSym></specSym>
+    <bezPolozek>true</bezPolozek>
+    <ucetni>true</ucetni>
+    <szbDphSniz>14.0</szbDphSniz>
+    <szbDphZakl>20.0</szbDphZakl>
+    <zuctovano>true</zuctovano>
+    <datUcto>2012-06-27+02:00</datUcto>
+    <vyloucitSaldo>false</vyloucitSaldo>
+    <storno>false</storno>
+    <stitky></stitky>
+    <typDokl showAs="FAKTURA: Faktura - daňový doklad">code:FAKTURA</typDokl>
+    <mena showAs="CZK: Česká koruna">code:CZK</mena>
+    <konSym></konSym>
+    <firma showAs="VAĎURA: VAĎURA s.r.o.">code:VAĎURA</firma>
+    <stat showAs="Česká republika">code:CZ</stat>
+    <banSpojDod></banSpojDod>
+    <bankovniUcet showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</bankovniUcet>
+    <!-- DEPRECATED, use "bankovniUcet" -->
+    <typDoklBan showAs="BANKOVNÍ ÚČET (/)">code:BANKOVNÍ ÚČET</typDoklBan>
+    <typUcOp showAs="NÁKUP MATERIÁLU A: Nákup materiálu (způsob A)">code:NÁKUP MATERIÁLU A</typUcOp>
+    <primUcet showAs="321001: Závazky z obchodních vztahů">code:321001</primUcet>
+    <protiUcet showAs="111001: Pořízení materiálu">code:111001</protiUcet>
+    <dphZaklUcet showAs="343019: Daň z přidané hodnoty - základní sazba">code:343019</dphZaklUcet>
+    <dphSnizUcet showAs="343009: Daň z přidané hodnoty - snížená sazba">code:343009</dphSnizUcet>
+    <smerKod></smerKod>
+    <statDph showAs="Česká republika">code:CZ</statDph>
+    <clenDph showAs="40-41: Z přijatých zdanitelných plnění od plátců">code:40-41</clenDph>
+    <uzivatel showAs="mithrades">code:mithrades</uzivatel>
+    <rada showAs="FAKTURA: Přijatá faktura ">code:FAKTURA</rada>
+    <polozkaRady showAs="PolozkaRady (id=27)">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:27</polozkaRady>
+    <sazbaDphOsv showAs="0 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:1</sazbaDphOsv>
+    <sazbaDphSniz showAs="14 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:21</sazbaDphSniz>
+    <sazbaDphZakl showAs="20 %">ws:cab5cace-b8f5-42c8-b753-134eabc1fbe7:18</sazbaDphZakl>
+    <smlouva></smlouva>
+    <uuid>9e9dfca253ed014ddd11663185e38dc0cb1b8401</uuid>
+    <source></source>
+    <datPenale></datPenale>
+    <podpisPrik>false</podpisPrik>
+    <prikazSum>0.0</prikazSum>
+    <prikazSumMen>0.0</prikazSumMen>
+    <juhSum>0.0</juhSum>
+    <juhSumMen>0.0</juhSumMen>
+    <juhDat>0.0</juhDat>
+    <juhDatMen>0.0</juhDatMen>
+    <zbyvaUhradit>1580.0</zbyvaUhradit>
+    <zbyvaUhraditMen>0.0</zbyvaUhraditMen>
+    <formaUhrK></formaUhrK>
+    <stavUhrK></stavUhrK>
+    <sumZalohy>0.0</sumZalohy>
+    <sumZalohyMen>0.0</sumZalohyMen>
+    <stavOdpocetK></stavOdpocetK>
+    <generovatSkl>true</generovatSkl>
+    <hromFakt>false</hromFakt>
+    <zdrojProSkl>true</zdrojProSkl>
+    <stavMailK></stavMailK>
+    <typDoklSkl showAs="STANDARD: Standardní skladový pohyb">code:STANDARD</typDoklSkl>
+  </faktura-prijata>
+</winstrom>

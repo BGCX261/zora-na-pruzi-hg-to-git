@@ -1,0 +1,53 @@
+
+
+BODY
+{
+	padding: 0;
+	margin: 0;
+	
+	width: 210mm; 
+	font-size: 11px;
+}
+
+TABLE, TR, TD
+{ 
+border-collapse: inherit;
+border-spacing: 0px;
+vertical-align: top;
+}
+
+DIV {  }
+
+header {
+  height:  100%;
+	
+}
+
+.hlavicka_vyhlaska {
+  float: left;
+  width: 25%;
+}
+
+.nadpis_rozvahy {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.nadpis_nazev_firmy {
+	width: 25%;
+	float: left;
+}
+
+section {
+	clear: both;
+	
+}
+
+dd, dt {
+        margin: 5px 10px;
+      }
+
+dd {
+  font-weight: bold
+}

@@ -1,0 +1,5 @@
+strict digraph G {
+1 [time="5pm"];
+2;
+1 -> 2  [weight=25];
+}
