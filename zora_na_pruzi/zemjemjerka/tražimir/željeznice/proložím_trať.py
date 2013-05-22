@@ -5,9 +5,9 @@
 Hen je program, který načte trať a dál ju bude upravovat
 '''
 
-from pruga.danimir import databáze
-from pruga.danimir.příkazy import SELECT,  INSERT,  UPDATE
-from pruga.danimir.připojení import zemjemjerka as nastavení_připojení_k_databázi
+from zora_na_pruzi.pruga.danimir import databáze
+from zora_na_pruzi.pruga.danimir.příkazy import SELECT,  INSERT,  UPDATE
+from zora_na_pruzi.pruga.danimir.připojení import zemjemjerka as nastavení_připojení_k_databázi
 
 db = databáze(nastavení_připojení_k_databázi)
 
