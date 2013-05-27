@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-05-26, 22:08:00 -->
+<!-- Saved: 2013-05-28, 00:32:53 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -535,6 +535,7 @@
     <Source>zora_na_pruzi/pylons/helloworld.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pylons/helloworld.py</Source>
     <Source>neo4j.py</Source>
+    <Source>pyproperties.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
