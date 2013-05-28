@@ -26,12 +26,12 @@ def rozbalím_neo4j(jméno_databáze,  NEO4J_SRC):
     import tarfile
     
     if not os.path.isfile(NEO4J_SRC):
-        raise ValueError('Nejestvuje zdrojový soubor neo4j databáze {}.'.format(NEO4J_SRC,  NEO4J_ADRESÁŘ_DATABÁZÍ))
+        raise IOError('Nejestvuje zdrojový soubor neo4j databáze {}.'.format(NEO4J_SRC,  NEO4J_ADRESÁŘ_DATABÁZÍ))
         
     
     cesta_k_nové_databázi = os.path.join(NEO4J_ADRESÁŘ_DATABÁZÍ,  jméno_databáze)
     if os.path.isdir(cesta_k_nové_databázi):
-        raise ValueError('Databáze jménem {} již jestvuje v adresáři {}.'.format(jméno_databáze,  NEO4J_ADRESÁŘ_DATABÁZÍ))
+        raise IOError('Databáze jménem {} již jestvuje v adresáři {}.'.format(jméno_databáze,  NEO4J_ADRESÁŘ_DATABÁZÍ))
         
     
     print('rozbalím {}'.format(NEO4J_SRC))
@@ -70,4 +70,8 @@ if __name__ == '__main__':
     
     print('vytvořím databázi',  args.jméno_databáze)
 
-    rozbalím_neo4j(args.jméno_databáze,  NEO4J_SRC)
+    try:
+        rozbalím_neo4j(args.jméno_databáze,  NEO4J_SRC)
+    except IOError as e:
+        print(e)
+    

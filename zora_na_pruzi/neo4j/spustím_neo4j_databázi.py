@@ -12,6 +12,7 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import os
 import py2neo
 #from py2neo import neo4j
+from zora_na_pruzi.neo4j import *
 
 def připojím_se_k_databázi(NEO4J_URL,  NEO4J_ADRESÁŘ):
     '''
@@ -58,7 +59,11 @@ if __name__ == '__main__':
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
-    print('připojím se k databázi',  args.jméno_databáze)
+    adresář_databáze = os.path.join(NEO4J_ADRESÁŘ_DATABÁZÍ,  args.jméno_databáze)
+    
+    print('připojím se k databázi',  adresář_databáze)
 
-
-    připojím_se_k_databázi(NEO4J_URL,  NEO4J_ADRESÁŘ)
+    try:
+        připojím_se_k_databázi(NEO4J_URL,  adresář_databáze)
+    except IOError as e:
+        print(e)
