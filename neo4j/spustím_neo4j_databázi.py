@@ -13,11 +13,6 @@ import os
 import py2neo
 #from py2neo import neo4j
 
-NEO4J_URL = 'http://localhost:7474/db/data/'
-NEO4J_ADRESÁŘ = '/opt/neo4j/databáze/testovací'
-NEO4J_BIN = 'bin/neo4j'
-NEO4J_SERVER_PROPERTIES = 'conf/neo4j-server.properties'
-
 def připojím_se_k_databázi(NEO4J_URL,  NEO4J_ADRESÁŘ):
     '''
     spouštím funkci připojím_se_k_databázi()
@@ -51,18 +46,19 @@ if __name__ == '__main__':
 
     print(__doc__)
 
-#    import argparse
-#    #  nejdříve si parser vytvořím
-#    parser = argparse.ArgumentParser()
-#
-##   a pak mu nastavím jaké příkazy a parametry má přijímat
-#    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
-#    
-#    parser.add_argument('soubor')
-#    
-#    #    a včíl to možu rozparsovat
-#    args = parser.parse_args()
-#    
-#    print('soubor',  args.soubor)
+    import argparse
+    #  nejdříve si parser vytvořím
+    parser = argparse.ArgumentParser()
+
+#   a pak mu nastavím jaké příkazy a parametry má přijímat
+    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
+    
+    parser.add_argument('jméno_databáze')
+    
+    #    a včíl to možu rozparsovat
+    args = parser.parse_args()
+    
+    print('připojím se k databázi',  args.jméno_databáze)
+
 
     připojím_se_k_databázi(NEO4J_URL,  NEO4J_ADRESÁŘ)
