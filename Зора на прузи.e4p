@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-05-28, 15:33:35 -->
+<!-- Saved: 2013-05-30, 19:19:37 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -297,15 +297,22 @@
     <Source>zora_na_pruzi/pruga/danimir/připojení/testovací_databáze.py</Source>
     <Source>zora_na_pruzi/pruga/danimir/připojení/účetnictví.py</Source>
     <Source>zora_na_pruzi/pruga/danimir/připojení/zemjemjerka.py</Source>
-    <Source>pyproperties.py</Source>
-    <Source>nová_neo4j_databáze.py</Source>
-    <Source>spustím_neo4j_databázi.py</Source>
-    <Source>neo4j/__init__.py</Source>
-    <Source>neo4j/spustím_neo4j_databázi.py</Source>
-    <Source>neo4j/nová_neo4j_databáze.py</Source>
     <Source>zora_na_pruzi/neo4j/spustím_neo4j_databázi.py</Source>
     <Source>zora_na_pruzi/neo4j/nová_neo4j_databáze.py</Source>
     <Source>zora_na_pruzi/neo4j/__init__.py</Source>
+    <Source>zora_na_pruzi/neo4j/pyproperties.py</Source>
+    <Source>zora_na_pruzi/neo4j/volám_databázi.py</Source>
+    <Source>zora_na_pruzi/neo4j/seznam_databází.py</Source>
+    <Source>zora_na_pruzi/neo4j/testuji_properties.py</Source>
+    <Source>importuji_účetnictví/__init__.py</Source>
+    <Source>importuji_účetnictví/účetní_osnova.py</Source>
+    <Source>importuji_účetnictví/účetnictví/účetní_osnova/účetní_osnovu_z_excelu_do_grafu.py</Source>
+    <Source>importuji_účetnictví/účetnictví/__init__.py</Source>
+    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/účetní_osnova_do_grafu.py</Source>
+    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/__init__.py</Source>
+    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/adresář_firem.py</Source>
+    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/faktury.py</Source>
+    <Source>importuji_účetnictví/z_postgresql.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

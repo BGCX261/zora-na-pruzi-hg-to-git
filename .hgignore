@@ -25,4 +25,7 @@ glob:nastavím/instalace
 glob:**.cache
 glob:dílna/veřejné_rozpočty/csv
 glob:html_šablony
-glob:dílna/forex
+glob:dílna/forexzora_na_pruzi/zemjemjerka
+zora_na_pruzi/zemjemjerka
+importuji_účetnictví/sql
+importuji_účetnictví/účetnictví
