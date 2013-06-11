@@ -12,6 +12,7 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import json
 
 import bottle
+from html.stránka import stránka,  E
 
 @bottle.get("/text")
 def text():
@@ -61,6 +62,40 @@ def store_data():
 @bottle.route("/")
 def index():
     return bottle.static_file("index.html", root=".")
+    
+@bottle.route("/test",  method=["GET", "POST"])
+def test():
+    
+    html = stránka(titulek = 'zkúšam s ajaxom')
+    
+    html.tělo << (E.H1('Testuji'))
+    
+    dl = html.tělo << E.DL()
+
+    dl('is_xhr',  bottle.request.is_xhr or 'NE')
+    print('is_xhr',  bottle.request.is_xhr or 'NE')
+    dl('is_ajax',  bottle.request.is_ajax or 'NE')
+    print('is_ajax',  bottle.request.is_ajax or 'NE')
+   
+    html.tělo << E.H2('davao GET')
+    print('davao GET')
+    dl = html.tělo << E.DL()
+    for klíč,  hodnota in bottle.request.query.items():
+        dl(klíč,  hodnota or 'NENÍ')
+        print(klíč,  hodnota or 'NENÍ')
+        
+    html.tělo << E.H2('davao POST')
+    print('davao POST')
+    dl = html.tělo << E.DL()
+    for klíč,  hodnota in bottle.request.forms.items():
+        dl(klíč,  hodnota or 'NENÍ')
+        print(klíč,  hodnota or 'NENÍ')
+     
+    print('JSON')
+    print(bottle.request.json)
+    print('BODY')
+    print(bottle.request.body.getvalue())
+    return str(html)
 
 bottle.debug(True)
 bottle.run(host='localhost', port=8080, reloader=True)

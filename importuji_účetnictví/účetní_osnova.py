@@ -167,20 +167,34 @@ def csv_účetní_osnova():
     
 
 if __name__ == '__main__':
-
    
-#    import argparse
-#    #  nejdříve si parser vytvořím
-#    parser = argparse.ArgumentParser()
-#
-##   a pak mu nastavím jaké příkazy a parametry má přijímat
-#    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
-#    
-#    parser.add_argument('soubor')
-#    
-#    #    a včíl to možu rozparsovat
-#    args = parser.parse_args()
-#    
+    import argparse
+    #  nejdříve si parser vytvořím
+    parser = argparse.ArgumentParser()
+
+#   a pak mu nastavím jaké příkazy a parametry má přijímat
+    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
+    
+    parser.add_argument('--data',  action='store_true')
+    parser.add_argument('--indexy',  action='store_true')
+    
+    #    a včíl to možu rozparsovat
+    args = parser.parse_args()
+    
 #    print('soubor',  args.soubor)
 
-    main()
+    if args.data:
+        main()
+        
+    if args.indexy:
+        příkazy = [
+    
+        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČTOVÁ_TŔÍDA), 
+        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČTOVÁ_TŔÍDA),
+        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČTOVÁ_SKUPINA), 
+        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČTOVÁ_SKUPINA),
+        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČET), 
+        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČET)
+        ]
+        
+        print(';\n'.join(příkazy) + ';')

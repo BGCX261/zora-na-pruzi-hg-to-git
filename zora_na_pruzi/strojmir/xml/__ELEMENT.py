@@ -62,13 +62,23 @@ class __ELEMENT(lxml.etree.ElementBase):
         operátor SOUBOR >> soubor:řetězec umožní uložit obsah do souboru
         '''
         if not isinstance(soubor,  (str, )):
-            raise TypeError('Operátor >> očekává jméno souboru.'.format(self.tag))
+            raise TypeError('Operátor >> očekává jméno souboru.')
         
         print('uložím element <{2} ... > ... </{2}> třídy {0} do souboru {1}'.format(self.__class__.__name__,  soubor,  self.tag))
         
         with open(soubor,  mode ='w',  encoding = 'UTF-8') as otevřený_soubor:
             otevřený_soubor.write(self.xml_hlavička)
             otevřený_soubor.write(str(self))
+            
+    def __lshift__(self,  element):
+        '''
+        operátor TENTO_ELEMENT << PODELEMENT umožní vložit podlement
+        '''
+        if not isinstance(element,  (lxml.etree.ElementBase, )):
+            raise TypeError('Operátor << očekává element a nikolivěk {}.'.format(type(element)))
+        
+        self.append(element)
+        return element
 
     def _davaj_jedinečného(self,  třída_elementu):
         '''
