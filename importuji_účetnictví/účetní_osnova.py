@@ -34,7 +34,7 @@ class CREATE():
         příkaz = [
         'MATCH uctova_osnova:{}'.format(ÚČTOVÁ_OSNOVA), 
         'WITH count(uctova_osnova) as pocet', 
-        'WHERE pocet = 0 '.format(ÚČTOVÁ_OSNOVA), 
+        'WHERE pocet = 0 ', 
         'CREATE', 
         ',\n'.join(self.__prvky)
         ]
@@ -57,6 +57,9 @@ def vlastnosti(**kwargs):
         
     return '{{{}}}'.format(','.join(seznam))
 
+def labels(*args):
+    return ':'.join(args)
+
 def cypherové_uvozovky(slovo):
     return '`{}`'.format(slovo)
 
@@ -73,7 +76,7 @@ def toto_je_účtová_třída(řádek,  číslo_účtu,  jméno):
     
     assert len(řádek) == 1
     
-    CREATE('n_{}:{} {}'.format(číslo_účtu,  ÚČTOVÁ_TŔÍDA,  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
+    CREATE('n_{}:{} {}'.format(číslo_účtu,  labels(ÚČTOVÁ_TŔÍDA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
     CREATE('(uctova_osnova)-[{}]->(n_{})'.format(ÚČTOVÁ_OSNOVA_MÁ_TŘÍDU,  číslo_účtu))
     
     
@@ -88,7 +91,7 @@ def toto_je_účtová_skupina(řádek,  číslo_účtu,  jméno):
     
     assert len(řádek) == 1
     
-    CREATE('n_{}:{} {}'.format(číslo_účtu,  ÚČTOVÁ_SKUPINA,  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
+    CREATE('n_{}:{} {}'.format(číslo_účtu,  labels(ÚČTOVÁ_SKUPINA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
     
 #    (n)-[:LOVES {since: {value}}]->(m)
     CREATE('(n_{})-[{}]->(n_{})'.format(číslo_účtu[:-1],  ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU,  číslo_účtu))
@@ -99,7 +102,7 @@ def toto_je_soupis_skupin_7x(řádek,  číslo_účtu,  jméno):
     
 def toto_je_účet(řádek,  číslo_účtu,  jméno):
     
-    CREATE('n_{}:{} {}'.format(číslo_účtu,  ÚČET,  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
+    CREATE('n_{}:{} {}'.format(číslo_účtu,  labels(ÚČET,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
     
     CREATE('(n_{})-[{}]->(n_{})'.format(číslo_účtu[:-1],  ÚČTOVÁ_SKUPINA_MÁ_ÚČET,  číslo_účtu))
     
