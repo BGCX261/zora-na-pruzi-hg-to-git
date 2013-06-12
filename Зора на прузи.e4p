@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-03, 18:08:17 -->
+<!-- Saved: 2013-06-12, 02:08:41 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -564,6 +564,11 @@
     <Source>zora_na_pruzi/neo4j/py2neo/__init__.py</Source>
     <Source>zora_na_pruzi/neo4j/py2neo/neo4j.py</Source>
     <Source>zora_na_pruzi/neo4j/py2neo/gremlin.py</Source>
+    <Source>web/html/__init__.py</Source>
+    <Source>web/html/stránka.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/DL.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/DT.py</Source>
+    <Source>zora_na_pruzi/strojmir/xml/html5/DD.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
