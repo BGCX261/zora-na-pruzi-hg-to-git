@@ -3,7 +3,7 @@
 # @author Петр Болф <petr.bolf@domogled.eu>
 
 '''
-Hen je program, který ...
+Hen je program, který vytvoří v systému odkaz na vývojový balíček prugy
 '''
 
 __version__ = '0.0.1'

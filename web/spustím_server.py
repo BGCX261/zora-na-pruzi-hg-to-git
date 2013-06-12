@@ -111,5 +111,23 @@ def test():
     return str(html)
 
 if __name__ == '__main__':
+    
+    import argparse
+    #  nejdříve si parser vytvořím
+    parser = argparse.ArgumentParser()
+
+#   a pak mu nastavím jaké příkazy a parametry má přijímat
+    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
+    
+    parser.add_argument('--graf_db',  default = 'testovací')
+    
+    #    a včíl to možu rozparsovat
+    args = parser.parse_args()
+    
+    print('Spustím grafickou databázi {}'.format(args.graf_db))
+    
+    from pruga.databáze.spustím_neo4j_server import spustím_neo4j_server
+    spustím_neo4j_server(args.graf_db)
+    
     bottle.debug(True)
     bottle.run(host='localhost', port=8080, reloader=True)
