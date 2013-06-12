@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-12, 18:21:29 -->
+<!-- Saved: 2013-06-12, 20:59:35 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -573,6 +573,9 @@
     <Source>databáze/__init__.py</Source>
     <Source>pruga/__init__.py</Source>
     <Source>pruga/databáze/__init__.py</Source>
+    <Source>pruga/instalace/__init__.py</Source>
+    <Source>pruga/instalace/vytvořím_odkaz_na_knihovnu.py</Source>
+    <Source>pruga/databáze/Neo4j.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

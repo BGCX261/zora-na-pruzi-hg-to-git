@@ -59,20 +59,20 @@ def store_data():
         "result": ""
     }
 
-@bottle.route("/")
+@bottle.get("/")
 def index():
     return bottle.static_file("index.html", root=".")
   
-@bottle.route('/css/<filename:path>')
-def send_static(filename):
+@bottle.get('/css/<filename:path>')
+def css_staticky(filename):
     return bottle.static_file(filename, root='./css')
 
-@bottle.route('/js/<filename:path>')
-def send_static(filename):
+@bottle.get('/js/<filename:path>')
+def js_staticky(filename):
     return bottle.static_file(filename, root='./js')
 
-@bottle.route("/<meno>",  method=["GET", "POST"])
-def stránka(meno):
+@bottle.get("/<meno>")
+def dávám_obsah(meno):
     print('IDZE {}'.format(meno.encode('latin1').decode('utf8') ))
     return 'IDZE {}'.format(meno.encode('latin1').decode('utf8') )
  
