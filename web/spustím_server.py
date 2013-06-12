@@ -62,7 +62,20 @@ def store_data():
 @bottle.route("/")
 def index():
     return bottle.static_file("index.html", root=".")
-    
+  
+@bottle.route('/css/<filename:path>')
+def send_static(filename):
+    return bottle.static_file(filename, root='./css')
+
+@bottle.route('/js/<filename:path>')
+def send_static(filename):
+    return bottle.static_file(filename, root='./js')
+
+@bottle.route("/<meno>",  method=["GET", "POST"])
+def stránka(meno):
+    print('IDZE {}'.format(meno.encode('latin1').decode('utf8') ))
+    return 'IDZE {}'.format(meno.encode('latin1').decode('utf8') )
+ 
 @bottle.route("/test",  method=["GET", "POST"])
 def test():
     
@@ -97,5 +110,6 @@ def test():
     print(bottle.request.body.getvalue())
     return str(html)
 
-bottle.debug(True)
-bottle.run(host='localhost', port=8080, reloader=True)
+if __name__ == '__main__':
+    bottle.debug(True)
+    bottle.run(host='localhost', port=8080, reloader=True)
