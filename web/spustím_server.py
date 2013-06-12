@@ -126,8 +126,15 @@ if __name__ == '__main__':
     
     print('Spustím grafickou databázi {}'.format(args.graf_db))
     
-    from pruga.databáze.spustím_neo4j_server import spustím_neo4j_server
-    spustím_neo4j_server(args.graf_db)
+    from pruga.databáze.Neo4j import Neo4j,  VYPNUTO
+    neo4j = Neo4j(args.graf_db)
+    
+    stav,  status = neo4j.status()
+#    print(status)
+    if stav == VYPNUTO:
+        neo4j.start()
+        
+    neo4j_url = neo4j.url
     
     bottle.debug(True)
     bottle.run(host='localhost', port=8080, reloader=True)

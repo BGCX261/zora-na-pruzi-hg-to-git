@@ -14,6 +14,7 @@ import subprocess
 
 NEO4J_DIR = 'neo4j_servery'
 NEO4J_BIN = 'bin/neo4j'
+NEO4J_SERVER_PROPERTIES = 'conf/neo4j-server.properties'
 
 ZAPNUTO = 'server je zapnut'
 VYPNUTO = 'server je vypnut'
@@ -23,10 +24,12 @@ class Neo4j(object):
     def __init__(self,  adresář_databáze):
          
         hen = os.path.dirname(__file__)
-        gdb_adresář = os.path.realpath(os.path.join(hen,  NEO4J_DIR,  adresář_databáze))
+        self.gdb_adresář = gdb_adresář = os.path.realpath(os.path.join(hen,  NEO4J_DIR,  adresář_databáze))
         self.neo4j_bin = os.path.realpath(os.path.join(gdb_adresář,  NEO4J_BIN))
     
         print('Vytvářím neo4j server z adresáře {}.'.format(gdb_adresář))
+        
+        self.__url = None
     
     def status(self):
         status = subprocess.check_output((self.neo4j_bin,  'status')).decode('utf-8')
@@ -68,7 +71,22 @@ class Neo4j(object):
             raise ValueError('Neo4j server nebyl vypnut. Status: {}'.format(status))
     
 
-    
+    @property
+    def url(self):
+        if self.__url is None:
+         
+            soubor_nastavení = os.path.join(self.gdb_adresář,  NEO4J_SERVER_PROPERTIES)
+            from pruga.databáze import pyproperties
+            nastavení = pyproperties.Properties(soubor_nastavení)
+    #        for klíč,  hodnota in nastavení.properties.items():
+    #            print(klíč,  hodnota)
+
+            nastavení.properties.setdefault('org.neo4j.server.webserver.address',  'localhost')
+            neo4j_url_webserveru = 'http://{0[org.neo4j.server.webserver.address]}:{0[org.neo4j.server.webserver.port]}{0[org.neo4j.server.webadmin.data.uri]}'.format(nastavení.properties)
+        
+            self.__url =  neo4j_url_webserveru
+        
+        return self.__url
 
 if __name__ == '__main__':
 
@@ -89,7 +107,10 @@ if __name__ == '__main__':
 
     neo4j = Neo4j(args.graf_db)
     
-    spusť = getattr(neo4j,  args.úkol)
-    spusť()
+    if args.úkol == 'url':
+        print(neo4j.url)
+    else:
+        spusť = getattr(neo4j,  args.úkol)
+        spusť()
 
    
