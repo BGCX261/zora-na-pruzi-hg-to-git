@@ -6,7 +6,7 @@
 Hen je program, který ...
 '''
 
-from zora_na_pruzi.strojmir.importuji import davaj_importéra
+from pruga.strojmir.importuji import davaj_importéra
 
 class DAVAJ_FORMÁT(dict):
     
@@ -26,5 +26,5 @@ class DAVAJ_FORMÁT(dict):
 #            TŘÍDA = getattr(TŘÍDA,  jméno_formátu)
         return self[jméno_formátu]
 
-TEXT = DAVAJ_FORMÁT(balíček = 'zora_na_pruzi.vidimir.formáty.barevná_konzole')
-HTML = DAVAJ_FORMÁT(balíček = 'zora_na_pruzi.vidimir.formáty.html')
+TEXT = DAVAJ_FORMÁT(balíček = 'pruga.vidimir.formáty.barevná_konzole')
+HTML = DAVAJ_FORMÁT(balíček = 'pruga.vidimir.formáty.html')

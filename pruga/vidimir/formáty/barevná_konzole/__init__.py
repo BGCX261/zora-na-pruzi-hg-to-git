@@ -1,5 +1,5 @@
-from zora_na_pruzi.vidimir.stroj.konzole.dekorátory import obarvi,  orámuj,  odsaď
-from zora_na_pruzi.vidimir.stroj.konzole.barvy import *
+from pruga.vidimir.stroj.konzole.dekorátory import obarvi,  orámuj,  odsaď
+from pruga.vidimir.stroj.konzole.barvy import *
 
 
 
