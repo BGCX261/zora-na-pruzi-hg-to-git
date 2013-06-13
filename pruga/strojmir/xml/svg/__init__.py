@@ -6,7 +6,7 @@
 from ..__ELEMENT import __ELEMENT
 from ..__DAVAJ_ELEMENT import __DAVAJ_ELEMENT as E
 
-from zora_na_pruzi.strojmir.css.CSS_TABULKA import CSS_TABULKA
+from ...css.CSS_TABULKA import CSS_TABULKA
 
 from . import __nastavení
 __nastavení.balíček = __name__

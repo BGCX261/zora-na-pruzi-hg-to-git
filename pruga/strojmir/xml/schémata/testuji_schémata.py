@@ -5,16 +5,16 @@
 import py.test
 
 #from logging import debug,  info
-from zora_na_pruzi.vidimir.Formátuji import TEXT
+from pruga.vidimir.Formátuji import TEXT
 
 def test_0001_schémata ():
     '''
     testuji schémata
     '''
     
-    from zora_na_pruzi.strojmir.xml.schémata import Relax_NG,  Relax_NG_c,  XMLSchema,  DTD
+    from pruga.strojmir.xml.schémata import Relax_NG,  Relax_NG_c,  XMLSchema,  DTD
     
-    from zora_na_pruzi.strojmir.xml.schémata import __Schéma
+    from pruga.strojmir.xml.schémata import __Schéma
     
     for modul_schématu in Relax_NG,  Relax_NG_c,  XMLSchema,  DTD:
         
