@@ -113,6 +113,8 @@ def test():
 if __name__ == '__main__':
     
     import argparse
+    import logging
+    
     #  nejdříve si parser vytvořím
     parser = argparse.ArgumentParser()
 
@@ -120,21 +122,29 @@ if __name__ == '__main__':
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
     
     parser.add_argument('--graf_db',  default = 'testovací')
+    parser.add_argument('--logovací_úroveň',  default = logging.DEBUG)
     
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
-    print('Spustím grafickou databázi {}'.format(args.graf_db))
+    logging.basicConfig(level = args.logovací_úroveň)
+    logger = logging.getLogger(__name__)
+    debug = logger.debug
+    
+    debug('Spustím grafickou databázi {}'.format(args.graf_db))
     
     from pruga.databáze.Neo4j import Neo4j,  VYPNUTO
+    
     neo4j = Neo4j(args.graf_db)
     
     stav,  status = neo4j.status()
-#    print(status)
+    
     if stav == VYPNUTO:
         neo4j.start()
         
     neo4j_url = neo4j.url
+    
+    debug('Spustím bottle server')
     
     bottle.debug(True)
     bottle.run(host='localhost', port=8080, reloader=True)

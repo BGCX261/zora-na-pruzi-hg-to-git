@@ -12,6 +12,10 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import os
 import subprocess
 
+import logging
+logger = logging.getLogger(__name__)
+debug = logger.debug
+
 NEO4J_DIR = 'neo4j_servery'
 NEO4J_BIN = 'bin/neo4j'
 NEO4J_SERVER_PROPERTIES = 'conf/neo4j-server.properties'
@@ -27,14 +31,14 @@ class Neo4j(object):
         self.gdb_adresář = gdb_adresář = os.path.realpath(os.path.join(hen,  NEO4J_DIR,  adresář_databáze))
         self.neo4j_bin = os.path.realpath(os.path.join(gdb_adresář,  NEO4J_BIN))
     
-        print('Vytvářím neo4j server z adresáře {}.'.format(gdb_adresář))
+        debug('Vytvářím neo4j ovladač neo4j serveru, koji je v adresáři {}.'.format(gdb_adresář))
         
         self.__url = None
     
     def status(self):
         status = subprocess.check_output((self.neo4j_bin,  'status')).decode('utf-8')
         
-        print(status)
+        debug('status: {}'.format(status))
         
         if 'Neo4j Server is not running' in status:
             return VYPNUTO,  status
@@ -49,7 +53,7 @@ class Neo4j(object):
         spouštím funkci main()
         '''
         
-        print('zapnu server {}'.format(self.neo4j_bin))
+        debug('zapnu server {}'.format(self.neo4j_bin))
         
         stav,  status = self.status()
         if stav == VYPNUTO:
@@ -62,7 +66,7 @@ class Neo4j(object):
         spouštím funkci main()
         '''
         
-        print('vypnu server {}'.format(self.neo4j_bin))
+        debug('vypnu server {}'.format(self.neo4j_bin))
         
         stav,  status = self.status()
         if stav == ZAPNUTO:
@@ -108,7 +112,7 @@ if __name__ == '__main__':
     neo4j = Neo4j(args.graf_db)
     
     if args.úkol == 'url':
-        print(neo4j.url)
+        print('url neo4j serveru',  neo4j.url)
     else:
         spusť = getattr(neo4j,  args.úkol)
         spusť()
