@@ -449,7 +449,8 @@ def připojím_neo4j_server():
 
 def gdb():
     graf_db = připojím_neo4j_server()
-    obsah = graf_db['účetní_osnova.html']
+    obsah = graf_db['účetní_osnova.json']
+    obsah = graf_db['účetní_osnova.účty']
     print(obsah)
     
 

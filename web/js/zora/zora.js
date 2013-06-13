@@ -11,7 +11,41 @@ $(document).ready(function () {
     // aktivace hlavního menu jako jq-ui komponenta
     
     
-    $('#hlavni_menu').tabs();
+    $('#hlavni_menu').tabs(
+    {
+
+        beforeLoad: function(event, ui ) {
+            tab_url = ui.tab.find('a').attr('href');
+            //window.alert('ču da načtu ' + tab_url);
+            ui.panel.html('načítám ' + tab_url);
+            $.getScript('vid/'+tab_url+'.js',
+                        function(data, textStatus, jqxhr) {
+                            ui.panel.html('do ' + tab_url + ' načtu obsah');
+                            davaj_html(ui.panel);
+                        }
+        
+            ).fail(function(jqxhr, settings, exception) {
+                ui.panel.html( '<div class="error">selhalo načtení ' + tab_url + ': ' + exception + '</div>');
+            });
+            return false;
+        },
+
+        load: function(event, ui ) {
+ 
+            tab_url = ui.tab.find('a').attr('href');
+            if (tab_url == 'účetní_osnova.html') {
+               $.getScript('js/zora/účetní_osnova.js', function() {
+                   window.alert('Jo na4teno'); 
+                }
+                );
+            }
+            else {
+                window.alert('nije ni3ta'); 
+            }
+            
+        }
+    }
+    );
  
     // nastavím ohlašování chyb
     $( document ).ajaxError(function(event, jqxhr, settings, exception) {

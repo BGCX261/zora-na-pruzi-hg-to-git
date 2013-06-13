@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-12, 20:59:35 -->
+<!-- Saved: 2013-06-14, 00:28:48 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -300,7 +300,6 @@
     <Source>zora_na_pruzi/neo4j/spustím_neo4j_databázi.py</Source>
     <Source>zora_na_pruzi/neo4j/nová_neo4j_databáze.py</Source>
     <Source>zora_na_pruzi/neo4j/__init__.py</Source>
-    <Source>zora_na_pruzi/neo4j/pyproperties.py</Source>
     <Source>zora_na_pruzi/neo4j/volám_databázi.py</Source>
     <Source>zora_na_pruzi/neo4j/seznam_databází.py</Source>
     <Source>zora_na_pruzi/neo4j/testuji_properties.py</Source>
@@ -339,7 +338,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/danimir/Uzel.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/knjigovod/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/seznam_databází.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/pyproperties.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/spustím_neo4j_databázi.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/nová_neo4j_databáze.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/__init__.py</Source>
@@ -570,12 +568,145 @@
     <Source>zora_na_pruzi/strojmir/xml/html5/DT.py</Source>
     <Source>zora_na_pruzi/strojmir/xml/html5/DD.py</Source>
     <Source>web/spustím_server.py</Source>
-    <Source>databáze/__init__.py</Source>
     <Source>pruga/__init__.py</Source>
     <Source>pruga/databáze/__init__.py</Source>
     <Source>pruga/instalace/__init__.py</Source>
     <Source>pruga/instalace/vytvořím_odkaz_na_knihovnu.py</Source>
     <Source>pruga/databáze/Neo4j.py</Source>
+    <Source>web/html/index.html.py</Source>
+    <Source>pruga/web/__init__.py</Source>
+    <Source>pruga/web/server.py</Source>
+    <Source>pruga/web/bottle.py</Source>
+    <Source>pruga/web/vytvořím_soubor.py</Source>
+    <Source>pruga/strojmir/hlavička.py</Source>
+    <Source>pruga/strojmir/__init__.py</Source>
+    <Source>pruga/strojmir/importuji.py</Source>
+    <Source>pruga/strojmir/nastavení.py</Source>
+    <Source>pruga/strojmir/xml/testuji_elementy.py</Source>
+    <Source>pruga/strojmir/xml/dekorátory.py</Source>
+    <Source>pruga/strojmir/xml/__nastavení.py</Source>
+    <Source>pruga/strojmir/xml/__init__.py</Source>
+    <Source>pruga/strojmir/xml/funkce.py</Source>
+    <Source>pruga/strojmir/xml/__ELEMENT.py</Source>
+    <Source>pruga/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
+    <Source>pruga/strojmir/xml/graphml/KEY.py</Source>
+    <Source>pruga/strojmir/xml/graphml/NODE.py</Source>
+    <Source>pruga/strojmir/xml/graphml/Reader.py</Source>
+    <Source>pruga/strojmir/xml/graphml/seznam_klíčů.py</Source>
+    <Source>pruga/strojmir/xml/graphml/EDGE.py</Source>
+    <Source>pruga/strojmir/xml/graphml/__PRVEK_GRAFU.py</Source>
+    <Source>pruga/strojmir/xml/graphml/Graf.py</Source>
+    <Source>pruga/strojmir/xml/graphml/instaluji_třídy.py</Source>
+    <Source>pruga/strojmir/xml/graphml/DATA.py</Source>
+    <Source>pruga/strojmir/xml/graphml/__nastavení.py</Source>
+    <Source>pruga/strojmir/xml/graphml/testuji_graphml.py</Source>
+    <Source>pruga/strojmir/xml/graphml/__init__.py</Source>
+    <Source>pruga/strojmir/xml/graphml/GRAPHML.py</Source>
+    <Source>pruga/strojmir/xml/graphml/GRAPH.py</Source>
+    <Source>pruga/strojmir/xml/graphml/DEFAULT.py</Source>
+    <Source>pruga/strojmir/xml/html5/TR.py</Source>
+    <Source>pruga/strojmir/xml/html5/SMALL.py</Source>
+    <Source>pruga/strojmir/xml/html5/B.py</Source>
+    <Source>pruga/strojmir/xml/html5/TABLE.py</Source>
+    <Source>pruga/strojmir/xml/html5/OL.py</Source>
+    <Source>pruga/strojmir/xml/html5/META.py</Source>
+    <Source>pruga/strojmir/xml/html5/TH.py</Source>
+    <Source>pruga/strojmir/xml/html5/FOOTER.py</Source>
+    <Source>pruga/strojmir/xml/html5/BODY.py</Source>
+    <Source>pruga/strojmir/xml/html5/DL.py</Source>
+    <Source>pruga/strojmir/xml/html5/H1.py</Source>
+    <Source>pruga/strojmir/xml/html5/DIVFIGURE.py</Source>
+    <Source>pruga/strojmir/xml/html5/STRONG.py</Source>
+    <Source>pruga/strojmir/xml/html5/ARTICLE.py</Source>
+    <Source>pruga/strojmir/xml/html5/I.py</Source>
+    <Source>pruga/strojmir/xml/html5/LINK.py</Source>
+    <Source>pruga/strojmir/xml/html5/STYLE.py</Source>
+    <Source>pruga/strojmir/xml/html5/SUMMARY.py</Source>
+    <Source>pruga/strojmir/xml/html5/HEAD.py</Source>
+    <Source>pruga/strojmir/xml/html5/P.py</Source>
+    <Source>pruga/strojmir/xml/html5/instaluji_třídy.py</Source>
+    <Source>pruga/strojmir/xml/html5/DETAILS.py</Source>
+    <Source>pruga/strojmir/xml/html5/LI.py</Source>
+    <Source>pruga/strojmir/xml/html5/TIME.py</Source>
+    <Source>pruga/strojmir/xml/html5/EM.py</Source>
+    <Source>pruga/strojmir/xml/html5/SCRIPT.py</Source>
+    <Source>pruga/strojmir/xml/html5/__nastavení.py</Source>
+    <Source>pruga/strojmir/xml/html5/PROGRESS.py</Source>
+    <Source>pruga/strojmir/xml/html5/H6.py</Source>
+    <Source>pruga/strojmir/xml/html5/TD.py</Source>
+    <Source>pruga/strojmir/xml/html5/H5.py</Source>
+    <Source>pruga/strojmir/xml/html5/TITLE.py</Source>
+    <Source>pruga/strojmir/xml/html5/DT.py</Source>
+    <Source>pruga/strojmir/xml/html5/MARK.py</Source>
+    <Source>pruga/strojmir/xml/html5/H4.py</Source>
+    <Source>pruga/strojmir/xml/html5/__init__.py</Source>
+    <Source>pruga/strojmir/xml/html5/CITE.py</Source>
+    <Source>pruga/strojmir/xml/html5/UL.py</Source>
+    <Source>pruga/strojmir/xml/html5/H3.py</Source>
+    <Source>pruga/strojmir/xml/html5/HGROUP.py</Source>
+    <Source>pruga/strojmir/xml/html5/HEADER.py</Source>
+    <Source>pruga/strojmir/xml/html5/A.py</Source>
+    <Source>pruga/strojmir/xml/html5/DD.py</Source>
+    <Source>pruga/strojmir/xml/html5/H2.py</Source>
+    <Source>pruga/strojmir/xml/html5/DIV.py</Source>
+    <Source>pruga/strojmir/xml/html5/SECTION.py</Source>
+    <Source>pruga/strojmir/xml/html5/ASIDE.py</Source>
+    <Source>pruga/strojmir/xml/html5/HTML.py</Source>
+    <Source>pruga/strojmir/xml/html5/FIGCAPTION.py</Source>
+    <Source>pruga/strojmir/xml/html5/METER.py</Source>
+    <Source>pruga/strojmir/xml/html5/NAV.py</Source>
+    <Source>pruga/strojmir/xml/schémata/DTD.py</Source>
+    <Source>pruga/strojmir/xml/schémata/Relax_NG.py</Source>
+    <Source>pruga/strojmir/xml/schémata/XMLSchema.py</Source>
+    <Source>pruga/strojmir/xml/schémata/testuji_schémata.py</Source>
+    <Source>pruga/strojmir/xml/schémata/Relax_NG_c.py</Source>
+    <Source>pruga/strojmir/xml/schémata/__init__.py</Source>
+    <Source>pruga/strojmir/xml/svg/DESC.py</Source>
+    <Source>pruga/strojmir/xml/svg/__nastavení.py</Source>
+    <Source>pruga/strojmir/xml/svg/TITLE.py</Source>
+    <Source>pruga/strojmir/xml/svg/__init__.py</Source>
+    <Source>pruga/strojmir/xml/svg/CIRCLE.py</Source>
+    <Source>pruga/strojmir/xml/svg/SVG.py</Source>
+    <Source>pruga/strojmir/xml/svg/testuji_svg.py</Source>
+    <Source>pruga/strojmir/xml/svg/G.py</Source>
+    <Source>pruga/strojmir/css/CSS_TABULKA.py</Source>
+    <Source>pruga/strojmir/css/__init__.py</Source>
+    <Source>pruga/strojmir/css/vlastnosti/__init__.py</Source>
+    <Source>pruga/strojmir/css/jednotky/__init__.py</Source>
+    <Source>pruga/vidimir/Formátuji.py</Source>
+    <Source>pruga/vidimir/__init__.py</Source>
+    <Source>pruga/vidimir/stroj/Formát.py</Source>
+    <Source>pruga/vidimir/stroj/__init__.py</Source>
+    <Source>pruga/vidimir/stroj/konzole/barvy.py</Source>
+    <Source>pruga/vidimir/stroj/konzole/dekorátory.py</Source>
+    <Source>pruga/vidimir/stroj/konzole/tabulka_barev.py</Source>
+    <Source>pruga/vidimir/stroj/konzole/__init__.py</Source>
+    <Source>pruga/vidimir/stroj/konzole/barvy_anglicky.py</Source>
+    <Source>pruga/vidimir/stroj/html/tvořím_html.py</Source>
+    <Source>pruga/vidimir/stroj/html/__init__.py</Source>
+    <Source>pruga/vidimir/formáty/__init__.py</Source>
+    <Source>pruga/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
+    <Source>pruga/vidimir/formáty/html/__init__.py</Source>
+    <Source>pruga/vidimir/formáty/html/TEST.py</Source>
+    <Source>pruga/vidimir/formáty/barevná_konzole/__init__.py</Source>
+    <Source>pruga/vidimir/formáty/barevná_konzole/TEST.py</Source>
+    <Source>pruga/web/html/__init__.py</Source>
+    <Source>pruga/web/html/stránka.py</Source>
+    <Source>pruga/databáze/graf/__init__.py</Source>
+    <Source>pruga/databáze/graf/Graf.py</Source>
+    <Source>pruga/databáze/graf/dotazy/__init__.py</Source>
+    <Source>pruga/databáze/graf/dotazy/účetní_osnova.py</Source>
+    <Source>pruga/databáze/importuji_data/__init__.py</Source>
+    <Source>pruga/databáze/importuji_data/přeinstaluji_databázi.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/__init__.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/z_postgresql.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetní_osnova.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/__init__.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/flexibee_jednorázový_import/účetní_osnova_do_grafu.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/flexibee_jednorázový_import/__init__.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/flexibee_jednorázový_import/adresář_firem.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/flexibee_jednorázový_import/faktury.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/účetní_osnova/účetní_osnovu_z_excelu_do_grafu.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

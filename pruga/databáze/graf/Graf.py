@@ -20,7 +20,11 @@ class Graf(dict):
         
         balíček = '.'.join(self.__class__.__module__.split('.')[:-1])
         self.__balíček = '{}.{}'.format(balíček,  DOTAZY_JSOU_HEN)
-        
+       
+    @property
+    def neo4j(self):
+        return self.__neo4j
+       
     def cypher(self,  dotaz,  parametry = None):
         return cypher.execute(self.__neo4j, dotaz,  parametry)[0]
       

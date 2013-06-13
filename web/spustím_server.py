@@ -65,21 +65,33 @@ def index():
   
 @bottle.get('/css/<filename:path>')
 def css_staticky(filename):
+    filename = filename.encode('latin1').decode('utf8')
     return bottle.static_file(filename, root='./css')
 
 @bottle.get('/js/<filename:path>')
 def js_staticky(filename):
+    filename = filename.encode('latin1').decode('utf8')
     return bottle.static_file(filename, root='./js')
+    
+@bottle.get('/vid/<filename:path>')
+def js_vid_staticky(filename):
+    filename = filename.encode('latin1').decode('utf8')
+    print(filename)
+    return bottle.static_file(filename, root='./js/zora/vid')
 
 @bottle.get("/<meno>")
 def volám_graf_db(meno):
     meno = meno.encode('latin1').decode('utf8')
-    
-    
+ 
 #    print('IDZE {}'.format(meno))
 #    return 'IDZE {}'.format(meno)
     
     try:
+        x = graf_db[meno]
+        print(x)
+        x = json.dumps(x)
+        print(x)
+        return x
         return graf_db[meno]
     except KeyError:
         return bottle.HTTPError(404, "Databáze nezná dotaz jménem {}.".format(meno))

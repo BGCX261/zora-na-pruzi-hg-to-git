@@ -9,25 +9,8 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
-from py2neo import cypher,  node,  rel
+#from py2neo import cypher,  node,  rel
 
-ÚČTOVÁ_OSNOVA = '`Účtová osnova`'
-ÚČTOVÁ_TŔÍDA = '`Účtová třída`'
-ÚČTOVÁ_SKUPINA = '`Účtová skupina`'
-ÚČET = '`Účet`'
-
-ÚČTOVÁ_OSNOVA_MÁ_TŘÍDU = ':`MÁ TŘÍDU`'
-ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU = ':`MÁ SKUPINU`'
-ÚČTOVÁ_SKUPINA_MÁ_ÚČET = ':`MÁ ÚČET`'
-
-def data(gdb):
-#    cypher("MATCH n:`Účtová třída` RETURN ID(n) AS id, n.`jméno` AS `jméno`, n.`číslo` AS `číslo`;", {}, pridam_uzly);
-#    cypher("MATCH n:`Účtová skupina` RETURN ID(n) AS id, n.`jméno` AS `jméno`, n.`číslo` AS `číslo`;", {}, pridam_uzly);
-#    cypher("MATCH n:`Účet` RETURN ID(n) AS id, n.`jméno` AS `jméno`, n.`číslo` AS `číslo`;", {}, pridam_uzly);
-    dotaz = 'MATCH n:`Účtová třída` RETURN ID(n) AS id, n.`jméno` AS `jméno`, n.`číslo` AS `číslo`'
-    data = gdb.cypher(dotaz)
-    return data
- 
 def účetní_třídy(gdb):
     dotaz = 'MATCH n:`Účtová třída` RETURN ID(n) AS id, n.`jméno` AS `jméno`, n.`číslo` AS `číslo` ORDER BY n.`číslo`'
     data = gdb.cypher(dotaz)
@@ -69,3 +52,18 @@ def html(gdb):
                 html_účtů << E.LI('{}: {}'.format(číslo,  jméno),  id = 'uzel_{}'.format(id))
         
     return str(html)
+    
+def json(gdb):
+    data = {'hlavička': ('id',  'jméno',  'číslo',  'potomci'), 
+                'data': účetní_třídy(gdb)
+                }
+    
+    for řádek in data['data']:
+        id,  jméno,  číslo = řádek
+        skupiny = účetní_skupiny(gdb,  třída = id)
+        for skupina in skupiny:
+            id,  jméno,  číslo = skupina
+            seznam_účtů = účty(gdb,  skupina = id)
+            skupina.append(seznam_účtů)
+        řádek.append(skupiny)
+    return data
