@@ -8,7 +8,12 @@ Hen je skript, gde si zkúšám
 
 import os
 
-from zora_na_pruzi.vidimir.Formátuji import TEXT
+from pruga.vidimir.Formátuji import TEXT
+
+#import logging
+#logging.basicConfig(level = logging.DEBUG)
+#logger = logging.getLogger(__name__)
+#debug = logger.debug
 
 #from zora_na_pruzi.pohunci.obarvím_výpis.barevný_logger import daj_logovátka
 #debug,  info,  warning,  error,  critical = daj_logovátka(__file__)
@@ -431,6 +436,22 @@ def html5():
     
     os.system('kdiff3 ./testuji_tounicode_html.html5 ./testuji_tounicode.html5 &')
 
+
+def připojím_neo4j_server():
+    from pruga.databáze.Neo4j import Neo4j
+    
+    neo4j = Neo4j('testovací')
+    
+    from pruga.databáze.graf.Graf import Graf
+    graf_db = Graf(neo4j.url)
+    
+    return graf_db
+
+def gdb():
+    graf_db = připojím_neo4j_server()
+    obsah = graf_db['účetní_osnova.html']
+    print(obsah)
+    
 
 if __name__ == '__main__':
 

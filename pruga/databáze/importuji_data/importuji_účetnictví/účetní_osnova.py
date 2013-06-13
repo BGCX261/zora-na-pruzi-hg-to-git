@@ -82,8 +82,8 @@ def toto_je_účtová_třída(řádek,  číslo_účtu,  jméno):
     
 def toto_je_účtová_třída_8_a_9(řádek,  číslo_účtu,  jméno):
     
-    toto_je_účtová_třída(řádek,  8,  jméno)
-    toto_je_účtová_třída(řádek,  9,  jméno)
+    toto_je_účtová_třída(řádek,  "8",  jméno)
+    toto_je_účtová_třída(řádek,  "9",  jméno)
     
 
 
@@ -133,7 +133,7 @@ def parsuji_zachycené(regex_zachyceno):
     except IndexError:
         return None,  None
 
-def main():
+def davaj_cypher_pro_import_účetní_osnovy():
     '''
     spouštím funkci main()
     '''
@@ -157,11 +157,29 @@ def main():
         else:
             raise ValueError('Neumím zpracovat tento řádek: "{}"'.format(' | '.join(řádek)))
             
-    print(CREATE)
-        
-def csv_účetní_osnova():
+    yield CREATE
+ 
+def davaj_cypher_pro_indexy():
+    příkazy = [
     
-    with open('jak_se-dělají_výkazy_účty.csv',  mode='r',  encoding='utf-8') as soubor:
+        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČTOVÁ_TŔÍDA), 
+        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČTOVÁ_TŔÍDA),
+        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČTOVÁ_SKUPINA), 
+        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČTOVÁ_SKUPINA),
+        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČET), 
+        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČET)
+        ]
+        
+    for příkaz in příkazy:
+        yield '{};'.format(příkaz)
+    
+
+def csv_účetní_osnova():
+    import os
+    zdrojový_soubor = 'jak_se-dělají_výkazy_účty.csv'
+    soubor = os.path.join(os.path.dirname(__file__),  zdrojový_soubor)
+    
+    with open(soubor,  mode='r',  encoding='utf-8') as soubor:
         for řádek in soubor:
             řádek = řádek.strip()
             yield řádek.split(';')
@@ -178,26 +196,18 @@ if __name__ == '__main__':
 #   a pak mu nastavím jaké příkazy a parametry má přijímat
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
     
-    parser.add_argument('--data',  action='store_true')
-    parser.add_argument('--indexy',  action='store_true')
+    parser.add_argument('akce',  choices = ['data', 'indexy'])
+    
     
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
 #    print('soubor',  args.soubor)
 
-    if args.data:
-        main()
+    if args.akce == 'data':
+        for cypher in davaj_cypher_pro_import_účetní_osnovy():
+            print(cypher)
         
-    if args.indexy:
-        příkazy = [
-    
-        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČTOVÁ_TŔÍDA), 
-        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČTOVÁ_TŔÍDA),
-        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČTOVÁ_SKUPINA), 
-        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČTOVÁ_SKUPINA),
-        'CREATE INDEX ON :{}(`číslo`)'.format(ÚČET), 
-        'CREATE INDEX ON :{}(`jméno`)'.format(ÚČET)
-        ]
-        
-        print(';\n'.join(příkazy) + ';')
+    if args.akce == 'indexy':
+        for cypher in davaj_cypher_pro_indexy():
+            print(cypher)

@@ -72,9 +72,17 @@ def js_staticky(filename):
     return bottle.static_file(filename, root='./js')
 
 @bottle.get("/<meno>")
-def dávám_obsah(meno):
-    print('IDZE {}'.format(meno.encode('latin1').decode('utf8') ))
-    return 'IDZE {}'.format(meno.encode('latin1').decode('utf8') )
+def volám_graf_db(meno):
+    meno = meno.encode('latin1').decode('utf8')
+    
+    
+#    print('IDZE {}'.format(meno))
+#    return 'IDZE {}'.format(meno)
+    
+    try:
+        return graf_db[meno]
+    except KeyError:
+        return bottle.HTTPError(404, "Databáze nezná dotaz jménem {}.".format(meno))
  
 @bottle.route("/test",  method=["GET", "POST"])
 def test():
@@ -143,12 +151,10 @@ if __name__ == '__main__':
     
     if stav == VYPNUTO:
         neo4j.start()
-        
-    neo4j_url = neo4j.url
+      
     
-    from py2neo import neo4j, cypher,  node,  rel
-    graf_db = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
-    print(graf_db)
+    from pruga.databáze.graf.Graf import Graf
+    graf_db = Graf(neo4j.url)
     
     debug('Spustím bottle server')
     

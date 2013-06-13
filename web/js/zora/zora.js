@@ -9,19 +9,10 @@ $(document).ready(function () {
     $('#jquery_stav').remove();
     
     // aktivace hlavního menu jako jq-ui komponenta
-    $('#hlavni_menu').tabs({
-        activate: function(event, ui){
-            $.each(event.target, function(key, value) {
-                    $('#konzole').append('<br/>tabs ' + key + ': ' + value);
-                }
-            );
-            window.alert("vybrano jest " + ui.newTab + ui.newTab.attr("href") + event.type);
-            //window.alert(event.type);
-            //window.alert(event.target.attr("id"));
-        }
-        
-    });
     
+    
+    $('#hlavni_menu').tabs();
+ 
     // nastavím ohlašování chyb
     $( document ).ajaxError(function(event, jqxhr, settings, exception) {
         msg = '<div class="chyba">Chyba ' + jqxhr.status + ': ' + jqxhr.statusText;
@@ -40,7 +31,7 @@ $(document).ready(function () {
      });
     
     // zavolám neo4j server a nastavím url
-    
+    /*
     $.get("http://localhost:7474/db/data/",
         {},
         function(data) {
@@ -68,7 +59,7 @@ $(document).ready(function () {
             
         }
     );
-    
+    */
    /* $.get("http://localhost:7474/db/data/",
         {},
         function(data) {
@@ -84,10 +75,8 @@ $(document).ready(function () {
     
 });
 
-function zora(){
-    
-}    
 
+/*
 function loadScripts(scripts, callback){
 
     var scripts = scripts || new Array();
@@ -105,9 +94,9 @@ function loadScripts(scripts, callback){
     }
 };
 
+*/
 
-
-
+/*
 
 function pridam_uzly(data) {
     $.each(data['data'], function(key, value) {
@@ -120,17 +109,17 @@ function pridam_uzly(data) {
     if(nacteno == 3) {
         cypher("MATCH n-[r:`MÁ SKUPINU`|`MÁ ÚČET`]->m RETURN ID(n) AS z_id, ID(m) AS do_id;", {}, pridam_hrany);
 
-    }*/
+    }
     
 /*
     var layouter = new Graph.Layout.Spring(g);
     layouter.layout();
 
     var renderer = new Graph.Renderer.Raphael('canvas', g, 400, 300);
-    renderer.draw();*/
+    renderer.draw();
     
-}
-
+}*/
+/*
 function nactu_hlavni_stranku(){
     $('#konzole').append('<br/>načtu hlavní stránku pro ' + window.location.href);
     
@@ -144,3 +133,4 @@ function nactu_hlavni_stranku(){
     cypher("MATCH n:`Účet` RETURN ID(n) AS id, n.`jméno` AS `jméno`, n.`číslo` AS `číslo`;", {}, pridam_uzly);
 }
 
+*/
