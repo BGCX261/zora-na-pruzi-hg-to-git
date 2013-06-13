@@ -18,6 +18,7 @@ def main():
 if __name__ == '__main__':
 
     print(__doc__)
+    print('Stránka se nvytváří dynamicky. Ručně uprav soubor index.html')
 
 #    import argparse
 #    #  nejdříve si parser vytvořím
@@ -33,7 +34,10 @@ if __name__ == '__main__':
 #    
 #    print('soubor',  args.soubor)
 
-    import pruga.web
-
-    with pruga.web.DO_SOUBORU(__file__):
-        print('Zora na pruzi ')
+#    import pruga.web
+#    from pruga.web.html.stránka import stránka
+#    
+#    stránka = stránka()
+#
+#    with pruga.web.DO_SOUBORU(__file__):
+#        print(stránka)

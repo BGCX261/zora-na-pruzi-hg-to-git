@@ -13,7 +13,6 @@ import json
 
 import bottle
 from pruga.web.server import static_file
-from html.stránka import stránka,  E
 
 @bottle.get("/text")
 def text():
@@ -79,6 +78,8 @@ def dávám_obsah(meno):
  
 @bottle.route("/test",  method=["GET", "POST"])
 def test():
+    
+    from pruga.web.html.stránka import stránka,  E
     
     html = stránka(titulek = 'zkúšam s ajaxom')
     
