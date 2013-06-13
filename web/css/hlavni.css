@@ -1,0 +1,58 @@
+/* 
+    Document   : hlavni.css
+    Created on : 6.6.2013, 10:02:36
+    Author     : golf
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+html, body, svg {
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    background-color: silver;
+    font-size: 16px;
+}
+
+footer {
+    font-size: small;
+    color: silver;
+    background-color: green;
+}
+
+#konzole {
+    color: greenyellow;
+    background-color: black;
+}
+
+navigation {
+    background-color: #234567;
+    display: block;
+    width: 100%;
+}
+
+navigation a {
+    /*display: block;
+    float: left;       */
+    padding: 2px 5px 2px 5px;
+    margin:  2px 5px;
+    background-color: #75d30a;
+    border: 2px groove navy;
+
+}
+
+.chyba {
+    color: red;
+    
+}
+
+.info {
+    background-color: orange;
+    color:black;
+}
