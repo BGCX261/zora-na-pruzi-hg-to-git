@@ -12,6 +12,7 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import json
 
 import bottle
+from pruga.web.server import static_file
 from html.stránka import stránka,  E
 
 @bottle.get("/text")
@@ -61,7 +62,7 @@ def store_data():
 
 @bottle.get("/")
 def index():
-    return bottle.static_file("index.html", root=".")
+    return static_file("index.html", root="./html")
   
 @bottle.get('/css/<filename:path>')
 def css_staticky(filename):
@@ -122,7 +123,7 @@ if __name__ == '__main__':
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
     
     parser.add_argument('--graf_db',  default = 'testovací')
-    parser.add_argument('--logovací_úroveň',  default = logging.DEBUG)
+    parser.add_argument('--logovací_úroveň',  default = logging.DEBUG,  choices=[logging.DEBUG, logging.INFO,  logging.WARNING,  logging.ERROR])
     
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
@@ -143,6 +144,10 @@ if __name__ == '__main__':
         neo4j.start()
         
     neo4j_url = neo4j.url
+    
+    from py2neo import neo4j, cypher,  node,  rel
+    graf_db = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
+    print(graf_db)
     
     debug('Spustím bottle server')
     
