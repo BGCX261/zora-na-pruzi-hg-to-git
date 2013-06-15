@@ -6,8 +6,9 @@
 
 
 
-davaj_html = function(element) {
+(function() {
     //window.alert('Ja sem tu uhu ju i ta 3e toto ' + this);
+    element = $('#účetní_osnova');
     element.append('<br />... načítám data');
     
     data = $.getJSON('účetní_osnova.json',
@@ -65,5 +66,5 @@ davaj_html = function(element) {
                 }
                 
             );
-};
+})();
 

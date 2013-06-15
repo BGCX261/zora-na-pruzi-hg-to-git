@@ -17,19 +17,19 @@ $(document).ready(function () {
         beforeLoad: function(event, ui ) {
             tab_url = ui.tab.find('a').attr('href');
             //window.alert('ču da načtu ' + tab_url);
-            ui.panel.html('načítám ' + tab_url);
-            $.getScript('vid/'+tab_url+'.js',
-                        function(data, textStatus, jqxhr) {
+            ui.panel.html('<div id="' + tab_url + '">načítám ' + tab_url + '</div>');
+            $.getScript('vid/'+tab_url+'.js'
+                        /*function(data, textStatus, jqxhr) {
                             ui.panel.html('do ' + tab_url + ' načtu obsah');
-                            davaj_html(ui.panel);
-                        }
+                            
+                        }*/
         
             ).fail(function(jqxhr, settings, exception) {
                 ui.panel.html( '<div class="error">selhalo načtení ' + tab_url + ': ' + exception + '</div>');
             });
             return false;
         },
-
+/*
         load: function(event, ui ) {
  
             tab_url = ui.tab.find('a').attr('href');
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 window.alert('nije ni3ta'); 
             }
             
-        }
+        }*/
     }
     );
  

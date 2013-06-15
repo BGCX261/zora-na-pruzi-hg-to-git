@@ -155,18 +155,8 @@ if __name__ == '__main__':
     
     debug('Spustím grafickou databázi {}'.format(args.graf_db))
     
-    from pruga.databáze.Neo4j import Neo4j,  VYPNUTO
-    
-    neo4j = Neo4j(args.graf_db)
-    
-    stav,  status = neo4j.status()
-    
-    if stav == VYPNUTO:
-        neo4j.start()
-      
-    
     from pruga.databáze.graf.Graf import Graf
-    graf_db = Graf(neo4j.url)
+    graf_db = Graf(args.graf_db)
     
     debug('Spustím bottle server')
     

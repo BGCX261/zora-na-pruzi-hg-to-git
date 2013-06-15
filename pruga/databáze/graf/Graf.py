@@ -15,8 +15,10 @@ DOTAZY_JSOU_HEN = 'dotazy'
 
 class Graf(dict):
     
-    def __init__(self,  url):
-        self.__neo4j =  neo4j.GraphDatabaseService(url)
+    def __init__(self,  jméno):
+        
+        from pruga.databáze.Seznam_připojení import Seznam_připojení
+        self.__neo4j =  Seznam_připojení[jméno]
         
         balíček = '.'.join(self.__class__.__module__.split('.')[:-1])
         self.__balíček = '{}.{}'.format(balíček,  DOTAZY_JSOU_HEN)

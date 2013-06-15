@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-14, 00:28:48 -->
+<!-- Saved: 2013-06-15, 13:04:31 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -17,42 +17,15 @@
     <Source>_šablona_třída.py</Source>
     <Source>_šablona_main.py</Source>
     <Source>zora_na_pruzi/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
     <Source>nastavím/nastavím_odkazy_na_zoru_na_pruzi_na_vývojovém_počítači.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/schémata/DTD.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/schémata/Relax_NG.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/schémata/Relax_NG_c.py</Source>
     <Source>jak_naprogramovat/__init__.py</Source>
     <Source>jak_naprogramovat/da_se_odkážu_na_modul_ve_kterém_su.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
     <Source>jak_naprogramovat/locale_datum_a_čas.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
     <Source>zora_na_pruzi/system/__init__.py</Source>
     <Source>zora_na_pruzi/system/spustím_příkaz.py</Source>
     <Source>zora_na_pruzi/system/html_prohlížeč.py</Source>
-    <Source>zora_na_pruzi/vidimir/__init__.py</Source>
     <Source>zora_na_pruzi/system/změním_příponu_souboru.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/Formát.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/barvy_anglicky.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/tabulka_barev.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/barvy.py</Source>
     <Source>grep.py</Source>
-    <Source>zora_na_pruzi/vidimir/Formátuji.py</Source>
-    <Source>zora_na_pruzi/vidimir/formáty/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/formáty/barevná_konzole/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/formáty/barevná_konzole/TEST.py</Source>
-    <Source>zora_na_pruzi/vidimir/formáty/html/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
-    <Source>zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
     <Source>slepé_cesty_vývoje/iskušitel/__init__.py</Source>
     <Source>slepé_cesty_vývoje/iskušitel/spustím_test.py</Source>
     <Source>slepé_cesty_vývoje/iskušitel/zobrazím_v_prohlížeči.py</Source>
@@ -64,61 +37,16 @@
     <Source>jak_naprogramovat/stáhuji_internetu_příklady_ke_knize_pnořme_se_do_pythonu.py</Source>
     <Source>hg_ignore.py</Source>
     <Source>nalinkuji_knihovnu_hen.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/__ELEMENT.py</Source>
     <Source>web/__init__.py</Source>
     <Source>web/moje_bottle.py</Source>
     <Source>web/index.py</Source>
     <Source>jak_naprogramovat/dynamický_import.py</Source>
-    <Source>zora_na_pruzi/strojmir/css/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
     <Source>jak_naprogramovat/přesměrování_výstupu_do_proměnné.py</Source>
-    <Source>zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
-    <Source>zora_na_pruzi/strojmir/importuji.py</Source>
     <Source>jak_naprogramovat/přesměrování_výstupu_do_souboru.py</Source>
     <Source>jak_naprogramovat/dekorátor_funkce.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/konzole/dekorátory.py</Source>
     <Source>slepé_cesty_vývoje/TEMP_DIR.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/html/__init__.py</Source>
-    <Source>zora_na_pruzi/vidimir/stroj/html/tvořím_html.py</Source>
-    <Source>zora_na_pruzi/strojmir/hlavička.py</Source>
     <Source>jak_naprogramovat/webový_prohlížeč.py</Source>
-    <Source>zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/SVG.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/G.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/instaluji_třídy.py</Source>
     <Source>zora_na_pruzi/system/print_do_souboru.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/EDGE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/GRAPH.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/NODE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/__PRVEK_GRAFU.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/KEY.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/DATA.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/DEFAULT.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/__nastavení.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/svg/__nastavení.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/graphml/__nastavení.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/__nastavení.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/HTML.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/instaluji_třídy.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/BODY.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/HEAD.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/LINK.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/META.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/SCRIPT.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/TITLE.py</Source>
-    <Source>zora_na_pruzi/strojmir/nastavení.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/TH.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/TD.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/TABLE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/TR.py</Source>
     <Source>zora_na_pruzi/stroj/__init__.py</Source>
     <Source>zora_na_pruzi/stroj/vytvořím_graf.py</Source>
     <Source>zora_na_pruzi/stroj/načtu_graf.py</Source>
@@ -128,45 +56,10 @@
     <Source>zora_na_pruzi/stroj/svg/vytvořím_svg_příklad.py</Source>
     <Source>zora_na_pruzi/stroj/html5/__init__.py</Source>
     <Source>zora_na_pruzi/stroj/html5/index_html.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/H2.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/SMALL.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/H5.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/DETAILS.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/SUMMARY.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/MARK.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/STRONG.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/HGROUP.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/HEADER.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/STYLE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/ARTICLE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/EM.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/DIVFIGURE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/LI.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/METER.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/UL.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/SECTION.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/P.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/FOOTER.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/H4.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/DIV.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/B.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/A.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/TIME.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/PROGRESS.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/H1.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/H3.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/NAV.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/OL.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/I.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/CITE.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/H6.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/FIGCAPTION.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/ASIDE.py</Source>
     <Source>dílna/veřejné_rozpočty/__init__.py</Source>
     <Source>dílna/veřejné_rozpočty/z_webu.py</Source>
     <Source>dílna/veřejné_rozpočty/hlodání_dat.py</Source>
     <Source>zora_na_pruzi/stroj/svg/svg_html.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
     <Source>jak_naprogramovat/itertools.py</Source>
     <Source>db_vývoj.py</Source>
     <Source>zora_na_pruzi/danimir/__init__.py</Source>
@@ -199,8 +92,6 @@
     <Source>talasnica/AOS/__init__.py</Source>
     <Source>talasnica/AOS/Statistika.py</Source>
     <Source>talasnica/funkce.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/funkce.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
     <Source>zora_na_pruzi/knjigovod/__init__.py</Source>
     <Source>zora_na_pruzi/knjigovod/firmy/__init__.py</Source>
     <Source>zora_na_pruzi/knjigovod/firmy/ares.py</Source>
@@ -303,28 +194,13 @@
     <Source>zora_na_pruzi/neo4j/volám_databázi.py</Source>
     <Source>zora_na_pruzi/neo4j/seznam_databází.py</Source>
     <Source>zora_na_pruzi/neo4j/testuji_properties.py</Source>
-    <Source>importuji_účetnictví/__init__.py</Source>
-    <Source>importuji_účetnictví/účetní_osnova.py</Source>
-    <Source>importuji_účetnictví/účetnictví/účetní_osnova/účetní_osnovu_z_excelu_do_grafu.py</Source>
-    <Source>importuji_účetnictví/účetnictví/__init__.py</Source>
-    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/účetní_osnova_do_grafu.py</Source>
-    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/__init__.py</Source>
-    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/adresář_firem.py</Source>
-    <Source>importuji_účetnictví/účetnictví/flexibee_jednorázový_import/faktury.py</Source>
-    <Source>importuji_účetnictví/z_postgresql.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/hlavička.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/importuji.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/nastavení.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/změním_příponu_souboru.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/html_prohlížeč.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/spustím_příkaz.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/system/print_do_souboru.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/Formátuji.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/načtu_graf.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/vytvořím_graf.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/__init__.py</Source>
@@ -344,15 +220,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/testuji_properties.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/volám_databázi.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pruga/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/testuji_elementy.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/dekorátory.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__nastavení.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/funkce.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__ELEMENT.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/__DAVAJ_ELEMENT.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/CSS_TABULKA.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/instalace/nainstaluji_strukturu_databáze_zemjemjerky.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/instalace/stáhnu_data_z_internetu.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/instalace/převedu_pbf_do_pgsql_dump.py</Source>
@@ -364,9 +231,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/nastavení/adresáře.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/nastavení/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/nastavení/databáze.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/Formát.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/html5/index_html.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/html5/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/stroj/svg/vytvořím_svg_příklad.py</Source>
@@ -392,85 +256,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pruga/danimir/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pruga/danimir/zkúšám_alchemy.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/pruga/danimir/databáze.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/KEY.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/NODE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Reader.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/seznam_klíčů.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/EDGE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__PRVEK_GRAFU.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/Graf.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/instaluji_třídy.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/DATA.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__nastavení.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/testuji_graphml.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/GRAPHML.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/GRAPH.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/graphml/DEFAULT.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TR.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SMALL.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/B.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TABLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/OL.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/META.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TH.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/FOOTER.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/BODY.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H1.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/DIVFIGURE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/STRONG.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/ARTICLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/I.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/LINK.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/STYLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SUMMARY.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HEAD.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/P.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/instaluji_třídy.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/DETAILS.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/LI.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TIME.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/EM.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SCRIPT.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/__nastavení.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/PROGRESS.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H6.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TD.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H5.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/TITLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/MARK.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H4.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/CITE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/UL.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H3.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HGROUP.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HEADER.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/A.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/H2.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/DIV.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/SECTION.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/ASIDE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/HTML.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/FIGCAPTION.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/METER.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/html5/NAV.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/DTD.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/Relax_NG.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/XMLSchema.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/testuji_schémata.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/Relax_NG_c.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/schémata/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/DESC.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/__nastavení.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/TITLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/CIRCLE.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/SVG.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/testuji_svg.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/xml/svg/G.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/vlastnosti/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/strojmir/css/jednotky/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/vytvořím_databázi.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/instalace/struktura_databáze_postgis_a_osm/nainstaluji_postgis.py</Source>
@@ -489,18 +274,6 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/tražimir/željeznice/trať.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/tražimir/željeznice/proložím_trať.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/zemjemjerka/tražimir/željeznice/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/barvy.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/dekorátory.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/tabulka_barev.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/konzole/barvy_anglicky.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/tvořím_html.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/stroj/html/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/VÝPIS_PROGRAMU.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/html/TEST.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/__init__.py</Source>
-    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/vidimir/formáty/barevná_konzole/TEST.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/danimir/instalace_databáze/sql/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/danimir/připojení/postgresql/pruga_test.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/danimir/připojení/postgresql/__init__.py</Source>
@@ -563,10 +336,6 @@
     <Source>zora_na_pruzi/neo4j/py2neo/neo4j.py</Source>
     <Source>zora_na_pruzi/neo4j/py2neo/gremlin.py</Source>
     <Source>web/html/__init__.py</Source>
-    <Source>web/html/stránka.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/DL.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/DT.py</Source>
-    <Source>zora_na_pruzi/strojmir/xml/html5/DD.py</Source>
     <Source>web/spustím_server.py</Source>
     <Source>pruga/__init__.py</Source>
     <Source>pruga/databáze/__init__.py</Source>
@@ -707,6 +476,18 @@
     <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/flexibee_jednorázový_import/adresář_firem.py</Source>
     <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/flexibee_jednorázový_import/faktury.py</Source>
     <Source>pruga/databáze/importuji_data/importuji_účetnictví/účetnictví/účetní_osnova/účetní_osnovu_z_excelu_do_grafu.py</Source>
+    <Source>pruga/databáze/pyproperties.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/util.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/admin.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/calendar.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/rest.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/geoff.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/cypher.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/ogm.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/tool.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/__init__.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/neo4j.py</Source>
+    <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/gremlin.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -716,12 +497,8 @@
     <Other>.hgignore</Other>
     <Other>README</Other>
     <Other>TODO</Other>
-    <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf.graphml</Other>
-    <Other>zora_na_pruzi/strojmir/xml/graphml/testuji_vzorový_graf_2.graphml</Other>
-    <Other>zora_na_pruzi/strojmir/xml/__XML_CESTY</Other>
     <Other>zora_na_pruzi/danimir/instalace_databáze/sql/tabulka_uzly.sql</Other>
     <Other>zora_na_pruzi/danimir/instalace_databáze/sql/tabulka_klíče.sql</Other>
-    <Other>importuji_účetnictví/cypher/vypíšu_účetní_osnovu.cypher</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

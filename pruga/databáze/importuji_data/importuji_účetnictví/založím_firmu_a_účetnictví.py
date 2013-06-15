@@ -9,14 +9,16 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
-def main():
+gdb = None
+
+def připojím_gdb(jméno):
     '''
     spouštím funkci main()
     '''
     
-    db = připojím_postgrersql()
-    for účet in sql_účetní_osnova(db):
-        print(účet)
+    from pruga.databáze.Seznam_připojení import Seznam_připojení
+    gdb =  Seznam_připojení[jméno]
+    return gdb
 
 def připojím_postgrersql():
     import postgresql
@@ -40,12 +42,12 @@ if __name__ == '__main__':
 
 #   a pak mu nastavím jaké příkazy a parametry má přijímat
 #    parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
-#    
-#    parser.add_argument('soubor')
-#    
-#    #    a včíl to možu rozparsovat
-#    args = parser.parse_args()
-#    
-#    print('soubor',  args.soubor)
+    
+    parser.add_argument('--graf_db',  default = 'testovací')
+    
+    #    a včíl to možu rozparsovat
+    args = parser.parse_args()
+    
+    print('připojím se k databázi ',  args.graf_db)
 
-    main()
+    připojím_gdb(args.graf_db)
