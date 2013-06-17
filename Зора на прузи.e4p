@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-17, 12:13:35 -->
+<!-- Saved: 2013-06-17, 22:30:14 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -38,7 +38,6 @@
     <Source>hg_ignore.py</Source>
     <Source>nalinkuji_knihovnu_hen.py</Source>
     <Source>web/__init__.py</Source>
-    <Source>web/moje_bottle.py</Source>
     <Source>web/index.py</Source>
     <Source>jak_naprogramovat/dynamický_import.py</Source>
     <Source>jak_naprogramovat/přesměrování_výstupu_do_proměnné.py</Source>
@@ -345,7 +344,6 @@
     <Source>web/html/index.html.py</Source>
     <Source>pruga/web/__init__.py</Source>
     <Source>pruga/web/server.py</Source>
-    <Source>pruga/web/bottle.py</Source>
     <Source>pruga/web/vytvořím_soubor.py</Source>
     <Source>pruga/strojmir/hlavička.py</Source>
     <Source>pruga/strojmir/__init__.py</Source>
@@ -495,6 +493,8 @@
     <Source>web/pohledy/__init__.py</Source>
     <Source>web/pohledy/firma.tpl</Source>
     <Source>web/bottle.py</Source>
+    <Source>jak_naprogramovat/server.py</Source>
+    <Source>jak_naprogramovat/server_muj_router.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
