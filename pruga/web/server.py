@@ -12,11 +12,16 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import os
 import bottle
 
+import logging
+logger = logging.getLogger(__name__)
+debug = logger.debug
+            
 def static_file(filename, root, mimetype='auto', download=False):
     """ 
     Před spuštěním bottle.static_file překontroluje da-li jestvuje soubor a případně jej vytvoří
     """
     root_adresář = os.path.abspath(root) + os.sep
+    print('root_adresář',  root_adresář)
     web_soubor = os.path.abspath(os.path.join(root_adresář, filename.strip('/\\')))
     py_soubor = '{}.py'.format(web_soubor)
 
@@ -24,10 +29,6 @@ def static_file(filename, root, mimetype='auto', download=False):
         
         if os.path.exists(py_soubor) and os.path.isfile(py_soubor):
                
-            import logging
-            logger = logging.getLogger(__name__)
-            debug = logger.debug
-        
             def vytvoř():
                 try:
                     import subprocess
@@ -51,3 +52,7 @@ def static_file(filename, root, mimetype='auto', download=False):
             debug('Nejestvuje soubor {}, koji može vytvořit soubor {}'.format(py_soubor,  web_soubor))
             
     return bottle.static_file(filename, root, mimetype, download)
+
+def template(*args, **kwargs):
+    kwargs.setdefault('template_lookup',  ('./pohledy',  ))
+    return bottle.template(*args, **kwargs)

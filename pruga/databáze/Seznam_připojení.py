@@ -15,7 +15,6 @@ class Seznam_připojení(dict):
         from pruga.databáze.Neo4j import Neo4j,  VYPNUTO
         neo4j_server = Neo4j(jméno)
         
-    
         stav,  status = neo4j_server.status()
     
         if stav == VYPNUTO:

@@ -57,7 +57,8 @@ class Neo4j(object):
         
         stav,  status = self.status()
         if stav == VYPNUTO:
-            subprocess.Popen((self.neo4j_bin,  'start'))
+#            subprocess.Popen((self.neo4j_bin,  'start'))
+            return subprocess.check_output((self.neo4j_bin,  'start')).decode('utf-8')
         else:
             raise ValueError('Neo4j server nebyl spuštěn. Status: {}'.format(status))
             
@@ -70,7 +71,8 @@ class Neo4j(object):
         
         stav,  status = self.status()
         if stav == ZAPNUTO:
-            subprocess.Popen((self.neo4j_bin,  'stop'))
+#            subprocess.Popen((self.neo4j_bin,  'stop'))
+            return subprocess.check_output((self.neo4j_bin,  'stop')).decode('utf-8')
         else:
             raise ValueError('Neo4j server nebyl vypnut. Status: {}'.format(status))
     
@@ -115,6 +117,6 @@ if __name__ == '__main__':
         print('url neo4j serveru',  neo4j.url)
     else:
         spusť = getattr(neo4j,  args.úkol)
-        spusť()
+        print(spusť())
 
    

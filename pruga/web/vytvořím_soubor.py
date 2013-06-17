@@ -22,7 +22,7 @@ class DO_SOUBORU(object):
         if isinstance(jméno_souboru,  str):
             self.__jméno_souboru = self.__upravím_příponu(jméno_souboru)
         else:
-            raise TypeError('Jm0no souboru musí býti řetězcem a nikolivěk {}'.format(type(jméno_souboru)))
+            raise TypeError('Jméno souboru musí býti řetězcem a nikolivěk {}'.format(type(jméno_souboru)))
             
     def __enter__(self):
         self.__původní_výstup = sys.stdout

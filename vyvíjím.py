@@ -437,21 +437,35 @@ def html5():
     os.system('kdiff3 ./testuji_tounicode_html.html5 ./testuji_tounicode.html5 &')
 
 
-def připojím_neo4j_server():
-    from pruga.databáze.Neo4j import Neo4j
-    
-    neo4j = Neo4j('testovací')
+def připojím_neo4j_server(jméno = 'testovací'):
+#    from pruga.databáze.Neo4j import Neo4j
+#    
+#    neo4j = Neo4j(jméno)
     
     from pruga.databáze.graf.Graf import Graf
-    graf_db = Graf(neo4j.url)
+    graf_db = Graf(jméno)
     
     return graf_db
 
 def gdb():
-    graf_db = připojím_neo4j_server()
-    obsah = graf_db['účetní_osnova.json']
-    obsah = graf_db['účetní_osnova.účty']
-    print(obsah)
+#    from pruga.databáze.Seznam_připojení import Seznam_připojení
+#    gdb = Seznam_připojení['testovací']
+    
+    from pruga.databáze.graf.Graf import Graf
+    gdb = Graf('testovací')
+    
+    print(gdb)
+    try:
+        firma = gdb.najdi_uzel('firma',  ičo = '29191360')
+    except LookupError as e:
+        print(e)
+        firma = gdb.vytvoř_uzel('firma',  ičo = '29191360',  jméno='Domogled s.r.o.')
+    print(firma)
+    
+#    graf_db = připojím_neo4j_server()
+#    obsah = graf_db['účetní_osnova.json']
+#    obsah = graf_db['účetní_osnova.účty']
+#    print(obsah)
     
 
 if __name__ == '__main__':

@@ -12,7 +12,7 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import json
 
 import bottle
-from pruga.web.server import static_file
+from pruga.web.server import static_file,  template
 
 @bottle.get("/text")
 def text():
@@ -79,10 +79,19 @@ def js_vid_staticky(filename):
     print(filename)
     return bottle.static_file(filename, root='./js/zora/vid')
 
-@bottle.get("/<meno>")
+@bottle.get('/firmy')
+@bottle.get('/firma/<ičo>')
+def hello(ičo=None):
+    return template('firma.tpl', ičo=ičo)
+    
+@bottle.get('/firma2/<ico>')
+def helsdfslo(ico=None):
+    return template('firma.tpl', ičo=ico)
+
+@bottle.get("/<meno:path>")
 def volám_graf_db(meno):
     meno = meno.encode('latin1').decode('utf8')
- 
+    return(meno)
 #    print('IDZE {}'.format(meno))
 #    return 'IDZE {}'.format(meno)
     

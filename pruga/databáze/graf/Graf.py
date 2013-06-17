@@ -13,6 +13,25 @@ from py2neo import neo4j, cypher,  node,  rel
 
 DOTAZY_JSOU_HEN = 'dotazy'
 
+def uvodi_label(label):
+    return ':`{}`'.format(label)
+ 
+def uvodi_parametry(operátor): 
+    def _uvodi_parametry(item):
+        klíč,  hodnota = item
+        return '`{}`{}{}'.format(klíč, operátor,  uvodi_hodnotu(hodnota))
+    return _uvodi_parametry
+    
+
+def uvodi_hodnotu(hodnota):
+    if isinstance(hodnota,  str):
+        return '"{}"'.format(hodnota)
+        
+    if isinstance(hodnota, (int,float)):
+        return hodnota
+        
+    return '"{}"'.format(str(hodnota))
+
 class Graf(dict):
     
     def __init__(self,  jméno):
@@ -29,8 +48,43 @@ class Graf(dict):
        
     def cypher(self,  dotaz,  parametry = None):
         return cypher.execute(self.__neo4j, dotaz,  parametry)[0]
+        
+    def najdi_uzel(self,  *labels,  **parametry):
+#        labels = ':'.join(labels)
+#        dotaz = ':'.join(('',  labels))
+        
+        if labels:
+            labels = map(uvodi_label,  labels)
+            
+        if parametry:
+            parametry = map(uvodi_parametry('='),  parametry.items())
+        
+        dotaz = []
+        dotaz.append('MATCH node{labels}'.format(labels = ''.join(labels)))
+        dotaz.append('WHERE node.{where}'.format(where = ' AND node.'.join(parametry)))
+        dotaz.append('RETURN node')
+        
+        dotaz = '\n'.join(dotaz)
+                    
+        odpověď = self.cypher(dotaz)
+        if not odpověď:
+            raise LookupError('Nebyl nalezen uzel')
+        return odpověď
       
-#    def __ 
+    def vytvoř_uzel(self,  *labels,  **parametry):
+        if labels:
+            labels = map(uvodi_label,  labels)
+            
+        if parametry:
+            parametry = map(uvodi_parametry(': '),  parametry.items())
+            
+        dotaz = []
+        dotaz.append('CREATE node{labels}{{{parametry}}}'.format(labels = ''.join(labels),  parametry = ','.join(parametry)))
+        dotaz.append('RETURN node')
+        
+        dotaz = '\n'.join(dotaz)
+        return self.cypher(dotaz)
+            
      
     def __missing__(self,  klíč):
         

@@ -9,7 +9,10 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
-gdb = None
+import logging
+logging.basicConfig(level = logging.DEBUG)
+
+from py2neo import neo4j, cypher,  node,  rel
 
 def připojím_gdb(jméno):
     '''
@@ -20,7 +23,13 @@ def připojím_gdb(jméno):
     gdb =  Seznam_připojení[jméno]
     return gdb
 
-def připojím_postgrersql():
+def seznam_indexů(gdb):
+    indexy = gdb.get_indexes(neo4j.Node)
+    print('seznam indexů')
+    for index in indexy:
+        print(index)
+
+def připojím_postgresql():
     import postgresql
     db = postgresql.open(user = 'golf', database = 'účetnictví', port = 5432,  password='marihuana')
     return db
@@ -50,4 +59,5 @@ if __name__ == '__main__':
     
     print('připojím se k databázi ',  args.graf_db)
 
-    připojím_gdb(args.graf_db)
+    gdb = připojím_gdb(args.graf_db)
+    seznam_indexů(gdb)

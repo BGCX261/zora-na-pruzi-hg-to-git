@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-15, 13:04:31 -->
+<!-- Saved: 2013-06-17, 12:13:35 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -488,6 +488,13 @@
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/__init__.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/neo4j.py</Source>
     <Source>build/lib.linux-x86_64-3.2/zora_na_pruzi/neo4j/py2neo/gremlin.py</Source>
+    <Source>pruga/databáze/Seznam_připojení.py</Source>
+    <Source>pruga/databáze/importuji_data/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
+    <Source>pruga/databáze/graf/uzly/__init__.py</Source>
+    <Source>pruga/databáze/graf/vazby/__init__.py</Source>
+    <Source>web/pohledy/__init__.py</Source>
+    <Source>web/pohledy/firma.tpl</Source>
+    <Source>web/bottle.py</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -499,6 +506,8 @@
     <Other>TODO</Other>
     <Other>zora_na_pruzi/danimir/instalace_databáze/sql/tabulka_uzly.sql</Other>
     <Other>zora_na_pruzi/danimir/instalace_databáze/sql/tabulka_klíče.sql</Other>
+    <Other>cypher.cql</Other>
+    <Other>web/pohledy/firma.tpl</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>
