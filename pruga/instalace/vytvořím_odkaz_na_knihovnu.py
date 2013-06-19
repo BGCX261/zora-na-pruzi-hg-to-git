@@ -13,32 +13,38 @@ import sys,  os
 
 
 PRUGA = 'pruga'
-PRUGA_DIR = '../../{}'.format(PRUGA)
+ZORA = 'zora'
+ROOT_DIR = '../../'
 
-def main(python_dir):
+def nastavím_adresáře(python_dir,  balíček):
     '''
     spouštím funkci main()
     '''
     
-    pruga_dir = davaj_adresář_prugy()
+    print('-'*24)
+    print('nastavím balíček {}'.format(balíček))
+    print('-'*24)
+    
+    cesta_k_balíčku = davaj_cestu_k_balíčku(adresář_balíčku = balíček)
     
     try:
-        import pruga
+#        import pruga
+        modul = __import__(balíček, globals(), locals(), [], 0)
     except ImportError:
         kontroluji_python_dir(python_dir)
-        python_dir = os.path.join(python_dir,  PRUGA)
-        vytvořím_odkaz(zdroj = pruga_dir,  cíl = python_dir)
-        return True
+        python_dir = os.path.join(python_dir,  balíček)
+        vytvořím_odkaz(zdroj = cesta_k_balíčku,  cíl = python_dir)
+#        return True
         
-    python_dir = os.path.dirname(pruga.__file__)
-    print('Balíček pruga v systému jestvuje, je v adresáři {}'.format(python_dir))
+    python_dir = os.path.dirname(getattr(modul,  '__file__'))
+    print('Balíček {} v systému jestvuje, je v adresáři {}'.format(balíček, python_dir))
     
-    if not os.path.samefile(pruga_dir,  python_dir):
-        raise ValueError('Pruga se neodkazuje na tento balíček {}'.format(pruga_dir))
+    if not os.path.samefile(cesta_k_balíčku,  python_dir):
+        raise ValueError('Balíček {} se neodkazuje na tento adresář {}'.format(balíček,  cesta_k_balíčku))
     else:
-        print('A správně se odkazuje hen {}.'.format(pruga_dir))
+        print('A správně se odkazuje hen {}.'.format(cesta_k_balíčku))
     
-    return False
+#    return False
 
 def kontroluji_python_dir(python_dir):
     
@@ -50,12 +56,12 @@ def kontroluji_python_dir(python_dir):
         
     print('adresář balíčků pro python je hen:',  python_dir)
 
-def davaj_adresář_prugy():
+def davaj_cestu_k_balíčku(adresář_balíčku):
     hen = os.path.dirname(__file__)
-    pruga_dir = os.path.realpath(os.path.join(hen,  PRUGA_DIR))
+    abs_cesta = os.path.realpath(os.path.join(hen, ROOT_DIR,  adresář_balíčku))
     
-    print('pruga je hen:',  pruga_dir)
-    return pruga_dir
+    print('cesta pro {} je hen {}'.format(adresář_balíčku,  abs_cesta))
+    return abs_cesta
      
 def vytvořím_odkaz(zdroj,  cíl):
 
@@ -99,4 +105,5 @@ if __name__ == '__main__':
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
-    main(python_dir = args.python_dir)
+    nastavím_adresáře(python_dir = args.python_dir,  balíček = PRUGA)
+    nastavím_adresáře(python_dir = args.python_dir,  balíček = ZORA)

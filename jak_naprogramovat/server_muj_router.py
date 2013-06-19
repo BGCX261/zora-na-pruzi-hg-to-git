@@ -19,6 +19,8 @@ routing = (
            ('a'), 
            ('a',  2,  3,  4,  5)
            )
+           
+
 
 # A relatively simple WSGI application. It's going to print out the
 # environment dictionary after being updated by setup_testing_defaults
@@ -44,12 +46,28 @@ def simple_app(environ, start_response):
     
     for route in routing:
         if not len(cesta) == len(route):
-            print(route,  'NE',  len(route))
+            print('CONTINUE různé délky ',  len(cesta),  ' ',  len(route))
             continue
             
         print(zip(cesta,  route))
         for z in zip(cesta,  route):
-            print(z)
+            má_býti,  je = z
+            print(má_býti,  je)
+            if isintance(je,  str):
+                if not má_býti == je:
+                    print('BREAK nerovna se string ',  má_býti,  ' ',  je)
+                    break
+            if callable(je):
+                if not je(má_být):
+                    print('BREAK funkce vrací NE ',  je(má_být))
+                    break
+                    
+            for typ in int,  float:
+                if isintance(je,  typ):
+                    má_býti = typ(má_býti)
+                    if not má_býti == je:
+                        print('BREAK nerovna se typem string ',  typ,  ' ',  má_býti,  ' ',  je)
+                        break
 
     try:
         return obsah(environ)
