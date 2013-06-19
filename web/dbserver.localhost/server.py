@@ -29,16 +29,18 @@ def app(environ, start_response):
     setup_testing_defaults(environ)
     
     request = Request(environ)
-    for response in router.route(request):
+    
+    for odpověď in router.route(request):
         
-        if response is not None:
+        if odpověď is not None:
+            status,  hlavičky,  obsah = odpověď
             break
     else:
-        from pruga.web.Response import Response
-        response = Response().html404()
+        from pruga.web.response import html404
+        status,  hlavičky,  obsah = html404()
         
-    start_response(response.status, response.headers)
-    return  response()
+    start_response(status,  hlavičky)
+    yield obsah
         
 
 if __name__ == '__main__':

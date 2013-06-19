@@ -27,7 +27,31 @@ class Router(list):
     def routuji_tam_a_tam(request):
     
     '''
+    
+    def __init__(self,  debug = None):
+         
+        import logging
+        logger = logging.getLogger(__name__)
+        self.__debug = logger.debug
+#        error = logger.error
+    
     def append(self,  funkce):
+        if self.__debug:
+            debug = self.__debug
+            import functools
+            @functools.wraps(funkce)
+            def wrapper(request):
+                debug('IDU DA ROUTUJI {}'.format(funkce.__name__))
+                debug('cesta: {}'.format(request.cesta) )
+                result = funkce(request)
+                if result is None:
+                    debug('NEPROŠLO')
+                else:
+                    debug('PROŠLO, STATUS {}'.format(result[0]))
+                return result
+            super().append(wrapper)
+            return wrapper
+        
         super().append(funkce)
         return funkce
         

@@ -15,25 +15,25 @@ logger = logging.getLogger(__name__)
 debug = logger.debug
 error = logger.error
 
-from pruga.web.Response import Response
+from pruga.web import response
 
 from pruga.web.Router import Router as router
 
-router = router()
+router = router(debug = True)
 
 @router.append
 def firma(request):
     '''
     '''
+    
     cesta = request.cesta
     if len(cesta) == 3 and cesta[:2] == ['firma',  'ičo']:
         ičo = cesta[2]
         if not ičo == 'ičo':
             pass
         from zora.firma import najdi_firmu
-        return Response().obsah(najdi_firmu,  ičo = ičo)
-#        .pohled('Firma')
-
+        return response.volej(najdi_firmu,  ičo = ičo)
+#        .pohled('Firma'
     
 @router.append
 def výchozí_router(request):
@@ -47,13 +47,13 @@ def výchozí_router(request):
     
     try:
         modul = __import__(balíček, globals(), locals(), [funkce], 0)
-        return Response().obsah(modul,  **request.parametry)
+        return response.volej(modul,  **request.parametry)
     except TypeError as e:
         error('Selhalo volání modulu {} a funkce {}. CHYBA: {}'.format(balíček,  funkce,  e))
-        return Response().html400()
+        return response.html400()
     except ImportError as e:
         error('V modulu {} nije funkce {}. CHYBA: {}'.format(balíček,  funkce,  e))
-        return Response().html404()
+        return response.html404()
 #        .pohled('Firma')
     
     
@@ -87,14 +87,19 @@ if __name__ == '__main__':
      
     from pruga.web.Request import Request
     request = Request(environ)
-    for i,  response in enumerate(router.route(request)):
-        print('\t{} {}'.format(i,  response))
-        print('\t', '.'*odsek, sep='')
+    for i,  odpověď in enumerate(router.route(request)):
         
-        if response is not None:
-        
-            print('\t', '.'*odsek, sep='')
-            for řádek in response():
-                řádek = řádek.decode('utf-8').replace('\n', '\n\t')
-                print('\t{}'.format(řádek))
-            print('\t', '.'*odsek,  sep='')
+        if odpověď is not None:
+            status,  hlavičky,  obsah = odpověď
+#            print('\t', '.'*odsek, sep='')
+#            print('\tSTATUS:', status)
+#            print('\t', '.'*odsek, sep='')
+            print('\tHLAVIČKY:')
+            for hlavička in hlavičky:
+                print('\t', hlavička)
+#            print('\t', '.'*odsek, sep='')
+            print('\tOBSAH:')
+            řádek = obsah.decode('utf-8').replace('\n', '\n\t')
+            print('\t{}'.format(řádek))
+#            print('\t', '.'*odsek,  sep='')
+        print('.'*odsek, sep='')
