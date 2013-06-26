@@ -9,7 +9,7 @@ import py.test
 #from .html5.HTML import HTML
 
 from pruga.web.Request import Request
-from pruga.web.Response import Response
+#from pruga.web.response import *
 
 from pruga.web.Router import Router as router
 

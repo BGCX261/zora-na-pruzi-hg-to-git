@@ -32,3 +32,4 @@ importuji_účetnictví/účetnictví
 pruga/databáze/neo4j
 web/js/libs
 
+web/dbserver.localhost/aplikace/js/libs

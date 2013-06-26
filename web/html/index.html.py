@@ -9,6 +9,9 @@ Hen je program, který vytvoří stránku index.html
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
+
+print('i3ek ',  __file__)
+
 def main():
     '''
     spouštím funkci main()
@@ -18,7 +21,7 @@ def main():
 if __name__ == '__main__':
 
     print(__doc__)
-    print('Stránka se nvytváří dynamicky. Ručně uprav soubor index.html')
+    print('Stránka se nevytváří dynamicky. Ručně uprav soubor index.html')
 
 #    import argparse
 #    #  nejdříve si parser vytvořím

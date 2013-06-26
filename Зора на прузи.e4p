@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-06-18, 22:48:27 -->
+<!-- Saved: 2013-06-25, 17:36:08 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -496,12 +496,80 @@
     <Source>jak_naprogramovat/server.py</Source>
     <Source>jak_naprogramovat/server_muj_router.py</Source>
     <Source>pruga/web/Request.py</Source>
-    <Source>web/router.py</Source>
-    <Source>pruga/web/Response.py</Source>
     <Source>pruga/web/testuji_web.py</Source>
     <Source>zora/__init__.py</Source>
     <Source>pruga/web/Router.py</Source>
-    <Source>pruga/web/Server.py</Source>
+    <Source>zora/firma.py</Source>
+    <Source>web/dbserver.localhost/router.py</Source>
+    <Source>web/dbserver.localhost/server.py</Source>
+    <Source>pruga/web/HTTP_Status.py</Source>
+    <Source>pruga/web/response.py</Source>
+    <Source>web/dbserver.localhost/testuji_router.py</Source>
+    <Source>web/dbserver.localhost/static/index.html</Source>
+    <Source>jak_naprogramovat/server_bottle.py</Source>
+    <Source>jak_naprogramovat/server_flask.py</Source>
+    <Source>jak_naprogramovat/werkzeug/urls.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testapp.py</Source>
+    <Source>jak_naprogramovat/werkzeug/serving.py</Source>
+    <Source>jak_naprogramovat/werkzeug/formparser.py</Source>
+    <Source>jak_naprogramovat/werkzeug/datastructures.py</Source>
+    <Source>jak_naprogramovat/werkzeug/script.py</Source>
+    <Source>jak_naprogramovat/werkzeug/_compat.py</Source>
+    <Source>jak_naprogramovat/werkzeug/exceptions.py</Source>
+    <Source>jak_naprogramovat/werkzeug/http.py</Source>
+    <Source>jak_naprogramovat/werkzeug/__init__.py</Source>
+    <Source>jak_naprogramovat/werkzeug/test.py</Source>
+    <Source>jak_naprogramovat/werkzeug/wsgi.py</Source>
+    <Source>jak_naprogramovat/werkzeug/routing.py</Source>
+    <Source>jak_naprogramovat/werkzeug/_internal.py</Source>
+    <Source>jak_naprogramovat/werkzeug/useragents.py</Source>
+    <Source>jak_naprogramovat/werkzeug/wrappers.py</Source>
+    <Source>jak_naprogramovat/werkzeug/posixemulation.py</Source>
+    <Source>jak_naprogramovat/werkzeug/utils.py</Source>
+    <Source>jak_naprogramovat/werkzeug/security.py</Source>
+    <Source>jak_naprogramovat/werkzeug/local.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/lint.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/testtools.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/securecookie.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/jsrouting.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/atom.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/fixers.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/limiter.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/sessions.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/iterio.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/cache.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/__init__.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/profiler.py</Source>
+    <Source>jak_naprogramovat/werkzeug/contrib/wrappers.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/urls.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/serving.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/formparser.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/datastructures.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/debug.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/exceptions.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/http.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/compat.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/__init__.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/test.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/wsgi.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/routing.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/internal.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/wrappers.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/utils.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/security.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/local.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/securecookie.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/fixers.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/sessions.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/iterio.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/cache.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/__init__.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/contrib/wrappers.py</Source>
+    <Source>jak_naprogramovat/werkzeug/testsuite/multipart/collect.py</Source>
+    <Source>jak_naprogramovat/werkzeug/debug/tbtools.py</Source>
+    <Source>jak_naprogramovat/werkzeug/debug/console.py</Source>
+    <Source>jak_naprogramovat/werkzeug/debug/repr.py</Source>
+    <Source>jak_naprogramovat/werkzeug/debug/__init__.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

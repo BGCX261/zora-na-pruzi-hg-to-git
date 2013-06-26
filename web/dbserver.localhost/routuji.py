@@ -9,6 +9,7 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
+import os
 import logging
 
 logger = logging.getLogger(__name__)
@@ -17,11 +18,21 @@ error = logger.error
 
 from pruga.web import response
 
-from pruga.web.Router import Router as router
+def soubor(request):
+    '''
+    '''
+    
+    cesta = request.cesta
+    
+    if len(cesta) < 2:
+        soubor = cesta[0] or 'index.html'
+    elif cesta[0] in ('css',  'js'):
+        soubor = os.path.join(*cesta)
+        
+    return response.soubor(soubor)
 
-router = router(debug = True)
 
-@router.append
+
 def firma(request):
     '''
     '''
@@ -35,7 +46,7 @@ def firma(request):
         return response.volej(najdi_firmu,  ičo = ičo)
 #        .pohled('Firma'
     
-@router.append
+
 def výchozí_router(request):
     '''
     '''
@@ -56,7 +67,10 @@ def výchozí_router(request):
         return response.html404()
 #        .pohled('Firma')
     
-    
+ 
+def html404(request):
+    return response.html404()
+
 if __name__ == '__main__':
 
     print(__doc__)
@@ -87,19 +101,19 @@ if __name__ == '__main__':
      
     from pruga.web.Request import Request
     request = Request(environ)
-    for i,  odpověď in enumerate(router.route(request)):
-        
-        if odpověď is not None:
-            status,  hlavičky,  obsah = odpověď
-#            print('\t', '.'*odsek, sep='')
-#            print('\tSTATUS:', status)
-#            print('\t', '.'*odsek, sep='')
-            print('\tHLAVIČKY:')
-            for hlavička in hlavičky:
-                print('\t', hlavička)
-#            print('\t', '.'*odsek, sep='')
-            print('\tOBSAH:')
-            řádek = obsah.decode('utf-8').replace('\n', '\n\t')
-            print('\t{}'.format(řádek))
-#            print('\t', '.'*odsek,  sep='')
-        print('.'*odsek, sep='')
+    
+    from server import app
+
+#    import sys
+#    current_module = sys.modules[__name__]
+    jméno_aplikace = request.cesta[0]
+##    jméno_aplikace = jméno_aplikace.split('.',  1)[0]
+    
+    print('jméno aplikace',  jméno_aplikace)
+    obsah = app(environ,  print)
+    
+    print('obsah')
+    for prvek_obsahu in obsah:
+        print(prvek_obsahu.decode('utf-8'))
+
+    print('.'*odsek, sep='')

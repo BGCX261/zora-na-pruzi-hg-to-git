@@ -25,8 +25,8 @@ class Request(object):
             cesta = self.__environ['PATH_INFO']
             try:
                 cesta = cesta.encode('latin1').decode('utf8')
-            except UnicodeEncodeError:
-                pass
+            except (UnicodeEncodeError,  UnicodeDecodeError) as e:
+                print(e)
                 
             self.__cesta = cesta.strip('/').split('/')
             
