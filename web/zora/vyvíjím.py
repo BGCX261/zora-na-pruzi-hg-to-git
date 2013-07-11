@@ -12,7 +12,7 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import os
 import django
 
-def urlpatterns(cesta):
+def routuj(cesta):
     '''
     spouštím funkci main()
     '''
@@ -30,13 +30,15 @@ def urlpatterns(cesta):
             
         
 
-def app(cesta):
+def aplikaci(cesta):
     from zora.wsgi import application
     
     import io
     environ = {'PATH_INFO': cesta, 
                    'REQUEST_METHOD': 'GET', 
-                   'wsgi.input': io.BufferedReader(open('wsgi.input'))
+                   'wsgi.input': io.BufferedReader(open('wsgi.input')), 
+                   'SERVER_NAME': 'localhost', 
+                   'SERVER_PORT':8000
                    }
                    
     application(environ,  print)
@@ -55,15 +57,22 @@ if __name__ == '__main__':
 #   a pak mu nastavím jaké příkazy a parametry má přijímat
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
     
+    
+    seznam_funkcí = {jméno: funkce for jméno,  funkce in locals().items()  if not jméno.startswith('__') and callable(funkce) }
+    
+    print(seznam_funkcí)
+    
+    parser.add_argument('příkaz',  choices= seznam_funkcí.keys())
     parser.add_argument('cesta')
     
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
+    
+    spustím = seznam_funkcí[args.příkaz]
     
     odsek = 24
     print('-'*odsek)
     print('routuji cestu "{}"'.format(args.cesta))
     print('-'*odsek)
 
-    urlpatterns(args.cesta)
-#    app(args.cesta)
+    spustím(args.cesta)

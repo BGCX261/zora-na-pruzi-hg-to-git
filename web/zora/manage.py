@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+import sys
+import regex as re
+sys.modules['re'] = re
+
 import os
 import sys
 

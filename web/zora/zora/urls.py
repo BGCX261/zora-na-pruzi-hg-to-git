@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     
     url(r'^firmy$', 'zora.firma.seznam_firem'),
-    url(r'^firma/ičo/(?P<ičo>\d+)/$', 'pruga.gdb.firma.najdi_firmu',  {'dotaz': 'najdi_firmu'}),
+    url(r'^firma/ičo/(?P<ičo>\d+)/$', 'pruga.gdb.firma.najdi_firmu',  {'ičo': 45}),
     
 )
 
