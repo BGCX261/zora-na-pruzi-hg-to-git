@@ -77,7 +77,7 @@ NEO4J_DATABASES = {
 #LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'cs'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Bratislava'
 
 USE_I18N = True
 
@@ -90,3 +90,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__),  'šablony'), 
+)
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(__file__),  'static'), 
+)
