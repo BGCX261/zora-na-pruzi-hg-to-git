@@ -50,7 +50,7 @@ def obsah(environ):
     yield '</dl>'.encode('utf-8')
 
 if __name__ == '__main__':
-    port = 8000
+    port = 8080
     httpd = make_server('', port, simple_app)
 #    httpd = make_server('', 8000, demo_app)
     print("Spustil jsem server na portu {} ...".format(port))
