@@ -28,4 +28,5 @@ glob:html_šablony
 glob:dílna/forex
 glob:instalace
 glob:web/django
+glob:web/zora/django
 
