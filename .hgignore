@@ -26,3 +26,6 @@ glob:**.cache
 glob:dílna/veřejné_rozpočty/csv
 glob:html_šablony
 glob:dílna/forex
+glob:instalace
+glob:web/django
+
