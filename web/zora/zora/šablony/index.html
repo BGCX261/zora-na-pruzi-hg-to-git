@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<header class="ui-widget-header ui-corner-all"><h1>Зора на прузи</h1></header>
+<nav id="hlavni_menu">
+    <ul>
+        <li><a href="rozcestník">rozcestník</a></li>
+        <li><a href="účetní_osnova">účetnictví</a></li>
+        <li>další položka</li>
+        <li>a ještě jedna</li>
+        <li>a poslední</li>
+    </ul>
+</nav>
+<section>
+    <div id="jquery_stav">Tato stránka vyžaduje javaskript a knihovnu jquery.</div>
+    <div id="canvas"></div>
+</section>
+
+<section>
+<div id="konzole" class="ui-widget-header ui-corner-all">KONZOLE neo4j:</div>
+</section>
+
+<footer class="ui-widget-header ui-corner-all">Изготовила Зора на прузи<small id="copyright">©Домоглед, Петр Болф 2012-2013</small></footer>
+{% endblock %}

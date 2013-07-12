@@ -30,3 +30,5 @@ glob:instalace
 glob:web/django
 glob:web/zora/django
 
+web/zora/zora/static/js/libs
+web/zora/zora/static/css/south-street
