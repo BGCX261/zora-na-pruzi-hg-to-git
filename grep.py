@@ -7,9 +7,9 @@ Hen je program, který ...
 '''
 
 import os
-from zora_na_pruzi.system.spustím_příkaz import spustím_příkaz_a_vrátím
+import subprocess
 
-from zora_na_pruzi.vidimir.Formátuji import TEXT
+from pruga.vidimir.Formátuji import TEXT
 
 
 def grep(slovo,  adresář):
@@ -19,12 +19,19 @@ def grep(slovo,  adresář):
     
     curdir = os.getcwd()
     os.chdir(adresář)
-    příkaz = 'grep -n "{}" *.py'.format(slovo)
-    out,  err = spustím_příkaz_a_vrátím(příkaz)
+    příkaz = 'grep', '-n', '"{}"'.format(slovo), '*.py'
+    
+#    vráceno = subprocess.check_output(příkaz,  stderr=subprocess.STDOUT).decode('utf-8')
+    with subprocess.Popen(příkaz, stdout = subprocess.PIPE,  stderr = subprocess.PIPE,  shell=True) as proc:
+        out = proc.stdout.read().decode('UTF-8')
+        err = proc.stderr.read().decode('UTF-8')
+        
     os.chdir(curdir)
+    
     if out.strip():
         print(adresář | TEXT.INFO)
-        print(out)
+        print(out | TEXT.VÝPIS_PROGRAMU)
+    #    print(err | TEXT.CHYBA)
     
     for soubor in os.listdir(adresář):
         cesta = os.path.join(adresář, soubor)
@@ -50,9 +57,10 @@ if __name__ == '__main__':
 
     ignoruj_všechny = ('.hg',  '__pycache__')
     def ignoruj(cesta):
-        for ignorovaná in ('./build',  ):
-            if os.path.samefile(cesta,  ignorovaná) is True:
-                return True
+        if os.path.isdir('./build'):
+            for ignorovaná in ('./build',  ):
+                if os.path.samefile(cesta,  ignorovaná) is True:
+                    return True
         return False
 
     adresáře = args.adresáře

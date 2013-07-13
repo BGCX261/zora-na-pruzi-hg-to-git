@@ -1,0 +1,322 @@
+Název účtu;Položka rozvahy;;Položka výkazu zisku a ztráty
+;Aktiva;Pasiva
+ÚČTOVÁ TŘÍDA 0 - DLOUHODOBÝ MAJETEK
+01 - Dlouhodobý nehmotný majetek
+011 - Zřizovací výdaje;B.I.1.
+012 - Nehmotné výsledky výzkumu a vývoje;B.I.2.
+013 - Software;B.I.3.
+014 - Ocenitelná práva;B.I.4.
+015 - Goodwill;B.I.5.
+019 - Jiný dlouhodobý nehmotný majetek;B.I.6.
+02 - Dlouhodobý hmotný majetek odpisovaný
+021 - Stavby;B.II.2.
+022 - Samostatné movité věci a soubory movitých věcí;B.II.3.
+025 - Pěstitelské celky trvalých porostů;B.II.4.
+026 - Základní stádo, tažná zvířata;B.II.5.
+029 - Jiný dlouhodobý hmotný majetek;B.II.6.
+03 - Dlouhodobý hmotný majetek neodpisovaný
+031 - Pozemky;B.II.1.
+032 - Umělecká díla a sbírky;B.II.6.
+04 - Nedokončený dlouhodobý nehmotný a hmotný majetek a pořizovaný dlouhodobý finanční majetek
+041 - Pořízení dlouhodobého nehmotného majetku;B.I.7.
+042 - Pořízení dlouhodobého hmotného majetku;B.II.7.
+043 - Pořízení dlouhodobého finančního majetku;B.III.6.
+05 - Poskytnuté zálohy na dlouhodobý majetek
+051 - Poskytnuté zálohy na dlouhodobý nehmotný majetek;B.I.8.
+052 - Poskytnuté zálohy na dlouhodobý hmotný majetek;B.II.8.
+053 - Poskytnuté zálohy na dlouhodobý finanční majetek;B.III.7.
+06 - Dlouhodobý finanční majetek
+061 - Podíly v ovládaných a řízených osobách;B.III.1.
+062 - Podíly v účetních jednotkách pod podstatným vlivem;B.III.2.
+063 - Realizovatelné cenné papíry a podíly;B.III.3.
+065 - Dlužné cenné papíry držené do splatnosti;B.III.3.
+066 - Půjčky ovládaným a řízeným osobám a účetním jednotkám pod podstatným vlivem;B.III.4.
+067 - Ostatní půjčky;B.III.5.
+069 - Jiný dlouhodobý finanční majetek;B.III.5.
+07 - Oprávky k dlouhodobému nehmotnému majetku
+071 - Oprávky ke zřizovacím výdajům;K/B.I.1.
+072 - Oprávky k nehmotným výsledkům výzkumu a vývoje;K/B.I.2.
+073 - Oprávky k softwaru;K/B.I.3.
+074 - Oprávky k ocenitelným právům;K/B.I.4.
+075 - Oprávky ke goodwillu;K/B.I.5.
+079 - Oprávky k jinému dlouhodobému nehmotnému majetku;K/B.I.6.
+08 - Oprávky k dlouhodobému hmotnému majetku
+081 - Oprávky ke stavbám;K/B.II.2.
+082 - Oprávky k samostatným movitým věcem a souborům movitých věcí;K/B.II.3.
+085 - Oprávky k pěstitelským celkům trvalých porostů;K/B.II.4.
+086 - Oprávky k základnímu stádu a tažným zvířatům;K/B.II.5.
+089 - Oprávky k jinému dlouhodobému hmotnému majetku;K/B.II.6.
+09 - Opravné položky k dlouhodobému majetku
+091 - Opravná položka k dlouhodobému nehmotnému majetku;K/B.I.1. až 6.
+092 - Opravná položka k dlouhodobému hmotnému majetku;K/B.II. 1. až 6.
+093 - Opravná položka k dlouhodobému nedokončenému nehmotnému majetku;K/B.I.7.
+094 - Opravná položka k dlouhodobému nedokončenému hmotnému majetku;K/B.II.7.
+095 - Opravná položka k poskytnutým zálohám;K/B.I.8., K/B.II.8., K/B.III.7.
+096 - Opravná položka k dlouhodobému finančnímu majetku;K/B.III. 1. až 6.
+097 - Oceňovací rozdíl k nabytému majetku;B.II.9.
+098 - Oprávky k oceňovacímu rozdílu k nabytému majetku;K/B.II.9.
+ÚČTOVÁ TŘÍDA 1 - ZÁSOBY
+11 - Materiál
+111 - Pořízení materiálu;C.I.1.
+112 - Materiál na skladě;C.I.1.
+118 - Poskytnuté zálohy na materiál;C.I.6.
+119 - Materiál na cestě;C.I.1.
+12 - Zásoby vlastní výroby
+121 - Nedokončená výroba;C.I.2.
+122 - Polotovary vlastní výroby;C.I.2.
+123 - Výrobky;C.I.3.
+124 - Zvířata;C.I.4.
+128 - Poskytnuté zálohy na zvířata;C.I.6.
+13 - Zboží
+131 - Pořízení zboží;C.I.5.
+132 - Zboží na skladě a v prodejnách;C.I.5.
+138 - Poskytnuté zálohy na zboží;C.I.6.
+139 - Zboží na cestě;C.I.5.
+19 - Opravné položky k zásobám
+191 - Opravná položka k materiálu;K/C.I.1.
+192 - Opravná položka k nedokončené výrobě;K/C.I.2.
+193 - Opravná položka k polotovarům vlastní výroby;K/C.I.2.
+194 - Opravná položka k výrobkům;K/C.I.3.
+195 - Opravná položka ke zvířatům;K/C.I.4.
+196 - Opravná položka ke zboží;K/C.I.5.
+197 - Opravná položka k zálohám na materiál;K/C.I.6.
+198 - Opravná položka k zálohám na zboží;K/C.I.6.
+199 - Opravná položka k zálohám na zvířata;K/C.I.6.
+ÚČTOVÁ TŘÍDA 2 - FINANČNÍ ÚČTY
+21 - Peníze
+211 - Pokladna;C.IV.1.
+213 - Ceniny;C.IV.1.
+22 - Účty v bankách
+221 - Bankovní účty;C.IV.2.;B.IV.2.
+23 - Běžné bankovní úvěry
+231 - Krátkodobé bankovní úvěry;;B.IV.2.
+232 - Eskontní úvěry;;B.IV.2.
+24 - Jiné krátkodobé finanční výpomoci
+241 - Emitované krátkodobé dluhopisy;;B.III.9
+249 - Ostatní krátkodobé finanční výpomoci;;B.IV.3.
+25 - Krátkodobý finanční majetek
+251 - Majetkové cenné papíry k obchodování;C.IV.3.
+252 - Vlastní akcie a vlastní obchodní podíly;;A.I.2.
+253 - Dlužné cenné papíry k obchodování;C.IV.3.
+255 - Vlastní dluhopisy;;B.II.6., B.III.9.
+256 - Dlužné cenné papíry se splatností do jednoho roku držené do splatnosti;C.IV.3.
+257 - Ostatní realizovatelné cenné papíry;C.IV.3.
+259 - Pořizování krátkodobého finančního majetku;C.IV.4.
+26 - Převody mezi finančními účty
+261 - Peníze na cestě;C.IV.1., C.IV.2.
+29 - Opravné položky ke krátkodobému finančnímu majetku
+291 - Opravná položka ke krátkodobému finančnímu majetku;K/C.IV.3., K/C.IV.4.
+ÚČTOVÁ TŘÍDA 3 - ZÚČTOVACÍ VZTAHY
+31 - Pohledávky (krátkodobé i dlouhodobé)
+311 - Pohledávky z obchodních vztahů;C.II.1., C.III.1.
+312 - Směnky k inkasu;C.II.1., C.III.1.
+313 - Pohledávky za eskontované cenné papíry;C.II.1., C.III.1.
+314 - Poskytnuté provozní zálohy;C.II.1., C.III.7.
+315 - Ostatní pohledávky;C.II.1., C.III.1.
+32 - Závazky (krátkodobé)
+321 - Závazky z obchodních vztahů;;B.II.1., B.III.1.
+322 - Směnky k úhradě;;B.III.1.
+324 - Přijaté provozní zálohy;;B.III.8.
+325 - Ostatní závazky;;B.III.1.
+33 - Zúčtování se zaměstnanci a institucemi
+331 - Zaměstnanci;;B.III.5.
+333 - Ostatní závazky vůči zaměstnancům;;B.III.5.
+335 - Pohledávky za zaměstnanci;C.II.6., C.III.9.
+336 - Zúčtování s institucemi sociálního zabezpečení a zdravotního pojištění;C.III.5.;B.III.6.
+34 - Zúčtování daní a dotací
+341 - Daň z příjmů;C.III.6.;B.III.7.
+342 - Ostatní přímé daně;C.III.6.;B.III.7.
+343 - Daň z přidané hodnoty;C.III.6.;B.III.7.
+345 - Ostatní daně a poplatky;C.III.6.;B.III.7.
+346 - Dotace ze státního rozpočtu;;B.III.7.
+347 - Ostatní dotace;;B.III.7.
+35 - Pohledávky za společníky, za účastníky sdružení a za členy družstva
+351 - Pohledávky za ovládanými a řízenými osobami;C.II.2., C.III.2.
+352 - Pohledávky za účetními jednotkami pod podstatným vlivem;C.II.3., C.III.3.
+353 - Pohledávky za upsaný základní kapitál;A.
+354 - Pohledávky za společníky při úhradě ztráty;C.II.4., C.III.4.
+355 - Ostatní pohledávky za společníky a členy družstva;C.II.4., C.III.4.
+358 - Pohledávky k účastníkům sdružení;C.II.4., C.III.4.
+36 - Závazky ke společníkům, k účastníkům sdružení a ke členům družstva
+361 - Závazky k ovládaným a řízeným osobám;;B.III.2.
+362 - Závazky k osobám pod podstatným vlivem;;B.III.3.
+364 - Závazky ke společníkům při rozdělování zisku;;B.II.4., B.III.4.
+365 - Ostatní závazky ke společníkům a členům družstva;;B.II.4., B.III.4.
+366 - Závazky ke společníkům a členům družstva ze závislé činnosti;;B.II.4., B.III.4.
+367 - Závazky z upsaných nesplacených cenných papírů a vkladů;;B.II.4., B.III.4.
+368 - Závazky k účastníkům sdružení;;B.II.4., B.III.4.
+37 - Jiné pohledávky a závazky
+371 - Pohledávky z prodeje podniku;C.II.6., C.III.9.
+372 - Závazky z koupě podniku;;B.II.9., B.III.11.
+373 - Pohledávky a závazky z pevných termínových operací;C.II.6., C.III.9.;B.II.9., B.III.11.
+374 - Pohledávky z pronájmu;C.II.6., C.III.9.
+375 - Pohledávky z emitovaných dluhopisů;C.II.6., C.III.9.
+376 - Nakoupené opce;C.II.6., C.III.9.
+377 - Prodané opce;;B.II.9., B.III.11.
+378 - Jiné pohledávky;C.II.6., C.III.9.
+379 - Jiné závazky;;B.II.9., B.III.11.
+38 - Přechodné účty aktiv a pasiv
+381 - Náklady příštích období;D.I.1.
+382 - Komplexní náklady příštích období;D.I.2.
+383 - Výdaje příštích období;;C.I.1.
+384 - Výnosy příštích období;;C.I.2.
+385 - Příjmy příštích období;D.I.3.
+386 - Kursové rozdíly aktivní*;bez zůstatku
+387 - Kursové rozdíly pasivní*;;bez zůstatku
+388 - Dohadné účty aktivní;C.II.5., C.III.8.
+389 - Dohadné účty pasivní;;B.II.8., B.III.10.
+39 - Opravná položka k zúčtovacím vztahům a vnitřní zúčtování
+391 - Opravná položka k pohledávkám;K/C.II. 1. až 4. a 6., K/C.III. 1. až 7. a 9.
+395 - Vnitřní zúčtování;bez zůstatku
+398 - Spojovací účet při sdružení;C.III.4.;B.III.4.
+ÚČTOVÁ TŘÍDA 4 - KAPITÁLOVÉ ÚČTY A DLOUHODOBÉ ZÁVAZKY
+41 - Základní kapitál a kapitálové fondy
+411 - Základní kapitál;;A.I.1.
+412 - Emisní ážio;;A.II.1.
+413 - Ostatní kapitálové fondy;;A.II.2.
+414 - Oceňovací rozdíly z přecenění majetku a závazků;;A.II.3.
+418 - Oceňovací rozdíly z přecenění při přeměnách;;A.II.4.
+419 - Změny základního kapitálu;;A.I.3.
+42 - Fondy ze zisku a převedené výsledky hospodaření
+421 - Zákonný rezervní fond;;A.III.1.
+422 - Nedělitelný fond;;A.III.1.
+423 - Statutární fondy;;A.III.2.
+427 - Ostatní fondy;;A.III.2.
+428 - Nerozdělený zisk minulých let;;A.IV.1.
+429 - Neuhrazená ztráta minulých let;;A.IV.2.
+43 - Výsledek hospodaření
+431 - Výsledek hospodaření ve schvalovacím řízení;bez zůstatku;bez zůstatku
+45 - Rezervy
+451 - Rezervy podle zvláštních právních předpisů;;B.I.1.
+453 - Rezerva na daň z příjmů;;B.I.3.
+459 - Ostatní rezervy;;B.I.2., B.I.4.
+46 - Dlouhodobé bankovní úvěry
+461 - Bankovní úvěry;;B.IV.1., B.IV.2.
+47 - Dlouhodobé závazky
+471 - Dlouhodobé závazky k ovládaným a řízeným osobám;;B.II.2., B.III.2.
+472 - Dlouhodobé závazky k účetním jednotkám pod podstatným vlivem;;B.II.3., B.III.3.
+473 - Emitované dluhopisy;;B.II.6., B.III.9.
+474 - Závazky z pronájmu;;B.II.9., B.III.11.
+475 - Dlouhodobé přijaté zálohy;;B.II.5., B.III.8.
+478 - Dlouhodobé směnky k úhradě;;B.II.1., B.II.7., B.III.1.
+479 - Jiné dlouhodobé závazky;;B.II.1., B.II.9., B.III.1., B.III.5., B.III.6., B.III.11.
+48 - Odložený daňový závazek a pohledávka
+481 - Odložený daňový závazek a pohledávka;C.II.7.;B.II.10.
+49 - Individuální podnikatel
+491 - Účet individuálního podnikatele;;A.I.1.
+ÚČTOVÁ TŘÍDA 5 - NÁKLADY
+50 - Spotřebované nákupy
+501 - Spotřeba materiálu;;;B.1.
+502 - Spotřeba energie;;;B.1.
+503 - Spotřeba ostatních neskladovatelných dodávek;;;B.1.
+504 - Prodané zboží;;;A.
+51 - Služby
+511 - Opravy a udržování;;;B.2.
+512 - Cestovné;;;B.2.
+513 - Náklady na reprezentaci;;;B.2.
+518 - Ostatní služby;;;B.2.
+52 - Osobní náklady
+521 - Mzdové náklady;;;C.1.
+522 - Příjmy společníků a členů družstva ze závislé činnosti;;;C.1.
+523 - Odměny členům orgánů společnosti a družstva;;;C.2.
+524 - Zákonné sociální pojištění;;;C.3.
+525 - Ostatní sociální pojištění;;;C.3.
+526 - Sociální náklady individuálního podnikatele;;;C.3.
+527 - Zákonné sociální náklady;;;C.4.
+528 - Ostatní sociální náklady;;;C.4.
+53 - Daně a poplatky
+531 - Daň silniční;;;D.
+532 - Daň z nemovitostí;;;D.
+538 - Ostatní daně a poplatky;;;D.
+54 - Jiné provozní náklady
+541 - Zůstatková cena prodaného dlouhodobého nehmotného a hmotného majetku;;;F.1.
+542 - Prodaný materiál;;;F.2.
+543 - Dary;;;H.
+544 - Smluvní pokuty a úroky z prodlení;;;H.
+545 - Ostatní pokuty a penále;;;H.
+546 - Odpis pohledávky;;;H.
+548 - Ostatní provozní náklady;;;H.
+549 - Manka a škody z provozní činnosti;;;H.
+55 - Odpisy, rezervy, komplexní náklady příštích období a opravné položky provozních nákladů
+551 - Odpisy dlouhodobého nehmotného a hmotného majetku;;;E.
+552 - Tvorba a zúčtování rezerv podle zvláštních právních předpisů;;;G.
+554 - Tvorba a zúčtování ostatních rezerv;;;G.
+555 - Tvorba a zúčtování komplexních nákladů příštích období;;;G.
+557 - Zúčtování oprávky k oceňovacímu rozdílu k nabytému majetku;;;H.
+558 - Tvorba a zúčtování zákonných opravných položek v provozní činnosti;;;G.
+559 - Tvorba a zúčtování opravných položek v provozní činnosti;;;G.
+56 - Finanční náklady
+561 - Prodané cenné papíry a podíly;;;J.
+562 - Úroky;;;N.
+563 - Kursové ztráty;;;O.
+564 - Náklady z přecenění cenných papírů;;;L.
+566 - Náklady z finančního majetku;;;K.
+567 - Náklady z derivátových operací;;;L. a O.
+568 - Ostatní finanční náklady;;;O.
+569 - Manka a škody na finančním majetku;;;O.
+57 - Rezervy a opravné položky finančních nákladů
+574 - Tvorba a zúčtování finančních rezerv;;;M.
+579 - Tvorba a zúčtování opravných položek ve finanční činnosti;;;M.
+58 - Mimořádné náklady
+581 - Náklady na změnu metody;;;R.
+582 - Škody;;;R.
+584 - Tvorba a zúčtování mimořádných rezerv;;;R.
+588 - Ostatní mimořádné náklady;;;R.
+589 - Tvorba a zúčtování opravných položek v mimořádné činnosti;;;R.
+59 - Daně z příjmů a převodové účty
+591 - Daň z příjmů z běžné činnosti - splatná;;;Q.1.
+592 - Daň z příjmů z běžné činnosti - odložená;;;Q.2.
+593 - Daň z příjmů z mimořádné činnosti - splatná;;;S.1.
+594 - Daň z příjmů z mimořádné činnosti - odložená;;;S.2.
+595 - Dodatečné odvody daně z příjmů;;;Q.1.
+596 - Převod podílu na výsledku hospodaření společníkům;;;T.
+597 - Převod provozních nákladů;;;I.
+598 - Převod finančních nákladů;;;P.
+ÚČTOVÁ TŘÍDA 6 - VÝNOSY
+60 - Tržby za vlastní výkony a zboží
+601 - Tržby za vlastní výrobky;;;II.1.
+602 - Tržby z prodeje služeb;;;II.1.
+604 - Tržby za zboží;;;I.
+61 - Změny stavu zásob vlastní činnosti
+611 - Změna stavu nedokončené výroby;;;II.2.
+612 - Změna stavu polotovarů vlastní výroby;;;II.2.
+613 - Změna stavu výrobků;;;II.2.
+614 - Změna stavu zvířat;;;II.2.
+62 - Aktivace
+621 - Aktivace materiálu a zboží;;;II.3.
+622 - Aktivace vnitropodnikových služeb;;;II.3.
+623 - Aktivace dlouhodobého nehmotného majetku;;;II.3.
+624 - Aktivace dlouhodobého hmotného majetku;;;II.3.
+64 - Jiné provozní výnosy
+641 - Tržby z prodeje dlouhodobého nehmotného a hmotného majetku;;;III.1.
+642 - Tržby z prodeje materiálu;;;III.2.
+644 - Smluvní pokuty a úroky z prodlení;;;IV.
+646 - Výnosy z odepsaných pohledávek;;;IV.
+648 - Ostatní provozní výnosy;;;IV.
+66 - Finanční výnosy
+661 - Tržby z prodeje cenných papírů a podílů;;;VI.
+662 - Úroky;;;X.
+663 - Kursové zisky;;;XI.
+664 - Výnosy z přecenění cenných papírů;;;IX.
+665 - Výnosy z dlouhodobého finančního majetku;;;VII.1., 2., 3.
+666 - Výnosy z krátkodobého finančního majetku;;;VIII.
+667 - Výnosy z derivátových operací;;;IX. a XI.
+668 - Ostatní finanční výnosy;;;XI.
+68 - Mimořádné výnosy
+681 - Výnosy ze změny metody;;;XIII.
+688 - Ostatní mimořádné výnosy;;;XIII.
+69 - Převodové účty
+697 - Převod provozních výnosů;;;V.
+698 - Převod finančních výnosů;;;XII.
+ÚČTOVÁ TŘÍDA 7 - ZÁVĚRKOVÉ A PODROZVAHOVÉ ÚČTY
+70 - Účty rozvažné
+701 - Počáteční účet rozvažný
+702 - Konečný účet rozvažný
+71 - Účet zisků a ztrát
+710 - Účet zisků a ztrát
+75 až 79 - Podrozvahové účty
+75x - Majetek v úschově
+76x - Podrozvahová aktiva
+77x - Podrozvahová pasiva
+78x - Technické účty
+ÚČTOVÉ TŘÍDY 8 A 9 - VNITROPODNIKOVÉ ÚČETNICTVÍ

@@ -13,11 +13,20 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
 if __name__ == '__main__':
 
-    from bottle import route, run,  debug
+    import bottle
+#    from bottle import route, run,  debug,  template
 
-    @route('/hello')
+    @bottle.route('/hello')
     def hello():
         return "Hello World!"
+        
+    @bottle.get('/firma/<ičo>')
+    def firma(ičo=None):
+        return bottle.template('firma.tpl', ičo=ičo)
+    #    return bottle.template('firma.tpl', ico=ico)
 
-    debug(True)
-    run(host='localhost', port=8080)
+    bottle.debug(True)
+#    bottle.run(host='localhost', port=8081)
+    
+#    tpl = bottle.template('firma.tpl',  template_lookup = ('./pohledy', ),  ičo = '458855')
+#    print(tpl)

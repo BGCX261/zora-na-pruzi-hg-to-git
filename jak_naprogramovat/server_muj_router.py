@@ -14,6 +14,14 @@ from wsgiref.util import setup_testing_defaults
 
 from wsgiref.simple_server import make_server, demo_app
 
+routing = (
+           (1, 2, 3, 4, 5, 6), 
+           ('a'), 
+           ('a',  2,  3,  4,  5)
+           )
+           
+
+
 # A relatively simple WSGI application. It's going to print out the
 # environment dictionary after being updated by setup_testing_defaults
 def simple_app(environ, start_response):
@@ -28,9 +36,38 @@ def simple_app(environ, start_response):
 #    print('start_response',  start_response)
     start_response(status, headers)
 
-    print('{0[REQUEST_METHOD]} {0[wsgi.url_scheme]}/{0[HTTP_HOST]}/{0[PATH_INFO]}'.format(environ))
-    print('application_uri',  wsgiref.util.application_uri(environ))
     print('request_uri',  wsgiref.util.request_uri(environ))
+    
+    cesta = environ['PATH_INFO'] or ''
+    print(cesta)
+    
+    cesta = cesta.strip('/').split('/')
+    print(cesta,  len(cesta))
+    
+    for route in routing:
+        if not len(cesta) == len(route):
+            print('CONTINUE různé délky ',  len(cesta),  ' ',  len(route))
+            continue
+            
+        print(zip(cesta,  route))
+        for z in zip(cesta,  route):
+            má_býti,  je = z
+            print(má_býti,  je)
+            if isintance(je,  str):
+                if not má_býti == je:
+                    print('BREAK nerovna se string ',  má_býti,  ' ',  je)
+                    break
+            if callable(je):
+                if not je(má_být):
+                    print('BREAK funkce vrací NE ',  je(má_být))
+                    break
+                    
+            for typ in int,  float:
+                if isintance(je,  typ):
+                    má_býti = typ(má_býti)
+                    if not má_býti == je:
+                        print('BREAK nerovna se typem string ',  typ,  ' ',  má_býti,  ' ',  je)
+                        break
 
     try:
         return obsah(environ)
@@ -50,7 +87,7 @@ def obsah(environ):
     yield '</dl>'.encode('utf-8')
 
 if __name__ == '__main__':
-    port = 8080
+    port = 8000
     httpd = make_server('', port, simple_app)
 #    httpd = make_server('', 8000, demo_app)
     print("Spustil jsem server na portu {} ...".format(port))
