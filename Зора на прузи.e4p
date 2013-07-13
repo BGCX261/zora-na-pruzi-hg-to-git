@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-07-12, 14:00:17 -->
+<!-- Saved: 2013-07-12, 20:18:16 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -2175,8 +2175,6 @@
     <Source>web/zora/django/contrib/gis/tests/geoapp/feeds.py</Source>
     <Source>web/zora/django/contrib/gis/tests/geoapp/test_regress.py</Source>
     <Source>web/zora/__init__.py</Source>
-    <Source>web/zora/pruga/management/__init__.py</Source>
-    <Source>web/zora/pruga/management/commands/__init__.py</Source>
     <Source>web/zora/django/contrib/gis/tests/geoapp/models.py</Source>
     <Source>web/zora/django/contrib/gis/tests/geoapp/test_sitemaps.py</Source>
     <Source>web/zora/django/contrib/gis/tests/distapp/__init__.py</Source>
@@ -2236,7 +2234,6 @@
     <Source>web/zora/django/contrib/gis/db/models/sql/aggregates.py</Source>
     <Source>web/zora/django/contrib/gis/db/models/sql/query.py</Source>
     <Source>web/zora/django/contrib/gis/db/models/sql/conversion.py</Source>
-    <Source>web/zora/pruga/management/commands/neo4j.py</Source>
     <Source>web/zora/vyvíjím.py</Source>
     <Source>jak_naprogramovat/server.py</Source>
     <Source>web/zora/pruga/gdb/__init__.py</Source>
@@ -2245,12 +2242,16 @@
     <Source>neo4j/spustím_neo4j_databázi.py</Source>
     <Source>neo4j/seznam_databází.py</Source>
     <Source>neo4j/testuji_properties.py</Source>
-    <Source>neo4j/nová_neo4j_databáze.py</Source>
     <Source>neo4j/volám_databázi.py</Source>
     <Source>jak_naprogramovat/parsuji_argumenty.py</Source>
     <Source>web/zora/pruga/pruga.py</Source>
     <Source>web/zora/pruga/datagraf/__init__.py</Source>
-    <Source>web/zora/pruga/datagraf/příkazy/__init__.py</Source>
+    <Source>web/zora/zora/management/__init__.py</Source>
+    <Source>web/zora/zora/management/commands/__init__.py</Source>
+    <Source>web/zora/zora/management/commands/neo4j.py</Source>
+    <Source>web/zora/pruga/datagraf/server/__init__.py</Source>
+    <Source>web/zora/pruga/datagraf/instalace/__init__.py</Source>
+    <Source>web/zora/pruga/datagraf/testuji_datagraf.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

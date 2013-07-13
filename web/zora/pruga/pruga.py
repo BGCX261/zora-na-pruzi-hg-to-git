@@ -9,6 +9,11 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
+import logging
+logger = logging.getLogger(__name__)
+debug = logger.debug
+    
+    
 def vypíšu_dostupné_databáze():
     '''
     spouštím funkci main()
@@ -33,25 +38,61 @@ def vytvořím_databází(jméno_databáze,  instalační_soubor):
     except AttributeError as e:
         print(e)
 
+def __davaj_neo4j_server(jméno_databáze):
+    from datagraf.server import davaj_server
+    
+    return davaj_server(jméno_databáze)
+
+def davaj_server_properties(jméno_databáze):
+    
+    neo4j_server = __davaj_neo4j_server(jméno_databáze)
+    for klíč,  hodnota in neo4j_server.server_properties:
+        print(klíč,  hodnota)
+
+def davaj_url_serveru(jméno_databáze):
+    neo4j_server = __davaj_neo4j_server(jméno_databáze)
+    
+    print('url serveru {} je {}'.format(jméno_databáze,  neo4j_server.url))
+ 
+def startuji_neo4j_server(jméno_databáze):
+    neo4j_server = __davaj_neo4j_server(jméno_databáze)
+    try:
+        výpis = neo4j_server.start()
+        print(výpis)
+    except ValueError as e:
+        print(e)
+    
+def zastavím_neo4j_server(jméno_databáze):
+    neo4j_server = __davaj_neo4j_server(jméno_databáze)
+    try:
+        výpis = neo4j_server.stop()
+        print(výpis)
+    except ValueError as e:
+        print(e)
+    
+def davaj_stav_neo4j_serveru(jméno_databáze):
+    neo4j_server = __davaj_neo4j_server(jméno_databáze)
+    výpis = neo4j_server.status()
+    print(výpis)
+
 if __name__ == '__main__':
 
-    print(__doc__)
+    print('Пруга ради')
 
     import argparse
+    
     #  nejdříve si parser vytvořím
     parser = argparse.ArgumentParser(description = 'Správce balíčku pruga.',  epilog = 'Tož gazduj!!!')
 
 #   a pak mu nastavím jaké příkazy a parametry má přijímat
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
     
+    parser.add_argument('--debug', '-d',  action='store_const', const=logging.DEBUG, default=logging.ERROR)
+    
+    
     subparsers = parser.add_subparsers(help = 'modul příkazů')
     parser_neo4j = subparsers.add_parser('neo4j', help='správce neo4j databáze')
 #    parser_neo4j.set_defaults(modul = 'datagraf.příkazy')
-    
-    neo4j_příkazy = {
-                     'list': 44, 
-                     'create': 12
-                     }
     
 #    parser_neo4j.add_argument('příkaz', choices = neo4j_příkazy.keys(), help='co učiniti s databází')
     
@@ -64,18 +105,35 @@ if __name__ == '__main__':
     parser_neo4j_create.add_argument('jméno_databáze')
     parser_neo4j_create.add_argument('instalační_soubor')
     parser_neo4j_create.set_defaults(příkaz = vytvořím_databází)
-
     
+    parser_neo4j_create = parser_neo4j_subparsers.add_parser('properties', help='vypíšu nastavení neo4j databáze')
+    parser_neo4j_create.add_argument('jméno_databáze')
+    parser_neo4j_create.set_defaults(příkaz = davaj_server_properties)
+
+    parser_neo4j_create = parser_neo4j_subparsers.add_parser('url', help='vypíšu url adresu neo4j databáze')
+    parser_neo4j_create.add_argument('jméno_databáze')
+    parser_neo4j_create.set_defaults(příkaz = davaj_url_serveru)
+
+    parser_neo4j_create = parser_neo4j_subparsers.add_parser('start', help='spustím neo4j databázový server')
+    parser_neo4j_create.add_argument('jméno_databáze')
+    parser_neo4j_create.set_defaults(příkaz = startuji_neo4j_server)
+
+    parser_neo4j_create = parser_neo4j_subparsers.add_parser('stop', help='vypnu neo4j databázový server')
+    parser_neo4j_create.add_argument('jméno_databáze')
+    parser_neo4j_create.set_defaults(příkaz = zastavím_neo4j_server)
+
+    parser_neo4j_create = parser_neo4j_subparsers.add_parser('status', help='vypíšu stav neo4j databázového serveru')
+    parser_neo4j_create.add_argument('jméno_databáze')
+    parser_neo4j_create.set_defaults(příkaz = davaj_stav_neo4j_serveru)
+
+
     #    a včíl to možu rozparsovat
     args = vars(parser.parse_args())
 #    modul = args.pop('modul')
     příkaz = args.pop('příkaz')
     
-#    modul = __import__(modul, globals(), locals(), [příkaz], 0)
-#    příkaz = getattr(modul,  příkaz)
-#    print(modul)
-    
-    print(args)
+    logging.basicConfig(level = args.pop('debug'))
+    debug('volám {} s parametry {}'.format(příkaz.__name__,  args) )
     příkaz(**args)
 
     

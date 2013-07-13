@@ -32,3 +32,4 @@ glob:web/zora/django
 
 web/zora/zora/static/js/libs
 web/zora/zora/static/css/south-street
+web/zora/pruga/datagraf/server/medvěd
