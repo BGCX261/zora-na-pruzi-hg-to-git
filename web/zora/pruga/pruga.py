@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 debug = logger.debug
     
     
-def vypíšu_dostupné_databáze():
+def vypíšu_dostupné_databáze(podrobně = None):
     '''
     spouštím funkci main()
     '''
@@ -22,10 +22,16 @@ def vypíšu_dostupné_databáze():
     
     print('dostupné databáze')
     
-    for databáze in davaj_seznam_databází():
-        print(databáze)
+    i = 0
+    for i,  jméno_databáze in enumerate(davaj_seznam_databází(),  start = 1):
+        if podrobně:
+            neo4j_server = __davaj_neo4j_server(jméno_databáze)
+            print('{0}: {1} {2.url} {3}'.format(i,  jméno_databáze,  neo4j_server,  neo4j_server.status()))
+        else:
+            print('{}: {}'.format(i,  jméno_databáze))
     else:
-        print('není žádná databáze')
+        if i == 0:
+            print('není žádná databáze')
 
 def vytvořím_databází(jméno_databáze,  instalační_soubor):
     
@@ -98,6 +104,7 @@ if __name__ == '__main__':
     
     parser_neo4j_subparsers = parser_neo4j.add_subparsers(help = 'příkaz')
     parser_neo4j_list = parser_neo4j_subparsers.add_parser('list', help='vypíše dostupné neo4j databáze')
+    parser_neo4j_list.add_argument('--podrobně',  action='store_true')
     parser_neo4j_list.set_defaults(příkaz = vypíšu_dostupné_databáze)
     
     

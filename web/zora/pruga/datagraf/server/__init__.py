@@ -4,10 +4,14 @@ def davaj_seznam_databází():
     '''
     import os
     
-    for adresář in os.listdir(os.path.dirname(__file__)):
+    hen_adresář = os.path.dirname(__file__)
+    
+    for adresář in os.listdir(hen_adresář):
         if adresář.startswith('_'):
             continue
-        yield adresář
+            
+        if os.path.isdir(os.path.join(hen_adresář,  adresář)):
+            yield adresář
         
 def jestvuje_databáze(jméno_databáze):
     import os
