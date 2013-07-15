@@ -14,7 +14,7 @@ import sys,  os
 
 PRUGA = 'pruga'
 ZORA = 'zora'
-ROOT_DIR = '../../'
+ROOT_DIR = os.path.join(os.path.dirname(__file__), '../')
 
 def nastavím_adresáře(python_dir,  balíček):
     '''
@@ -30,13 +30,14 @@ def nastavím_adresáře(python_dir,  balíček):
     try:
 #        import pruga
         modul = __import__(balíček, globals(), locals(), [], 0)
+        python_dir = os.path.dirname(getattr(modul,  '__file__'))
     except ImportError:
         kontroluji_python_dir(python_dir)
         python_dir = os.path.join(python_dir,  balíček)
         vytvořím_odkaz(zdroj = cesta_k_balíčku,  cíl = python_dir)
 #        return True
         
-    python_dir = os.path.dirname(getattr(modul,  '__file__'))
+    
     print('Balíček {} v systému jestvuje, je v adresáři {}'.format(balíček, python_dir))
     
     if not os.path.samefile(cesta_k_balíčku,  python_dir):
@@ -57,8 +58,8 @@ def kontroluji_python_dir(python_dir):
     print('adresář balíčků pro python je hen:',  python_dir)
 
 def davaj_cestu_k_balíčku(adresář_balíčku):
-    hen = os.path.dirname(__file__)
-    abs_cesta = os.path.realpath(os.path.join(hen, ROOT_DIR,  adresář_balíčku))
+    
+    abs_cesta = os.path.realpath(os.path.join(ROOT_DIR,  adresář_balíčku))
     
     print('cesta pro {} je hen {}'.format(adresář_balíčku,  abs_cesta))
     return abs_cesta
