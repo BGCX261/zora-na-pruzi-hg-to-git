@@ -68,6 +68,12 @@ class Neo4j(object):
             def __bool__(self):
                 return self.__spuštěno
                 
+            def __eq__(self,  other):
+                if isinstance(other,  bool):
+                    return self.__spuštěno == other
+                else:
+                    raise TypeError('Neporovnatelno')
+                
             def __str__(self):
                 return 'stav neo4j databáze "{}": {}'.format(jméno_databáze,  self.__zpráva)
         
