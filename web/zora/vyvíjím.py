@@ -9,6 +9,10 @@ Hen je program, který ...
 __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
+import sys
+import regex as re
+sys.modules['re'] = re
+
 import os
 import django
 
@@ -41,8 +45,8 @@ def aplikaci(cesta):
                    'SERVER_PORT':8000
                    }
                    
-    application(environ,  print)
-#    print(x)
+    výstup = application(environ,  print)
+    print(výstup)
 
 if __name__ == '__main__':
 

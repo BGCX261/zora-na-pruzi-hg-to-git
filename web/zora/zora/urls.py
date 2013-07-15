@@ -16,14 +16,15 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^time/$', 'pruga.views.current_time'),
+#    url(r'^time/$', 'pruga.views.current_time'),
     
     #    url(r'^$', 'app.views.index', name='index'),
 #    když to napíšu takto,  nemusím psát view
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     
-    url(r'^firmy$', 'zora.firma.seznam_firem'),
+#    url(r'^firmy$', 'zora.firma.seznam_firem'),
     url(r'^firma/ičo/(?P<ičo>\d+)/$', 'pruga.gdb.firma.najdi_firmu',  {'ičo': 45}),
+    url(r'^info/$', 'pruga.gdb.firma.info'),
     
 )
 
