@@ -52,7 +52,7 @@ def __davaj_neo4j_server(jméno_databáze):
 def davaj_server_properties(jméno_databáze):
     
     neo4j_server = __davaj_neo4j_server(jméno_databáze)
-    for klíč,  hodnota in neo4j_server.server_properties:
+    for klíč,  hodnota in neo4j_server.properties():
         print(klíč,  hodnota)
 
 def davaj_url_serveru(jméno_databáze):

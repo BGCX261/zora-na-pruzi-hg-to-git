@@ -19,6 +19,7 @@ def jestvuje_databáze(jméno_databáze):
     return os.path.isdir(cesta_k_databázi)
 
 def davaj_server(jméno_databáze):
-    from .Neo4j import Neo4j
-    return Neo4j(jméno_databáze)
+    modul = '{}.{}'.format(__name__,  jméno_databáze)
+    modul =  __import__(modul, globals(), locals(), [jméno_databáze])
+    return modul
     

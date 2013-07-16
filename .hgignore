@@ -26,9 +26,15 @@ glob:**.cache
 glob:dílna/veřejné_rozpočty/csv
 glob:html_šablony
 glob:dílna/forex
-glob:instalace
 glob:www_server/django
 
 web/zora/zora/static/js/libs
 web/zora/zora/static/css/south-street
 web/zora/pruga/datagraf/server/medvěd
+
+glob:pruga/datagraf/server/__init__.py
+
+glob:pruga/datagraf/server/medvěd
+glob:www_server
+
+glob: ^pruga/datagraf/instalace/*.tar.gz$

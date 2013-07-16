@@ -1,0 +1,108 @@
+# Copyright (c) 2012 Домоглед  <domogled@domogled.eu>
+# @author Петр Болф <petr.bolf@domogled.eu>
+
+'''
+Samočině vytvořila Пруга
+'''
+
+__version__ = '0.0.1'
+__author__ = 'Петр Болф <petr.bolf@domogled.eu>'
+
+import os
+import subprocess
+
+import logging
+logger = logging.getLogger(__name__)
+debug = logger.debug
+
+ADRESÁŘ_DATABÁZE = os.path.dirname(__file__)
+JMÉNO_DATABÁZE = os.path.basename(ADRESÁŘ_DATABÁZE)
+NEO4J_BIN = os.path.join(ADRESÁŘ_DATABÁZE,  'bin/neo4j')
+
+    
+def __properties():
+    
+    if __properties.načteno is None:
+        soubor_nastavení = os.path.join(ADRESÁŘ_DATABÁZE,  'conf/neo4j-server.properties')
+        from .. import pyproperties
+        __properties.načteno = pyproperties.Properties(soubor_nastavení)
+        
+    return __properties.načteno
+ 
+__properties.načteno = None
+
+def properties():
+    for klíč,  hodnota in __properties().properties.items():
+        yield klíč,  hodnota
+    
+
+def status():
+    status = subprocess.check_output((NEO4J_BIN,  'status')).decode('utf-8')
+    
+    debug('status: {}'.format(status))
+    
+    class Status(object):
+        
+        def __init__(self,  zpráva):
+            self.__zpráva = zpráva
+            if 'Neo4j Server is not running' in zpráva:
+                self.__spuštěno = False
+            elif 'Neo4j Server is running' in zpráva:
+                self.__spuštěno = True
+            else:
+                raise ValueError('Neznámý stav neo4j serveru: {}'.format(status))
+
+        def __bool__(self):
+            return self.__spuštěno
+            
+        def __eq__(self,  other):
+            if isinstance(other,  bool):
+                return self.__spuštěno == other
+            else:
+                raise TypeError('Neporovnatelno')
+            
+        def __str__(self):
+            return 'stav neo4j databáze "{}": {}'.format(JMÉNO_DATABÁZE,  self.__zpráva)
+    
+    return Status(zpráva = status)
+         
+def start():
+    '''
+    spustím neo4j server
+    '''
+    
+    debug('zapnu server {}'.format(NEO4J_BIN))
+    
+    stav = status()
+    
+    if not stav:
+#            subprocess.Popen((self.neo4j_bin,  'start'))
+        return subprocess.check_output((NEO4J_BIN,  'start')).decode('utf-8')
+    else:
+        raise ValueError('Neo4j server nebyl spuštěn.\n\t{}'.format(stav))
+        
+def stop():
+    '''
+    spouštím funkci main()
+    '''
+    
+    debug('vypnu server {}'.format(NEO4J_BIN))
+    
+    stav = status()
+    if stav:
+#            subprocess.Popen((self.neo4j_bin,  'stop'))
+        return subprocess.check_output((NEO4J_BIN,  'stop')).decode('utf-8')
+    else:
+        raise ValueError('Neo4j server nebyl vypnut.\n\t{}'.format(stav))
+
+
+def url():
+    
+    if url.načteno is None:
+        nastavení = __properties()
+        nastavení.properties.setdefault('org.neo4j.server.webserver.address',  'localhost')
+        url.načteno = 'http://{0[org.neo4j.server.webserver.address]}:{0[org.neo4j.server.webserver.port]}{0[org.neo4j.server.webadmin.data.uri]}'.format(nastavení.properties)
+    
+    return url.načteno
+
+url.načteno = None
