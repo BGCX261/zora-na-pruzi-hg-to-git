@@ -27,7 +27,7 @@ glob:dílna/veřejné_rozpočty/csv
 glob:html_šablony
 glob:dílna/forex
 glob:instalace
-glob:zora/django
+glob:www_server/django
 
 web/zora/zora/static/js/libs
 web/zora/zora/static/css/south-street

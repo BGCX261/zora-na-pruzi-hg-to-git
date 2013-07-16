@@ -89,7 +89,13 @@ def vytvořím_odkaz(zdroj,  cíl):
         příkaz = 'ln -s {} {}'.format(zdroj,  cíl)
         print('spouštím',  příkaz)
         os.system(příkaz)
-        
+ 
+def nastavím_spustitelnou_prugu(bin_dir):
+    zdroj = davaj_cestu_k_balíčku(PRUGA)
+    zdroj = os.path.join(zdroj,  'pruga.py')
+    cíl = os.path.join(bin_dir,  'pruga')
+    vytvořím_odkaz(zdroj,  cíl)
+
 if __name__ == '__main__':
 
     print(__doc__)
@@ -102,9 +108,12 @@ if __name__ == '__main__':
     parser.add_argument('--version', '-v',  action='version', version='%(prog)s, {}'.format(__version__))
     
     parser.add_argument('--python_dir',  default = '/usr/local/lib/python3.2/dist-packages')
+    parser.add_argument('--bin_dir',  default = '/usr/local/bin')
     
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
     nastavím_adresáře(python_dir = args.python_dir,  balíček = PRUGA)
     nastavím_adresáře(python_dir = args.python_dir,  balíček = ZORA)
+    
+    nastavím_spustitelnou_prugu(bin_dir = args.bin_dir)
