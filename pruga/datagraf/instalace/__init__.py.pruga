@@ -106,3 +106,17 @@ def url():
     return url.načteno
 
 url.načteno = None
+
+def graf_db():
+    from pruga.py2neo import neo4j
+    from pruga.py2neo.rest import SocketError
+    
+    try:
+        graph_db = neo4j.GraphDatabaseService(url())
+    except SocketError as e:
+        debug(e)
+        zpráva = start()
+        logger.info(zpráva)
+        graph_db = neo4j.GraphDatabaseService(url())
+    
+    return graph_db

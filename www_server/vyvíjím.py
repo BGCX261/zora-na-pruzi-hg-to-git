@@ -47,6 +47,38 @@ def aplikaci(cesta):
                    
     výstup = application(environ,  print)
     print(výstup)
+    
+def reverse(cesta):
+#    from django.core.urlresolvers import reverse
+#    
+#    x = reverse('zora.najdi_firmu',  None,  [],  {'ičo': 255},  None,  None)
+#    print(x)
+
+    from zora.urls import urlpatterns
+    from zora.dispečer import reverse
+    
+    for model,  regex in reverse.items():
+        print(model,  regex)
+        
+    print('F')
+    from pruga.datagraf.server import davaj_seznam_databází
+    print(davaj_seznam_databází.__module__)
+    print(davaj_seznam_databází.__name__)
+    
+    klíč = '{}:{}'.format(davaj_seznam_databází.__module__,  davaj_seznam_databází.__name__)
+    
+    klíč = 'pruga.gdb.firma.najdi_firmu'
+    print(klíč)
+    url = reverse(klíč)
+    print(url)
+
+
+def mako(cesta):
+    from zora.šablony import renderuj
+    
+    
+    obsah = renderuj(cesta)
+    print(obsah)
 
 if __name__ == '__main__':
 

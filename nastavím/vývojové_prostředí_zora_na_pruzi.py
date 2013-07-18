@@ -92,7 +92,7 @@ def vytvořím_odkaz(zdroj,  cíl):
  
 def nastavím_spustitelnou_prugu(bin_dir):
     zdroj = davaj_cestu_k_balíčku(PRUGA)
-    zdroj = os.path.join(zdroj,  'pruga.py')
+    zdroj = os.path.join(zdroj,  'bin/pruga.py')
     cíl = os.path.join(bin_dir,  'pruga')
     vytvořím_odkaz(zdroj,  cíl)
 
