@@ -16,7 +16,12 @@ def url(jméno_routy,  *args,  **kwargs):
 #    url = 'url do {}'.format(str(kwargs))
 #    return url
 
+def url_souboru(cesta):
+    from django.templatetags.static import static
+    
+    return static(cesta)
+
 def renderuj(jméno_šablony, **kwargs):
     mytemplate = mylookup.get_template(jméno_šablony)
-    return mytemplate.render(url = url,  **kwargs)
+    return mytemplate.render(url = url,  url_souboru = url_souboru,  **kwargs)
 
