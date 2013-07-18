@@ -18,12 +18,12 @@ def vypíšu_dostupné_databáze(podrobně = None):
     '''
     spouštím funkci main()
     '''
-    from datagraf.server import davaj_seznam_databází
+    from datagraf.server import davaj_jména_databází
     
     print('dostupné databáze')
     
     i = 0
-    for i,  jméno_databáze in enumerate(davaj_seznam_databází(),  start = 1):
+    for i,  jméno_databáze in enumerate(davaj_jména_databází(),  start = 1):
         if podrobně:
             neo4j_server = __davaj_neo4j_server(jméno_databáze)
             print('{0}: {1} {2.url} {3}'.format(i,  jméno_databáze,  neo4j_server,  neo4j_server.status()))

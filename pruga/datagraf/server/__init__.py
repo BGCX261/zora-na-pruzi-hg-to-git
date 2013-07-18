@@ -1,4 +1,4 @@
-def davaj_seznam_databází():
+def davaj_jména_databází():
     '''
     spouštím funkci main()
     '''
@@ -12,7 +12,10 @@ def davaj_seznam_databází():
             
         if os.path.isdir(os.path.join(hen_adresář,  adresář)):
             yield adresář
-        
+ 
+#def davaj_seznam_databází():
+#    return tuple(davaj_jména_databází())
+
 def jestvuje_databáze(jméno_databáze):
     import os
     cesta_k_databázi = os.path.join(os.path.dirname(__file__),  jméno_databáze)

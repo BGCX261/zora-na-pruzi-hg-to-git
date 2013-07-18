@@ -10,7 +10,7 @@ __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
 #from django.core.urlresolvers import ResolverMatch
-from django.conf.urls import url as django_url,  include as django_include
+#from django.conf.urls import url as django_url,  include as django_include
 
 #class Routa(object):
 #    '''
@@ -44,7 +44,9 @@ from django.http import HttpResponse
 def davaj_pohled(model,  pohled = None):
     
     def view(request,  **kwargs):
-        nonlocal  model
+        nonlocal  model,  pohled
+        
+        print(model,  type(model),  getattr(model,  __name__,  'nema __name__'))
         
         if isinstance(model,  str):
             model,  funkce = model.split(':')
@@ -52,10 +54,13 @@ def davaj_pohled(model,  pohled = None):
             model = __import__(model,  globals(), locals(), [funkce])
             model = getattr(model,  funkce)
              
-        model = model(**kwargs)
+        data = model(**kwargs)
+        
+        if pohled is None:
+            pohled = model.__name__
         
         from zora.šablony import renderuj
-        obsah = renderuj('{}.mako'.format(pohled),  model = model,  request = request)
+        obsah = renderuj('{}.mako'.format(pohled),  model = data,  request = request)
         return HttpResponse(obsah)
         
     return view
