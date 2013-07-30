@@ -108,15 +108,31 @@ def url():
 url.načteno = None
 
 def graf_db():
+
+    if hasattr(graf_db, 'gdb'):
+        return graf_db.gdb
+
     from pruga.py2neo import neo4j
     from pruga.py2neo.rest import SocketError
     
+    url_grafu = url()
+    print('url grafu',  url_grafu)
+    
     try:
-        graph_db = neo4j.GraphDatabaseService(url())
+        gdb = neo4j.GraphDatabaseService(url_grafu)
     except SocketError as e:
         debug(e)
         zpráva = start()
         logger.info(zpráva)
-        graph_db = neo4j.GraphDatabaseService(url())
+        gdb = neo4j.GraphDatabaseService(url_grafu)
     
-    return graph_db
+    graf_db.gdb = gdb
+    return graf_db.gdb
+
+    
+def cypher(dotaz,  parametry = None):
+    from pruga.py2neo import cypher
+    
+    parametry = parametry or {}
+    
+    return cypher.execute(graf_db(), dotaz,   parametry)

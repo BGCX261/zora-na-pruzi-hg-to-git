@@ -39,32 +39,91 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 #
 #            return ResolverMatch(self._callback, args, kwargs, self.name)
 
-from django.http import HttpResponse 
+from django.http import HttpResponse,  HttpResponseRedirect
  
-def davaj_pohled(model,  pohled = None):
+def url(jméno_routy,  *args,  **kwargs):
+    from django.core.urlresolvers import reverse
     
-    def view(request,  **kwargs):
-        nonlocal  model,  pohled
-        
-        print(model,  type(model),  getattr(model,  __name__,  'nema __name__'))
-        
-        if isinstance(model,  str):
-            model,  funkce = model.split(':')
-            
-            model = __import__(model,  globals(), locals(), [funkce])
-            model = getattr(model,  funkce)
-             
-        data = model(**kwargs)
-        
-        if pohled is None:
-            pohled = model.__name__
-        
-        from zora.šablony import renderuj
-        obsah = renderuj('{}.mako'.format(pohled),  model = data,  request = request)
-        return HttpResponse(obsah)
-        
-    return view
+    url = reverse(jméno_routy,  None,  args,  kwargs,  None,  None)
+    return url
 
+#    url = 'url do {}'.format(str(kwargs))
+#    return url
+
+def url_souboru(cesta):
+    from django.templatetags.static import static
+    
+    return static(cesta)
+ 
+class POHLED(object):
+    
+    def __init__(self,  pohled):
+        self._pohled = pohled
+        
+    def __call__(self,  request,  *args,  **kwargs):
+        from zora.šablony import renderuj
+        obsah = renderuj('{}.mako'.format(self._pohled),  *args,  request = request,  **kwargs)
+        return HttpResponse(obsah)
+ 
+class MODEL(POHLED):
+    
+    def __init__(self,  model,  pohled = None):
+        super().__init__(pohled)
+        self._model = model
+      
+    @property
+    def model(self):
+        if isinstance(self._model,  str):
+            modul,  funkce = self._model.split(':')
+            
+            modul = __import__(modul,  globals(), locals(), [funkce])
+            funkce = getattr(modul,  funkce)
+            self._model = funkce
+            
+        return self._model
+    
+    def __call__(self,  request,  *args,  **kwargs):
+            
+        model_vrátil = self.model(*args,  **kwargs)
+        
+        if self._pohled is not None:
+            return super().__call__(request,  *args,  model = model_vrátil,  **kwargs)
+        return HttpResponse(model_vrátil)
+ 
+ 
+class POST(MODEL):
+    def __init__(self,  model,  redirect):
+        self._model = model
+        self._redirect = redirect
+ 
+    def __call__(self,  request,  *args,  **kwargs):
+        
+        if not request.method == 'POST':
+            raise TypeError('Enom POST sem patří')
+
+        obsah = self.model(** request.POST)
+        
+        from django.contrib import messages
+        messages.add_message(request, messages.INFO, obsah)
+        
+        return HttpResponseRedirect(url(self._redirect))
+#        return HttpResponse(obsah)
+        
+class FLASH(POHLED):
+ 
+    def __call__(self,  request,  *args,  **kwargs):
+        
+        if not request.method == 'GET':
+            raise TypeError('Enom GET sem patří')
+
+        from django.contrib import messages
+        obsah = messages.get_messages(request)
+        for message in obsah:
+            print(message)
+        print('MESSAGES',  obsah)
+        
+        return super().__call__(request,  *args,  model = obsah,  **kwargs)
+        
 #class reverse(dict):
 #    def __call__(self,  klíč,  **kwargs):
 #        django_regex = self.get(klíč,  None)

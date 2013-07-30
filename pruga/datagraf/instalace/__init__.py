@@ -1,4 +1,5 @@
-
+def jakoby_instaluji(jméno_databáze = 'NENE'):
+    return 'Chtěl bych nainstalovat {}'.format(jméno_databáze)
 
 def instaluji_neo4j(jméno_databáze,  instalační_soubor):
     import os
