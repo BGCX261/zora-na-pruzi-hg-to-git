@@ -1,4 +1,4 @@
-from neomodel.exception import InflateError, DeflateError
+from pruga.neomodel.exception import InflateError, DeflateError
 from datetime import datetime, date
 import time
 import pytz

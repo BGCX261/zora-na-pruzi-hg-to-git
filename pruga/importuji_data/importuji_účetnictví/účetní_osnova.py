@@ -12,7 +12,7 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
 import regex as re
 
-from pruga.data.účetnictví.účetní_osnova import Účetní_osnova,  Třída_účtů,  Skupina_účtů,  Účet
+from pruga.data.účetnictví.účetní_osnova import Účtová_osnova,  Účtová_třída,  Účtová_skupina,  Účet,  MÁ_ÚČET,  MÁ_SKUPINU,  MÁ_TŘÍDU
 
 ÚČTOVÁ_OSNOVA = '`Účtová osnova`'
 ÚČTOVÁ_TŔÍDA = '`Účtová třída`'
@@ -23,47 +23,32 @@ from pruga.data.účetnictví.účetní_osnova import Účetní_osnova,  Třída
 ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU = ':`MÁ SKUPINU`'
 ÚČTOVÁ_SKUPINA_MÁ_ÚČET = ':`MÁ ÚČET`'
 
-class CREATE():
-    
-    def __init__(self):
-        self.__prvky = ['uctova_osnova:{}'.format(ÚČTOVÁ_OSNOVA)]
-        
-    def __call__(self,  kód):
-        self.__prvky.append(kód)
-        
-    def __str__(self):
-        
-        příkaz = [
-        'MATCH uctova_osnova:{}'.format(ÚČTOVÁ_OSNOVA), 
-        'WITH count(uctova_osnova) as pocet', 
-        'WHERE pocet = 0 ', 
-        'CREATE', 
-        ',\n'.join(self.__prvky)
-        ]
-        
-        příkaz = '\n'.join(příkaz)
-        return '{};'.format(příkaz)
-        
-CREATE = CREATE()
+účtová_osnova = Účtová_osnova(jméno = 'česká účetní osnova')
+účty = {}
+graf_obsahuje = [účtová_osnova]
 
-def vlastnosti(**kwargs):
-    seznam = []
-    for klíč,  hodnota in kwargs.items():
-        klíč = cypherové_uvozovky(klíč)
-        if isinstance(hodnota,  str):
-            hodnota = '"{}"'.format(hodnota) 
-           
-        záznam = '{}: {}'.format(klíč,  hodnota) 
-          
-        seznam.append(záznam)
-        
-    return '{{{}}}'.format(','.join(seznam))
-
-def labels(*args):
-    return ':'.join(args)
-
-def cypherové_uvozovky(slovo):
-    return '`{}`'.format(slovo)
+#class CREATE():
+#    
+#    def __init__(self):
+#        self.__prvky = ['uctova_osnova:{}'.format(ÚČTOVÁ_OSNOVA)]
+#        
+#    def __call__(self,  kód):
+#        self.__prvky.append(kód)
+#        
+#    def __str__(self):
+#        
+#        příkaz = [
+#        'MATCH uctova_osnova:{}'.format(ÚČTOVÁ_OSNOVA), 
+#        'WITH count(uctova_osnova) as pocet', 
+#        'WHERE pocet = 0 ', 
+#        'CREATE', 
+#        ',\n'.join(self.__prvky)
+#        ]
+#        
+#        příkaz = '\n'.join(příkaz)
+#        return '{};'.format(příkaz)
+#        
+#CREATE = CREATE()
 
 def toto_je_záhlaví_tabulky(řádek):
     assert řádek == ['Název účtu', 'Položka rozvahy', '', 'Položka výkazu zisku a ztráty']
@@ -78,10 +63,18 @@ def toto_je_účtová_třída(řádek,  číslo,  jméno):
     
     assert len(řádek) == 1
     
-    return Třída_účtů(číslo = číslo,  jméno = jméno)
+    uzel = Účtová_třída(číslo = číslo,  jméno = jméno)
+    graf_obsahuje.append(uzel)
     
-    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČTOVÁ_TŔÍDA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
-    CREATE('(uctova_osnova)-[{}]->(n_{})'.format(ÚČTOVÁ_OSNOVA_MÁ_TŘÍDU,  číslo))
+    účty[číslo] = uzel
+    
+    vazba = MÁ_TŘÍDU(účtová_osnova,  uzel)
+    graf_obsahuje.append(vazba)
+    
+    
+    
+#    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČTOVÁ_TŔÍDA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+#    CREATE('(uctova_osnova)-[{}]->(n_{})'.format(ÚČTOVÁ_OSNOVA_MÁ_TŘÍDU,  číslo))
     
     
 def toto_je_účtová_třída_8_a_9(řádek,  číslo,  jméno):
@@ -95,12 +88,18 @@ def toto_je_účtová_skupina(řádek,  číslo,  jméno):
     
     assert len(řádek) == 1
     
-    return Skupina_účtů(číslo = číslo,  jméno = jméno)
+    uzel = Účtová_skupina(číslo = číslo,  jméno = jméno)
+    graf_obsahuje.append(uzel)
     
-    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČTOVÁ_SKUPINA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+    účty[číslo] = uzel
     
-#    (n)-[:LOVES {since: {value}}]->(m)
-    CREATE('(n_{})-[{}]->(n_{})'.format(číslo[:-1],  ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU,  číslo))
+    vazba = MÁ_SKUPINU(účty[číslo[:-1]],  uzel)
+    graf_obsahuje.append(vazba)
+    
+#    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČTOVÁ_SKUPINA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+#    
+##    (n)-[:LOVES {since: {value}}]->(m)
+#    CREATE('(n_{})-[{}]->(n_{})'.format(číslo[:-1],  ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU,  číslo))
     
 def toto_je_soupis_skupin_7x(řádek,  číslo,  jméno):
     
@@ -108,11 +107,17 @@ def toto_je_soupis_skupin_7x(řádek,  číslo,  jméno):
     
 def toto_je_účet(řádek,  číslo,  jméno):
     
-    return Účet(číslo = číslo,  jméno = jméno)
+    uzel = Účet(číslo = číslo,  jméno = jméno)
+    graf_obsahuje.append(uzel)
     
-    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČET,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+    účty[číslo] = uzel
     
-    CREATE('(n_{})-[{}]->(n_{})'.format(číslo[:-1],  ÚČTOVÁ_SKUPINA_MÁ_ÚČET,  číslo))
+    vazba = MÁ_ÚČET(účty[číslo[:-1]],  uzel)
+    graf_obsahuje.append(vazba)
+    
+#    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČET,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+#    
+#    CREATE('(n_{})-[{}]->(n_{})'.format(číslo[:-1],  ÚČTOVÁ_SKUPINA_MÁ_ÚČET,  číslo))
     
 
 
@@ -154,7 +159,7 @@ def davaj_cypher_pro_import_účetní_osnovy():
 #                print('main: ',  řádek,  'zachycen do: ',  funkce.__name__)
                 try:
                     zachycené_parametry = zachyceno.groupdict()
-                    yield funkce(řádek,  **zachycené_parametry)
+                    funkce(řádek,  **zachycené_parametry)
                     break
                 except TypeError as e:
                     print('funkci {} dávám {} a ta to nebere'.format(funkce.__name__,  zachycené_parametry))
@@ -164,6 +169,7 @@ def davaj_cypher_pro_import_účetní_osnovy():
             raise ValueError('Neumím zpracovat tento řádek: "{}"'.format(' | '.join(řádek)))
             
 #    yield CREATE
+    return graf_obsahuje
  
 def davaj_cypher_pro_indexy():
     příkazy = [

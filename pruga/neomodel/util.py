@@ -1,5 +1,5 @@
 import re
-from py2neo import neo4j, rest
+from pruga.py2neo import neo4j, rest
 from .exception import UniqueProperty, DataInconsistencyError
 
 camel_to_upper = lambda x: "_".join(word.upper() for word in re.split(r"([A-Z][0-9a-z]*)", x)[1::2])

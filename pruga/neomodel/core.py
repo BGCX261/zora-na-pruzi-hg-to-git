@@ -1,4 +1,4 @@
-from py2neo import neo4j, cypher
+from pruga.py2neo import neo4j, cypher
 from .properties import Property, AliasProperty
 from .relationship import RelationshipManager, OUTGOING, RelationshipDefinition
 from .exception import (DoesNotExist, RequiredProperty, CypherException,

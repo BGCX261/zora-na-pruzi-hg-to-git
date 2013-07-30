@@ -1,6 +1,6 @@
 from .exception import PropertyNotIndexed
 from .properties import AliasProperty
-from py2neo import neo4j
+from pruga.py2neo import neo4j
 import sys
 import re
 

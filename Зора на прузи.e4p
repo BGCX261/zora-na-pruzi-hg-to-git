@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-07-29, 15:05:39 -->
+<!-- Saved: 2013-07-30, 17:59:30 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -2173,6 +2173,74 @@
     <Source>www_server/zora/šablony/admin/vytvořil_jsem_databázi.mako.py</Source>
     <Source>pruga/datagraf/dotazy/__init__.py</Source>
     <Source>pruga/datagraf/dotazy/všechny_uzly.cql</Source>
+    <Source>www_server/py2neo/__init__.py</Source>
+    <Source>www_server/py2neo/util.py</Source>
+    <Source>www_server/py2neo/geoff.py</Source>
+    <Source>www_server/py2neo/tool.py</Source>
+    <Source>www_server/py2neo/rest.py</Source>
+    <Source>www_server/py2neo/neo4j.py</Source>
+    <Source>www_server/py2neo/admin.py</Source>
+    <Source>www_server/py2neo/gremlin.py</Source>
+    <Source>www_server/py2neo/ogm.py</Source>
+    <Source>www_server/py2neo/calendar.py</Source>
+    <Source>www_server/py2neo/cypher.py</Source>
+    <Source>web/neo4j/py2neo/__init__.py</Source>
+    <Source>web/neo4j/py2neo/util.py</Source>
+    <Source>web/neo4j/py2neo/geoff.py</Source>
+    <Source>web/neo4j/py2neo/tool.py</Source>
+    <Source>web/neo4j/py2neo/rest.py</Source>
+    <Source>web/neo4j/py2neo/neo4j.py</Source>
+    <Source>web/neo4j/py2neo/admin.py</Source>
+    <Source>web/neo4j/py2neo/gremlin.py</Source>
+    <Source>web/neo4j/py2neo/ogm.py</Source>
+    <Source>web/neo4j/py2neo/calendar.py</Source>
+    <Source>web/neo4j/py2neo/cypher.py</Source>
+    <Source>pruga_experiment/databáze/importuji_data/importuji_účetnictví/cypher/vypíšu_účetní_osnovu.cypher</Source>
+    <Source>pruga/datagraf/instalace/import/__init__.py</Source>
+    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/__init__.py</Source>
+    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/účetní_osnova.py</Source>
+    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/z_postgresql.py</Source>
+    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
+    <Source>www_server/importuji_účetní_osnovu.py</Source>
+    <Source>pruga/gazduji_prugu.py</Source>
+    <Source>pruga/dotazy/__init__.py</Source>
+    <Source>pruga/dotazy/účetní_osnova.py</Source>
+    <Source>pruga/dotazy/přeinstaluji_databázi.py</Source>
+    <Source>pruga/servery/__init__.py</Source>
+    <Source>pruga/servery/pyproperties.py</Source>
+    <Source>pruga/servery/server/medvěd/__init__.py</Source>
+    <Source>pruga/instalace/__init__.py</Source>
+    <Source>pruga/instalace/testuji_instalaci.py</Source>
+    <Source>pruga/instalace/instalace/import/__init__.py</Source>
+    <Source>pruga/instalace/instalace/import/importuji_účetnictví/__init__.py</Source>
+    <Source>pruga/instalace/instalace/import/importuji_účetnictví/účetní_osnova.py</Source>
+    <Source>pruga/instalace/instalace/import/importuji_účetnictví/z_postgresql.py</Source>
+    <Source>pruga/instalace/instalace/import/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
+    <Source>pruga/importuji_data/__init__.py</Source>
+    <Source>pruga/importuji_data/importuji_účetnictví/__init__.py</Source>
+    <Source>pruga/importuji_data/importuji_účetnictví/účetní_osnova.py</Source>
+    <Source>pruga/importuji_data/importuji_účetnictví/z_postgresql.py</Source>
+    <Source>pruga/importuji_data/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
+    <Source>pruga/servery/medvěd/__init__.py</Source>
+    <Source>pruga/data/__init__.py</Source>
+    <Source>pruga/data/účetnictví/__init__.py</Source>
+    <Source>pruga/data/účetnictví/účetní_osnova/__init__.py</Source>
+    <Source>pruga/neomodel/__init__.py</Source>
+    <Source>pruga/neomodel/core.py</Source>
+    <Source>pruga/neomodel/cardinality.py</Source>
+    <Source>pruga/neomodel/exception.py</Source>
+    <Source>pruga/neomodel/signals.py</Source>
+    <Source>pruga/neomodel/util.py</Source>
+    <Source>pruga/neomodel/traversal.py</Source>
+    <Source>pruga/neomodel/relationship.py</Source>
+    <Source>pruga/neomodel/index.py</Source>
+    <Source>pruga/neomodel/properties.py</Source>
+    <Source>pruga/neomodel/contrib/__init__.py</Source>
+    <Source>pruga/neomodel/contrib/semi_structured.py</Source>
+    <Source>pruga/neomodel/contrib/hierarchical.py</Source>
+    <Source>pruga/neomodel/contrib/localisation.py</Source>
+    <Source>pruga/importuji_data/importuji_účetnictví/_účetní_osnova.py</Source>
+    <Source>pruga/cython/__init__.py</Source>
   </Sources>
   <Forms/>
   <Translations/>

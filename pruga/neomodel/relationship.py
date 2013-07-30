@@ -1,4 +1,4 @@
-from py2neo import neo4j
+from pruga.py2neo import neo4j
 import sys
 from .exception import DoesNotExist, NotConnected
 from .util import camel_to_upper
