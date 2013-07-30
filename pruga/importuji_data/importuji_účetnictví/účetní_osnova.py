@@ -10,7 +10,9 @@ __version__ = '0.0.1'
 __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 
 
-import re
+import regex as re
+
+from pruga.data.účetnictví.účetní_osnova import Účetní_osnova,  Třída_účtů,  Skupina_účtů,  Účet
 
 ÚČTOVÁ_OSNOVA = '`Účtová osnova`'
 ÚČTOVÁ_TŔÍDA = '`Účtová třída`'
@@ -63,75 +65,73 @@ def labels(*args):
 def cypherové_uvozovky(slovo):
     return '`{}`'.format(slovo)
 
-def toto_je_záhlaví_tabulky(řádek,  číslo_účtu,  jméno):
+def toto_je_záhlaví_tabulky(řádek):
     assert řádek == ['Název účtu', 'Položka rozvahy', '', 'Položka výkazu zisku a ztráty']
     
-def toto_je_podzáhlaví_tabulky(řádek,  číslo_účtu,  jméno):
+def toto_je_podzáhlaví_tabulky(řádek):
 #    print('toto_je_podzáhlaví_tabulky: ',  řádek)
     assert řádek == ['', 'Aktiva', 'Pasiva']
     
-def toto_je_účtová_třída(řádek,  číslo_účtu,  jméno):
+def toto_je_účtová_třída(řádek,  číslo,  jméno):
     
-    kontroluji_pořadí_účtové_třídy(číslo_účtu)
+    kontroluji_pořadí_účtové_třídy(číslo)
     
     assert len(řádek) == 1
     
-    CREATE('n_{}:{} {}'.format(číslo_účtu,  labels(ÚČTOVÁ_TŔÍDA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
-    CREATE('(uctova_osnova)-[{}]->(n_{})'.format(ÚČTOVÁ_OSNOVA_MÁ_TŘÍDU,  číslo_účtu))
+    return Třída_účtů(číslo = číslo,  jméno = jméno)
+    
+    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČTOVÁ_TŔÍDA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+    CREATE('(uctova_osnova)-[{}]->(n_{})'.format(ÚČTOVÁ_OSNOVA_MÁ_TŘÍDU,  číslo))
     
     
-def toto_je_účtová_třída_8_a_9(řádek,  číslo_účtu,  jméno):
+def toto_je_účtová_třída_8_a_9(řádek,  číslo,  jméno):
     
     toto_je_účtová_třída(řádek,  "8",  jméno)
     toto_je_účtová_třída(řádek,  "9",  jméno)
     
 
 
-def toto_je_účtová_skupina(řádek,  číslo_účtu,  jméno):
+def toto_je_účtová_skupina(řádek,  číslo,  jméno):
     
     assert len(řádek) == 1
     
-    CREATE('n_{}:{} {}'.format(číslo_účtu,  labels(ÚČTOVÁ_SKUPINA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
+    return Skupina_účtů(číslo = číslo,  jméno = jméno)
+    
+    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČTOVÁ_SKUPINA,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
     
 #    (n)-[:LOVES {since: {value}}]->(m)
-    CREATE('(n_{})-[{}]->(n_{})'.format(číslo_účtu[:-1],  ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU,  číslo_účtu))
+    CREATE('(n_{})-[{}]->(n_{})'.format(číslo[:-1],  ÚČTOVÁ_TŘÍDA_MÁ_SKUPINU,  číslo))
     
-def toto_je_soupis_skupin_7x(řádek,  číslo_účtu,  jméno):
+def toto_je_soupis_skupin_7x(řádek,  číslo,  jméno):
     
     assert len(řádek) == 1
     
-def toto_je_účet(řádek,  číslo_účtu,  jméno):
+def toto_je_účet(řádek,  číslo,  jméno):
     
-    CREATE('n_{}:{} {}'.format(číslo_účtu,  labels(ÚČET,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo_účtu,  jméno = jméno)))
+    return Účet(číslo = číslo,  jméno = jméno)
     
-    CREATE('(n_{})-[{}]->(n_{})'.format(číslo_účtu[:-1],  ÚČTOVÁ_SKUPINA_MÁ_ÚČET,  číslo_účtu))
+    CREATE('n_{}:{} {}'.format(číslo,  labels(ÚČET,  ÚČTOVÁ_OSNOVA),  vlastnosti(číslo = číslo,  jméno = jméno)))
+    
+    CREATE('(n_{})-[{}]->(n_{})'.format(číslo[:-1],  ÚČTOVÁ_SKUPINA_MÁ_ÚČET,  číslo))
     
 
 
 parsovací_funkce = {re.compile(r'^Název účtu'): toto_je_záhlaví_tabulky, 
                             re.compile(r'^$'): toto_je_podzáhlaví_tabulky, 
-                                re.compile(r'^ÚČTOVÁ\s+TŘÍDA\s+(?P<czislo>[0-9])[ \t]-[ \t](?P<jmeno>.+)'): toto_je_účtová_třída, 
-                                re.compile(r'^(?P<czislo>[0-9]{2})x?[ \t]-[ \t](?P<jmeno>.+)'): toto_je_účtová_skupina, 
-                              re.compile(r'^(?P<czislo>[0-9]{3})[ \t]-[ \t](?P<jmeno>.+)'): toto_je_účet , 
-                              re.compile(r'^ÚČTOVÉ\s+TŘÍDY\s+(?P<czislo>[0-9]) A 9[ \t]-[ \t](?P<jmeno>.+)'): toto_je_účtová_třída_8_a_9, 
-                              re.compile(r'^(?P<czislo>[0-9]{2}) až 79[ \t]-[ \t](?P<jmeno>.+)'): toto_je_soupis_skupin_7x 
+                                re.compile(r'^ÚČTOVÁ\s+TŘÍDA\s+(?P<číslo>[0-9])[ \t]-[ \t](?P<jméno>.+)'): toto_je_účtová_třída, 
+                                re.compile(r'^(?P<číslo>[0-9]{2})x?[ \t]-[ \t](?P<jméno>.+)'): toto_je_účtová_skupina, 
+                              re.compile(r'^(?P<číslo>[0-9]{3})[ \t]-[ \t](?P<jméno>.+)'): toto_je_účet , 
+                              re.compile(r'^ÚČTOVÉ\s+TŘÍDY\s+(?P<číslo>[0-9]) A 9[ \t]-[ \t](?P<jméno>.+)'): toto_je_účtová_třída_8_a_9, 
+                              re.compile(r'^(?P<číslo>[0-9]{2}) až 79[ \t]-[ \t](?P<jméno>.+)'): toto_je_soupis_skupin_7x 
                                 }
 
-def kontroluji_pořadí_účtové_třídy(číslo_účtu):
-    if not kontroluji_pořadí_účtové_třídy.číslo_třídy == int(číslo_účtu):
-        raise ValueError('Chyba pořadí účtové třídy, očekávám {} ale číslo je {}'.format(kontroluji_pořadí_účtové_třídy.číslo_třídy, číslo_účtu))
+def kontroluji_pořadí_účtové_třídy(číslo):
+    if not kontroluji_pořadí_účtové_třídy.číslo_třídy == int(číslo):
+        raise ValueError('Chyba pořadí účtové třídy, očekávám {} ale číslo je {}'.format(kontroluji_pořadí_účtové_třídy.číslo_třídy, číslo))
         
     kontroluji_pořadí_účtové_třídy.číslo_třídy = kontroluji_pořadí_účtové_třídy.číslo_třídy + 1
 
 kontroluji_pořadí_účtové_třídy.číslo_třídy = 0
-
-def parsuji_zachycené(regex_zachyceno):
-    
-    try:
-        číslo_účtu,  jméno = regex_zachyceno.group('czislo',  'jmeno')
-        return číslo_účtu,  jméno
-    except IndexError:
-        return None,  None
 
 def davaj_cypher_pro_import_účetní_osnovy():
     '''
@@ -152,12 +152,18 @@ def davaj_cypher_pro_import_účetní_osnovy():
             zachyceno = r.match(řádek[0])
             if zachyceno:
 #                print('main: ',  řádek,  'zachycen do: ',  funkce.__name__)
-                funkce(řádek,  *parsuji_zachycené(zachyceno))
-                break
+                try:
+                    zachycené_parametry = zachyceno.groupdict()
+                    yield funkce(řádek,  **zachycené_parametry)
+                    break
+                except TypeError as e:
+                    print('funkci {} dávám {} a ta to nebere'.format(funkce.__name__,  zachycené_parametry))
+                    raise e
+                
         else:
             raise ValueError('Neumím zpracovat tento řádek: "{}"'.format(' | '.join(řádek)))
             
-    yield CREATE
+#    yield CREATE
  
 def davaj_cypher_pro_indexy():
     příkazy = [
