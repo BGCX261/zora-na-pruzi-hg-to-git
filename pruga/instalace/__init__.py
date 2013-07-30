@@ -9,9 +9,9 @@ def instaluji_neo4j(jméno_databáze,  instalační_soubor):
         if not os.path.isfile(instalační_soubor):
             raise IOError('Nenašel jsem instalační soubor "{}", ani hen "{}".'.format(_instalační_soubor,  instalační_soubor)) 
             
-    from .. import server
+    from .. import servery
 
-    if server.jestvuje_databáze(jméno_databáze):
+    if servery.jestvuje_databáze(jméno_databáze):
         raise AttributeError('Databáze jména "{}" již jestvuje'.format(jméno_databáze))
        
     import tarfile
@@ -32,7 +32,7 @@ def instaluji_neo4j(jméno_databáze,  instalační_soubor):
     print('rozbaluji {} do {}'.format(instalační_soubor,  TEMP_ADRESÁŘ))
     tar.extractall(TEMP_ADRESÁŘ)
         
-    cesta_k_nové_databázi = os.path.join(os.path.dirname(server.__file__),  jméno_databáze)
+    cesta_k_nové_databázi = os.path.join(os.path.dirname(servery.__file__),  jméno_databáze)
     print(cesta_k_nové_databázi)
     
     cesta_rozbaleného_tar = os.path.join(TEMP_ADRESÁŘ,  jméno_rozbaleného_tar)

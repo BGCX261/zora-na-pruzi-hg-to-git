@@ -45,7 +45,7 @@ def vytvořím_databází(jméno_databáze,  instalační_soubor):
         print(e)
 
 def __davaj_neo4j_server(jméno_databáze):
-    from datagraf.server import davaj_server
+    from servery import davaj_server
     
     return davaj_server(jméno_databáze)
 
