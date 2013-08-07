@@ -12,11 +12,11 @@ __author__ = 'Петр Болф <petr.bolf@domogled.eu>'
 import sys,  os
 
 
-PRUGA = 'pruga'
-ZORA = 'zora'
-ROOT_DIR = os.path.join(os.path.dirname(__file__), '../')
+#PRUGA = 'pruga'
+#ZORA = 'zora.zora'
+#ROOT_DIR = os.path.join(os.path.dirname(__file__), '../')
 
-def nastavím_adresáře(python_dir,  balíček):
+def nastavím_adresáře(python_dir,  balíček,  adresář_balíčku):
     '''
     spouštím funkci main()
     '''
@@ -25,7 +25,7 @@ def nastavím_adresáře(python_dir,  balíček):
     print('nastavím balíček {}'.format(balíček))
     print('-'*24)
     
-    cesta_k_balíčku = davaj_cestu_k_balíčku(adresář_balíčku = balíček)
+    cesta_k_balíčku = os.path.realpath(adresář_balíčku)
     
     try:
 #        import pruga
@@ -58,12 +58,6 @@ def kontroluji_python_dir(python_dir):
         
     print('adresář balíčků pro python je hen:',  python_dir)
 
-def davaj_cestu_k_balíčku(adresář_balíčku):
-    
-    abs_cesta = os.path.realpath(os.path.join(ROOT_DIR,  adresář_balíčku))
-    
-    print('cesta pro {} je hen {}'.format(adresář_balíčku,  abs_cesta))
-    return abs_cesta
      
 def vytvořím_odkaz(zdroj,  cíl):
 
@@ -90,16 +84,12 @@ def vytvořím_odkaz(zdroj,  cíl):
         příkaz = 'ln -s {} {}'.format(zdroj,  cíl)
         print('spouštím',  příkaz)
         os.system(příkaz)
- 
-def nastavím_spustitelnou_prugu(bin_dir):
-    zdroj = davaj_cestu_k_balíčku(PRUGA)
-    zdroj = os.path.join(zdroj,  'gazduji_prugu.py')
-    cíl = os.path.join(bin_dir,  'pruga')
-    vytvořím_odkaz(zdroj,  cíl)
 
 if __name__ == '__main__':
 
     print(__doc__)
+
+    os.chdir(os.path.dirname(__file__))
 
     import argparse
     #  nejdříve si parser vytvořím
@@ -114,7 +104,13 @@ if __name__ == '__main__':
     #    a včíl to možu rozparsovat
     args = parser.parse_args()
     
-    nastavím_adresáře(python_dir = args.python_dir,  balíček = PRUGA)
-    nastavím_adresáře(python_dir = args.python_dir,  balíček = ZORA)
+    nastavím_adresáře(python_dir = args.python_dir,  balíček = 'pruga',  adresář_balíčku = '../pruga')
+    nastavím_adresáře(python_dir = args.python_dir,  balíček = 'zora',  adresář_balíčku = '../zora/zora')
     
-    nastavím_spustitelnou_prugu(bin_dir = args.bin_dir)
+    
+    cíl = os.path.join(args.bin_dir,  'pruga')
+    zdroj = os.path.realpath('../pruga/gazduji_prugu.py')
+    print('-'*24)
+    print('spustitelný skript pro {}'.format(zdroj))
+    print('-'*24)
+    vytvořím_odkaz(zdroj,  cíl)
