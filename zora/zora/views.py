@@ -19,6 +19,13 @@ def cql_main_view(request):
     
 @view_config(route_name='cql')
 def cql_view(request):
+    from pruga.dotazy import cypher
+    cql_skript = request.matchdict['cql']
+    cql_kód = cypher(cql_skript)
+    
+    from pruga.servery.medvěd import cypher as spustím_cypher
+    výsledek = spustím_cypher(cql_kód)
+    
     from pyramid.response import Response
-    return Response('Skript %(cql)s!' % request.matchdict)
+    return Response('Skript {}'.format(výsledek) )
 
