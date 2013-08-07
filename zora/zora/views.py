@@ -7,4 +7,18 @@ def my_view(request):
 
 @view_config(route_name='admin', renderer='admin.mako')
 def admin_view(request):
-     return {'project': 'zora v'}
+    return {'project': 'zora'}
+    
+@view_config(route_name='cql_main', renderer='cql.mako')
+def cql_main_view(request):
+    from pruga import dotazy
+    import os
+    cesta = os.path.dirname(dotazy.__file__)
+    cypher_skripty = [skript for skript in os.listdir(cesta) if skript.endswith('.cql')]
+    return {'project': 'zora',  'cypher_skripty': cypher_skripty}
+    
+@view_config(route_name='cql')
+def cql_view(request):
+    from pyramid.response import Response
+    return Response('Skript %(cql)s!' % request.matchdict)
+
