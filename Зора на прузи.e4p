@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-08-06, 18:43:48 -->
+<!-- Saved: 2013-08-07, 21:58:15 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -2221,6 +2221,22 @@
     <Source>www_server/pruga/data/účetnictví/__init__.py</Source>
     <Source>www_server/pruga/data/účetnictví/účetní_osnova/__init__.py</Source>
     <Source>pruga/importuji_data/importuji_účetnictví/cypher/účetní_osnova.cql</Source>
+    <Source>pruga/dotazy/všechny_uzly.cql</Source>
+    <Source>pruga/cypher/__init__.py</Source>
+    <Source>zora/__init__.py</Source>
+    <Source>zora/zora/__init__.py</Source>
+    <Source>zora/zora/tests.py</Source>
+    <Source>zora/zora/views.py</Source>
+    <Source>zora/setup.py</Source>
+    <Source>zora/development.ini</Source>
+    <Source>zora/pserve.py</Source>
+    <Source>zora/zora/templates/admin.mako</Source>
+    <Source>zora/zora/templates/mytemplate.pt</Source>
+    <Source>zora/dev_server</Source>
+    <Source>zora/zora/static/js/zora/zora.js</Source>
+    <Source>zora/zora/static/ajax/cql_loader.js</Source>
+    <Source>zora/zora/static/ajax/styl.css</Source>
+    <Source>zora/zora/static/css/hlavni.css</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -2239,6 +2255,7 @@
     <Other>www_server/moje_mako/base.html</Other>
     <Other>www_server/zora/šablony/admin/vytvořím_databázi.mako</Other>
     <Other>www_server/zora/šablony/admin/vytvořil_jsem_databázi.mako</Other>
+    <Other>zora/zora/templates/cql.mako</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

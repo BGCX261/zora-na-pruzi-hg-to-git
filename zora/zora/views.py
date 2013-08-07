@@ -27,5 +27,5 @@ def cql_view(request):
     výsledek = spustím_cypher(cql_kód)
     
     from pyramid.response import Response
-    return Response('Skript {}'.format(výsledek) )
+    return Response('Výsledek {}'.format(výsledek) )
 
