@@ -35,3 +35,6 @@ glob:pruga/datagraf/server/medvěd
 
 glob:pruga/datagraf/instalace/*.tar.gz
 glob:pruga/py2neo
+pruga/servery/medvěd
+www_server
+web

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project Зора на прузи -->
-<!-- Saved: 2013-07-30, 17:59:30 -->
+<!-- Saved: 2013-08-06, 18:43:48 -->
 <!-- Copyright (C) 2013 Петр Болф, petr.bolf@domogled.eu -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -209,9 +209,6 @@
     <Source>www_server/manage.py</Source>
     <Source>www_server/vyvíjím.py</Source>
     <Source>pruga/__init__.py</Source>
-    <Source>pruga/tests.py</Source>
-    <Source>pruga/views.py</Source>
-    <Source>pruga/models.py</Source>
     <Source>pruga/admin.py</Source>
     <Source>pruga_experiment/__init__.py</Source>
     <Source>zora_na_pruzi/neo4j/__init__.py</Source>
@@ -239,18 +236,6 @@
     <Source>www_server/zora/wsgi.py</Source>
     <Source>www_server/zora/settings.py</Source>
     <Source>www_server/django/__init__.py</Source>
-    <Source>www_server/neomodel/__init__.py</Source>
-    <Source>www_server/neomodel/core.py</Source>
-    <Source>www_server/neomodel/cardinality.py</Source>
-    <Source>www_server/neomodel/exception.py</Source>
-    <Source>www_server/neomodel/signals.py</Source>
-    <Source>www_server/neomodel/util.py</Source>
-    <Source>www_server/neomodel/traversal.py</Source>
-    <Source>www_server/neomodel/relationship.py</Source>
-    <Source>www_server/neomodel/index.py</Source>
-    <Source>www_server/neomodel/properties.py</Source>
-    <Source>pruga/datagraf/__init__.py</Source>
-    <Source>pruga/datagraf/testuji_datagraf.py</Source>
     <Source>pruga/gdb/__init__.py</Source>
     <Source>pruga/gdb/firma.py</Source>
     <Source>pruga_experiment/vidimir/__init__.py</Source>
@@ -259,7 +244,6 @@
     <Source>pruga_experiment/strojmir/__init__.py</Source>
     <Source>pruga_experiment/strojmir/hlavička.py</Source>
     <Source>pruga_experiment/strojmir/importuji.py</Source>
-    <Source>pruga_experiment/instalace/__init__.py</Source>
     <Source>pruga_experiment/databáze/__init__.py</Source>
     <Source>pruga_experiment/databáze/Neo4j.py</Source>
     <Source>pruga_experiment/databáze/pyproperties.py</Source>
@@ -414,12 +398,6 @@
     <Source>www_server/django/utils/html.py</Source>
     <Source>www_server/django/utils/autoreload.py</Source>
     <Source>www_server/django/utils/termcolors.py</Source>
-    <Source>www_server/neomodel/contrib/__init__.py</Source>
-    <Source>www_server/neomodel/contrib/semi_structured.py</Source>
-    <Source>www_server/neomodel/contrib/hierarchical.py</Source>
-    <Source>www_server/neomodel/contrib/localisation.py</Source>
-    <Source>pruga/datagraf/server/__init__.py</Source>
-    <Source>pruga/datagraf/server/pyproperties.py</Source>
     <Source>pruga_experiment/vidimir/stroj/__init__.py</Source>
     <Source>pruga_experiment/vidimir/stroj/Formát.py</Source>
     <Source>pruga_experiment/vidimir/formáty/__init__.py</Source>
@@ -434,8 +412,6 @@
     <Source>pruga_experiment/strojmir/xml/__nastavení.py</Source>
     <Source>pruga_experiment/databáze/graf/__init__.py</Source>
     <Source>pruga_experiment/databáze/graf/Graf.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/__init__.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/přeinstaluji_databázi.py</Source>
     <Source>pruga_experiment/web/response/__init__.py</Source>
     <Source>pruga_experiment/web/response/chybová_stránka.py</Source>
     <Source>pruga_experiment/web/html/__init__.py</Source>
@@ -746,12 +722,6 @@
     <Source>pruga_experiment/strojmir/xml/schémata/DTD.py</Source>
     <Source>pruga_experiment/strojmir/xml/schémata/Relax_NG.py</Source>
     <Source>pruga_experiment/strojmir/xml/schémata/Relax_NG_c.py</Source>
-    <Source>pruga_experiment/databáze/graf/dotazy/__init__.py</Source>
-    <Source>pruga_experiment/databáze/graf/dotazy/účetní_osnova.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/importuji_účetnictví/__init__.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/importuji_účetnictví/účetní_osnova.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/importuji_účetnictví/z_postgresql.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
     <Source>www_server/django/conf/project_template/project_name/__init__.py</Source>
     <Source>www_server/django/conf/project_template/project_name/urls.py</Source>
     <Source>www_server/django/conf/project_template/project_name/wsgi.py</Source>
@@ -1271,8 +1241,6 @@
     <Source>www_server/django/contrib/gis/db/models/sql/query.py</Source>
     <Source>www_server/django/contrib/gis/db/models/sql/conversion.py</Source>
     <Source>www_server/neomodeluji.py</Source>
-    <Source>pruga/datagraf/server/medvěd/__init__.py</Source>
-    <Source>pruga/datagraf/instalace/__init__.py</Source>
     <Source>pruga/spustím.py</Source>
     <Source>www_server/pyneonuji.py</Source>
     <Source>www_server/zora/admin/__init__.py</Source>
@@ -2142,7 +2110,6 @@
     <Source>web/neo4j/django/utils/translation/trans_real.py</Source>
     <Source>web/neo4j/django/utils/2to3_fixes/__init__.py</Source>
     <Source>web/neo4j/django/utils/2to3_fixes/fix_unicode.py</Source>
-    <Source>pruga/datagraf/instalace/__init__.py.pruga</Source>
     <Source>pruga/py2neo/__init__.py</Source>
     <Source>pruga/py2neo/util.py</Source>
     <Source>pruga/py2neo/geoff.py</Source>
@@ -2167,40 +2134,9 @@
     <Source>www_server/django-admin.py</Source>
     <Source>www_server/moje_mako/base.html.py</Source>
     <Source>www_server/moje_mako/index.html.py</Source>
-    <Source>pruga/bin/pruga.py</Source>
     <Source>www_server/zora/šablony/admin/vytvořím_databázi.mako</Source>
     <Source>www_server/zora/šablony/admin/vytvořím_databázi.mako.py</Source>
     <Source>www_server/zora/šablony/admin/vytvořil_jsem_databázi.mako.py</Source>
-    <Source>pruga/datagraf/dotazy/__init__.py</Source>
-    <Source>pruga/datagraf/dotazy/všechny_uzly.cql</Source>
-    <Source>www_server/py2neo/__init__.py</Source>
-    <Source>www_server/py2neo/util.py</Source>
-    <Source>www_server/py2neo/geoff.py</Source>
-    <Source>www_server/py2neo/tool.py</Source>
-    <Source>www_server/py2neo/rest.py</Source>
-    <Source>www_server/py2neo/neo4j.py</Source>
-    <Source>www_server/py2neo/admin.py</Source>
-    <Source>www_server/py2neo/gremlin.py</Source>
-    <Source>www_server/py2neo/ogm.py</Source>
-    <Source>www_server/py2neo/calendar.py</Source>
-    <Source>www_server/py2neo/cypher.py</Source>
-    <Source>web/neo4j/py2neo/__init__.py</Source>
-    <Source>web/neo4j/py2neo/util.py</Source>
-    <Source>web/neo4j/py2neo/geoff.py</Source>
-    <Source>web/neo4j/py2neo/tool.py</Source>
-    <Source>web/neo4j/py2neo/rest.py</Source>
-    <Source>web/neo4j/py2neo/neo4j.py</Source>
-    <Source>web/neo4j/py2neo/admin.py</Source>
-    <Source>web/neo4j/py2neo/gremlin.py</Source>
-    <Source>web/neo4j/py2neo/ogm.py</Source>
-    <Source>web/neo4j/py2neo/calendar.py</Source>
-    <Source>web/neo4j/py2neo/cypher.py</Source>
-    <Source>pruga_experiment/databáze/importuji_data/importuji_účetnictví/cypher/vypíšu_účetní_osnovu.cypher</Source>
-    <Source>pruga/datagraf/instalace/import/__init__.py</Source>
-    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/__init__.py</Source>
-    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/účetní_osnova.py</Source>
-    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/z_postgresql.py</Source>
-    <Source>pruga/datagraf/instalace/import/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
     <Source>www_server/importuji_účetní_osnovu.py</Source>
     <Source>pruga/gazduji_prugu.py</Source>
     <Source>pruga/dotazy/__init__.py</Source>
@@ -2208,14 +2144,8 @@
     <Source>pruga/dotazy/přeinstaluji_databázi.py</Source>
     <Source>pruga/servery/__init__.py</Source>
     <Source>pruga/servery/pyproperties.py</Source>
-    <Source>pruga/servery/server/medvěd/__init__.py</Source>
     <Source>pruga/instalace/__init__.py</Source>
     <Source>pruga/instalace/testuji_instalaci.py</Source>
-    <Source>pruga/instalace/instalace/import/__init__.py</Source>
-    <Source>pruga/instalace/instalace/import/importuji_účetnictví/__init__.py</Source>
-    <Source>pruga/instalace/instalace/import/importuji_účetnictví/účetní_osnova.py</Source>
-    <Source>pruga/instalace/instalace/import/importuji_účetnictví/z_postgresql.py</Source>
-    <Source>pruga/instalace/instalace/import/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
     <Source>pruga/importuji_data/__init__.py</Source>
     <Source>pruga/importuji_data/importuji_účetnictví/__init__.py</Source>
     <Source>pruga/importuji_data/importuji_účetnictví/účetní_osnova.py</Source>
@@ -2241,6 +2171,56 @@
     <Source>pruga/neomodel/contrib/localisation.py</Source>
     <Source>pruga/importuji_data/importuji_účetnictví/_účetní_osnova.py</Source>
     <Source>pruga/cython/__init__.py</Source>
+    <Source>www_server/pruga/__init__.py</Source>
+    <Source>www_server/pruga/gazduji_prugu.py</Source>
+    <Source>www_server/pruga/admin.py</Source>
+    <Source>www_server/pruga/spustím.py</Source>
+    <Source>www_server/pruga/dotazy/__init__.py</Source>
+    <Source>www_server/pruga/dotazy/účetní_osnova.py</Source>
+    <Source>www_server/pruga/dotazy/přeinstaluji_databázi.py</Source>
+    <Source>www_server/pruga/cython/__init__.py</Source>
+    <Source>www_server/pruga/servery/__init__.py</Source>
+    <Source>www_server/pruga/servery/pyproperties.py</Source>
+    <Source>www_server/pruga/gdb/__init__.py</Source>
+    <Source>www_server/pruga/gdb/firma.py</Source>
+    <Source>www_server/pruga/instalace/__init__.py</Source>
+    <Source>www_server/pruga/instalace/testuji_instalaci.py</Source>
+    <Source>www_server/pruga/neomodel/__init__.py</Source>
+    <Source>www_server/pruga/neomodel/core.py</Source>
+    <Source>www_server/pruga/neomodel/cardinality.py</Source>
+    <Source>www_server/pruga/neomodel/exception.py</Source>
+    <Source>www_server/pruga/neomodel/signals.py</Source>
+    <Source>www_server/pruga/neomodel/util.py</Source>
+    <Source>www_server/pruga/neomodel/traversal.py</Source>
+    <Source>www_server/pruga/neomodel/relationship.py</Source>
+    <Source>www_server/pruga/neomodel/index.py</Source>
+    <Source>www_server/pruga/neomodel/properties.py</Source>
+    <Source>www_server/pruga/importuji_data/__init__.py</Source>
+    <Source>www_server/pruga/py2neo/__init__.py</Source>
+    <Source>www_server/pruga/py2neo/util.py</Source>
+    <Source>www_server/pruga/py2neo/geoff.py</Source>
+    <Source>www_server/pruga/py2neo/tool.py</Source>
+    <Source>www_server/pruga/py2neo/rest.py</Source>
+    <Source>www_server/pruga/py2neo/neo4j.py</Source>
+    <Source>www_server/pruga/py2neo/admin.py</Source>
+    <Source>www_server/pruga/py2neo/gremlin.py</Source>
+    <Source>www_server/pruga/py2neo/ogm.py</Source>
+    <Source>www_server/pruga/py2neo/calendar.py</Source>
+    <Source>www_server/pruga/py2neo/cypher.py</Source>
+    <Source>www_server/pruga/data/__init__.py</Source>
+    <Source>www_server/pruga/servery/medvěd/__init__.py</Source>
+    <Source>www_server/pruga/neomodel/contrib/__init__.py</Source>
+    <Source>www_server/pruga/neomodel/contrib/semi_structured.py</Source>
+    <Source>www_server/pruga/neomodel/contrib/hierarchical.py</Source>
+    <Source>www_server/pruga/neomodel/contrib/localisation.py</Source>
+    <Source>www_server/pruga/importuji_data/importuji_účetnictví/__init__.py</Source>
+    <Source>www_server/pruga/importuji_data/importuji_účetnictví/účetní_osnova.py</Source>
+    <Source>www_server/pruga/importuji_data/importuji_účetnictví/_účetní_osnova.py</Source>
+    <Source>www_server/pruga/importuji_data/importuji_účetnictví/z_postgresql.py</Source>
+    <Source>www_server/pruga/importuji_data/importuji_účetnictví/založím_firmu_a_účetnictví.py</Source>
+    <Source>www_server/pruga/data/účetnictví/__init__.py</Source>
+    <Source>www_server/pruga/data/účetnictví/účetní_osnova/__init__.py</Source>
+    <Source>pruga/importuji_data/importuji_účetnictví/cypher/účetní_osnova.cql</Source>
   </Sources>
   <Forms/>
   <Translations/>
@@ -2252,7 +2232,6 @@
     <Other>TODO</Other>
     <Other>zora_na_pruzi/danimir/instalace_databáze/sql/tabulka_uzly.sql</Other>
     <Other>zora_na_pruzi/danimir/instalace_databáze/sql/tabulka_klíče.sql</Other>
-    <Other>pruga/datagraf/instalace/__init__.py.pruga</Other>
     <Other>www_server/zora/šablony/admin/seznam_databází.mako</Other>
     <Other>www_server/zora/šablony/layout.mako</Other>
     <Other>www_server/zora/šablony/zkúšám.mako</Other>
@@ -2260,7 +2239,6 @@
     <Other>www_server/moje_mako/base.html</Other>
     <Other>www_server/zora/šablony/admin/vytvořím_databázi.mako</Other>
     <Other>www_server/zora/šablony/admin/vytvořil_jsem_databázi.mako</Other>
-    <Other>pruga/datagraf/dotazy/všechny_uzly.cql</Other>
   </Others>
   <Vcs>
     <VcsType>Mercurial</VcsType>

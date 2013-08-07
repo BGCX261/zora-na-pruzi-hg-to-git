@@ -2,7 +2,7 @@ import os
 __HEN = os.path.dirname(__file__)
 __PŔÍPONA = '.cql'
 
-def cython(soubor):
+def cypher(soubor):
     
     if not soubor.endswith(__PŔÍPONA):
         soubor = '{}.cql'.format(soubor,  __PŔÍPONA)

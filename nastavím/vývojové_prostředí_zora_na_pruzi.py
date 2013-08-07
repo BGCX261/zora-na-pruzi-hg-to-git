@@ -34,13 +34,14 @@ def nastavím_adresáře(python_dir,  balíček):
     except ImportError:
         kontroluji_python_dir(python_dir)
         python_dir = os.path.join(python_dir,  balíček)
-        vytvořím_odkaz(zdroj = cesta_k_balíčku,  cíl = python_dir)
-#        return True
         
     
     print('Balíček {} v systému jestvuje, je v adresáři {}'.format(balíček, python_dir))
     
     if not os.path.samefile(cesta_k_balíčku,  python_dir):
+        vytvořím_odkaz(zdroj = cesta_k_balíčku,  cíl = python_dir)
+        
+    if not os.path.samefile(cesta_k_balíčku,  python_dir):   
         raise ValueError('Balíček {} se neodkazuje na tento adresář {}'.format(balíček,  cesta_k_balíčku))
     else:
         print('A správně se odkazuje hen {}.'.format(cesta_k_balíčku))
